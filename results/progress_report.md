@@ -1,7 +1,7 @@
 # Project Progress Report
-**Overall: 14/32 tasks complete (44%)**
+**Overall: 17/32 tasks complete (53%)**
 
-_Generated: 2026-09-03T12:26:57_
+_Generated: 2026-09-03T12:37:11_
 
 ## 0. Setup — 3/4 (75%)
 - [x] Repo scaffolding + config system  `(code/src, code/configs)`
@@ -24,10 +24,10 @@ _Generated: 2026-09-03T12:26:57_
 - [x] Embedding index built  `(data/05_embeddings_index/stage2_index)`
 - [x] Retrieval precision/recall evaluated  `(results/stage2/retrieval_metrics.json)`
 
-## 3. Generation — 0/3 (0%)
-- [ ] Prompt template + citation format defined  `(code/src/generation/prompt_template.py)`
-- [ ] Stage 1 (baseline, no retrieval) run complete  `(results/stage1/stage1_baseline_results.json)`
-- [ ] Stage 2 (+RAG) run complete  `(results/stage2/stage2_rag_results.json)`
+## 3. Generation — 3/3 (100%)
+- [x] Prompt template + citation format defined  `(code/src/generation/prompt_template.py)`
+- [x] Stage 1 (baseline, no retrieval) run complete  `(results/stage1/stage1_baseline_results.json)`
+- [x] Stage 2 (+RAG) run complete  `(results/stage2/stage2_rag_results.json)`
 
 ## 4. Verifier — 0/4 (0%)
 - [ ] Layer 1 hard citation-existence check implemented  `(code/src/verifier/citation_check.py)`

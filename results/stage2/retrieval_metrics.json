@@ -9,7 +9,7 @@
     "precision_at_3": 0.2549,
     "precision_at_5": 0.1529,
     "mean_reciprocal_rank": 0.6471,
-    "avg_latency_ms": 2.03
+    "avg_latency_ms": 2.09
   },
   "query_evaluations": [
     {
@@ -27,7 +27,7 @@
       ],
       "first_hit_rank": 2,
       "mrr": 0.5,
-      "latency_ms": 2.55
+      "latency_ms": 2.47
     },
     {
       "question_id": "DEV_002",
@@ -44,7 +44,7 @@
       ],
       "first_hit_rank": 2,
       "mrr": 0.5,
-      "latency_ms": 1.83
+      "latency_ms": 1.86
     },
     {
       "question_id": "DEV_003",
@@ -61,7 +61,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 1.24
+      "latency_ms": 1.73
     },
     {
       "question_id": "DEV_004",
@@ -78,7 +78,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 1.83
+      "latency_ms": 2.23
     },
     {
       "question_id": "DEV_005",
@@ -95,7 +95,7 @@
       ],
       "first_hit_rank": null,
       "mrr": 0.0,
-      "latency_ms": 2.87
+      "latency_ms": 2.32
     },
     {
       "question_id": "DEV_006",
@@ -112,7 +112,7 @@
       ],
       "first_hit_rank": 2,
       "mrr": 0.5,
-      "latency_ms": 2.22
+      "latency_ms": 1.95
     },
     {
       "question_id": "DEV_007",
@@ -129,7 +129,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 3.0
+      "latency_ms": 1.78
     },
     {
       "question_id": "DEV_008",
@@ -146,7 +146,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 2.0
+      "latency_ms": 1.9
     },
     {
       "question_id": "DEV_009",
@@ -163,7 +163,7 @@
       ],
       "first_hit_rank": 2,
       "mrr": 0.5,
-      "latency_ms": 1.02
+      "latency_ms": 1.66
     },
     {
       "question_id": "DEV_010",
@@ -180,7 +180,7 @@
       ],
       "first_hit_rank": null,
       "mrr": 0.0,
-      "latency_ms": 1.99
+      "latency_ms": 1.85
     },
     {
       "question_id": "DEV_011",
@@ -197,7 +197,7 @@
       ],
       "first_hit_rank": null,
       "mrr": 0.0,
-      "latency_ms": 1.99
+      "latency_ms": 2.32
     },
     {
       "question_id": "DEV_012",
@@ -214,7 +214,7 @@
       ],
       "first_hit_rank": null,
       "mrr": 0.0,
-      "latency_ms": 3.02
+      "latency_ms": 1.85
     },
     {
       "question_id": "DEV_013",
@@ -231,7 +231,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 1.98
+      "latency_ms": 3.54
     },
     {
       "question_id": "DEV_014",
@@ -248,7 +248,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 2.01
+      "latency_ms": 1.64
     },
     {
       "question_id": "DEV_015",
@@ -265,7 +265,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 2.0
+      "latency_ms": 1.82
     },
     {
       "question_id": "DEV_016",
@@ -284,7 +284,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 1.0
+      "latency_ms": 2.18
     },
     {
       "question_id": "DEV_017",
@@ -303,7 +303,7 @@
       ],
       "first_hit_rank": 1,
       "mrr": 1.0,
-      "latency_ms": 2.0
+      "latency_ms": 2.42
     }
   ]
 }
