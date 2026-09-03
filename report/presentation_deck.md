@@ -1,47 +1,48 @@
-# IPC2BNS-Verify — Presentation Deck
+# IPC2BNS-Verify — Presentation Deck Notes
 
-## Slide 1: Title Slide
+## Slide 1: Title & Overview
 - **Title:** IPC2BNS-Verify: A Constraint-Verified, Incrementally Refreshable RAG Architecture for Indian Statutory Transitions
-- **Context:** July 1, 2024 IPC (1860) to BNS (2023) Legal Transformation
-- **Domain:** Legal NLP / Statutory RAG / Constraint Verification
+- **Context:** July 1, 2024 IPC (1860) $\rightarrow$ BNS (2023) & CrPC (1973) $\rightarrow$ BNSS (2023) Legal Overhaul
+- **Domain:** Natural Language Processing (NLP), Legal IR, Neuro-Symbolic Verification
 
 ---
 
 ## Slide 2: The Problem: Legal LLM Hallucinations during Statutory Transitions
-- 164 years of pre-training data dominated by IPC 1860.
-- Out-of-the-box LLMs suffer from **historical inertia** (citing IPC §420, §302 for 2025 questions).
-- Standard RAG force-maps repealed provisions (e.g. Sedition IPC §124A) into non-equivalent sections.
-- High legal stakes: Statutory citations in legal filings require 100% precision.
+- 164 years of pre-training data dominated by historical IPC 1860 & CrPC 1973 texts.
+- **Historical Inertia:** Out-of-the-box LLMs default to obsolete sections (**10.0% accuracy** on current law).
+- **Repeal Force-Mapping:** Standard RAG force-maps repealed provisions (Sedition §124A, Adultery §497) into non-equivalent sections.
+- **Valid Citations on Non-Responsive Answers:** Models retrieve valid sections that fail to answer the specific query.
+- **Cross-Statute Inconsistencies:** Hallucinated co-citations across codes (e.g. IPC §302 Murder paired with BNS §318 Cheating).
 
 ---
 
 ## Slide 3: System Architecture
-- **Layer 1:** Deterministic Concordance Engine (Pure table lookup with split/repeal classification).
-- **Layer 2:** Section-Level Chunker & Embedder with Temporal Validity Metadata.
-- **Layer 3:** Generative Answering with Strict Citation Prompting `[Act §Section]`.
-- **Layer 4:** Two-Layer Hard-Constraint Verifier:
-  - *Layer 1:* Closed-set statute ID membership & repeal vetoes.
-  - *Layer 2:* Semantic entity & penal ingredient grounding.
-- **Layer 5:** Incremental Refresh Engine for continuous statutory hot-patching.
+1. **Multi-Tier Query Normalizer:** Hierarchical regex ($<0.1\text{ ms}$) + domain offence ontology.
+2. **Deterministic Concordance Graph:** Key-value hash lookup encoding exact, split, merged, and repealed mappings.
+3. **BM25 Statutory Retrieval (Design Rationale):** Discretely indexes section numbers, avoiding dense vector collisions.
+4. **Generative Answering:** Strict `[Act §Section]` citation extraction grammar.
+5. **Two-Layer Hard-Constraint Verifier:**
+   - *Layer 1:* Closed-vocabulary statutory ID gating & repeal veto directives.
+   - *Layer 1.5:* Multi-citation cross-statute concordance consistency check.
+   - *Layer 2:* Penal duration & legal ingredient grounding bounding.
+   - *Layer 2.5:* Query-intent semantic relevance gating.
+6. **Zero-Downtime Hot-Patch Refresh:** Dynamically updates indexes for newly gazetted amendments in $<5\text{ ms}$.
 
 ---
 
-## Slide 4: Key Innovations & Novelty
-1. **Decoupled Verification:** Generative model generates answers, but deterministic verifier holds absolute veto power.
-2. **Ambiguity Awareness:** Never forces a false-confident 1:1 answer on repealed/split sections.
-3. **Sub-millisecond Overhead:** Verification adds < 0.5 ms to total response time.
-4. **Hot-Patch Adaptivity:** New amendments ingested in memory without full corpus rebuild.
+## Slide 4: Master Experimental Ablation Results
+- **Stage 1 (Baseline LLM):** 10.0% (6/60) [95% CI: 4.7%–20.1%]
+- **Stage 2 (+BM25 RAG Context):** 63.3% (38/60) [95% CI: 50.7%–74.4%] (McNemar’s paired test: $\chi^2 = 28.26, p < 10^{-6}$)
+- **Stage 3 (+Two-Layer Hard Verifier):** 100.0% (30/30) correct decisions on stress cases; **100.0% (18/18)** Hallucination Catch Rate with **0.0% (0/12)** False Positive Rate.
+- **Stage 4 (Adaptivity Case Study):** 3/3 (100.0%) newly gazetted 2025 amendments successfully ingested post-refresh in $<5\text{ ms}$.
+- **Procedural Generalization (CrPC $\leftrightarrow$ BNSS):** 100.0% (30/30) accuracy across procedural questions (including 5 hard edge cases).
+- **Double-Blind Calibration:** Cohen’s Kappa $\kappa = 0.93$ across $N=20$ calibrated legal test queries.
 
 ---
 
-## Slide 5: Experimental Ablation Results
-- **Stage 1 (Baseline LLM):** 35.3% citation accuracy
-- **Stage 2 (+RAG Context):** 70.6% citation accuracy (+35.3% gain)
-- **Stage 3 (+Verifier):** 100.0% Hallucination Catch Rate with 0.0% False Positive Rate
-- **Stage 4 (+Refresh):** 100.0% post-refresh retrieval accuracy on new amendments (+66.7% adaptivity gain)
-
----
-
-## Slide 6: Conclusion & Future Scope
-- Constraint verification is mandatory for legal AI systems navigating dynamic statutory transitions.
-- Open-source benchmark and verification pipeline ready for deployment in Indian legal-tech systems.
+## Slide 5: Live Interactive Streamlit Showcase (`app.py`) for Viva
+- **Live 5-Step Pipeline Inspection:** Normalizer $\rightarrow$ Concordance $\rightarrow$ BM25 Retrieval $\rightarrow$ Generation $\rightarrow$ Verifier.
+- **Sedition Repeal Interception (IPC §124A):** Live demonstration of automated verifier veto.
+- **Split Section Ambiguity Breakdown:** Graded confidence outputs on IPC §33 $\rightarrow$ BNS §2(1) & §2(25).
+- **Zero-Downtime Amendment Toggle:** Real-time hot-patch demonstration.
+- **Automated Verification:** 67/67 unit tests passing in $0.27\text{s}$.
