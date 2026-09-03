@@ -241,5 +241,10 @@ def get_query_normalizer(use_llm: bool = False) -> QueryNormalizer:
     return _GLOBAL_NORMALIZER
 
 
+# Alias for convenience
+get_normalizer = get_query_normalizer
+
+
 def normalize_query(query: str, use_llm: bool = False) -> NormalizedQuery:
     return get_query_normalizer(use_llm=use_llm).normalize(query)
+
