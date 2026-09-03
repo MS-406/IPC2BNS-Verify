@@ -143,9 +143,9 @@ def main():
     rows = load_master_table(csv_path)
 
     docx_targets = [
-        os.path.join(root, "report/FINAL_REPORT_AND_RESULTS.docx"),
         os.path.join(root, "report/final_report.docx")
     ]
+
     generate_word_documents(rows, docx_targets)
     print("All Word documents successfully synchronized with experimental results.")
 
