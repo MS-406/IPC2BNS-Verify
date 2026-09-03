@@ -3,25 +3,35 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Pytest / Coverage
+# Pytest / Coverage / Temp
 .pytest_cache/
 .coverage
 htmlcov/
+scratch/
+*.tmp
+*.log
 
-# Environments
+# Environments & Keys
 .env
 .venv
 env/
 venv/
 ENV/
+*.key
+*.pem
 
-# IDE / Editor
+# IDE / Editor / System
 .qodo/
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Confidential Academic Thesis Documents & Submission PDFs
+# (Preserved locally & in private Google Drive, hidden from public Git repo to protect IP)
+report/*.docx
+report/*.pdf
+report/*.pptx
