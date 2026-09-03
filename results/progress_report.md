@@ -1,7 +1,7 @@
 # Project Progress Report
-**Overall: 29/32 tasks complete (91%)**
+**Overall: 32/32 tasks complete (100%)**
 
-_Generated: 2026-09-03T13:04:32_
+_Generated: 2026-09-03T13:23:32_
 
 ## 0. Setup — 4/4 (100%)
 - [x] Repo scaffolding + config system  `(code/src, code/configs)`
@@ -40,11 +40,11 @@ _Generated: 2026-09-03T13:04:32_
 - [x] Pre/post-refresh index snapshots built  `(data/05_embeddings_index/stage4_post_refresh_index)`
 - [x] Stage 4 (+Verifier+Refresh) run complete  `(results/stage4/stage4_refresh_results.json)`
 
-## 6. Evaluation & Write-up — 4/7 (57%)
+## 6. Evaluation & Write-up — 7/7 (100%)
 - [x] Evaluation harness built  `(code/src/eval/harness.py)`
 - [x] Human-review calibration done  `(results/human_review_calibration.csv)`
 - [x] Ablation summary table compiled  `(results/ablation_summary_table.csv)`
 - [x] Error analysis notes written  `(results/error_analysis_notes.md)`
-- [ ] Plagiarism/originality check run  `(report/plagiarism_report.pdf)`
-- [ ] Final report drafted  `(report/final_report.docx)`
-- [ ] Presentation deck built  `(report/presentation_deck.pptx)`
+- [x] Plagiarism/originality check run  `(report/plagiarism_report.pdf)`
+- [x] Final report drafted  `(report/final_report.docx)`
+- [x] Presentation deck built  `(report/presentation_deck.pptx)`
