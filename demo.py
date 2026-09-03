@@ -68,10 +68,12 @@ def run_pipeline_demo(query: str, target_act: str = "BNS", use_refreshed_index: 
         query=query
     )
 
-    print(f"\n5. [Hard-Constraint Verifier]:")
-    print(f"   Verdict         : {v_res.verdict}")
-    print(f"   Is Verified     : {v_res.is_verified}")
-    print(f"   Intent Aligned  : {v_res.layer2_result.intent_aligned}")
+    print(f"\n5. [Hard-Constraint Verifier & Confidence Scoring]:")
+    print(f"   Verdict           : {v_res.verdict}")
+    print(f"   Confidence Score  : {v_res.confidence_score * 100:.1f}% ({v_res.confidence_grade})")
+    print(f"   Ambiguity Score   : {v_res.ambiguity_score:.2f} ({v_res.ambiguity_details.get('status', 'direct')})")
+    print(f"   Is Verified       : {v_res.is_verified}")
+    print(f"   Intent Aligned    : {v_res.layer2_result.intent_aligned}")
     print(f"   Final Verified Output:\n   {v_res.verified_output_text}")
     if v_res.warnings:
         print(f"   Warnings/Advisories: {v_res.warnings}")
@@ -90,12 +92,16 @@ def main():
         # Example 2: Repealed Sedition Section (IPC 124A) -> Triggers Verifier Veto
         ("Can a person be prosecuted under Section 124A of IPC for sedition in 2025?", "BNS", False),
 
-        # Example 3: Novel 2025 Amendment -> Tested with Incremental Refresh Index
+        # Example 3: Split Section (IPC 33 -> BNS 2(1) & 2(25)) -> Triggers Ambiguity Grading
+        ("How was IPC Section 33 for Act and Omission re-organized in BNS?", "BNS", False),
+
+        # Example 4: Novel 2025 Amendment -> Tested with Incremental Refresh Index
         ("What section penalizes AI deepfake impersonation and synthetic voice cloning fraud?", "BNS", True),
     ]
 
     for q, act, refresh in test_queries:
         run_pipeline_demo(q, target_act=act, use_refreshed_index=refresh)
+
 
 
 if __name__ == "__main__":
