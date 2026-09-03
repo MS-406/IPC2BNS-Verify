@@ -6,7 +6,8 @@ Programmatically compiles:
 2. report/FINAL_REPORT_AND_RESULTS.docx
 3. report/final_report.docx
 4. report/final_research_paper.md
-5. README.md
+5. COMPLETE_RESEARCH_GUIDE_AND_RESULTS.md
+6. RESEARCH_PAPER_SIMPLIFIED_GUIDE.md
 """
 
 import os
@@ -55,33 +56,36 @@ def generate_word_documents(rows, out_paths):
         # 1. Executive Summary
         doc.add_heading('1. Executive Summary & Research Motivation', level=1)
         doc.add_paragraph(
-            'On July 1, 2024, the Republic of India enacted the Bharatiya Nyaya Sanhita, 2023 (BNS) and the '
-            'Bharatiya Nagarik Suraksha Sanhita, 2023 (BNSS), repealing and replacing the 164-year-old Indian Penal Code (IPC 1860) '
-            'and the Code of Criminal Procedure (CrPC 1973). This statutory transition poses a critical challenge to Large Language Models (LLMs), '
-            'which suffer from severe historical inertia, force-mapping of repealed provisions, and subtle non-responsive hallucinations. '
-            'IPC2BNS-Verify introduces a neuro-symbolic RAG framework combining probabilistic retrieval with hard deterministic verification guardrails.'
+            'On July 1, 2024, India enacted the Bharatiya Nyaya Sanhita, 2023 (BNS) and the Bharatiya Nagarik Suraksha Sanhita, 2023 (BNSS), '
+            'repealing and replacing the 164-year-old Indian Penal Code (IPC 1860) and the Code of Criminal Procedure (CrPC 1973). '
+            'This legislative transition poses a severe challenge to foundation Large Language Models (LLMs), which exhibit persistent historical inertia, '
+            'force-mapping of repealed provisions, subtle non-responsive citations, and cross-statute contradictions. '
+            'IPC2BNS-Verify introduces a neuro-symbolic RAG architecture combining exact lexical retrieval with hard deterministic verification boundaries.'
         )
 
         # 2. Master Results Table
-        doc.add_heading('2. Master Experimental Results (with 95% Wilson Confidence Intervals)', level=1)
+        doc.add_heading('2. Master Experimental Results (Testbed-Labeled with 95% Wilson CIs)', level=1)
         doc.add_paragraph(
-            'Statutory Reliability Score is formally defined as: Reliability = Citation Accuracy x (1 - False Positive Rate) x Catch Rate. '
-            'Double-blind calibration between legal annotators achieved Cohen’s Kappa kappa = 0.93 across N=20 test cases.'
+            'The experimental evaluation strictly isolates performance across distinct testbeds: '
+            'Benchmark Dev Set (N=60 questions across substantive IPC/BNS categories), '
+            'Injected-Errors Stress Suite (N=30: 18 adversarial failure attacks + 12 valid controls), '
+            '2025 Legislative Amendments Adaptivity Set (N=3 case study), and '
+            'Procedural Criminal Law Benchmark (N=30 CrPC/BNSS queries, including 5 hard edge cases). '
+            'Double-blind calibration between legal annotators achieved Cohen’s Kappa kappa = 0.93 across N=20 double-blind test queries.'
         )
 
-        table_headers = ['Stage', 'System Configuration', 'Evaluation Testbed', 'N', 'Accuracy / Metric', '95% Wilson CI', 'Catch Rate', 'FPR', 'Adaptivity']
+        table_headers = ['Stage', 'System Configuration', 'Dev Accuracy (N=60)', 'Dev 95% Wilson CI', 'Stress Catch Rate (N=18)', 'Control FPR (N=12)', 'Adaptivity Delta (N=3)', 'Procedural Gen (N=30)']
         table_rows = [table_headers]
         for r in rows:
             table_rows.append([
                 r['stage_id'],
                 r['system_configuration'],
-                r['evaluation_testbed'],
-                r['sample_size_N'],
-                r['citation_accuracy'],
-                r['confidence_interval_95'],
-                r['hallucination_catch_rate'],
-                r['false_positive_rate'],
-                r['amendment_adaptivity']
+                r['benchmark_dev_accuracy'],
+                r['dev_95_wilson_ci'],
+                r['adversarial_catch_rate'],
+                r['control_false_positive_rate'],
+                r['amendment_adaptivity_delta'],
+                r['procedural_generalization']
             ])
 
         table = doc.add_table(rows=len(table_rows), cols=len(table_headers))
@@ -94,30 +98,38 @@ def generate_word_documents(rows, out_paths):
                     for r in p.runs:
                         if r_idx == 0:
                             r.font.bold = True
-                            r.font.size = Pt(8.5)
+                            r.font.size = Pt(8.0)
                         else:
-                            r.font.size = Pt(8)
+                            r.font.size = Pt(7.5)
 
         doc.add_paragraph()
 
-        # 3. Technical Justification
-        doc.add_heading('3. Technical Component & Methodology Justification', level=1)
+        # 3. Key Findings & Narrative Results
+        doc.add_heading('3. Empirical Findings & Narrative Results', level=1)
         doc.add_paragraph(
-            '1. Multi-Tier Normalization: Hierarchical regex and domain offence ontology resolves user queries in <0.1ms without external API dependencies.\n'
-            '2. BM25 Statutory Retrieval: BM25 term weighting (k1=1.5, b=0.75, section boost +25.0) was selected as an intentional architectural design choice for statutory corpus indexing. Unlike dense embedding models (e.g. BERT/text-embedding-ada), which suffer from semantic vector collision on statutory numbers (mapping section 302 and section 304 to adjacent embeddings due to identical lexical contexts), BM25 enforces strict lexical discrimination on discrete section tokens.\n'
-            '3. Closed-Vocabulary Gating (Layer 1): Deterministically checks against all 358 BNS, 511 IPC, 484 CrPC, and 531 BNSS sections.\n'
-            '4. Multi-Citation Cross-Statute Consistency (Layer 1.5): Verifies that co-cited IPC and BNS sections correspond to the same substantive provision in the concordance graph.\n'
-            '5. Penal Duration Grounding (Layer 2): Enforces strict punishment constraints against bare-act statutory chunks.\n'
-            '6. Query-Intent Gating (Layer 2.5): Flags non-responsive answers that cite real sections off-topic.\n'
-            '7. Incremental Hot-Patching (Stage 4 Case Study): 3 newly gazetted 2025 amendments (AI Deepfakes BNS §318A, Hazardous Pollution BNS §278A, Hit-and-Run Medical Exemption BNS §106(3)) were tested; all 3 were successfully ingested and cited post-refresh in <5ms without re-indexing.\n'
-            '8. Continuous Graded Scoring: Outputs confidence scores (0.0 to 1.0) and ambiguity grades for split provisions (e.g. IPC §33 -> BNS §2(1) & §2(25)).'
+            '1. Stage 1 -> Stage 2 Jump (10.0% -> 63.3%): Closed-book baseline LLMs fail severely on current Indian law due to historical pre-training bias (90% defaulting to obsolete IPC numbers). Adding BM25 bare-act retrieval produces a massive +53.3% gain. McNemar’s paired test confirms extreme statistical significance: chi2 = 28.26, p = 1.05 x 10^-7 (discordant pairs: b=33, c=1).\n\n'
+            '2. Stage 3 Zero-Tolerance Verifier Gating: On the 30-item stress-test suite (18 adversarial attacks + 12 valid controls), the two-layer verifier achieved a 100.0% (18/18) Hallucination Catch Rate [95% CI: 82.4%-100.0%] and a 0.0% (0/12) False Positive Rate [95% CI: 0.0%-24.2%].\n\n'
+            '3. Refresh-Invariance Explanation: The 30-item stress suite was independently re-evaluated in both Stage 3 and Stage 4. Identical performance (18/18 Catch Rate, 0/12 FPR) is theoretically expected and empirically confirmed because the two-layer verification logic (closed-vocabulary statute membership, cross-statute concordance checks, and penal duration grounding) is statutory-refresh-invariant—it executes on the bare-act constraint engine regardless of index updates.\n\n'
+            '4. Stage 4 Incremental Adaptivity Case Study: On 3 newly gazetted 2025 amendments (AI Deepfakes BNS §318A, Hazardous Pollution BNS §278A, Hit-and-Run Medical Exemption BNS §106(3)), pre-refresh queries achieved only 1/3 (33.3%), whereas post-refresh hot-patching achieved 3/3 (100.0%) in <5ms without re-indexing.\n\n'
+            '5. Procedural Generalization (CrPC <-> BNSS): Tested across N=30 procedural criminal law queries (including 5 hard edge cases for split remand timelines BNSS §187, mandatory forensics BNSS §176(3), electronic videography BNSS §105, virtual witness trials BNSS §530, and trial in absentia BNSS §356). Baseline LLM achieved 23.3% (7/30), whereas IPC2BNS-Verify achieved 100.0% (30/30) [95% CI: 88.6%-100.0%] with 5/5 drift cases caught and 0/25 control false positives.'
         )
 
-        # 4. Generalization Across Procedural Criminal Law
-        doc.add_heading('4. Generalization Across Procedural Criminal Law (CrPC <-> BNSS)', level=1)
+        # 4. Core Verifier Case Studies
+        doc.add_heading('4. Verifier Layer Case Studies: Beyond Plain RAG', level=1)
         doc.add_paragraph(
-            'Evaluated on N=30 procedural criminal law queries (including 5 hard cases for split remand timelines BNSS §187, mandatory crime-scene forensics BNSS §176(3), electronic search recording BNSS §105, virtual witness trials BNSS §530, and trial in absentia BNSS §356). '
-            'Baseline LLM achieved only 23.3% (7/30) [95% CI: 11.8%-40.9%], whereas IPC2BNS-Verify achieved 100.0% (30/30) [95% CI: 88.6%-100.0%].'
+            'Case Study 1 (Sedition Repeal Veto - IPC §124A): When queried whether Sedition is active in 2025, unconstrained RAG force-maps to adjacent sections. Layer 1 detects the repealed provision, vetoes the draft, and injects an authoritative statutory repeal advisory (Confidence: 0.0%).\n\n'
+            'Case Study 2 (Split Section Ambiguity - IPC §33): Single IPC §33 ("Act" and "Omission") is split into BNS §2(1) and BNS §2(25). The pipeline outputs continuous graded confidence (65.0%) and flags high ambiguity (0.80) rather than a false-confident 1:1 match.\n\n'
+            'Case Study 3 (Right Citation, Non-Responsive Answer - AI Deepfake Fraud): When queried on AI deepfake fraud, unconstrained RAG retrieved and cited BNS §2(24) (Definition of Person). Because §2(24) exists, plain existence checks pass it. Layer 2.5 Query-Intent Gating detects zero semantic overlap with intent keywords (deepfake, fraud, cloning) and rejects it with NON_RESPONSIVE_ANSWER.\n\n'
+            'Case Study 4 (Cross-Statute Citation Contradiction): When a generation co-cites "Cheating is under BNS §318 and was formerly IPC §302", Layer 1.5 checks concordance table alignment and detects that IPC §302 is Murder, not Cheating, rejecting the contradiction with REJECTED_CROSS_STATUTE_INCONSISTENCY.'
+        )
+
+        # 5. Limitations
+        doc.add_heading('5. Limitations', level=1)
+        doc.add_paragraph(
+            '1. Benchmark Scale: The dev set comprises N=60 curated questions covering major statutory categories; while representative, it is a focused benchmark rather than an exhaustive trial court case corpus.\n'
+            '2. Legislative Refresh Scope: Stage 4 evaluates N=3 newly gazetted 2025 amendments as a qualitative case study demonstrating <5ms hot-patching, rather than a statistical distribution over hundreds of simulated amendments.\n'
+            '3. Retrieval Architecture Selection: The choice of BM25 over dense neural embeddings is justified as an intentional domain design rationale (to eliminate dense vector collision on discrete statutory numbers) rather than an empirical benchmark across dense embedding models.\n'
+            '4. Procedural Law Boundaries: The CrPC/BNSS benchmark (N=30) evaluates key procedural milestones; state-level local procedural variations are not yet modeled.'
         )
 
         os.makedirs(os.path.dirname(out_path), exist_ok=True)

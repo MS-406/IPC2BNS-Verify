@@ -81,19 +81,18 @@ Instead of trusting the AI model blindly, **IPC2BNS-Verify** builds a **Neuro-Sy
 
 ---
 
-## 📊 4. The Experimental Results (What our tests proved)
+## 📊 4. The Experimental Results (Testbed-Labeled)
 
-We created an evaluation benchmark with **145 legal queries**, **30 stress-test attack cases**, and **30 procedural CrPC questions**:
+| Stage | System Configuration | Dev Accuracy ($N=60$) | Stress Catch Rate ($N=18$) | Control FPR ($N=12$) | Adaptivity Delta ($N=3$) | Procedural Gen ($N=30$) |
+|:---:|:---|:---:|:---:|:---:|:---:|:---:|
+| **Stage 1** | Baseline LLM (Closed-Book) | **10.0% (6/60)** | N/A | N/A | N/A | **23.3% (7/30)** |
+| **Stage 2** | +BM25 RAG (Retrieved Context) | **63.3% (38/60)** | N/A | N/A | N/A | **60.0% (18/30)** |
+| **Stage 3** | +Two-Layer Hard Verifier | **63.3% (38/60)** | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
+| **Stage 4** | +Incremental Refresh (Full System) | **63.3% (38/60)** | **100.0% (18/18)** | **0.0% (0/12)** | Post: 100.0% (3/3) | **100.0% (30/30)** |
+| **Generalization** | CrPC $\leftrightarrow$ BNSS Procedural Law | N/A | **100.0% (5/5 drift)** | **0.0% (0/25)** | N/A | **100.0% (30/30)** |
 
-| Stage | System Tested | What it Does | Accuracy | What It Means |
-|:---:|:---|:---|:---:|:---|
-| **Stage 1** | Baseline LLM | Closed-book AI (No Search) | **10.0%** (6/60) | **Fails badly** due to historical inertia. |
-| **Stage 2** | +BM25 RAG | AI + Bare-Act Retrieval | **63.3%** (38/60) | **Massive leap (+53.3%)**; statistically significant ($p < 10^{-6}$). |
-| **Stage 3** | +Hard Verifier | AI + Search + Two-Layer Verifier | **100.0% Catch Rate**<br>**0.0% False Alarms** | **Catches 100% of hallucinations & repeals (18/18)** without rejecting good answers (0/12). |
-| **Stage 4** | +Hot-Patch Refresh | Ingests 2025 AI amendments in $<5\text{ ms}$ | **100.0%** (3/3) | Adapts to newly gazetted laws with **zero system downtime**. |
-| **Generalization** | CrPC $\leftrightarrow$ BNSS | Tested on Procedural Law (FIRs, Bail, Remand) | **100.0%** (30/30) | Proves the framework works on **all types of legal codes**, not just IPC. |
-
-* **Human Expert Agreement:** Double-blind review by legal experts scored **$\kappa = 0.93$ (Near-perfect agreement)**.
+* **Statistical Proof:** McNemar’s paired test shows the Stage 1 $\rightarrow$ 2 jump is significant ($p = 1.05 \times 10^{-7}$).
+* **Human Expert Agreement:** Double-blind legal review scored **$\kappa = 0.93$**.
 
 ---
 
@@ -102,7 +101,7 @@ We created an evaluation benchmark with **145 legal queries**, **30 stress-test 
 ### Case 1: The Sedition Veto (IPC §124A)
 * **Question:** *"Can a person be prosecuted under Section 124A of IPC for sedition in 2025?"*
 * **Standard AI Mistake:** Says yes with life imprisonment.
-* **Our Verifier Action:** **VETOED!** Replaces output with legal advisory explaining IPC §124A was struck down and omitted in BNS.
+* **Our Verifier Action:** **VETOED!** Injects legal advisory explaining IPC §124A was struck down and omitted in BNS.
 
 ### Case 2: Split Provision (IPC §33 'Act' & 'Omission')
 * **Question:** *"How was IPC Section 33 re-organized in BNS?"*
@@ -124,7 +123,6 @@ We created an evaluation benchmark with **145 legal queries**, **30 stress-test 
 ```bash
 streamlit run app.py
 ```
-* Select preloaded queries or type your own to see the live 5-step pipeline and confidence gauges!
 
 ### 2. Run the Command-Line Showcase:
 ```bash
@@ -135,11 +133,3 @@ python demo.py
 ```bash
 python -m pytest code/tests/ -v
 ```
-
----
-
-## 💡 7. Why this Research is Useful & Important
-
-1. **Prevents Legal Disasters:** Citing a repealed law in court pleadings or police FIRs leads to dismissed cases or legal liability. Our verifier provides a mathematical safety shield.
-2. **First Benchmark in India:** First public benchmark specifically evaluating LLMs across the 2024 Indian criminal law transition.
-3. **Lightweight & Free:** Runs locally on any standard computer in $<0.3\text{ seconds}$ with zero expensive API costs.

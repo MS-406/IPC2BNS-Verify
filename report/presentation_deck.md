@@ -30,12 +30,17 @@
 
 ---
 
-## Slide 4: Master Experimental Ablation Results
-- **Stage 1 (Baseline LLM):** 10.0% (6/60) [95% CI: 4.7%–20.1%]
-- **Stage 2 (+BM25 RAG Context):** 63.3% (38/60) [95% CI: 50.7%–74.4%] (McNemar’s paired test: $\chi^2 = 28.26, p < 10^{-6}$)
-- **Stage 3 (+Two-Layer Hard Verifier):** 100.0% (30/30) correct decisions on stress cases; **100.0% (18/18)** Hallucination Catch Rate with **0.0% (0/12)** False Positive Rate.
-- **Stage 4 (Adaptivity Case Study):** 3/3 (100.0%) newly gazetted 2025 amendments successfully ingested post-refresh in $<5\text{ ms}$.
-- **Procedural Generalization (CrPC $\leftrightarrow$ BNSS):** 100.0% (30/30) accuracy across procedural questions (including 5 hard edge cases).
+## Slide 4: Master Experimental Ablation Results (Testbed-Labeled)
+- **Dev Set Accuracy ($N=60$):**
+  - Stage 1 (Baseline LLM): 10.0% (6/60) [95% CI: 4.7%–20.1%]
+  - Stage 2 (+BM25 RAG Context): 63.3% (38/60) [95% CI: 50.7%–74.4%] (McNemar’s paired test: $\chi^2 = 28.26, p = 1.05 \times 10^{-7}$)
+  - Stage 3 (+Two-Layer Hard Verifier): 63.3% (38/60) [54/60 passed]
+- **Injected-Errors Stress Suite ($N=30$):**
+  - Adversarial Catch Rate ($N=18$): **100.0% (18/18)** [95% CI: 82.4%–100.0%]
+  - Control False Positive Rate ($N=12$): **0.0% (0/12)** [95% CI: 0.0%–24.2%]
+  - *Refresh Invariance:* Re-evaluated across Stage 3 and 4 with identical results.
+- **Incremental Refresh Adaptivity ($N=3$):** Pre: 33.3% (1/3) $\rightarrow$ Post: 100.0% (3/3) in $<5\text{ ms}$.
+- **Procedural Generalization (CrPC $\leftrightarrow$ BNSS, $N=30$):** 100.0% (30/30) accuracy, 5/5 drift caught, 0/25 control false positives.
 - **Double-Blind Calibration:** Cohen’s Kappa $\kappa = 0.93$ across $N=20$ calibrated legal test queries.
 
 ---
