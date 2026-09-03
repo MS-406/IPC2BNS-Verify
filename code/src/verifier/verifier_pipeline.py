@@ -4,9 +4,8 @@ verifier_pipeline.py — Master Two-Layer Hard-Constraint Verifier Pipeline
 Orchestrates:
 1. Layer 1: Citation existence check against closed statute index + repeal vetoes
 2. Layer 2: Entity & penal ingredient grounding check against retrieved chunks
-3. Output Veto & Remediation:
-   - When hallucinated section is cited -> Vetoes answer and generates verified correction.
-   - When repealed section is claimed as active -> Replaces with explicit repeal advisory.
+3. Layer 2.5: Query-Intent Alignment (flags 'cites real sections, answers wrong question')
+4. Output Veto & Remediation
 """
 
 import os
@@ -26,7 +25,7 @@ from src.mapping.lookup import map_ipc_to_bns, MappingStatus
 @dataclass
 class MasterVerificationResult:
     is_verified: bool
-    verdict: str                        # "VERIFIED" | "REJECTED_HALLUCINATED_CITATION" | "VETOED_REPEALED_PROVISION" | "UNGROUNDED_CLAIM"
+    verdict: str                        # "VERIFIED" | "REJECTED_HALLUCINATED_CITATION" | "VETOED_REPEALED_PROVISION" | "UNGROUNDED_CLAIM" | "NON_RESPONSIVE_ANSWER"
     layer1_result: CitationCheckResult
     layer2_result: EntityGroundingResult
     original_text: str
@@ -39,6 +38,7 @@ class MasterVerificationResult:
             "verdict": self.verdict,
             "layer1_valid": self.layer1_result.is_valid,
             "layer2_grounded": self.layer2_result.is_grounded,
+            "layer2_intent_aligned": self.layer2_result.intent_aligned,
             "layer2_overlap_score": self.layer2_result.overlap_score,
             "original_text": self.original_text,
             "verified_output_text": self.verified_output_text,
@@ -63,8 +63,8 @@ class HardConstraintVerifier:
         # Step 1: Layer 1 Citation Check
         l1_res = self.citation_verifier.verify_citations(citations)
 
-        # Step 2: Layer 2 Entity Grounding Check
-        l2_res = self.grounding_verifier.verify_grounding(generated_text, retrieved_chunks)
+        # Step 2: Layer 2 Entity Grounding & Intent Alignment Check
+        l2_res = self.grounding_verifier.verify_grounding(generated_text, retrieved_chunks, query=query)
 
         warnings = []
         verified_text = generated_text
@@ -78,7 +78,7 @@ class HardConstraintVerifier:
             verdict = "VETOED_REPEALED_PROVISION"
             is_verified = False
             verified_text = (
-                f"[VERIFIER VETO]: The cited provision IPC §{repealed_sec} has been REPEALED / struck down "
+                f"[VERIFIER VETO]: The cited provision IPC Section {repealed_sec} has been REPEALED / struck down "
                 f"and has NO direct equivalent in BNS 2023. {mapping.notes}"
             )
             warnings.extend(l1_res.rejection_reasons)
@@ -98,17 +98,24 @@ class HardConstraintVerifier:
         elif l1_res.total_citations == 0:
             verdict = "REJECTED_MISSING_CITATIONS"
             is_verified = False
-            verified_text = "[VERIFIER REJECTION]: Answer rejected because no statutory citations [Act §Section] were provided."
+            verified_text = "[VERIFIER REJECTION]: Answer rejected because no statutory citations [Act Section] were provided."
             warnings.append("No statutory citations detected.")
 
-        # Case D: Layer 2 Grounding Failure (Ungrounded claims)
+        # Case D: Non-responsive answer (answers wrong question)
+        elif not l2_res.intent_aligned:
+            verdict = "NON_RESPONSIVE_ANSWER"
+            is_verified = False
+            verified_text = f"[VERIFIER WARNING: NON-RESPONSIVE ANSWER]\n{generated_text}"
+            warnings.extend(l2_res.intent_mismatches)
+
+        # Case E: Layer 2 Grounding Failure (Ungrounded penal claims)
         elif not l2_res.is_grounded:
             verdict = "UNGROUNDED_CLAIM"
             is_verified = False
             verified_text = f"[VERIFIER WARNING: UNGROUNDED CLAIM]\n{generated_text}"
             warnings.append(f"Low statutory grounding overlap score: {l2_res.overlap_score}. Ungrounded terms: {l2_res.ungrounded_entities}")
 
-        # Case E: Fully Verified
+        # Case F: Fully Verified
         else:
             verdict = "VERIFIED"
             is_verified = True

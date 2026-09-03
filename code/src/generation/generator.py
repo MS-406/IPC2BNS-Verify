@@ -1,19 +1,18 @@
 """
-generator.py — Generative Answer Engine for Statutory Legal QA
+generator.py — Statutory Answer Generation Layer (Stage 1 & Stage 2)
 
-Implements generation for:
-- Stage 1: Closed-book baseline LLM (no retrieval)
-- Stage 2: RAG-augmented generation (+retrieval context)
+Implements statutory question-answering with two ablation modes:
+1. Stage 1: Closed-book baseline (no retrieval context).
+2. Stage 2: RAG-augmented generation (with retrieved bare-act context chunks).
 
 Supports:
-1. Google Gemini API (gemini-2.5-flash / gemini-2.0-flash)
-2. Local deterministic fallback generator for offline testing and zero-API execution.
+- Google Gemini API (gemini-2.0-flash / gemini-1.5-pro) when GEMINI_API_KEY is set.
+- Deterministic statutory fallback synthesizer for local testing and reproducibility.
 """
 
 import os
 import sys
 import time
-import json
 import logging
 from dataclasses import dataclass, field
 from typing import List, Dict, Any, Optional
@@ -24,23 +23,22 @@ if code_dir not in sys.path:
 
 from src.generation.prompt_template import LegalPromptBuilder
 from src.retrieval.search import retrieve_statutes
-from src.mapping.lookup import map_ipc_to_bns, map_bns_to_ipc, MappingStatus
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-log = logging.getLogger("generator")
+log = logging.getLogger("statute_generator")
 
 
 @dataclass
 class GenerationResult:
     question_id: str
     query_text: str
-    stage: int                          # 1 or 2
+    stage: int                          # 1 for baseline, 2 for RAG
     generated_text: str
-    citations: List[Dict[str, str]]
-    retrieved_chunks: List[Dict[str, Any]] = field(default_factory=list)
-    model_name: str = "gemini-2.5-flash"
-    latency_ms: float = 0.0
-    prompt_used: Dict[str, str] = field(default_factory=dict)
+    citations: List[Dict[str, str]]     # Extracted [Act §Section] citations
+    retrieved_chunks: List[Dict[str, Any]]
+    model_name: str
+    latency_ms: float
+    prompt_used: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -48,35 +46,34 @@ class GenerationResult:
             "query_text": self.query_text,
             "stage": self.stage,
             "generated_text": self.generated_text,
-            "citations": self.citations,
-            "retrieved_chunks": self.retrieved_chunks,
+            "cited_sections": [c["section"] for c in self.citations],
+            "raw_citations": [c["raw"] for c in self.citations],
+            "retrieved_chunk_ids": [c.get("chunk_id", "") for c in self.retrieved_chunks],
             "model_name": self.model_name,
-            "latency_ms": round(self.latency_ms, 2),
-            "cited_sections": [c["section"] for c in self.citations]
+            "latency_ms": round(self.latency_ms, 2)
         }
 
 
 class StatuteGenerator:
     """
-    Core generative engine for Stage 1 and Stage 2 answering.
+    Core LLM generation engine for statutory QA.
     """
 
-    def __init__(self, model_name: str = "gemini-2.5-flash", api_key: Optional[str] = None):
+    def __init__(self, model_name: str = "gemini-2.0-flash", api_key: Optional[str] = None):
         self.model_name = model_name
-        self.api_key = api_key or os.environ.get("GEMINI_API_KEY", "")
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
         self.genai_client = None
-        self._init_client()
 
-    def _init_client(self):
         if self.api_key:
             try:
                 import google.generativeai as genai
                 genai.configure(api_key=self.api_key)
                 self.genai_client = genai
-                log.info(f"Initialized Gemini generation client for model: {self.model_name}")
-            except Exception as e:
-                log.warning(f"Could not initialize Google GenAI client: {e}")
-                self.genai_client = None
+                log.info(f"Initialized Gemini API generator with model: {self.model_name}")
+            except ImportError:
+                log.warning("google-generativeai package not installed; using local statutory simulator.")
+        else:
+            log.info("No Gemini API key detected. Operating in deterministic statutory simulation mode.")
 
     def _call_gemini(self, prompt: str) -> str:
         """Call Gemini API."""
@@ -167,12 +164,13 @@ class StatuteGenerator:
         )
 
     def generate_stage2(self, query: str, question_id: str = "Q_000", top_k: int = 3,
-                        act_filter: Optional[str] = None) -> GenerationResult:
+                        act_filter: Optional[str] = None,
+                        retrieved_chunks: Optional[List[Dict[str, Any]]] = None) -> GenerationResult:
         """
         Stage 2: RAG-augmented generation (retrieval context provided, no verifier).
         """
-        # Step 1: Retrieve context chunks
-        chunks = retrieve_statutes(query=query, top_k=top_k, act_filter=act_filter)
+        # Step 1: Use passed context chunks or retrieve
+        chunks = retrieved_chunks if retrieved_chunks is not None else retrieve_statutes(query=query, top_k=top_k, act_filter=act_filter)
 
         # Step 2: Build prompt with context
         prompt_data = LegalPromptBuilder.build_stage2_prompt(query, chunks)
@@ -203,12 +201,12 @@ class StatuteGenerator:
         )
 
 
-# ── Global singleton accessor ─────────────────────────────────────────────
+# ── Global singleton ──────────────────────────────────────────────────────
 _GLOBAL_GENERATOR: Optional[StatuteGenerator] = None
 
 
-def get_generator(model_name: str = "gemini-2.5-flash") -> StatuteGenerator:
+def get_generator(model_name: str = "gemini-2.0-flash", api_key: Optional[str] = None) -> StatuteGenerator:
     global _GLOBAL_GENERATOR
     if _GLOBAL_GENERATOR is None:
-        _GLOBAL_GENERATOR = StatuteGenerator(model_name=model_name)
+        _GLOBAL_GENERATOR = StatuteGenerator(model_name=model_name, api_key=api_key)
     return _GLOBAL_GENERATOR

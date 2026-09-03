@@ -4,8 +4,8 @@ citation_check.py — Layer 1 Hard-Constraint Citation Existence Verifier
 Deterministic Layer 1 gating:
 1. Validates all extracted citations against the closed set of valid BNS 2023 / IPC 1860 section IDs.
 2. Rejects phantom/hallucinated section numbers (e.g. [BNS §999], [BNS §450]).
-3. Flags and vetoes citations of repealed provisions (e.g. IPC §124A sedition, §377, §497)
-   when presented as active current law.
+3. Flags and vetoes citations of repealed provisions (e.g. IPC §124A sedition, §377, §497).
+4. Supports dynamic section registration for post-refresh gazetted amendments.
 """
 
 import os
@@ -43,6 +43,15 @@ class CitationExistenceVerifier:
         self.valid_bns_ids: Set[str] = set(self.lookup.get_all_valid_bns_sections())
         self.valid_ipc_ids: Set[str] = set(self.lookup.get_all_valid_ipc_sections())
 
+    def register_dynamic_sections(self, sections: List[str], act: str = "BNS"):
+        """Registers newly gazetted amendment section IDs after a corpus refresh."""
+        for s in sections:
+            clean_s = self.lookup.clean_section_key(s)
+            if act.upper() == "BNS":
+                self.valid_bns_ids.add(clean_s)
+            elif act.upper() == "IPC":
+                self.valid_ipc_ids.add(clean_s)
+
     def verify_citations(self, citations: List[Dict[str, str]], require_bns: bool = True) -> CitationCheckResult:
         """
         Validates citations extracted from a model's generated text.
@@ -55,7 +64,6 @@ class CitationExistenceVerifier:
         for cit in citations:
             act = cit.get("act", "BNS").upper()
             sec_raw = cit.get("section", "").upper().strip()
-            # Clean section number to base key (e.g. 106(2) -> 106)
             sec_clean = self.lookup.clean_section_key(sec_raw)
             base_sec = re.sub(r'\(.*?\)', '', sec_clean).strip()
 
@@ -69,11 +77,10 @@ class CitationExistenceVerifier:
             elif act == "IPC":
                 if sec_clean in self.REPEALED_IPC_SECTIONS or base_sec in self.REPEALED_IPC_SECTIONS:
                     repealed.append(cit)
-                    reasons.append(f"Repealed Provision Cited: IPC §{sec_raw} was repealed/struck down and has no direct BNS equivalent.")
+                    reasons.append(f"Repealed Provision Cited: IPC Section {sec_raw} was repealed/struck down and has no direct BNS equivalent.")
                 elif sec_clean in self.valid_ipc_ids or base_sec in self.valid_ipc_ids:
                     if require_bns:
-                        # Warning: using old IPC when BNS is current law
-                        reasons.append(f"Pre-transition Citation: IPC §{sec_raw} cited for current law query.")
+                        reasons.append(f"Pre-transition Citation: IPC Section {sec_raw} cited for current law query.")
                     valid.append(cit)
                 else:
                     invalid.append(cit)

@@ -4,7 +4,7 @@ search.py — Statutory Retrieval Query Engine
 Provides high-level retrieval over statutory bare-act corpora with:
 1. Act-level filtering ("IPC", "BNS", or joint retrieval)
 2. Temporal validity filtering (effective date range gating)
-3. Return of top-k statutory chunks with similarity scores and ranking metadata
+3. Return of top-k statutory chunks with BM25 similarity scores and ranking metadata
 """
 
 import os
@@ -77,7 +77,8 @@ class StatutoryRetriever:
                 "section_title": chunk.section_title,
                 "section_text": chunk.section_text,
                 "full_content": chunk.full_content,
-                "similarity_score": score,
+                "similarity_score": round(score, 2),
+                "score": round(score, 2),
                 "chapter": chunk.chapter,
                 "effective_date_range": {
                     "start": chunk.effective_start,
