@@ -1,7 +1,7 @@
 # Project Progress Report
-**Overall: 17/32 tasks complete (53%)**
+**Overall: 21/32 tasks complete (66%)**
 
-_Generated: 2026-09-03T12:37:11_
+_Generated: 2026-09-03T12:52:15_
 
 ## 0. Setup — 3/4 (75%)
 - [x] Repo scaffolding + config system  `(code/src, code/configs)`
@@ -29,11 +29,11 @@ _Generated: 2026-09-03T12:37:11_
 - [x] Stage 1 (baseline, no retrieval) run complete  `(results/stage1/stage1_baseline_results.json)`
 - [x] Stage 2 (+RAG) run complete  `(results/stage2/stage2_rag_results.json)`
 
-## 4. Verifier — 0/4 (0%)
-- [ ] Layer 1 hard citation-existence check implemented  `(code/src/verifier/citation_check.py)`
-- [ ] Layer 2 entity-grounding check implemented  `(code/src/verifier/entity_grounding.py)`
-- [ ] Injected-error test set built  `(data/03_benchmark/injected_errors.csv)`
-- [ ] Stage 3 (+Verifier) run complete  `(results/stage3/stage3_verifier_results.json)`
+## 4. Verifier — 4/4 (100%)
+- [x] Layer 1 hard citation-existence check implemented  `(code/src/verifier/citation_check.py)`
+- [x] Layer 2 entity-grounding check implemented  `(code/src/verifier/entity_grounding.py)`
+- [x] Injected-error test set built  `(data/03_benchmark/injected_errors.csv)`
+- [x] Stage 3 (+Verifier) run complete  `(results/stage3/stage3_verifier_results.json)`
 
 ## 5. Adaptivity — 0/3 (0%)
 - [ ] Refresh simulation cases selected  `(data/04_refresh_sim/injected_amendment_cases.csv)`

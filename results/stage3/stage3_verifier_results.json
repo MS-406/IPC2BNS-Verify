@@ -1,0 +1,297 @@
+{
+  "stage": 3,
+  "stage_name": "Stage 3: +RAG + Hard-Constraint Verifier",
+  "benchmark": "benchmark_dev.csv",
+  "total_queries": 17,
+  "verified_rate": 1.0,
+  "results": [
+    {
+      "question_id": "DEV_001",
+      "query_text": "What is the new section for murder under the Bharatiya Nyaya Sanhita, 2023?",
+      "ground_truth_sections": "103",
+      "ground_truth_answer": "Under BNS 2023, punishment for murder is governed by Section 103 (previously Section 302 of IPC 1860).",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7101] (Murder). Statutory provision: Statutory provision for BNS Section 101: Murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
+      "cited_sections": [
+        "101",
+        "103"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7101] (Murder). Statutory provision: Statutory provision for BNS Section 101: Murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_002",
+      "query_text": "Which section in BNS corresponds to IPC Section 420 for cheating?",
+      "ground_truth_sections": "318",
+      "ground_truth_answer": "IPC Section 420 (cheating and dishonestly inducing delivery of property) corresponds to Section 318(4) of BNS 2023.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
+      "cited_sections": [
+        "338",
+        "318"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_003",
+      "query_text": "What is the equivalent section for theft (IPC 378 / 379) in the new criminal law?",
+      "ground_truth_sections": "303",
+      "ground_truth_answer": "Theft is defined and penalized under Section 303 of BNS 2023 (formerly Sections 378 and 379 of IPC).",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7305] (Theft in dwelling house etc) is relevant.",
+      "cited_sections": [
+        "303",
+        "305"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7305] (Theft in dwelling house etc) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_004",
+      "query_text": "Where is dowry death covered in BNS 2023?",
+      "ground_truth_sections": "80",
+      "ground_truth_answer": "Dowry death is governed by Section 80 of BNS 2023 (previously Section 304B of IPC).",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "cited_sections": [
+        "80",
+        "102"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_005",
+      "query_text": "Which section in IPC corresponds to Section 100 of BNS?",
+      "ground_truth_sections": "299",
+      "ground_truth_answer": "Section 100 of BNS corresponds to Section 299 of IPC 1860 (culpable homicide).",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a711] (Person) is relevant.",
+      "cited_sections": [
+        "100",
+        "11"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a711] (Person) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_006",
+      "query_text": "What is the punishment for causing death by rash or negligent driving if the driver flees the scene without reporting under BNS?",
+      "ground_truth_sections": "106(2)",
+      "ground_truth_answer": "Under Section 106(2) of BNS 2023, causing death by rash and negligent driving and escaping without reporting to police or a Magistrate carries imprisonment up to ten years and fine.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state). Statutory provision: Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state. Additionally, [BNS \u00a7106] (Causing death by negligence) is relevant.",
+      "cited_sections": [
+        "66",
+        "106"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state). Statutory provision: Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state. Additionally, [BNS \u00a7106] (Causing death by negligence) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_007",
+      "query_text": "What are the essential ingredients of rape under Section 63 of BNS 2023?",
+      "ground_truth_sections": "63",
+      "ground_truth_answer": "Section 63 of BNS 2023 defines rape as non-consensual penetration of penis, insertion of objects, manipulation of body parts to cause penetration, or applying mouth to genital/anal orifices.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a770] (Gang rape) is relevant.",
+      "cited_sections": [
+        "63",
+        "70"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a770] (Gang rape) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_008",
+      "query_text": "What is the penalty for defamation under Section 356 of BNS?",
+      "ground_truth_sections": "356",
+      "ground_truth_answer": "Under Section 356 of BNS 2023, defamation is punishable with simple imprisonment up to two years, fine, or community service.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "cited_sections": [
+        "356",
+        "2(24)"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_009",
+      "query_text": "Can community service be awarded for petty theft of stolen property under BNS?",
+      "ground_truth_sections": "303(2)",
+      "ground_truth_answer": "Yes, under the proviso to Section 303(2) of BNS 2023, if the stolen property value is less than 5,000 rupees and the offender is a first-time offender, community service may be awarded.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(6)] (Community service). Statutory provision: Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS Additionally, [BNS \u00a7303] (Punishment for theft) is relevant.",
+      "cited_sections": [
+        "2(6)",
+        "303"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(6)] (Community service). Statutory provision: Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS Additionally, [BNS \u00a7303] (Punishment for theft) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_010",
+      "query_text": "What is the exact equivalent section of IPC Section 124A (Sedition) in BNS 2023?",
+      "ground_truth_sections": "124A",
+      "ground_truth_answer": "IPC Section 124A (Sedition) has been repealed and has NO direct 1:1 equivalent in BNS 2023. Section 152 of BNS addresses acts endangering the sovereignty, unity, and integrity of India with a narrower, distinct legal scope.",
+      "is_ambiguous": true,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "cited_sections": [
+        "62",
+        "2(24)"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_011",
+      "query_text": "Is adultery under IPC 497 punishable under the new Bharatiya Nyaya Sanhita?",
+      "ground_truth_sections": "497",
+      "ground_truth_answer": "No. IPC Section 497 was struck down as unconstitutional by the Supreme Court in Joseph Shine v. Union of India (2018) and was omitted completely from BNS 2023.",
+      "is_ambiguous": true,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
+      "cited_sections": [
+        "62",
+        "232"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_012",
+      "query_text": "What happened to Section 377 of IPC in BNS 2023?",
+      "ground_truth_sections": "377",
+      "ground_truth_answer": "IPC Section 377 (unnatural offences) was decriminalized in part by Navtej Singh Johar v. Union of India (2018) and has not been carried forward as an offence in BNS 2023.",
+      "is_ambiguous": true,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "cited_sections": [
+        "62",
+        "2(24)"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_013",
+      "query_text": "Which section in BNS 2023 penalizes sexual intercourse by deceitful means or false promise of marriage?",
+      "ground_truth_sections": "69",
+      "ground_truth_answer": "Section 69 of BNS 2023 is a new provision that penalizes sexual intercourse by employing deceitful means or false promise to marry with imprisonment up to ten years and fine.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a769] (Sexual intercourse by employing deceitful means etc). Statutory provision: Whoever, by deceitful means or making by promise to marry to a woman without any intention of fulfilling the same, and has sexual intercourse with her, such sexual intercourse not amounting to the offence of rape, shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine. Explanation.\u2014'deceitful means' shall include the false promise of employment or promotion, or inducement or marrying after suppressing identity. Additionally, [BNS \u00a768] (Sexual intercourse by person in authority) is relevant.",
+      "cited_sections": [
+        "69",
+        "68"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a769] (Sexual intercourse by employing deceitful means etc). Statutory provision: Whoever, by deceitful means or making by promise to marry to a woman without any intention of fulfilling the same, and has sexual intercourse with her, such sexual intercourse not amounting to the offence of rape, shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine. Explanation.\u2014'deceitful means' shall include the false promise of employment or promotion, or inducement or marrying after suppressing identity. Additionally, [BNS \u00a768] (Sexual intercourse by person in authority) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_014",
+      "query_text": "How does BNS 2023 define and penalize organised crime?",
+      "ground_truth_sections": "111",
+      "ground_truth_answer": "Section 111 of BNS 2023 introduces a comprehensive definition for organised crime syndicates, prescribing death or life imprisonment if death results, and minimum 5 years otherwise.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "cited_sections": [
+        "111",
+        "112"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_015",
+      "query_text": "Under what section are terrorist acts defined in BNS 2023?",
+      "ground_truth_sections": "113",
+      "ground_truth_answer": "Terrorist acts are defined and penalized under Section 113 of BNS 2023.",
+      "is_ambiguous": false,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
+      "cited_sections": [
+        "113",
+        "299"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_016",
+      "query_text": "How was IPC Section 33 (Act and Omission) re-organized in BNS 2023?",
+      "ground_truth_sections": "33, 2(1), 2(25)",
+      "ground_truth_answer": "IPC Section 33 defined 'act' and 'omission' together. In BNS 2023, it is split into two separate sub-clauses under Section 2: Section 2(1) for 'act' and Section 2(25) for 'omission'.",
+      "is_ambiguous": true,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "cited_sections": [
+        "102"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    },
+    {
+      "question_id": "DEV_017",
+      "query_text": "What sections govern criminal conspiracy in BNS 2023 compared to IPC 120A and 120B?",
+      "ground_truth_sections": "120A, 120B, 61",
+      "ground_truth_answer": "IPC Sections 120A (definition) and 120B (punishment) for criminal conspiracy have been merged into a single Section 61 in BNS 2023.",
+      "is_ambiguous": true,
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a761] (Criminal conspiracy). Statutory provision: Statutory provision for BNS Section 61: Criminal conspiracy. Merged definition and punishment into one section Additionally, [BNS \u00a7329] (Punishment for criminal trespass) is relevant.",
+      "cited_sections": [
+        "61",
+        "329"
+      ],
+      "is_verified": true,
+      "verdict": "VERIFIED",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a761] (Criminal conspiracy). Statutory provision: Statutory provision for BNS Section 61: Criminal conspiracy. Merged definition and punishment into one section Additionally, [BNS \u00a7329] (Punishment for criminal trespass) is relevant.",
+      "warnings": [],
+      "layer2_grounding_score": 1.0
+    }
+  ]
+}

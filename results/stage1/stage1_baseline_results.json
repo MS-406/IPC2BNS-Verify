@@ -23,7 +23,7 @@
       ],
       "retrieved_chunks": [],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "302",
         "103"

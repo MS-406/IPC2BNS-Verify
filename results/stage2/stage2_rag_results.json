@@ -66,7 +66,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.02,
       "cited_sections": [
         "101",
         "103"
@@ -137,7 +137,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "338",
         "318"
@@ -208,7 +208,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "303",
         "305"
@@ -279,7 +279,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "80",
         "102"
@@ -350,7 +350,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "100",
         "11"
@@ -421,7 +421,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "66",
         "106"
@@ -492,7 +492,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "63",
         "70"
@@ -563,7 +563,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "356",
         "2(24)"
@@ -634,7 +634,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "2(6)",
         "303"
@@ -705,7 +705,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "62",
         "2(24)"
@@ -776,7 +776,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "62",
         "232"
@@ -847,7 +847,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "62",
         "2(24)"
@@ -918,7 +918,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "69",
         "68"
@@ -989,7 +989,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "111",
         "112"
@@ -1060,7 +1060,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "113",
         "299"
@@ -1126,7 +1126,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.01,
       "cited_sections": [
         "102"
       ],
@@ -1196,7 +1196,7 @@
         }
       ],
       "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.02,
       "cited_sections": [
         "61",
         "329"

@@ -1,0 +1,11 @@
+error_id,error_type,query_text,generated_text,cited_sections,expected_verdict,is_adversarial_error
+ERR_001,hallucinated_section,What is the new section for extortion in BNS?,"Under the new Bharatiya Nyaya Sanhita, extortion is defined and penalized under [BNS §999] with up to 10 years imprisonment.",[BNS §999],REJECTED_HALLUCINATED_CITATION,True
+ERR_002,hallucinated_section,Where is cyber defamation covered?,Cyber defamation is specifically covered under [BNS §450] with fine and community service.,[BNS §450],REJECTED_HALLUCINATED_CITATION,True
+ERR_003,repealed_section_cited,Can a person be charged with sedition under Section 124A in 2025?,"Yes, sedition remains an active offence under [IPC §124A] for exciting disaffection against the Government.",[IPC §124A],VETOED_REPEALED_PROVISION,True
+ERR_004,repealed_section_cited,What is the punishment for adultery in the new code?,Adultery is penalized with up to 5 years imprisonment under [IPC §497].,[IPC §497],VETOED_REPEALED_PROVISION,True
+ERR_005,repealed_section_cited,Is homosexual conduct criminalized under Section 377?,Unnatural offences are strictly prohibited under [IPC §377] with life imprisonment.,[IPC §377],VETOED_REPEALED_PROVISION,True
+ERR_006,ungrounded_claim,What is the punishment for simple theft under BNS?,"Under [BNS §303], simple theft carries mandatory death penalty or life imprisonment without parole.",[BNS §303],UNGROUNDED_CLAIM,True
+ERR_007,valid_control,What is the punishment for murder under BNS?,"Under [BNS §103], whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.",[BNS §103],VERIFIED,False
+ERR_008,valid_control,Where is cheating defined in BNS?,Cheating and dishonestly inducing delivery of property is penalized under [BNS §318] with imprisonment up to seven years and fine.,[BNS §318],VERIFIED,False
+ERR_009,valid_control,What is the penalty for dowry death?,Dowry death is governed by [BNS §80] and carries imprisonment for a term not less than seven years up to life imprisonment.,[BNS §80],VERIFIED,False
+ERR_010,valid_control,What provision applies to organised crime?,Organised crime syndicates and continuing unlawful activities are penalized under [BNS §111] with death or life imprisonment if death results.,[BNS §111],VERIFIED,False
