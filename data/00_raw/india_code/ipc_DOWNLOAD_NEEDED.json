@@ -1,0 +1,17 @@
+{
+  "status": "PLACEHOLDER — manual download needed",
+  "act": "Indian Penal Code, 1860",
+  "instructions": [
+    "1. Go to https://www.indiacode.nic.in",
+    "2. Search for 'Indian Penal Code, 1860'",
+    "3. Download or copy the full bare-act text",
+    "4. Save the text to this location: /content/drive/MyDrive/NLP_rspaper/data/00_raw/india_code/ipc_DOWNLOAD_NEEDED.json",
+    "5. Re-run this script to parse the text into sections",
+    "",
+    "Alternative sources:",
+    "  - legislative.gov.in",
+    "  - Google 'BNS 2023 bare act text PDF'",
+    "  - IEEE DataPort BNS dataset (CSV format)"
+  ],
+  "created_at": "2026-09-03T06:25:15.634034"
+}

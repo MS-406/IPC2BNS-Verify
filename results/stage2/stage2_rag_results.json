@@ -1,0 +1,1209 @@
+{
+  "stage": 2,
+  "stage_name": "Stage 2: +RAG (Retrieval Context, No Verifier)",
+  "benchmark": "benchmark_dev.csv",
+  "total_queries": 17,
+  "results": [
+    {
+      "question_id": "DEV_001",
+      "query_text": "What is the new section for murder under the Bharatiya Nyaya Sanhita, 2023?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7101] (Murder). Statutory provision: Statutory provision for BNS Section 101: Murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "101",
+          "raw": "[BNS \u00a7101]"
+        },
+        {
+          "act": "BNS",
+          "section": "103",
+          "raw": "[BNS \u00a7103]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_101",
+          "act": "BNS",
+          "section_number": "101",
+          "section_title": "Murder",
+          "section_text": "Statutory provision for BNS Section 101: Murder.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7101: Murder]\nStatutory provision for BNS Section 101: Murder.",
+          "similarity_score": 38.897376592185665,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_103",
+          "act": "BNS",
+          "section_number": "103",
+          "section_title": "Punishment for murder",
+          "section_text": "(1) Whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine. (2) When a group of five or more persons acting in concert commits murder on the ground of race, caste or community, sex, place of birth, language, personal belief or any other similar ground, each member of such group shall be punished with death or with imprisonment for life, and shall also be liable to fine.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7103: Punishment for murder]\n(1) Whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine. (2) When a group of five or more persons acting in concert commits murder on the ground of race, caste or community, sex, place of birth, language, personal belief or any other similar ground, each member of such group shall be punished with death or with imprisonment for life, and shall also be liable to fine.",
+          "similarity_score": 21.09206146069846,
+          "chapter": "Chapter VI \u2014 Of Offences Affecting the Human Body",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_105",
+          "act": "BNS",
+          "section_number": "105",
+          "section_title": "Punishment for culpable homicide not amounting to murder",
+          "section_text": "Statutory provision for BNS Section 105: Punishment for culpable homicide not amounting to murder.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7105: Punishment for culpable homicide not amounting to murder]\nStatutory provision for BNS Section 105: Punishment for culpable homicide not amounting to murder.",
+          "similarity_score": 20.283106055642854,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "101",
+        "103"
+      ],
+      "ground_truth_sections": "103",
+      "ground_truth_answer": "Under BNS 2023, punishment for murder is governed by Section 103 (previously Section 302 of IPC 1860).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_002",
+      "query_text": "Which section in BNS corresponds to IPC Section 420 for cheating?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "338",
+          "raw": "[BNS \u00a7338]"
+        },
+        {
+          "act": "BNS",
+          "section": "318",
+          "raw": "[BNS \u00a7318]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_338",
+          "act": "BNS",
+          "section_number": "338",
+          "section_title": "Forgery for purpose of cheating",
+          "section_text": "Statutory provision for BNS Section 338: Forgery for purpose of cheating.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7338: Forgery for purpose of cheating]\nStatutory provision for BNS Section 338: Forgery for purpose of cheating.",
+          "similarity_score": 18.24266338252443,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_318",
+          "act": "BNS",
+          "section_number": "318",
+          "section_title": "Cheating and dishonestly inducing delivery of property",
+          "section_text": "(1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7318: Cheating and dishonestly inducing delivery of property]\n(1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+          "similarity_score": 7.665050554790004,
+          "chapter": "Chapter XVII \u2014 Of Offences Against Property",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(24)",
+          "act": "BNS",
+          "section_number": "2(24)",
+          "section_title": "Person",
+          "section_text": "Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(24): Person]\nStatutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "similarity_score": 5.558520461421098,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "338",
+        "318"
+      ],
+      "ground_truth_sections": "318",
+      "ground_truth_answer": "IPC Section 420 (cheating and dishonestly inducing delivery of property) corresponds to Section 318(4) of BNS 2023.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_003",
+      "query_text": "What is the equivalent section for theft (IPC 378 / 379) in the new criminal law?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7305] (Theft in dwelling house etc) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "303",
+          "raw": "[BNS \u00a7303]"
+        },
+        {
+          "act": "BNS",
+          "section": "305",
+          "raw": "[BNS \u00a7305]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_303",
+          "act": "BNS",
+          "section_number": "303",
+          "section_title": "Punishment for theft",
+          "section_text": "(1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7303: Punishment for theft]\n(1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service.",
+          "similarity_score": 16.734631172704944,
+          "chapter": "Chapter XVII \u2014 Of Offences Against Property",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_305",
+          "act": "BNS",
+          "section_number": "305",
+          "section_title": "Theft in dwelling house etc",
+          "section_text": "Statutory provision for BNS Section 305: Theft in dwelling house etc.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7305: Theft in dwelling house etc]\nStatutory provision for BNS Section 305: Theft in dwelling house etc.",
+          "similarity_score": 15.878044871236192,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_14",
+          "act": "BNS",
+          "section_number": "14",
+          "section_title": "Act done by a person bound or by mistake of fact believing himself bound by law",
+          "section_text": "Statutory provision for BNS Section 14: Act done by a person bound or by mistake of fact believing himself bound by law.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a714: Act done by a person bound or by mistake of fact believing himself bound by law]\nStatutory provision for BNS Section 14: Act done by a person bound or by mistake of fact believing himself bound by law.",
+          "similarity_score": 14.95383199923888,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "303",
+        "305"
+      ],
+      "ground_truth_sections": "303",
+      "ground_truth_answer": "Theft is defined and penalized under Section 303 of BNS 2023 (formerly Sections 378 and 379 of IPC).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_004",
+      "query_text": "Where is dowry death covered in BNS 2023?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "80",
+          "raw": "[BNS \u00a780]"
+        },
+        {
+          "act": "BNS",
+          "section": "102",
+          "raw": "[BNS \u00a7102]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_80",
+          "act": "BNS",
+          "section_number": "80",
+          "section_title": "Dowry death",
+          "section_text": "(1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a780: Dowry death]\n(1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life.",
+          "similarity_score": 58.58460649672884,
+          "chapter": "Chapter V \u2014 Of Offences Against Women and Children",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_102",
+          "act": "BNS",
+          "section_number": "102",
+          "section_title": "Culpable homicide by causing death of person other than person whose death was intended",
+          "section_text": "Statutory provision for BNS Section 102: Culpable homicide by causing death of person other than person whose death was intended.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7102: Culpable homicide by causing death of person other than person whose death was intended]\nStatutory provision for BNS Section 102: Culpable homicide by causing death of person other than person whose death was intended.",
+          "similarity_score": 12.894025152869988,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_38",
+          "act": "BNS",
+          "section_number": "38",
+          "section_title": "When right of private defence extends to causing death",
+          "section_text": "Statutory provision for BNS Section 38: When right of private defence extends to causing death.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a738: When right of private defence extends to causing death]\nStatutory provision for BNS Section 38: When right of private defence extends to causing death.",
+          "similarity_score": 11.126872284789085,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "80",
+        "102"
+      ],
+      "ground_truth_sections": "80",
+      "ground_truth_answer": "Dowry death is governed by Section 80 of BNS 2023 (previously Section 304B of IPC).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_005",
+      "query_text": "Which section in IPC corresponds to Section 100 of BNS?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a711] (Person) is relevant.",
+      "citations": [
+        {
+          "act": "IPC",
+          "section": "100",
+          "raw": "[IPC \u00a7100]"
+        },
+        {
+          "act": "IPC",
+          "section": "11",
+          "raw": "[IPC \u00a711]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "IPC_SEC_100",
+          "act": "IPC",
+          "section_number": "100",
+          "section_title": "Right of private defence of the body extends to causing death",
+          "section_text": "Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death.",
+          "full_content": "[Indian Penal Code, 1860 \u00a7100: Right of private defence of the body extends to causing death]\nStatutory provision for IPC Section 100: Right of private defence of the body extends to causing death.",
+          "similarity_score": 39.366570035958645,
+          "chapter": "Indian Penal Code Provisions",
+          "effective_date_range": {
+            "start": "1860-10-06",
+            "end": "2024-06-30"
+          }
+        },
+        {
+          "chunk_id": "IPC_SEC_11",
+          "act": "IPC",
+          "section_number": "11",
+          "section_title": "Person",
+          "section_text": "Statutory provision for IPC Section 11: Person. Moved to definitions chapter in BNS",
+          "full_content": "[Indian Penal Code, 1860 \u00a711: Person]\nStatutory provision for IPC Section 11: Person. Moved to definitions chapter in BNS",
+          "similarity_score": 1.7797762787676223,
+          "chapter": "Indian Penal Code Provisions",
+          "effective_date_range": {
+            "start": "1860-10-06",
+            "end": "2024-06-30"
+          }
+        },
+        {
+          "chunk_id": "IPC_SEC_12",
+          "act": "IPC",
+          "section_number": "12",
+          "section_title": "Public",
+          "section_text": "Statutory provision for IPC Section 12: Public. Moved to definitions chapter in BNS",
+          "full_content": "[Indian Penal Code, 1860 \u00a712: Public]\nStatutory provision for IPC Section 12: Public. Moved to definitions chapter in BNS",
+          "similarity_score": 1.7797762787676223,
+          "chapter": "Indian Penal Code Provisions",
+          "effective_date_range": {
+            "start": "1860-10-06",
+            "end": "2024-06-30"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "100",
+        "11"
+      ],
+      "ground_truth_sections": "299",
+      "ground_truth_answer": "Section 100 of BNS corresponds to Section 299 of IPC 1860 (culpable homicide).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_006",
+      "query_text": "What is the punishment for causing death by rash or negligent driving if the driver flees the scene without reporting under BNS?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state). Statutory provision: Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state. Additionally, [BNS \u00a7106] (Causing death by negligence) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "66",
+          "raw": "[BNS \u00a766]"
+        },
+        {
+          "act": "BNS",
+          "section": "106",
+          "raw": "[BNS \u00a7106]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_66",
+          "act": "BNS",
+          "section_number": "66",
+          "section_title": "Punishment for causing death or resulting in persistent vegetative state",
+          "section_text": "Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a766: Punishment for causing death or resulting in persistent vegetative state]\nStatutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state.",
+          "similarity_score": 70.36528277821247,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_106",
+          "act": "BNS",
+          "section_number": "106",
+          "section_title": "Causing death by negligence",
+          "section_text": "(1) Whoever causes the death of any person by doing any rash or negligent act not amounting to culpable homicide, shall be punished with imprisonment of either description for a term which may extend to five years, and shall also be liable to fine; and if such act is committed by a registered medical practitioner, he shall be punished with imprisonment up to two years. (2) Whoever causes the death of any person by rash and negligent driving of vehicle not amounting to culpable homicide, and escapes without reporting it to a police officer or Magistrate soon after the incident, shall be punished with imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7106: Causing death by negligence]\n(1) Whoever causes the death of any person by doing any rash or negligent act not amounting to culpable homicide, shall be punished with imprisonment of either description for a term which may extend to five years, and shall also be liable to fine; and if such act is committed by a registered medical practitioner, he shall be punished with imprisonment up to two years. (2) Whoever causes the death of any person by rash and negligent driving of vehicle not amounting to culpable homicide, and escapes without reporting it to a police officer or Magistrate soon after the incident, shall be punished with imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine.",
+          "similarity_score": 44.96860541282169,
+          "chapter": "Chapter VI \u2014 Of Offences Affecting the Human Body",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_281",
+          "act": "BNS",
+          "section_number": "281",
+          "section_title": "Rash driving or riding on a public way",
+          "section_text": "Statutory provision for BNS Section 281: Rash driving or riding on a public way.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7281: Rash driving or riding on a public way]\nStatutory provision for BNS Section 281: Rash driving or riding on a public way.",
+          "similarity_score": 38.66585941303125,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "66",
+        "106"
+      ],
+      "ground_truth_sections": "106(2)",
+      "ground_truth_answer": "Under Section 106(2) of BNS 2023, causing death by rash and negligent driving and escaping without reporting to police or a Magistrate carries imprisonment up to ten years and fine.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_007",
+      "query_text": "What are the essential ingredients of rape under Section 63 of BNS 2023?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a770] (Gang rape) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "63",
+          "raw": "[BNS \u00a763]"
+        },
+        {
+          "act": "BNS",
+          "section": "70",
+          "raw": "[BNS \u00a770]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_63",
+          "act": "BNS",
+          "section_number": "63",
+          "section_title": "Rape",
+          "section_text": "A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a763: Rape]\nA man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent.",
+          "similarity_score": 56.56037430956482,
+          "chapter": "Chapter V \u2014 Of Offences Against Women and Children",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_70",
+          "act": "BNS",
+          "section_number": "70",
+          "section_title": "Gang rape",
+          "section_text": "Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a770: Gang rape]\nStatutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions",
+          "similarity_score": 15.684545587373897,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_65",
+          "act": "BNS",
+          "section_number": "65",
+          "section_title": "Punishment for rape on woman under eighteen years of age",
+          "section_text": "Statutory provision for BNS Section 65: Punishment for rape on woman under eighteen years of age. BNS consolidates age-based provisions",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a765: Punishment for rape on woman under eighteen years of age]\nStatutory provision for BNS Section 65: Punishment for rape on woman under eighteen years of age. BNS consolidates age-based provisions",
+          "similarity_score": 13.990489398153809,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "63",
+        "70"
+      ],
+      "ground_truth_sections": "63",
+      "ground_truth_answer": "Section 63 of BNS 2023 defines rape as non-consensual penetration of penis, insertion of objects, manipulation of body parts to cause penetration, or applying mouth to genital/anal orifices.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_008",
+      "query_text": "What is the penalty for defamation under Section 356 of BNS?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "356",
+          "raw": "[BNS \u00a7356]"
+        },
+        {
+          "act": "BNS",
+          "section": "2(24)",
+          "raw": "[BNS \u00a72(24)]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_356",
+          "act": "BNS",
+          "section_number": "356",
+          "section_title": "Punishment for defamation",
+          "section_text": "(1) Whoever, by words spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7356: Punishment for defamation]\n(1) Whoever, by words spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service.",
+          "similarity_score": 56.68027003628329,
+          "chapter": "Chapter XXI \u2014 Of Defamation",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(24)",
+          "act": "BNS",
+          "section_number": "2(24)",
+          "section_title": "Person",
+          "section_text": "Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(24): Person]\nStatutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "similarity_score": 1.1863905662911622,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(28)",
+          "act": "BNS",
+          "section_number": "2(28)",
+          "section_title": "Public",
+          "section_text": "Statutory provision for BNS Section 2(28): Public. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(28): Public]\nStatutory provision for BNS Section 2(28): Public. Moved to definitions chapter in BNS",
+          "similarity_score": 1.1863905662911622,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "356",
+        "2(24)"
+      ],
+      "ground_truth_sections": "356",
+      "ground_truth_answer": "Under Section 356 of BNS 2023, defamation is punishable with simple imprisonment up to two years, fine, or community service.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_009",
+      "query_text": "Can community service be awarded for petty theft of stolen property under BNS?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(6)] (Community service). Statutory provision: Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS Additionally, [BNS \u00a7303] (Punishment for theft) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "2(6)",
+          "raw": "[BNS \u00a72(6)]"
+        },
+        {
+          "act": "BNS",
+          "section": "303",
+          "raw": "[BNS \u00a7303]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_2(6)",
+          "act": "BNS",
+          "section_number": "2(6)",
+          "section_title": "Community service",
+          "section_text": "Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(6): Community service]\nStatutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS",
+          "similarity_score": 75.9949787375937,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_303",
+          "act": "BNS",
+          "section_number": "303",
+          "section_title": "Punishment for theft",
+          "section_text": "(1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7303: Punishment for theft]\n(1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service.",
+          "similarity_score": 26.95123271238198,
+          "chapter": "Chapter XVII \u2014 Of Offences Against Property",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_305",
+          "act": "BNS",
+          "section_number": "305",
+          "section_title": "Theft in dwelling house etc",
+          "section_text": "Statutory provision for BNS Section 305: Theft in dwelling house etc.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7305: Theft in dwelling house etc]\nStatutory provision for BNS Section 305: Theft in dwelling house etc.",
+          "similarity_score": 16.902513371632306,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "2(6)",
+        "303"
+      ],
+      "ground_truth_sections": "303(2)",
+      "ground_truth_answer": "Yes, under the proviso to Section 303(2) of BNS 2023, if the stolen property value is less than 5,000 rupees and the offender is a first-time offender, community service may be awarded.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_010",
+      "query_text": "What is the exact equivalent section of IPC Section 124A (Sedition) in BNS 2023?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "62",
+          "raw": "[BNS \u00a762]"
+        },
+        {
+          "act": "BNS",
+          "section": "2(24)",
+          "raw": "[BNS \u00a72(24)]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_62",
+          "act": "BNS",
+          "section_number": "62",
+          "section_title": "Attempt to commit offences punishable with imprisonment for life or other imprisonment",
+          "section_text": "Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a762: Attempt to commit offences punishable with imprisonment for life or other imprisonment]\nStatutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC",
+          "similarity_score": 10.02435516461463,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(24)",
+          "act": "BNS",
+          "section_number": "2(24)",
+          "section_title": "Person",
+          "section_text": "Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(24): Person]\nStatutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "similarity_score": 5.558520461421098,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(28)",
+          "act": "BNS",
+          "section_number": "2(28)",
+          "section_title": "Public",
+          "section_text": "Statutory provision for BNS Section 2(28): Public. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(28): Public]\nStatutory provision for BNS Section 2(28): Public. Moved to definitions chapter in BNS",
+          "similarity_score": 5.558520461421098,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "62",
+        "2(24)"
+      ],
+      "ground_truth_sections": "124A",
+      "ground_truth_answer": "IPC Section 124A (Sedition) has been repealed and has NO direct 1:1 equivalent in BNS 2023. Section 152 of BNS addresses acts endangering the sovereignty, unity, and integrity of India with a narrower, distinct legal scope.",
+      "is_ambiguous": true
+    },
+    {
+      "question_id": "DEV_011",
+      "query_text": "Is adultery under IPC 497 punishable under the new Bharatiya Nyaya Sanhita?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "62",
+          "raw": "[BNS \u00a762]"
+        },
+        {
+          "act": "BNS",
+          "section": "232",
+          "raw": "[BNS \u00a7232]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_62",
+          "act": "BNS",
+          "section_number": "62",
+          "section_title": "Attempt to commit offences punishable with imprisonment for life or other imprisonment",
+          "section_text": "Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a762: Attempt to commit offences punishable with imprisonment for life or other imprisonment]\nStatutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC",
+          "similarity_score": 22.24899970461887,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_232",
+          "act": "BNS",
+          "section_number": "232",
+          "section_title": "Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment",
+          "section_text": "Statutory provision for BNS Section 232: Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7232: Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment]\nStatutory provision for BNS Section 232: Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment.",
+          "similarity_score": 20.031817284171545,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(3)",
+          "act": "BNS",
+          "section_number": "2(3)",
+          "section_title": "Child",
+          "section_text": "Statutory provision for BNS Section 2(3): Child. Entirely new definition \u2014 no IPC counterpart",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(3): Child]\nStatutory provision for BNS Section 2(3): Child. Entirely new definition \u2014 no IPC counterpart",
+          "similarity_score": 10.855012761847291,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "62",
+        "232"
+      ],
+      "ground_truth_sections": "497",
+      "ground_truth_answer": "No. IPC Section 497 was struck down as unconstitutional by the Supreme Court in Joseph Shine v. Union of India (2018) and was omitted completely from BNS 2023.",
+      "is_ambiguous": true
+    },
+    {
+      "question_id": "DEV_012",
+      "query_text": "What happened to Section 377 of IPC in BNS 2023?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "62",
+          "raw": "[BNS \u00a762]"
+        },
+        {
+          "act": "BNS",
+          "section": "2(24)",
+          "raw": "[BNS \u00a72(24)]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_62",
+          "act": "BNS",
+          "section_number": "62",
+          "section_title": "Attempt to commit offences punishable with imprisonment for life or other imprisonment",
+          "section_text": "Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a762: Attempt to commit offences punishable with imprisonment for life or other imprisonment]\nStatutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC",
+          "similarity_score": 5.731813205284608,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(24)",
+          "act": "BNS",
+          "section_number": "2(24)",
+          "section_title": "Person",
+          "section_text": "Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(24): Person]\nStatutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "similarity_score": 5.555637618581567,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(28)",
+          "act": "BNS",
+          "section_number": "2(28)",
+          "section_title": "Public",
+          "section_text": "Statutory provision for BNS Section 2(28): Public. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(28): Public]\nStatutory provision for BNS Section 2(28): Public. Moved to definitions chapter in BNS",
+          "similarity_score": 5.555637618581567,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "62",
+        "2(24)"
+      ],
+      "ground_truth_sections": "377",
+      "ground_truth_answer": "IPC Section 377 (unnatural offences) was decriminalized in part by Navtej Singh Johar v. Union of India (2018) and has not been carried forward as an offence in BNS 2023.",
+      "is_ambiguous": true
+    },
+    {
+      "question_id": "DEV_013",
+      "query_text": "Which section in BNS 2023 penalizes sexual intercourse by deceitful means or false promise of marriage?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a769] (Sexual intercourse by employing deceitful means etc). Statutory provision: Whoever, by deceitful means or making by promise to marry to a woman without any intention of fulfilling the same, and has sexual intercourse with her, such sexual intercourse not amounting to the offence of rape, shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine. Explanation.\u2014'deceitful means' shall include the false promise of employment or promotion, or inducement or marrying after suppressing identity. Additionally, [BNS \u00a768] (Sexual intercourse by person in authority) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "69",
+          "raw": "[BNS \u00a769]"
+        },
+        {
+          "act": "BNS",
+          "section": "68",
+          "raw": "[BNS \u00a768]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_69",
+          "act": "BNS",
+          "section_number": "69",
+          "section_title": "Sexual intercourse by employing deceitful means etc",
+          "section_text": "Whoever, by deceitful means or making by promise to marry to a woman without any intention of fulfilling the same, and has sexual intercourse with her, such sexual intercourse not amounting to the offence of rape, shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine. Explanation.\u2014'deceitful means' shall include the false promise of employment or promotion, or inducement or marrying after suppressing identity.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a769: Sexual intercourse by employing deceitful means etc]\nWhoever, by deceitful means or making by promise to marry to a woman without any intention of fulfilling the same, and has sexual intercourse with her, such sexual intercourse not amounting to the offence of rape, shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine. Explanation.\u2014'deceitful means' shall include the false promise of employment or promotion, or inducement or marrying after suppressing identity.",
+          "similarity_score": 116.2384835981249,
+          "chapter": "Chapter V \u2014 Of Offences Against Women and Children",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_68",
+          "act": "BNS",
+          "section_number": "68",
+          "section_title": "Sexual intercourse by person in authority",
+          "section_text": "Statutory provision for BNS Section 68: Sexual intercourse by person in authority.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a768: Sexual intercourse by person in authority]\nStatutory provision for BNS Section 68: Sexual intercourse by person in authority.",
+          "similarity_score": 72.49412186657867,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_67",
+          "act": "BNS",
+          "section_number": "67",
+          "section_title": "Sexual intercourse by person in authority",
+          "section_text": "Statutory provision for BNS Section 67: Sexual intercourse by person in authority. Scope significantly changed",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a767: Sexual intercourse by person in authority]\nStatutory provision for BNS Section 67: Sexual intercourse by person in authority. Scope significantly changed",
+          "similarity_score": 69.98562213753212,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "69",
+        "68"
+      ],
+      "ground_truth_sections": "69",
+      "ground_truth_answer": "Section 69 of BNS 2023 is a new provision that penalizes sexual intercourse by employing deceitful means or false promise to marry with imprisonment up to ten years and fine.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_014",
+      "query_text": "How does BNS 2023 define and penalize organised crime?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "111",
+          "raw": "[BNS \u00a7111]"
+        },
+        {
+          "act": "BNS",
+          "section": "112",
+          "raw": "[BNS \u00a7112]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_111",
+          "act": "BNS",
+          "section_number": "111",
+          "section_title": "Organised crime",
+          "section_text": "(1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7111: Organised crime]\n(1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees.",
+          "similarity_score": 75.12355573459853,
+          "chapter": "Chapter VI \u2014 Of Offences Affecting the Human Body",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_112",
+          "act": "BNS",
+          "section_number": "112",
+          "section_title": "Petty organised crime",
+          "section_text": "(1) Whoever, being a member of a group or gang, commits theft, snatching, cheating, unauthorized selling of tickets, betting or gambling shall be punished with imprisonment for a term which shall not be less than one year but which may extend to seven years, and with fine.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7112: Petty organised crime]\n(1) Whoever, being a member of a group or gang, commits theft, snatching, cheating, unauthorized selling of tickets, betting or gambling shall be punished with imprisonment for a term which shall not be less than one year but which may extend to seven years, and with fine.",
+          "similarity_score": 32.76312767583219,
+          "chapter": "Chapter VI \u2014 Of Offences Affecting the Human Body",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_2(24)",
+          "act": "BNS",
+          "section_number": "2(24)",
+          "section_title": "Person",
+          "section_text": "Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(24): Person]\nStatutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS",
+          "similarity_score": 1.1835077234516316,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "111",
+        "112"
+      ],
+      "ground_truth_sections": "111",
+      "ground_truth_answer": "Section 111 of BNS 2023 introduces a comprehensive definition for organised crime syndicates, prescribing death or life imprisonment if death results, and minimum 5 years otherwise.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_015",
+      "query_text": "Under what section are terrorist acts defined in BNS 2023?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "113",
+          "raw": "[BNS \u00a7113]"
+        },
+        {
+          "act": "BNS",
+          "section": "299",
+          "raw": "[BNS \u00a7299]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_113",
+          "act": "BNS",
+          "section_number": "113",
+          "section_title": "Terrorist act",
+          "section_text": "(1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7113: Terrorist act]\n(1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life.",
+          "similarity_score": 36.75663177169491,
+          "chapter": "Chapter VI \u2014 Of Offences Affecting the Human Body",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_299",
+          "act": "BNS",
+          "section_number": "299",
+          "section_title": "Deliberate and malicious acts intended to outrage religious feelings",
+          "section_text": "Statutory provision for BNS Section 299: Deliberate and malicious acts intended to outrage religious feelings.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7299: Deliberate and malicious acts intended to outrage religious feelings]\nStatutory provision for BNS Section 299: Deliberate and malicious acts intended to outrage religious feelings.",
+          "similarity_score": 17.960406677023556,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_152",
+          "act": "BNS",
+          "section_number": "152",
+          "section_title": "Acts endangering sovereignty unity and integrity of India",
+          "section_text": "Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7152: Acts endangering sovereignty unity and integrity of India]\nWhoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine.",
+          "similarity_score": 6.9011986962137835,
+          "chapter": "Chapter VII \u2014 Of Offences Against the State",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "113",
+        "299"
+      ],
+      "ground_truth_sections": "113",
+      "ground_truth_answer": "Terrorist acts are defined and penalized under Section 113 of BNS 2023.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_016",
+      "query_text": "How was IPC Section 33 (Act and Omission) re-organized in BNS 2023?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "102",
+          "raw": "[BNS \u00a7102]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_2(1)/2(25)",
+          "act": "BNS",
+          "section_number": "2(1)/2(25)",
+          "section_title": "Act / Omission",
+          "section_text": "Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a72(1)/2(25): Act / Omission]\nStatutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately",
+          "similarity_score": 29.59738555880497,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_102",
+          "act": "BNS",
+          "section_number": "102",
+          "section_title": "Culpable homicide by causing death of person other than person whose death was intended",
+          "section_text": "Statutory provision for BNS Section 102: Culpable homicide by causing death of person other than person whose death was intended.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7102: Culpable homicide by causing death of person other than person whose death was intended]\nStatutory provision for BNS Section 102: Culpable homicide by causing death of person other than person whose death was intended.",
+          "similarity_score": 16.94325503256608,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_18",
+          "act": "BNS",
+          "section_number": "18",
+          "section_title": "Accident in doing a lawful act",
+          "section_text": "Statutory provision for BNS Section 18: Accident in doing a lawful act.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a718: Accident in doing a lawful act]\nStatutory provision for BNS Section 18: Accident in doing a lawful act.",
+          "similarity_score": 10.18836598728647,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "102"
+      ],
+      "ground_truth_sections": "33, 2(1), 2(25)",
+      "ground_truth_answer": "IPC Section 33 defined 'act' and 'omission' together. In BNS 2023, it is split into two separate sub-clauses under Section 2: Section 2(1) for 'act' and Section 2(25) for 'omission'.",
+      "is_ambiguous": true
+    },
+    {
+      "question_id": "DEV_017",
+      "query_text": "What sections govern criminal conspiracy in BNS 2023 compared to IPC 120A and 120B?",
+      "stage": 2,
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a761] (Criminal conspiracy). Statutory provision: Statutory provision for BNS Section 61: Criminal conspiracy. Merged definition and punishment into one section Additionally, [BNS \u00a7329] (Punishment for criminal trespass) is relevant.",
+      "citations": [
+        {
+          "act": "BNS",
+          "section": "61",
+          "raw": "[BNS \u00a761]"
+        },
+        {
+          "act": "BNS",
+          "section": "329",
+          "raw": "[BNS \u00a7329]"
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "BNS_SEC_61",
+          "act": "BNS",
+          "section_number": "61",
+          "section_title": "Criminal conspiracy",
+          "section_text": "Statutory provision for BNS Section 61: Criminal conspiracy. Merged definition and punishment into one section",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a761: Criminal conspiracy]\nStatutory provision for BNS Section 61: Criminal conspiracy. Merged definition and punishment into one section",
+          "similarity_score": 68.70048708624489,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_329",
+          "act": "BNS",
+          "section_number": "329",
+          "section_title": "Punishment for criminal trespass",
+          "section_text": "Statutory provision for BNS Section 329: Punishment for criminal trespass.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7329: Punishment for criminal trespass]\nStatutory provision for BNS Section 329: Punishment for criminal trespass.",
+          "similarity_score": 13.848944399147657,
+          "chapter": "Bharatiya Nyaya Sanhita Provisions",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        },
+        {
+          "chunk_id": "BNS_SEC_351",
+          "act": "BNS",
+          "section_number": "351",
+          "section_title": "Punishment for criminal intimidation",
+          "section_text": "(1) Whoever threatens another with any injury to his person, reputation or property with intent to cause alarm, commits criminal intimidation. (2) Whoever commits criminal intimidation shall be punished with imprisonment of either description for a term which may extend to two years, or with fine, or with both.",
+          "full_content": "[Bharatiya Nyaya Sanhita, 2023 \u00a7351: Punishment for criminal intimidation]\n(1) Whoever threatens another with any injury to his person, reputation or property with intent to cause alarm, commits criminal intimidation. (2) Whoever commits criminal intimidation shall be punished with imprisonment of either description for a term which may extend to two years, or with fine, or with both.",
+          "similarity_score": 13.283119130144545,
+          "chapter": "Chapter XXII \u2014 Of Criminal Intimidation",
+          "effective_date_range": {
+            "start": "2024-07-01",
+            "end": "9999-12-31"
+          }
+        }
+      ],
+      "model_name": "gemini-2.5-flash-offline-sim",
+      "latency_ms": 0.0,
+      "cited_sections": [
+        "61",
+        "329"
+      ],
+      "ground_truth_sections": "120A, 120B, 61",
+      "ground_truth_answer": "IPC Sections 120A (definition) and 120B (punishment) for criminal conspiracy have been merged into a single Section 61 in BNS 2023.",
+      "is_ambiguous": true
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+#!/usr/bin/env python3
+"""
+build_phase2_notebook.py — Generates Phase2_Ingestion_Retrieval.ipynb for Google Colab
+"""
+
+import json
+import os
+
+nb = {
+    "cells": [],
+    "metadata": {
+        "colab": {"provenance": [], "toc_visible": True},
+        "kernelspec": {"display_name": "Python 3", "name": "python3"},
+        "language_info": {"name": "python", "version": "3.10.0"}
+    },
+    "nbformat": 4,
+    "nbformat_minor": 0
+}
+
+def md(lines):
+    nb["cells"].append({"cell_type": "markdown", "metadata": {}, "source": lines})
+
+def code(lines):
+    nb["cells"].append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": lines})
+
+
+# CELL 0: Title
+md([
+    "# IPC2BNS-Verify — Phase 2: Ingestion & Retrieval Layer\n",
+    "\n",
+    "This notebook verifies Phase 2 deliverables:\n",
+    "1. **Section-Level Chunker** (`chunker.py`): Structured chunks with temporal validity metadata.\n",
+    "2. **Cleaned Corpora**: `ipc_sections.jsonl` (145 provisions) and `bns_sections.jsonl` (130 provisions).\n",
+    "3. **Statutory Vector Index** (`embedder.py`): BM25/hybrid similarity engine.\n",
+    "4. **Retrieval Search Engine** (`search.py`): Top-k retrieval with temporal validity filtering.\n",
+    "5. **Benchmark Dataset Evaluation** (`retrieval_eval.py`): Computes Recall@k, Precision@k, and MRR.\n",
+    "6. **Automated Pytest Suite**: Full test run."
+])
+
+# CELL 1: Mount Drive
+md(["---\n", "## 1. Mount Google Drive & Configure Paths"])
+code([
+    "from google.colab import drive\n",
+    "drive.mount('/content/drive')\n",
+    "\n",
+    "import os, sys, json\n",
+    "PROJECT_ROOT = '/content/drive/MyDrive/NLP_rspaper'\n",
+    "os.environ['IPC2BNS_PROJECT_ROOT'] = PROJECT_ROOT\n",
+    "\n",
+    "if os.path.join(PROJECT_ROOT, 'code') not in sys.path:\n",
+    "    sys.path.insert(0, os.path.join(PROJECT_ROOT, 'code'))\n",
+    "\n",
+    "print('Project Root:', PROJECT_ROOT)\n",
+    "print('Environment initialized.')"
+])
+
+# CELL 2: Install Pytest
+md(["---\n", "## 2. Dependencies"])
+code([
+    "!pip install -q pytest\n",
+    "print('Pytest ready.')"
+])
+
+# CELL 3: Inspect Cleaned Corpora
+md(["---\n", "## 3. Inspect Cleaned Statutory Corpora & Chunks"])
+code([
+    "from src.ingestion.chunker import load_all_chunks\n",
+    "\n",
+    "cleaned_dir = os.path.join(PROJECT_ROOT, 'data/01_cleaned')\n",
+    "chunks_dict = load_all_chunks(cleaned_dir)\n",
+    "\n",
+    "print(f'IPC Chunks Loaded: {len(chunks_dict[\"IPC\"])}')\n",
+    "print(f'BNS Chunks Loaded: {len(chunks_dict[\"BNS\"])}')\n",
+    "print(f'Total Corpus Size: {len(chunks_dict[\"ALL\"])} sections\\n')\n",
+    "\n",
+    "# Sample chunk\n",
+    "sample = chunks_dict['BNS'][0]\n",
+    "print('--- Sample Statutory Chunk ---')\n",
+    "print(f'ID      : {sample.chunk_id}')\n",
+    "print(f'Act     : {sample.act_full_name}')\n",
+    "print(f'Section : §{sample.section_number} - {sample.section_title}')\n",
+    "print(f'Dates   : {sample.effective_start} to {sample.effective_end}')\n",
+    "print(f'Text    : {sample.section_text[:120]}...')"
+])
+
+# CELL 4: Build / Load Vector Index
+md(["---\n", "## 4. Build / Load Statutory Vector Index"])
+code([
+    "from src.retrieval.embedder import build_and_save_index, LocalStatutoryVectorIndex\n",
+    "\n",
+    "index_dir = os.path.join(PROJECT_ROOT, 'data/05_embeddings_index/stage2_index')\n",
+    "index = build_and_save_index(cleaned_dir, index_dir)\n",
+    "print('Vector index successfully built and persisted.')"
+])
+
+# CELL 5: Interactive Retrieval Queries
+md(["---\n", "## 5. Interactive Statutory Retrieval Queries"])
+code([
+    "from src.retrieval.search import retrieve_statutes\n",
+    "\n",
+    "queries = [\n",
+    "    ('What is the punishment for murder under BNS?', 'BNS'),\n",
+    "    ('Where is snatching or petty theft penalized?', 'BNS'),\n",
+    "    ('Penalty for rash driving causing death (hit and run)?', 'BNS'),\n",
+    "    ('What section defines cheating in IPC?', 'IPC'),\n",
+    "    ('Provisions for terrorist acts under new law?', 'BNS'),\n",
+    "]\n",
+    "\n",
+    "for q, act in queries:\n",
+    "    print('='*75)\n",
+    "    print(f'Query: \"{q}\" [Filter: {act}]')\n",
+    "    print('='*75)\n",
+    "    hits = retrieve_statutes(q, top_k=2, act_filter=act)\n",
+    "    for rank, h in enumerate(hits, start=1):\n",
+    "        print(f'  [{rank}] {h[\"act\"]} §{h[\"section_number\"]}: {h[\"section_title\"]} (score: {h[\"similarity_score\"]:.2f})')\n",
+    "        print(f'      Text: {h[\"section_text\"][:100]}...')\n",
+    "    print()"
+])
+
+# CELL 6: Temporal Validity Filtering Demo
+md([
+    "---\n",
+    "## 6. Temporal Validity Filtering Demonstration\n",
+    "\n",
+    "Demonstrates the **TaxFlow-inspired temporal validity filtering**: queries set before July 1, 2024 retrieve IPC, while queries set after retrieve BNS."
+])
+code([
+    "from src.retrieval.search import get_retriever\n",
+    "retriever = get_retriever()\n",
+    "\n",
+    "print('--- Conduct Date: 2021-05-15 (Pre-Transition -> IPC Applies) ---')\n",
+    "hits_2021 = retriever.retrieve('murder', top_k=2, target_date='2021-05-15')\n",
+    "for h in hits_2021:\n",
+    "    print(f'  {h[\"act\"]} §{h[\"section_number\"]}: {h[\"section_title\"]}')\n",
+    "\n",
+    "print('\\n--- Conduct Date: 2025-01-10 (Post-Transition -> BNS Applies) ---')\n",
+    "hits_2025 = retriever.retrieve('murder', top_k=2, target_date='2025-01-10')\n",
+    "for h in hits_2025:\n",
+    "    print(f'  {h[\"act\"]} §{h[\"section_number\"]}: {h[\"section_title\"]}')"
+])
+
+# CELL 7: Benchmark Retrieval Evaluation
+md(["---\n", "## 7. Evaluate Retrieval Accuracy (Precision, Recall, MRR)"])
+code([
+    "from src.eval.retrieval_eval import evaluate_retrieval\n",
+    "\n",
+    "benchmark_dev = os.path.join(PROJECT_ROOT, 'data/03_benchmark/benchmark_dev.csv')\n",
+    "metrics_out = os.path.join(PROJECT_ROOT, 'results/stage2/retrieval_metrics.json')\n",
+    "\n",
+    "metrics = evaluate_retrieval(benchmark_dev, metrics_out, top_k=5)\n",
+    "\n",
+    "print('\\n' + '='*50)\n",
+    "print('STAGE 2 RETRIEVAL METRICS SUMMARY')\n",
+    "print('='*50)\n",
+    "print(json.dumps(metrics['metrics'], indent=2))"
+])
+
+# CELL 8: Automated Pytest Suite
+md(["---\n", "## 8. Run Full Automated Test Suite"])
+code([
+    "test_dir = os.path.join(PROJECT_ROOT, 'code/tests')\n",
+    "!python -m pytest \"{test_dir}\" -v --color=yes"
+])
+
+# CELL 9: WBS Progress Check
+md(["---\n", "## 9. Check WBS Completion"])
+code([
+    "!python \"{PROJECT_ROOT}/check_progress.py\" --root \"{PROJECT_ROOT}\" --write-report"
+])
+
+# Write out notebook
+out_path = os.path.join(os.path.dirname(__file__), "Phase2_Ingestion_Retrieval.ipynb")
+with open(out_path, "w", encoding="utf-8") as f:
+    json.dump(nb, f, indent=1)
+
+print(f"[OK] Phase2 notebook generated at: {out_path}")
+print(f"     Total cells: {len(nb['cells'])}")

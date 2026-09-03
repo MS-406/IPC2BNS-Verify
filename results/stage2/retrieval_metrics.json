@@ -1,0 +1,309 @@
+{
+  "benchmark_file": "benchmark_dev.csv",
+  "total_queries": 17,
+  "metrics": {
+    "recall_at_1": 0.5294,
+    "recall_at_3": 0.7647,
+    "recall_at_5": 0.7647,
+    "precision_at_1": 0.5294,
+    "precision_at_3": 0.2549,
+    "precision_at_5": 0.1529,
+    "mean_reciprocal_rank": 0.6471,
+    "avg_latency_ms": 2.03
+  },
+  "query_evaluations": [
+    {
+      "question_id": "DEV_001",
+      "query_text": "What is the new section for murder under the Bharatiya Nyaya Sanhita, 2023?",
+      "ground_truth_sections": [
+        "103"
+      ],
+      "retrieved_sections": [
+        "101",
+        "103",
+        "105",
+        "2(3)",
+        "109"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "latency_ms": 2.55
+    },
+    {
+      "question_id": "DEV_002",
+      "query_text": "Which section in BNS corresponds to IPC Section 420 for cheating?",
+      "ground_truth_sections": [
+        "318"
+      ],
+      "retrieved_sections": [
+        "338",
+        "318",
+        "2(24)",
+        "2(28)",
+        "2(6)"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "latency_ms": 1.83
+    },
+    {
+      "question_id": "DEV_003",
+      "query_text": "What is the equivalent section for theft (IPC 378 / 379) in the new criminal law?",
+      "ground_truth_sections": [
+        "303"
+      ],
+      "retrieved_sections": [
+        "303",
+        "305",
+        "14",
+        "17",
+        "329"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 1.24
+    },
+    {
+      "question_id": "DEV_004",
+      "query_text": "Where is dowry death covered in BNS 2023?",
+      "ground_truth_sections": [
+        "80"
+      ],
+      "retrieved_sections": [
+        "80",
+        "102",
+        "38",
+        "66",
+        "311"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 1.83
+    },
+    {
+      "question_id": "DEV_005",
+      "query_text": "Which section in IPC corresponds to Section 100 of BNS?",
+      "ground_truth_sections": [
+        "299"
+      ],
+      "retrieved_sections": [
+        "100",
+        "11",
+        "12",
+        "376D",
+        "364A"
+      ],
+      "first_hit_rank": null,
+      "mrr": 0.0,
+      "latency_ms": 2.87
+    },
+    {
+      "question_id": "DEV_006",
+      "query_text": "What is the punishment for causing death by rash or negligent driving if the driver flees the scene without reporting under BNS?",
+      "ground_truth_sections": [
+        "106(2)"
+      ],
+      "retrieved_sections": [
+        "66",
+        "106",
+        "281",
+        "47",
+        "38"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "latency_ms": 2.22
+    },
+    {
+      "question_id": "DEV_007",
+      "query_text": "What are the essential ingredients of rape under Section 63 of BNS 2023?",
+      "ground_truth_sections": [
+        "63"
+      ],
+      "retrieved_sections": [
+        "63",
+        "70",
+        "65",
+        "64",
+        "69"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 3.0
+    },
+    {
+      "question_id": "DEV_008",
+      "query_text": "What is the penalty for defamation under Section 356 of BNS?",
+      "ground_truth_sections": [
+        "356"
+      ],
+      "retrieved_sections": [
+        "356",
+        "2(24)",
+        "2(28)",
+        "2(6)",
+        "143"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 2.0
+    },
+    {
+      "question_id": "DEV_009",
+      "query_text": "Can community service be awarded for petty theft of stolen property under BNS?",
+      "ground_truth_sections": [
+        "303(2)"
+      ],
+      "retrieved_sections": [
+        "2(6)",
+        "303",
+        "305",
+        "112",
+        "35"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "latency_ms": 1.02
+    },
+    {
+      "question_id": "DEV_010",
+      "query_text": "What is the exact equivalent section of IPC Section 124A (Sedition) in BNS 2023?",
+      "ground_truth_sections": [
+        "124A"
+      ],
+      "retrieved_sections": [
+        "62",
+        "2(24)",
+        "2(28)",
+        "2(6)",
+        "2(3)"
+      ],
+      "first_hit_rank": null,
+      "mrr": 0.0,
+      "latency_ms": 1.99
+    },
+    {
+      "question_id": "DEV_011",
+      "query_text": "Is adultery under IPC 497 punishable under the new Bharatiya Nyaya Sanhita?",
+      "ground_truth_sections": [
+        "497"
+      ],
+      "retrieved_sections": [
+        "62",
+        "232",
+        "2(3)",
+        "303(2)",
+        "2(11)"
+      ],
+      "first_hit_rank": null,
+      "mrr": 0.0,
+      "latency_ms": 1.99
+    },
+    {
+      "question_id": "DEV_012",
+      "query_text": "What happened to Section 377 of IPC in BNS 2023?",
+      "ground_truth_sections": [
+        "377"
+      ],
+      "retrieved_sections": [
+        "62",
+        "2(24)",
+        "2(28)",
+        "2(6)",
+        "2(3)"
+      ],
+      "first_hit_rank": null,
+      "mrr": 0.0,
+      "latency_ms": 3.02
+    },
+    {
+      "question_id": "DEV_013",
+      "query_text": "Which section in BNS 2023 penalizes sexual intercourse by deceitful means or false promise of marriage?",
+      "ground_truth_sections": [
+        "69"
+      ],
+      "retrieved_sections": [
+        "69",
+        "68",
+        "67",
+        "75",
+        "118"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 1.98
+    },
+    {
+      "question_id": "DEV_014",
+      "query_text": "How does BNS 2023 define and penalize organised crime?",
+      "ground_truth_sections": [
+        "111"
+      ],
+      "retrieved_sections": [
+        "111",
+        "112",
+        "2(24)",
+        "2(28)",
+        "2(6)"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 2.01
+    },
+    {
+      "question_id": "DEV_015",
+      "query_text": "Under what section are terrorist acts defined in BNS 2023?",
+      "ground_truth_sections": [
+        "113"
+      ],
+      "retrieved_sections": [
+        "113",
+        "299",
+        "152",
+        "2(24)",
+        "2(28)"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 2.0
+    },
+    {
+      "question_id": "DEV_016",
+      "query_text": "How was IPC Section 33 (Act and Omission) re-organized in BNS 2023?",
+      "ground_truth_sections": [
+        "33",
+        "2(1)",
+        "2(25)"
+      ],
+      "retrieved_sections": [
+        "2(1)/2(25)",
+        "102",
+        "18",
+        "22",
+        "20"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 1.0
+    },
+    {
+      "question_id": "DEV_017",
+      "query_text": "What sections govern criminal conspiracy in BNS 2023 compared to IPC 120A and 120B?",
+      "ground_truth_sections": [
+        "120A",
+        "120B",
+        "61"
+      ],
+      "retrieved_sections": [
+        "61",
+        "329",
+        "351",
+        "316",
+        "19"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "latency_ms": 2.0
+    }
+  ]
+}
