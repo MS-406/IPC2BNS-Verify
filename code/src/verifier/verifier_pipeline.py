@@ -192,6 +192,17 @@ class HardConstraintVerifier:
             )
             warnings.extend(l1_res.rejection_reasons)
 
+        # Case B2: Multi-Citation Cross-Statute Inconsistency (Layer 1.5)
+        elif not l1_res.is_cross_statute_consistent:
+            verdict = "REJECTED_CROSS_STATUTE_INCONSISTENCY"
+            is_verified = False
+            verified_text = (
+                f"[VERIFIER REJECTION - CROSS-STATUTE CONFLICT]: The generated text cited contradictory statutory provisions. "
+                f"{l1_res.cross_statute_inconsistencies[0]}"
+            )
+            warnings.extend(l1_res.cross_statute_inconsistencies)
+
+
         # Case C: No citations present when required
         elif l1_res.total_citations == 0:
             verdict = "REJECTED_MISSING_CITATIONS"
@@ -263,3 +274,14 @@ def get_master_verifier() -> HardConstraintVerifier:
     if _GLOBAL_MASTER_VERIFIER is None:
         _GLOBAL_MASTER_VERIFIER = HardConstraintVerifier()
     return _GLOBAL_MASTER_VERIFIER
+
+
+def verify_answer(generated_text: str, citations: List[Dict[str, str]],
+                  retrieved_chunks: List[Dict[str, Any]], query: str = "") -> MasterVerificationResult:
+    return get_master_verifier().verify_generation(
+        generated_text=generated_text,
+        citations=citations,
+        retrieved_chunks=retrieved_chunks,
+        query=query
+    )
+

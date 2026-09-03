@@ -119,3 +119,29 @@ def test_master_verifier_valid_answer_passed():
     assert res.is_verified is True
     assert res.verdict == "VERIFIED"
     assert res.verified_output_text == gen_text
+
+
+def test_layer1_5_multi_citation_consistency_passes():
+    """Validates concordant cross-statute citations: IPC 420 <-> BNS 318 for Cheating."""
+    verifier = get_citation_verifier()
+    valid_multi_cits = [
+        {"act": "BNS", "section": "318", "raw": "[BNS §318]"},
+        {"act": "IPC", "section": "420", "raw": "[IPC §420]"}
+    ]
+    res = verifier.verify_citations(valid_multi_cits)
+    assert res.is_cross_statute_consistent is True
+    assert len(res.cross_statute_inconsistencies) == 0
+
+
+def test_layer1_5_multi_citation_consistency_rejects_mismatch():
+    """Catches contradictory cross-statute citations: IPC 302 (Murder) with BNS 318 (Cheating)."""
+    verifier = get_citation_verifier()
+    conflicting_cits = [
+        {"act": "BNS", "section": "318", "raw": "[BNS §318]"},
+        {"act": "IPC", "section": "302", "raw": "[IPC §302]"}
+    ]
+    res = verifier.verify_citations(conflicting_cits)
+    assert res.is_cross_statute_consistent is False
+    assert len(res.cross_statute_inconsistencies) > 0
+    assert "Cross-statute citation mismatch" in res.cross_statute_inconsistencies[0]
+
