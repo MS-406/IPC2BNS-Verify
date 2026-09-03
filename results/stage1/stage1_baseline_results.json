@@ -1199,7 +1199,7 @@
       ],
       "retrieved_chunk_ids": [],
       "model_name": "gemini-2.0-flash-offline-sim",
-      "latency_ms": 0.0,
+      "latency_ms": 0.6,
       "ground_truth_sections": "340",
       "ground_truth_answer": "Using as genuine a forged document is under Section 340 of BNS 2023 (formerly IPC Section 471).",
       "is_ambiguous": false

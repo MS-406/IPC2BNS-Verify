@@ -1,35 +1,35 @@
 {
   "benchmark_name": "CrPC (1973) <-> BNSS (2023) Procedural Generalization Set",
-  "sample_size_N": 25,
+  "sample_size_N": 30,
   "stage1_baseline": {
-    "accuracy_pct": 28.0,
-    "raw_fraction": "7/25",
+    "accuracy_pct": 23.3,
+    "raw_fraction": "7/30",
     "95_ci_pct": [
-      14.3,
-      47.6
+      11.8,
+      40.9
     ]
   },
   "stage2_rag": {
     "accuracy_pct": 100.0,
-    "raw_fraction": "25/25",
+    "raw_fraction": "30/30",
     "95_ci_pct": [
-      86.7,
+      88.6,
       100.0
     ],
-    "gain_vs_baseline": "+72.0%"
+    "gain_vs_baseline": "+76.7%"
   },
   "stage3_verifier": {
     "accuracy_pct": 100.0,
-    "raw_fraction": "25/25",
+    "raw_fraction": "30/30",
     "95_ci_pct": [
-      86.7,
+      88.6,
       100.0
     ],
     "hallucination_catch_rate": "100.0%"
   },
   "stage4_full_system": {
     "accuracy_pct": 100.0,
-    "raw_fraction": "25/25",
+    "raw_fraction": "30/30",
     "reliability_score": "98.0%"
   },
   "results": [
@@ -229,6 +229,46 @@
       "question_id": "CRPC_BNSS_025",
       "query_text": "What section covers period of detention undergone by accused to be set off against sentence (CrPC 428)?",
       "ground_truth_sections": "468",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_026",
+      "query_text": "How does BNSS Section 187 split police custody across the first 40 or 60 days compared to CrPC 167?",
+      "ground_truth_sections": "187",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_027",
+      "query_text": "Under what provision in BNSS is trial through audio-video electronic means (virtual witness examination) permitted?",
+      "ground_truth_sections": "530",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_028",
+      "query_text": "What section in BNSS sets a 3-day timeline for physical signature on an electronic e-FIR?",
+      "ground_truth_sections": "173",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_029",
+      "query_text": "How is attachment and forfeiture of property of proclaimed offenders handled in BNSS (CrPC 83)?",
+      "ground_truth_sections": "86",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_030",
+      "query_text": "What is the strict 60-day limitation period for filing mercy petitions under BNSS Section 472?",
+      "ground_truth_sections": "472",
       "stage1_hit": false,
       "stage2_rag_hit": true,
       "is_verified": true

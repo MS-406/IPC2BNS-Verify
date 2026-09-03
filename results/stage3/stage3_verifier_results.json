@@ -1,9 +1,18 @@
 {
   "stage": 3,
-  "stage_name": "Stage 3: +RAG + Hard-Constraint Verifier",
+  "stage_name": "Stage 3: +RAG + Two-Layer Hard-Constraint Verifier",
   "benchmark": "benchmark_dev.csv",
   "total_queries": 60,
   "verified_rate": 0.9,
+  "stress_suite": {
+    "total_stress_cases": 30,
+    "adversarial_total": 18,
+    "adversarial_caught": 18,
+    "adversarial_catch_rate": 1.0,
+    "control_total": 12,
+    "control_passed": 12,
+    "control_fpr": 0.0
+  },
   "results": [
     {
       "question_id": "DEV_001",
@@ -18,6 +27,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7101] (Murder). Statutory provision: Statutory provision for BNS Section 101: Murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -35,6 +47,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -52,6 +67,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7305] (Theft in dwelling house etc) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -69,6 +87,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -86,7 +107,10 @@
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
-      "final_verified_output": "[VERIFIER WARNING: NON-RESPONSIVE ANSWER]\nBased on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a711] (Person) is relevant.",
+      "confidence_score": 0.825,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
+      "final_verified_output": "[VERIFIER REJECTION - NON-RESPONSIVE]: The cited provisions do not substantively answer the legal query intent. Non-responsive answer / irrelevant citation: Query intent keywords not covered in context.",
       "warnings": [
         "Non-responsive answer / irrelevant citation: Query intent keywords not covered in context."
       ],
@@ -105,6 +129,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state). Statutory provision: Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state. Additionally, [BNS \u00a738] (When right of private defence extends to causing death) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -122,6 +149,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a770] (Gang rape) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -139,6 +169,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -156,6 +189,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(6)] (Community service). Statutory provision: Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS Additionally, [BNS \u00a7303] (Punishment for theft) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -173,7 +209,10 @@
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
-      "final_verified_output": "[VERIFIER WARNING: NON-RESPONSIVE ANSWER]\nBased on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "confidence_score": 0.825,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
+      "final_verified_output": "[VERIFIER REJECTION - NON-RESPONSIVE]: The cited provisions do not substantively answer the legal query intent. Non-responsive answer / irrelevant citation: Query intent keywords not covered in context.",
       "warnings": [
         "Non-responsive answer / irrelevant citation: Query intent keywords not covered in context."
       ],
@@ -192,6 +231,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -209,7 +251,10 @@
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
-      "final_verified_output": "[VERIFIER WARNING: NON-RESPONSIVE ANSWER]\nBased on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "confidence_score": 0.825,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
+      "final_verified_output": "[VERIFIER REJECTION - NON-RESPONSIVE]: The cited provisions do not substantively answer the legal query intent. Non-responsive answer / irrelevant citation: Query intent keywords not covered in context.",
       "warnings": [
         "Non-responsive answer / irrelevant citation: Query intent keywords not covered in context."
       ],
@@ -228,6 +273,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a769] (Sexual intercourse by employing deceitful means etc). Statutory provision: Whoever, by deceitful means or making by promise to marry to a woman without any intention of fulfilling the same, and has sexual intercourse with her, such sexual intercourse not amounting to the offence of rape, shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine. Explanation.\u2014'deceitful means' shall include the false promise of employment or promotion, or inducement or marrying after suppressing identity. Additionally, [BNS \u00a768] (Sexual intercourse by person in authority) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -245,6 +293,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -262,6 +313,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -278,6 +332,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -295,6 +352,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a761] (Criminal conspiracy). Statutory provision: Statutory provision for BNS Section 61: Criminal conspiracy. Merged definition and punishment into one section Additionally, [BNS \u00a7329] (Punishment for criminal trespass) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -312,6 +372,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7139] (Punishment for kidnapping). Statutory provision: Statutory provision for BNS Section 139: Punishment for kidnapping. Additionally, [BNS \u00a7137] (Kidnapping) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -329,6 +392,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7138] (Abduction). Statutory provision: Statutory provision for BNS Section 138: Abduction. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -346,6 +412,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7143] (Trafficking of person). Statutory provision: Statutory provision for BNS Section 143: Trafficking of person. BNS broadens definition and increases punishment Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -363,6 +432,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7114] (Hurt). Statutory provision: Statutory provision for BNS Section 114: Hurt. Additionally, [BNS \u00a7117] (Voluntarily causing grievous hurt) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -380,6 +452,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7117] (Voluntarily causing grievous hurt). Statutory provision: Statutory provision for BNS Section 117: Voluntarily causing grievous hurt. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -397,6 +472,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7118] (Voluntarily causing grievous hurt by dangerous weapons or means). Statutory provision: Statutory provision for BNS Section 118: Voluntarily causing grievous hurt by dangerous weapons or means. Needs verification \u2014 possible merge with 324 mapping Additionally, [BNS \u00a7117] (Voluntarily causing grievous hurt) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -414,6 +492,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7308] (Punishment for extortion). Statutory provision: (1) Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security, commits 'extortion'. (2) Whoever commits extortion shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. Additionally, [BNS \u00a7309] (Punishment for robbery) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -431,6 +512,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7309] (Punishment for robbery). Statutory provision: In all robbery there is either theft or extortion. (4) Whoever commits robbery shall be punished with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine; and, if the robbery be committed on the highway between sunset and sunrise, the imprisonment may be extended to fourteen years. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -448,6 +532,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7312] (Making preparation to commit dacoity). Statutory provision: Statutory provision for BNS Section 312: Making preparation to commit dacoity. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -465,6 +552,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7335] (Forgery). Statutory provision: Whoever makes any false document or false electronic record with intent to cause damage or injury, to the public or to any person, commits forgery. Additionally, [BNS \u00a7336] (Punishment for forgery) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -482,6 +572,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7316] (Criminal breach of trust by public servant etc). Statutory provision: Statutory provision for BNS Section 316: Criminal breach of trust by public servant etc. Additionally, [BNS \u00a7352] (Intentional insult with intent to provoke breach of the peace) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -499,6 +592,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a735] (Right of private defence of body and property) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -516,6 +612,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7351] (Punishment for criminal intimidation). Statutory provision: Statutory provision for BNS Section 351: Punishment for criminal intimidation. Additionally, [BNS \u00a7329] (Punishment for criminal trespass) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -533,6 +632,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7189] (Unlawful assembly). Statutory provision: Statutory provision for BNS Section 189: Unlawful assembly. Additionally, [BNS \u00a7191] (Punishment for unlawful assembly) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -550,6 +652,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7194] (Punishment for rioting). Statutory provision: Statutory provision for BNS Section 194: Punishment for rioting. Additionally, [BNS \u00a7195] (Rioting armed with deadly weapon) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -567,6 +672,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -584,6 +692,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303(2)] (Snatching). Statutory provision: Statutory provision for BNS Section 303(2): Snatching. New sub-section specifically criminalizing snatching Additionally, [BNS \u00a72(23)] (Offence) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -601,6 +712,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -618,6 +732,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7316] (Criminal breach of trust by public servant etc). Statutory provision: Statutory provision for BNS Section 316: Criminal breach of trust by public servant etc. Additionally, [BNS \u00a7110] (Attempt to commit culpable homicide) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -635,6 +752,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7281] (Rash driving or riding on a public way). Statutory provision: Whoever drives any vehicle, or rides, on any public way in a manner so rash or negligent as to endanger human life, or to be likely to cause hurt or injury to any other person, shall be punished with imprisonment of either description for a term which may extend to six months, or with fine which may extend to one thousand rupees, or with both. Additionally, [BNS \u00a72(28)] (Public) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -652,6 +772,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7271] (Public nuisance). Statutory provision: Statutory provision for BNS Section 271: Public nuisance. Additionally, [BNS \u00a72(28)] (Public) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -669,7 +792,10 @@
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
-      "final_verified_output": "[VERIFIER WARNING: NON-RESPONSIVE ANSWER]\nBased on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a72(28)] (Public) is relevant.",
+      "confidence_score": 0.825,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
+      "final_verified_output": "[VERIFIER REJECTION - NON-RESPONSIVE]: The cited provisions do not substantively answer the legal query intent. Non-responsive answer / irrelevant citation: Query intent keywords not covered in context.",
       "warnings": [
         "Non-responsive answer / irrelevant citation: Query intent keywords not covered in context."
       ],
@@ -688,6 +814,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7229] (Giving false evidence). Statutory provision: Statutory provision for BNS Section 229: Giving false evidence. Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -705,6 +834,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment). Statutory provision: Statutory provision for BNS Section 232: Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment. Additionally, [BNS \u00a7229] (Giving false evidence) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -722,6 +854,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7352] (Intentional insult with intent to provoke breach of the peace). Statutory provision: Statutory provision for BNS Section 352: Intentional insult with intent to provoke breach of the peace. Additionally, [BNS \u00a7264] (Intentional insult or interruption to public servant sitting in judicial proceeding) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -739,6 +874,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a785] (Husband or relative of husband of a woman subjecting her to cruelty). Statutory provision: Statutory provision for BNS Section 85: Husband or relative of husband of a woman subjecting her to cruelty. Additionally, [BNS \u00a782] (Marrying again during lifetime of husband or wife) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -756,6 +894,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a788] (Causing miscarriage). Statutory provision: Statutory provision for BNS Section 88: Causing miscarriage. Additionally, [BNS \u00a719] (Act likely to cause harm but done without criminal intent) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -773,6 +914,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a770] (Gang rape). Statutory provision: Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -790,6 +934,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a775] (Sexual harassment and punishment for sexual harassment). Statutory provision: Statutory provision for BNS Section 75: Sexual harassment and punishment for sexual harassment. Additionally, [BNS \u00a768] (Sexual intercourse by person in authority) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -807,6 +954,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a776] (Assault or use of criminal force to woman with intent to disrobe). Statutory provision: Statutory provision for BNS Section 76: Assault or use of criminal force to woman with intent to disrobe. Additionally, [BNS \u00a774] (Assault or use of criminal force to woman with intent to outrage her modesty) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -824,6 +974,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a777] (Voyeurism). Statutory provision: Statutory provision for BNS Section 77: Voyeurism. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -841,6 +994,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a778] (Stalking). Statutory provision: Statutory provision for BNS Section 78: Stalking. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -858,6 +1014,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7178] (Counterfeiting currency-notes or bank-notes). Statutory provision: Statutory provision for BNS Section 178: Counterfeiting currency-notes or bank-notes. Additionally, [BNS \u00a7179] (Using as genuine forged or counterfeit currency-notes or bank-notes) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -875,6 +1034,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7147] (Waging or attempting to wage war or abetting waging of war against Government of India). Statutory provision: Statutory provision for BNS Section 147: Waging or attempting to wage war or abetting waging of war against Government of India. Additionally, [BNS \u00a72(14)] (Government) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -892,6 +1054,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7147] (Waging or attempting to wage war or abetting waging of war against Government of India). Statutory provision: Statutory provision for BNS Section 147: Waging or attempting to wage war or abetting waging of war against Government of India. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -909,6 +1074,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -926,7 +1094,10 @@
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
-      "final_verified_output": "[VERIFIER WARNING: NON-RESPONSIVE ANSWER]\nBased on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a72(28)] (Public) is relevant.",
+      "confidence_score": 0.825,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
+      "final_verified_output": "[VERIFIER REJECTION - NON-RESPONSIVE]: The cited provisions do not substantively answer the legal query intent. Non-responsive answer / irrelevant citation: Query intent keywords not covered in context.",
       "warnings": [
         "Non-responsive answer / irrelevant citation: Query intent keywords not covered in context."
       ],
@@ -945,6 +1116,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -962,7 +1136,10 @@
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
-      "final_verified_output": "[VERIFIER WARNING: NON-RESPONSIVE ANSWER]\nBased on authoritative statutory context, this matter is governed by [BNS \u00a72(16)] (Harbour). Statutory provision: Statutory provision for BNS Section 2(16): Harbour. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "confidence_score": 0.825,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
+      "final_verified_output": "[VERIFIER REJECTION - NON-RESPONSIVE]: The cited provisions do not substantively answer the legal query intent. Non-responsive answer / irrelevant citation: Query intent keywords not covered in context.",
       "warnings": [
         "Non-responsive answer / irrelevant citation: Query intent keywords not covered in context."
       ],
@@ -981,6 +1158,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7139] (Punishment for kidnapping) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -998,6 +1178,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a7338] (Forgery for purpose of cheating) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -1015,6 +1198,9 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7335] (Forgery) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
@@ -1032,9 +1218,224 @@
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
+      "confidence_score": 1.0,
+      "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "ambiguity_score": 0.0,
       "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7340] (Using as genuine a forged document or electronic record). Statutory provision: Statutory provision for BNS Section 340: Using as genuine a forged document or electronic record. Additionally, [BNS \u00a7179] (Using as genuine forged or counterfeit currency-notes or bank-notes) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
+    }
+  ],
+  "stress_results": [
+    {
+      "error_id": "ERR_001",
+      "error_type": "hallucinated_section",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "REJECTED_HALLUCINATED_CITATION"
+    },
+    {
+      "error_id": "ERR_002",
+      "error_type": "hallucinated_section",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "REJECTED_HALLUCINATED_CITATION"
+    },
+    {
+      "error_id": "ERR_003",
+      "error_type": "hallucinated_section",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "REJECTED_HALLUCINATED_CITATION"
+    },
+    {
+      "error_id": "ERR_004",
+      "error_type": "hallucinated_section",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "REJECTED_HALLUCINATED_CITATION"
+    },
+    {
+      "error_id": "ERR_005",
+      "error_type": "hallucinated_section",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "REJECTED_HALLUCINATED_CITATION"
+    },
+    {
+      "error_id": "ERR_006",
+      "error_type": "hallucinated_section",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "REJECTED_HALLUCINATED_CITATION"
+    },
+    {
+      "error_id": "ERR_007",
+      "error_type": "repealed_section_cited",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "VETOED_REPEALED_PROVISION"
+    },
+    {
+      "error_id": "ERR_008",
+      "error_type": "repealed_section_cited",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "VETOED_REPEALED_PROVISION"
+    },
+    {
+      "error_id": "ERR_009",
+      "error_type": "repealed_section_cited",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "VETOED_REPEALED_PROVISION"
+    },
+    {
+      "error_id": "ERR_010",
+      "error_type": "repealed_section_cited",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "VETOED_REPEALED_PROVISION"
+    },
+    {
+      "error_id": "ERR_011",
+      "error_type": "repealed_section_cited",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "VETOED_REPEALED_PROVISION"
+    },
+    {
+      "error_id": "ERR_012",
+      "error_type": "repealed_section_cited",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "VETOED_REPEALED_PROVISION"
+    },
+    {
+      "error_id": "ERR_013",
+      "error_type": "ungrounded_claim",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "UNGROUNDED_CLAIM"
+    },
+    {
+      "error_id": "ERR_014",
+      "error_type": "ungrounded_claim",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "UNGROUNDED_CLAIM"
+    },
+    {
+      "error_id": "ERR_015",
+      "error_type": "ungrounded_claim",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "UNGROUNDED_CLAIM"
+    },
+    {
+      "error_id": "ERR_016",
+      "error_type": "non_responsive",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "NON_RESPONSIVE_ANSWER"
+    },
+    {
+      "error_id": "ERR_017",
+      "error_type": "non_responsive",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "NON_RESPONSIVE_ANSWER"
+    },
+    {
+      "error_id": "ERR_018",
+      "error_type": "non_responsive",
+      "is_adversarial": true,
+      "is_verified": false,
+      "verdict": "NON_RESPONSIVE_ANSWER"
+    },
+    {
+      "error_id": "ERR_019",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_020",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_021",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_022",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_023",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_024",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_025",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_026",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_027",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_028",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_029",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "error_id": "ERR_030",
+      "error_type": "valid_control",
+      "is_adversarial": false,
+      "is_verified": true,
+      "verdict": "VERIFIED"
     }
   ]
 }

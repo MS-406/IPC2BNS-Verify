@@ -363,8 +363,11 @@ CRPC_TO_BNSS_MAP: Dict[str, Dict[str, str]] = {
     "356": {"bnss": "356", "title": "Trial in absentia of proclaimed offenders", "status": "exact"},
     "176(3)": {"bnss": "176(3)", "title": "Mandatory forensic investigation at crime scenes", "status": "exact"},
     "105": {"bnss": "105", "title": "Mandatory videography and electronic recording of search", "status": "exact"},
-    "472": {"bnss": "472", "title": "Procedure and timelines for mercy petitions in death sentences", "status": "exact"}
+    "472": {"bnss": "472", "title": "Procedure and timelines for mercy petitions in death sentences", "status": "exact"},
+    "83": {"bnss": "86", "title": "Attachment of property of person absconding", "status": "exact"},
+    "530": {"bnss": "530", "title": "Trial and proceedings through audio-video electronic means", "status": "exact"}
 }
+
 
 BNSS_TO_CRPC_MAP: Dict[str, Dict[str, str]] = {
     v["bnss"]: {"crpc": k, "title": v["title"], "status": v["status"]}

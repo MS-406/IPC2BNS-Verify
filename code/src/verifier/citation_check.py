@@ -48,8 +48,9 @@ class CitationExistenceVerifier:
         self.valid_bns_ids: Set[str] = set(self.lookup.get_all_valid_bns_sections())
         self.valid_ipc_ids: Set[str] = set(self.lookup.get_all_valid_ipc_sections())
         # Procedural valid IDs
-        self.valid_crpc_ids: Set[str] = {"154", "41", "47", "167", "438", "437", "144", "173", "164", "174", "106", "125", "260", "320", "321", "374", "378", "482", "428", "366"}
-        self.valid_bnss_ids: Set[str] = {"173", "35", "44", "187", "482", "480", "163", "193", "183", "194", "125", "144", "283", "359", "360", "415", "419", "528", "468", "453", "356", "105", "472"}
+        self.valid_crpc_ids: Set[str] = {"154", "41", "47", "83", "167", "438", "437", "144", "173", "164", "174", "106", "125", "260", "320", "321", "374", "378", "482", "428", "366"}
+        self.valid_bnss_ids: Set[str] = {"173", "35", "44", "86", "187", "482", "480", "163", "193", "183", "194", "125", "144", "283", "359", "360", "415", "419", "528", "468", "453", "356", "105", "176", "472", "530"}
+
 
     def register_dynamic_sections(self, sections: List[str], act: str = "BNS"):
         """Registers newly gazetted amendment section IDs after a corpus refresh."""
