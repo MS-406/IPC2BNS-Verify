@@ -201,10 +201,12 @@ if st.button("🚀 Run Verification Pipeline", type="primary", use_container_wid
 
     with tab1:
         st.json({
+            "original_query": norm_res.original_query,
             "extracted_section": norm_res.extracted_section,
             "detected_act": norm_res.detected_act,
             "extraction_method": norm_res.method,
-            "cleaned_query": norm_res.cleaned_query
+            "confidence": norm_res.confidence,
+            "offence_name": norm_res.offence_name
         })
 
     with tab2:
@@ -238,7 +240,10 @@ if st.button("🚀 Run Verification Pipeline", type="primary", use_container_wid
             "ambiguity_score": v_res.ambiguity_score,
             "ambiguity_details": v_res.ambiguity_details,
             "layer1_valid": v_res.layer1_result.is_valid,
+            "layer1_5_cross_statute_consistent": v_res.layer1_result.is_cross_statute_consistent,
             "layer2_grounded": v_res.layer2_result.is_grounded,
             "layer2_intent_aligned": v_res.layer2_result.intent_aligned,
-            "layer2_overlap_score": v_res.layer2_result.overlap_score
+            "layer2_overlap_score": v_res.layer2_result.overlap_score,
+            "advisory_warnings": v_res.warnings
         })
+
