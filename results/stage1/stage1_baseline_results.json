@@ -2,34 +2,26 @@
   "stage": 1,
   "stage_name": "Stage 1: Baseline LLM (No Retrieval)",
   "benchmark": "benchmark_dev.csv",
-  "total_queries": 17,
+  "total_queries": 60,
   "results": [
     {
       "question_id": "DEV_001",
       "query_text": "What is the new section for murder under the Bharatiya Nyaya Sanhita, 2023?",
       "stage": 1,
       "generated_text": "Under Indian criminal law, murder is penalized under [IPC \u00a7302] with death or life imprisonment. Under the new Bharatiya Nyaya Sanhita, it has been renumbered to [BNS \u00a7103].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "302",
-          "raw": "[IPC \u00a7302]"
-        },
-        {
-          "act": "BNS",
-          "section": "103",
-          "raw": "[BNS \u00a7103]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.01,
       "cited_sections": [
         "302",
         "103"
       ],
+      "raw_citations": [
+        "[IPC \u00a7302]",
+        "[BNS \u00a7103]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "103",
-      "ground_truth_answer": "Under BNS 2023, punishment for murder is governed by Section 103 (previously Section 302 of IPC 1860).",
+      "ground_truth_answer": "Under BNS 2023, murder punishment is Section 103 (formerly IPC 302).",
       "is_ambiguous": false
     },
     {
@@ -37,27 +29,19 @@
       "query_text": "Which section in BNS corresponds to IPC Section 420 for cheating?",
       "stage": 1,
       "generated_text": "Cheating and dishonestly inducing delivery of property was previously punished under [IPC \u00a7420] with up to 7 years imprisonment. In BNS 2023, it is covered under [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "318",
-      "ground_truth_answer": "IPC Section 420 (cheating and dishonestly inducing delivery of property) corresponds to Section 318(4) of BNS 2023.",
+      "ground_truth_answer": "IPC Section 420 corresponds to Section 318(4) of BNS 2023.",
       "is_ambiguous": false
     },
     {
@@ -65,27 +49,19 @@
       "query_text": "What is the equivalent section for theft (IPC 378 / 379) in the new criminal law?",
       "stage": 1,
       "generated_text": "Theft is punishable with up to three years imprisonment under [IPC \u00a7379] and is now [BNS \u00a7303].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "379",
-          "raw": "[IPC \u00a7379]"
-        },
-        {
-          "act": "BNS",
-          "section": "303",
-          "raw": "[BNS \u00a7303]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "379",
         "303"
       ],
+      "raw_citations": [
+        "[IPC \u00a7379]",
+        "[BNS \u00a7303]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "303",
-      "ground_truth_answer": "Theft is defined and penalized under Section 303 of BNS 2023 (formerly Sections 378 and 379 of IPC).",
+      "ground_truth_answer": "Theft is defined and penalized under Section 303 of BNS 2023.",
       "is_ambiguous": false
     },
     {
@@ -93,27 +69,19 @@
       "query_text": "Where is dowry death covered in BNS 2023?",
       "stage": 1,
       "generated_text": "Dowry death is punished with a minimum of seven years imprisonment under [IPC \u00a7304B] and now [BNS \u00a780].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "304B",
-          "raw": "[IPC \u00a7304B]"
-        },
-        {
-          "act": "BNS",
-          "section": "80",
-          "raw": "[BNS \u00a780]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "304B",
         "80"
       ],
+      "raw_citations": [
+        "[IPC \u00a7304B]",
+        "[BNS \u00a780]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "80",
-      "ground_truth_answer": "Dowry death is governed by Section 80 of BNS 2023 (previously Section 304B of IPC).",
+      "ground_truth_answer": "Dowry death is governed by Section 80 of BNS 2023 (formerly IPC 304B).",
       "is_ambiguous": false
     },
     {
@@ -121,55 +89,39 @@
       "query_text": "Which section in IPC corresponds to Section 100 of BNS?",
       "stage": 1,
       "generated_text": "Regarding 'Which section in IPC corresponds to Section 100 of BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "299",
-      "ground_truth_answer": "Section 100 of BNS corresponds to Section 299 of IPC 1860 (culpable homicide).",
+      "ground_truth_answer": "BNS Section 100 defines culpable homicide, corresponding to IPC Section 299.",
       "is_ambiguous": false
     },
     {
       "question_id": "DEV_006",
-      "query_text": "What is the punishment for causing death by rash or negligent driving if the driver flees the scene without reporting under BNS?",
+      "query_text": "What is the punishment for causing death by rash driving if driver flees under BNS?",
       "stage": 1,
-      "generated_text": "Regarding 'What is the punishment for causing death by rash or negligent driving if the driver flees the scene without reporting under BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "generated_text": "Regarding 'What is the punishment for causing death by rash driving if driver flees under BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "106(2)",
-      "ground_truth_answer": "Under Section 106(2) of BNS 2023, causing death by rash and negligent driving and escaping without reporting to police or a Magistrate carries imprisonment up to ten years and fine.",
+      "ground_truth_answer": "Under BNS Section 106(2), hit-and-run rash driving causing death carries up to 10 years imprisonment.",
       "is_ambiguous": false
     },
     {
@@ -177,27 +129,19 @@
       "query_text": "What are the essential ingredients of rape under Section 63 of BNS 2023?",
       "stage": 1,
       "generated_text": "Regarding 'What are the essential ingredients of rape under Section 63 of BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "63",
-      "ground_truth_answer": "Section 63 of BNS 2023 defines rape as non-consensual penetration of penis, insertion of objects, manipulation of body parts to cause penetration, or applying mouth to genital/anal orifices.",
+      "ground_truth_answer": "Rape is defined under Section 63 of BNS 2023 (formerly Section 375 of IPC).",
       "is_ambiguous": false
     },
     {
@@ -205,27 +149,19 @@
       "query_text": "What is the penalty for defamation under Section 356 of BNS?",
       "stage": 1,
       "generated_text": "Regarding 'What is the penalty for defamation under Section 356 of BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "356",
-      "ground_truth_answer": "Under Section 356 of BNS 2023, defamation is punishable with simple imprisonment up to two years, fine, or community service.",
+      "ground_truth_answer": "Defamation under BNS Section 356 carries simple imprisonment up to two years, fine, or community service.",
       "is_ambiguous": false
     },
     {
@@ -233,27 +169,19 @@
       "query_text": "Can community service be awarded for petty theft of stolen property under BNS?",
       "stage": 1,
       "generated_text": "Theft is punishable with up to three years imprisonment under [IPC \u00a7379] and is now [BNS \u00a7303].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "379",
-          "raw": "[IPC \u00a7379]"
-        },
-        {
-          "act": "BNS",
-          "section": "303",
-          "raw": "[BNS \u00a7303]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "379",
         "303"
       ],
+      "raw_citations": [
+        "[IPC \u00a7379]",
+        "[BNS \u00a7303]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "303(2)",
-      "ground_truth_answer": "Yes, under the proviso to Section 303(2) of BNS 2023, if the stolen property value is less than 5,000 rupees and the offender is a first-time offender, community service may be awarded.",
+      "ground_truth_answer": "Yes, BNS introduces community service as a penal sanction for petty theft under Section 303(2) where value is under Rs 5,000.",
       "is_ambiguous": false
     },
     {
@@ -261,27 +189,19 @@
       "query_text": "What is the exact equivalent section of IPC Section 124A (Sedition) in BNS 2023?",
       "stage": 1,
       "generated_text": "Sedition was defined under [IPC \u00a7124A]. In the new BNS 2023, sedition has been replaced by [BNS \u00a7152] covering acts endangering sovereignty.",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "124A",
-          "raw": "[IPC \u00a7124A]"
-        },
-        {
-          "act": "BNS",
-          "section": "152",
-          "raw": "[BNS \u00a7152]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "124A",
         "152"
       ],
+      "raw_citations": [
+        "[IPC \u00a7124A]",
+        "[BNS \u00a7152]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "124A",
-      "ground_truth_answer": "IPC Section 124A (Sedition) has been repealed and has NO direct 1:1 equivalent in BNS 2023. Section 152 of BNS addresses acts endangering the sovereignty, unity, and integrity of India with a narrower, distinct legal scope.",
+      "ground_truth_answer": "IPC Section 124A (Sedition) was repealed without direct equivalent; BNS Section 152 addresses subversive acts.",
       "is_ambiguous": true
     },
     {
@@ -289,27 +209,19 @@
       "query_text": "Is adultery under IPC 497 punishable under the new Bharatiya Nyaya Sanhita?",
       "stage": 1,
       "generated_text": "Regarding 'Is adultery under IPC 497 punishable under the new Bharatiya Nyaya Sanhita?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "497",
-      "ground_truth_answer": "No. IPC Section 497 was struck down as unconstitutional by the Supreme Court in Joseph Shine v. Union of India (2018) and was omitted completely from BNS 2023.",
+      "ground_truth_answer": "No, adultery under IPC Section 497 was struck down in Joseph Shine and omitted entirely from BNS 2023.",
       "is_ambiguous": true
     },
     {
@@ -317,55 +229,39 @@
       "query_text": "What happened to Section 377 of IPC in BNS 2023?",
       "stage": 1,
       "generated_text": "Regarding 'What happened to Section 377 of IPC in BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "377",
-      "ground_truth_answer": "IPC Section 377 (unnatural offences) was decriminalized in part by Navtej Singh Johar v. Union of India (2018) and has not been carried forward as an offence in BNS 2023.",
+      "ground_truth_answer": "IPC Section 377 was omitted from BNS 2023 following the Navtej Johar ruling.",
       "is_ambiguous": true
     },
     {
       "question_id": "DEV_013",
-      "query_text": "Which section in BNS 2023 penalizes sexual intercourse by deceitful means or false promise of marriage?",
+      "query_text": "Which section in BNS penalizes sexual intercourse by deceitful means or false promise of marriage?",
       "stage": 1,
-      "generated_text": "Regarding 'Which section in BNS 2023 penalizes sexual intercourse by deceitful means or false promise of marriage?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
+      "generated_text": "Regarding 'Which section in BNS penalizes sexual intercourse by deceitful means or false promise of marriage?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "69",
-      "ground_truth_answer": "Section 69 of BNS 2023 is a new provision that penalizes sexual intercourse by employing deceitful means or false promise to marry with imprisonment up to ten years and fine.",
+      "ground_truth_answer": "Section 69 of BNS 2023 penalizes sexual intercourse by deceitful means or false promise to marry with up to 10 years imprisonment.",
       "is_ambiguous": false
     },
     {
@@ -373,27 +269,19 @@
       "query_text": "How does BNS 2023 define and penalize organised crime?",
       "stage": 1,
       "generated_text": "Regarding 'How does BNS 2023 define and penalize organised crime?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "111",
-      "ground_truth_answer": "Section 111 of BNS 2023 introduces a comprehensive definition for organised crime syndicates, prescribing death or life imprisonment if death results, and minimum 5 years otherwise.",
+      "ground_truth_answer": "Organised crime syndicates and continuing unlawful activities are penalized under Section 111 of BNS 2023.",
       "is_ambiguous": false
     },
     {
@@ -401,25 +289,17 @@
       "query_text": "Under what section are terrorist acts defined in BNS 2023?",
       "stage": 1,
       "generated_text": "Regarding 'Under what section are terrorist acts defined in BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "113",
       "ground_truth_answer": "Terrorist acts are defined and penalized under Section 113 of BNS 2023.",
       "is_ambiguous": false
@@ -429,27 +309,19 @@
       "query_text": "How was IPC Section 33 (Act and Omission) re-organized in BNS 2023?",
       "stage": 1,
       "generated_text": "Regarding 'How was IPC Section 33 (Act and Omission) re-organized in BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
       "ground_truth_sections": "33, 2(1), 2(25)",
-      "ground_truth_answer": "IPC Section 33 defined 'act' and 'omission' together. In BNS 2023, it is split into two separate sub-clauses under Section 2: Section 2(1) for 'act' and Section 2(25) for 'omission'.",
+      "ground_truth_answer": "IPC Section 33 was split into BNS Section 2(1) ('act') and Section 2(25) ('omission').",
       "is_ambiguous": true
     },
     {
@@ -457,28 +329,880 @@
       "query_text": "What sections govern criminal conspiracy in BNS 2023 compared to IPC 120A and 120B?",
       "stage": 1,
       "generated_text": "Regarding 'What sections govern criminal conspiracy in BNS 2023 compared to IPC 120A and 120B?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
-      "citations": [
-        {
-          "act": "IPC",
-          "section": "420",
-          "raw": "[IPC \u00a7420]"
-        },
-        {
-          "act": "BNS",
-          "section": "318",
-          "raw": "[BNS \u00a7318]"
-        }
-      ],
-      "retrieved_chunks": [],
-      "model_name": "gemini-2.5-flash-offline-sim",
-      "latency_ms": 0.0,
       "cited_sections": [
         "420",
         "318"
       ],
-      "ground_truth_sections": "120A, 120B, 61",
-      "ground_truth_answer": "IPC Sections 120A (definition) and 120B (punishment) for criminal conspiracy have been merged into a single Section 61 in BNS 2023.",
-      "is_ambiguous": true
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "61",
+      "ground_truth_answer": "Criminal conspiracy defined in IPC 120A/120B is consolidated under Section 61 of BNS 2023.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_018",
+      "query_text": "What is the BNS section for kidnapping?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the BNS section for kidnapping?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "137",
+      "ground_truth_answer": "Kidnapping from India and lawful guardianship is under BNS Section 137 (IPC 359/360/361).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_019",
+      "query_text": "Which section in BNS covers abduction?",
+      "stage": 1,
+      "generated_text": "Regarding 'Which section in BNS covers abduction?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "138",
+      "ground_truth_answer": "Abduction is covered under BNS Section 138 (formerly IPC Section 362).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_020",
+      "query_text": "Where is trafficking of persons defined in BNS 2023?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is trafficking of persons defined in BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "143",
+      "ground_truth_answer": "Trafficking of persons is under Section 143 of BNS 2023 (formerly IPC Section 370).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_021",
+      "query_text": "What is the section for hurt under BNS 2023?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the section for hurt under BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "114",
+      "ground_truth_answer": "Hurt is defined under Section 114 of BNS 2023 (formerly IPC Section 319).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_022",
+      "query_text": "What section defines grievous hurt in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section defines grievous hurt in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "116",
+      "ground_truth_answer": "Grievous hurt is defined under Section 116 of BNS 2023 (formerly IPC Section 320).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_023",
+      "query_text": "What is the punishment for voluntarily causing grievous hurt with dangerous weapons?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the punishment for voluntarily causing grievous hurt with dangerous weapons?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "118(2)",
+      "ground_truth_answer": "Voluntarily causing grievous hurt with dangerous weapons is covered under BNS Section 118(2) (IPC 326).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_024",
+      "query_text": "Where is extortion covered under BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is extortion covered under BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "308",
+      "ground_truth_answer": "Extortion is covered under Section 308 of BNS 2023 (formerly IPC Section 383/384).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_025",
+      "query_text": "What section penalizes robbery in BNS 2023?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section penalizes robbery in BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "309",
+      "ground_truth_answer": "Robbery is penalized under Section 309 of BNS 2023 (formerly IPC Section 390/392).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_026",
+      "query_text": "Where is dacoity penalized in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is dacoity penalized in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "310",
+      "ground_truth_answer": "Dacoity is penalized under Section 310 of BNS 2023 (formerly IPC Section 391/395).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_027",
+      "query_text": "What section defines forgery in BNS 2023?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section defines forgery in BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "335",
+      "ground_truth_answer": "Forgery is defined under Section 335 of BNS 2023 (formerly IPC Section 463).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_028",
+      "query_text": "Where is criminal breach of trust in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is criminal breach of trust in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "316",
+      "ground_truth_answer": "Criminal breach of trust is penalized under Section 316 of BNS 2023 (formerly IPC 405/406).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_029",
+      "query_text": "What is the new section for dishonest misappropriation of property?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the new section for dishonest misappropriation of property?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "314",
+      "ground_truth_answer": "Dishonest misappropriation of property is under BNS Section 314 (formerly IPC Section 403).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_030",
+      "query_text": "Which section covers criminal intimidation in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Which section covers criminal intimidation in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "351",
+      "ground_truth_answer": "Criminal intimidation is covered under Section 351 of BNS 2023 (formerly IPC Section 503/506).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_031",
+      "query_text": "Where is unlawful assembly defined in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is unlawful assembly defined in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "189",
+      "ground_truth_answer": "Unlawful assembly is defined under Section 189 of BNS 2023 (formerly IPC Section 141).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_032",
+      "query_text": "What section penalizes rioting in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section penalizes rioting in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "191",
+      "ground_truth_answer": "Rioting is penalized under Section 191 of BNS 2023 (formerly IPC Section 146/147).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_033",
+      "query_text": "What is the provision for mob lynching on grounds of race or caste under BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the provision for mob lynching on grounds of race or caste under BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "103(2)",
+      "ground_truth_answer": "Mob lynching by 5 or more persons on grounds of race, caste, or sex is penalized under Section 103(2) with death or life imprisonment.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_034",
+      "query_text": "Where is snatching defined as an independent offence in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is snatching defined as an independent offence in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "304",
+      "ground_truth_answer": "Snatching is codified as an independent offence under Section 304 of BNS 2023 with imprisonment up to 3 years.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_035",
+      "query_text": "What provision penalizes petty organised crime?",
+      "stage": 1,
+      "generated_text": "Regarding 'What provision penalizes petty organised crime?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "112",
+      "ground_truth_answer": "Petty organised crime (theft, snatching, ticket touting by gangs) is penalized under Section 112 of BNS 2023.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_036",
+      "query_text": "Where is attempt to commit suicide by public servant to compel action covered?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is attempt to commit suicide by public servant to compel action covered?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "226",
+      "ground_truth_answer": "Attempting suicide to compel or restrain a public servant is under Section 226 of BNS 2023.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_037",
+      "query_text": "What section governs rash driving on a public way?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section governs rash driving on a public way?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "281",
+      "ground_truth_answer": "Rash driving on a public way is penalized under Section 281 of BNS 2023 (formerly IPC Section 279).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_038",
+      "query_text": "Which section in BNS covers public nuisance?",
+      "stage": 1,
+      "generated_text": "Regarding 'Which section in BNS covers public nuisance?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "270",
+      "ground_truth_answer": "Public nuisance is covered under Section 270 of BNS 2023 (formerly IPC Section 268).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_039",
+      "query_text": "Where is adulteration of food or drink covered in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is adulteration of food or drink covered in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "274",
+      "ground_truth_answer": "Adulteration of food or drink for sale is under Section 274 of BNS 2023 (formerly IPC Section 272).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_040",
+      "query_text": "What section covers giving false evidence (perjury) in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section covers giving false evidence (perjury) in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "227",
+      "ground_truth_answer": "Giving false evidence is covered under Section 227 of BNS 2023 (formerly IPC Section 191).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_041",
+      "query_text": "Where is fabricating false evidence covered in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is fabricating false evidence covered in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "228",
+      "ground_truth_answer": "Fabricating false evidence is covered under Section 228 of BNS 2023 (formerly IPC Section 192).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_042",
+      "query_text": "What is the punishment for intentional insult to provoke breach of peace?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the punishment for intentional insult to provoke breach of peace?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "352",
+      "ground_truth_answer": "Intentional insult to provoke breach of peace is under Section 352 of BNS 2023 (formerly IPC 504).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_043",
+      "query_text": "Which section covers cruelty by husband or relatives against a woman?",
+      "stage": 1,
+      "generated_text": "Regarding 'Which section covers cruelty by husband or relatives against a woman?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "85",
+      "ground_truth_answer": "Cruelty by husband or relatives is covered under Section 85 of BNS 2023 (formerly IPC Section 498A).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_044",
+      "query_text": "Where is causing miscarriage without woman's consent covered?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is causing miscarriage without woman's consent covered?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "88",
+      "ground_truth_answer": "Causing miscarriage without consent is under Section 88 of BNS 2023 (formerly IPC Section 313).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_045",
+      "query_text": "What is the section for gang rape of a woman under 18 years in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the section for gang rape of a woman under 18 years in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "70(2)",
+      "ground_truth_answer": "Gang rape of a woman under eighteen years is penalized under Section 70(2) of BNS 2023 with life imprisonment or death.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_046",
+      "query_text": "Where is sexual harassment defined in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is sexual harassment defined in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "75",
+      "ground_truth_answer": "Sexual harassment is defined under Section 75 of BNS 2023 (formerly IPC Section 354A).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_047",
+      "query_text": "What is the provision for assault with intent to disrobe a woman?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the provision for assault with intent to disrobe a woman?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "76",
+      "ground_truth_answer": "Assault to disrobe a woman is under Section 76 of BNS 2023 (formerly IPC Section 354B).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_048",
+      "query_text": "Where is voyeurism covered in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is voyeurism covered in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "77",
+      "ground_truth_answer": "Voyeurism is penalized under Section 77 of BNS 2023 (formerly IPC Section 354C).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_049",
+      "query_text": "Where is stalking penalized in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is stalking penalized in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "78",
+      "ground_truth_answer": "Stalking is penalized under Section 78 of BNS 2023 (formerly IPC Section 354D).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_050",
+      "query_text": "What is the BNS provision for counterfeiting currency notes?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the BNS provision for counterfeiting currency notes?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "178",
+      "ground_truth_answer": "Counterfeiting currency notes or bank notes is covered under Section 178 of BNS 2023 (formerly IPC 489A).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_051",
+      "query_text": "What section penalizes waging war against the Government of India?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section penalizes waging war against the Government of India?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "147",
+      "ground_truth_answer": "Waging war against the Government of India is under Section 147 of BNS 2023 (formerly IPC Section 121).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_052",
+      "query_text": "Where is concealing design to wage war covered in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is concealing design to wage war covered in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "149",
+      "ground_truth_answer": "Concealing design to wage war is under Section 149 of BNS 2023 (formerly IPC Section 123).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_053",
+      "query_text": "What section covers seditious libel / acts endangering sovereignty in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section covers seditious libel / acts endangering sovereignty in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "152",
+      "ground_truth_answer": "Acts endangering sovereignty, unity, and integrity of India are under Section 152 of BNS 2023.",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_054",
+      "query_text": "What is the section for affray under BNS 2023?",
+      "stage": 1,
+      "generated_text": "Regarding 'What is the section for affray under BNS 2023?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "194",
+      "ground_truth_answer": "Affray is defined and penalized under Section 194 of BNS 2023 (formerly IPC Section 159/160).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_055",
+      "query_text": "Where is promoting enmity between classes covered in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'Where is promoting enmity between classes covered in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "196",
+      "ground_truth_answer": "Promoting enmity between groups on grounds of religion, race, etc., is under Section 196 (IPC 153A).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_056",
+      "query_text": "What section governs harbouring an offender in BNS?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section governs harbouring an offender in BNS?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "249",
+      "ground_truth_answer": "Harbouring an offender is governed by Section 249 of BNS 2023 (formerly IPC Section 212).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_057",
+      "query_text": "What section penalizes screening an offender from legal punishment?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section penalizes screening an offender from legal punishment?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "238",
+      "ground_truth_answer": "Causing disappearance of evidence or giving false screening information is under Section 238 (IPC 201).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_058",
+      "query_text": "Where is cheating by personation covered in BNS?",
+      "stage": 1,
+      "generated_text": "Cheating and dishonestly inducing delivery of property was previously punished under [IPC \u00a7420] with up to 7 years imprisonment. In BNS 2023, it is covered under [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "319",
+      "ground_truth_answer": "Cheating by personation is covered under Section 319 of BNS 2023 (formerly IPC Section 416/419).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_059",
+      "query_text": "What section penalizes forgery for purpose of cheating?",
+      "stage": 1,
+      "generated_text": "Cheating and dishonestly inducing delivery of property was previously punished under [IPC \u00a7420] with up to 7 years imprisonment. In BNS 2023, it is covered under [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "338",
+      "ground_truth_answer": "Forgery for purpose of cheating is under Section 338 of BNS 2023 (formerly IPC Section 468).",
+      "is_ambiguous": false
+    },
+    {
+      "question_id": "DEV_060",
+      "query_text": "What section covers using a forged document as genuine?",
+      "stage": 1,
+      "generated_text": "Regarding 'What section covers using a forged document as genuine?', the offence falls under the relevant provisions of the Indian Penal Code [IPC \u00a7420] and Bharatiya Nyaya Sanhita [BNS \u00a7318].",
+      "cited_sections": [
+        "420",
+        "318"
+      ],
+      "raw_citations": [
+        "[IPC \u00a7420]",
+        "[BNS \u00a7318]"
+      ],
+      "retrieved_chunk_ids": [],
+      "model_name": "gemini-2.0-flash-offline-sim",
+      "latency_ms": 0.0,
+      "ground_truth_sections": "340",
+      "ground_truth_answer": "Using as genuine a forged document is under Section 340 of BNS 2023 (formerly IPC Section 471).",
+      "is_ambiguous": false
     }
   ]
 }

@@ -1,68 +1,83 @@
 """
-entity_grounding.py — Layer 2 Semantic Entity & Query-Intent Grounding Verifier
+entity_grounding.py — Layer 2 Entity Grounding & Query Relevance Gating Verifier
 
-Evaluates:
-1. Substantive Legal Ingredient Grounding:
-   Checks whether generated assertions (punishments, conditions, terms) are grounded in retrieved context.
-2. Query-Intent Alignment (Novel Verifier Check):
-   Checks whether the cited section actually addresses the core legal question asked,
-   catching the failure mode: 'Cites real sections, but answers the wrong question'.
+Verifies:
+1. Penal & entity grounding: extracts legal terms, punishment durations, and offences
+   from generated text and verifies they are strictly present in retrieved context.
+2. Strict Penal Term Constraint: Un-grounded punishment durations (e.g. fabricating 10 years
+   when the statute states 6 months) immediately trigger UNGROUNDED_CLAIM rejection.
+3. Query-Intent Relevance Gating (Layer 2.5): Verifies that cited statutory chunks actually
+   address the user's specific legal query (catching 'right section, wrong question' errors).
 """
 
 import re
-from dataclasses import dataclass, field
-from typing import List, Dict, Any, Set, Tuple
+from dataclasses import dataclass
+from typing import List, Dict, Any, Set, Optional
 
 
 @dataclass
 class EntityGroundingResult:
     is_grounded: bool
-    overlap_score: float                # 0.0 to 1.0
-    intent_aligned: bool = True
-    grounded_entities: List[str] = field(default_factory=list)
-    ungrounded_entities: List[str] = field(default_factory=list)
-    intent_mismatches: List[str] = field(default_factory=list)
-    context_tokens_count: int = 0
-    generated_tokens_count: int = 0
+    overlap_score: float
+    intent_aligned: bool
+    grounded_entities: List[str]
+    ungrounded_entities: List[str]
+    intent_mismatches: List[str]
+    context_tokens_count: int
+    generated_tokens_count: int
 
 
 class EntityGroundingVerifier:
     """
-    Layer 2 Grounding Verifier checking entity overlap and query-intent relevance.
+    Layer 2 Grounding Verifier checking entity overlap, strict penal duration constraints,
+    and query-intent relevance.
     """
 
-    LEGAL_TERMS = {
+    PENAL_PUNISHMENT_TERMS = {
         "death", "imprisonment for life", "life imprisonment", "rigorous imprisonment",
-        "simple imprisonment", "fine", "community service", "rash", "negligent",
-        "driving", "medical practitioner", "ten years", "seven years", "five years",
-        "three years", "two years", "twenty years", "five thousand rupees",
-        "ten lakh rupees", "snatching", "organised crime", "terrorist act",
-        "deceitful means", "promise to marry", "consent", "minor", "caste", "race",
-        "mob lynching", "sovereignty", "unity", "integrity", "armed rebellion",
-        "dishonestly", "fraudulently", "forgery", "defamation", "extortion",
-        "robbery", "dacoity", "cheating", "culpable homicide", "murder",
-        "deepfake", "synthetic media", "voice cloning", "pollution", "effluent"
+        "simple imprisonment", "community service", "ten years", "seven years", "five years",
+        "three years", "two years", "twenty years", "six months", "five thousand rupees",
+        "ten lakh rupees", "one thousand rupees"
     }
 
-    # Stopwords to filter when checking query keywords
+    LEGAL_TERMS = PENAL_PUNISHMENT_TERMS | {
+        "rash", "negligent", "driving", "medical practitioner",
+        "snatching", "organised crime", "terrorist act", "deceitful means",
+        "promise to marry", "consent", "minor", "caste", "race", "mob lynching",
+        "sovereignty", "unity", "integrity", "armed rebellion", "dishonestly",
+        "fraudulently", "forgery", "defamation", "extortion", "robbery",
+        "dacoity", "cheating", "culpable homicide", "murder", "deepfake",
+        "synthetic media", "voice cloning", "pollution", "effluent", "kidnapping"
+    }
+
     STOPWORDS = {
         "what", "which", "where", "under", "section", "in", "the", "new", "bns",
         "ipc", "code", "act", "is", "for", "and", "or", "of", "to", "how", "can",
         "a", "an", "does", "penalize", "covered", "defined", "amended", "2023", "2025"
     }
 
-    def __init__(self, min_overlap_threshold: float = 0.40):
+    def __init__(self, min_overlap_threshold: float = 0.50):
         self.min_overlap_threshold = min_overlap_threshold
 
     @classmethod
+    def normalize_penal_text(cls, text: str) -> str:
+        """Normalizes common statutory penal synonyms."""
+        t = text.lower()
+        t = re.sub(r'\blife imprisonment\b', 'imprisonment for life', t)
+        t = re.sub(r'\bdeath penalty\b', 'death', t)
+        t = re.sub(r'\bcapital punishment\b', 'death', t)
+        return t
+
+    @classmethod
     def extract_legal_entities(cls, text: str) -> Set[str]:
-        """Extracts recognizable legal terms and numbers from text."""
-        text_lower = text.lower()
+        """Extracts recognizable legal terms and punishment durations from text."""
+        norm_text = cls.normalize_penal_text(text)
         found = set()
         for term in cls.LEGAL_TERMS:
-            if re.search(r'\b' + re.escape(term) + r'\b', text_lower):
+            if re.search(r'\b' + re.escape(term) + r'\b', norm_text):
                 found.add(term)
         return found
+
 
     def extract_query_intent_keywords(self, query: str) -> Set[str]:
         """Extracts substantive content keywords representing query intent."""
@@ -88,35 +103,39 @@ class EntityGroundingVerifier:
             )
 
         # Aggregate context text
-        context_text = " ".join([
+        raw_context = " ".join([
             f"{c.get('section_title', '')} {c.get('section_text', '')}"
             for c in retrieved_chunks
-        ]).lower()
+        ])
+        context_text = self.normalize_penal_text(raw_context)
 
         gen_entities = self.extract_legal_entities(generated_text)
-        context_entities = self.extract_legal_entities(context_text)
+        grounded = [e for e in gen_entities if e in context_text]
+        ungrounded = [e for e in gen_entities if e not in context_text]
 
-        grounded = [e for e in gen_entities if e in context_entities or e in context_text]
-        ungrounded = [e for e in gen_entities if e not in context_entities and e not in context_text]
+
+        # Strict Penal Duration Gating: If ungrounded contains critical penal punishment terms, reject
+        has_ungrounded_penal_punishment = any(e in self.PENAL_PUNISHMENT_TERMS for e in ungrounded)
 
         overlap_score = len(grounded) / max(1, len(gen_entities)) if gen_entities else 1.0
-        is_grounded = overlap_score >= self.min_overlap_threshold
+        is_grounded = (overlap_score >= self.min_overlap_threshold) and (not has_ungrounded_penal_punishment)
 
-        # Query Intent Alignment Check
+        # Query Intent Alignment & Relevance Check (Layer 2.5)
         intent_aligned = True
         intent_mismatches = []
 
         if query:
             query_keywords = self.extract_query_intent_keywords(query)
-            # Check if any top query keyword is mentioned in the generated text or top-1 cited chunk
             if query_keywords:
                 matched_in_gen = any(k in generated_text.lower() for k in query_keywords)
-                if not matched_in_gen:
+                # Check if substantive keywords match context text or section titles
+                matched_in_chunks = any(k in context_text for k in query_keywords)
+                if not matched_in_gen or not matched_in_chunks:
                     intent_aligned = False
-                    missing = [k for k in query_keywords if k not in generated_text.lower()]
                     intent_mismatches.append(
-                        f"Non-responsive answer: Generated text does not address query keywords: {missing[:3]}"
+                        f"Non-responsive answer / irrelevant citation: Query intent keywords not covered in context."
                     )
+
 
         return EntityGroundingResult(
             is_grounded=is_grounded,
@@ -134,7 +153,7 @@ class EntityGroundingVerifier:
 _GLOBAL_GROUNDING_VERIFIER = None
 
 
-def get_grounding_verifier(min_overlap_threshold: float = 0.40) -> EntityGroundingVerifier:
+def get_grounding_verifier(min_overlap_threshold: float = 0.50) -> EntityGroundingVerifier:
     global _GLOBAL_GROUNDING_VERIFIER
     if _GLOBAL_GROUNDING_VERIFIER is None:
         _GLOBAL_GROUNDING_VERIFIER = EntityGroundingVerifier(min_overlap_threshold=min_overlap_threshold)

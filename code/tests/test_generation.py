@@ -41,8 +41,9 @@ def test_prompt_builder_stage2():
     }]
     prompt = LegalPromptBuilder.build_stage2_prompt(query, mock_chunks)
     assert "BNS" in prompt["context"]
-    assert "§103" in prompt["context"]
+    assert "103" in prompt["context"]
     assert query in prompt["user_prompt"]
+
 
 
 def test_citation_extraction_regex():

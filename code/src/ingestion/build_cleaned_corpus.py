@@ -198,12 +198,17 @@ BNS_DETAILED_PROVISIONS = {
     "356": {
         "title": "Defamation",
         "chapter": "Chapter XXI — Of Defamation",
-        "text": "(1) Whoever, by words spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service."
+        "text": "(1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service."
     },
-    "351": {
-        "title": "Criminal intimidation",
-        "chapter": "Chapter XXII — Of Criminal Intimidation",
-        "text": "(1) Whoever threatens another with any injury to his person, reputation or property with intent to cause alarm, commits criminal intimidation. (2) Whoever commits criminal intimidation shall be punished with imprisonment of either description for a term which may extend to two years, or with fine, or with both."
+    "137": {
+        "title": "Kidnapping",
+        "chapter": "Chapter VI — Of Offences Affecting the Human Body",
+        "text": "(1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine."
+    },
+    "281": {
+        "title": "Rash driving or riding on a public way",
+        "chapter": "Chapter X — Of Offences Affecting Public Health and Safety",
+        "text": "Whoever drives any vehicle, or rides, on any public way in a manner so rash or negligent as to endanger human life, or to be likely to cause hurt or injury to any other person, shall be punished with imprisonment of either description for a term which may extend to six months, or with fine which may extend to one thousand rupees, or with both."
     },
     "111": {
         "title": "Organised crime",

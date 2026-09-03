@@ -337,6 +337,82 @@ class ConcordanceLookup:
 _GLOBAL_LOOKUP: Optional[ConcordanceLookup] = None
 
 
+# ── CrPC ↔ BNSS Procedural Law Mapping Table (Generalization Study) ────────
+CRPC_TO_BNSS_MAP: Dict[str, Dict[str, str]] = {
+    "154": {"bnss": "173", "title": "Information in cognizable cases (FIR & e-FIR)", "status": "exact"},
+    "41": {"bnss": "35", "title": "When police may arrest without warrant", "status": "exact"},
+    "47": {"bnss": "44", "title": "Search of place entered by person sought to be arrested", "status": "exact"},
+    "167": {"bnss": "187", "title": "Procedure when investigation cannot be completed in 24 hours (Remand)", "status": "modified"},
+    "438": {"bnss": "482", "title": "Direction for grant of bail to person apprehending arrest (Anticipatory Bail)", "status": "exact"},
+    "437": {"bnss": "480", "title": "When bail may be taken in case of non-bailable offence", "status": "exact"},
+    "144": {"bnss": "163", "title": "Power to issue order in urgent cases of nuisance / apprehended danger", "status": "exact"},
+    "173": {"bnss": "193", "title": "Report of police officer on completion of investigation (Charge-sheet)", "status": "exact"},
+    "164": {"bnss": "183", "title": "Recording of confessions and statements", "status": "exact"},
+    "174": {"bnss": "194", "title": "Police to enquire and report on suicide (Inquest)", "status": "exact"},
+    "106": {"bnss": "125", "title": "Security for keeping the peace on conviction", "status": "exact"},
+    "125": {"bnss": "144", "title": "Order for maintenance of wives, children and parents", "status": "exact"},
+    "265A": {"bnss": "289", "title": "Application of the Chapter (Plea Bargaining)", "status": "exact"},
+    "260": {"bnss": "283", "title": "Power to try summarily", "status": "exact"},
+    "320": {"bnss": "359", "title": "Compounding of offences", "status": "exact"},
+    "321": {"bnss": "360", "title": "Withdrawal from prosecution", "status": "exact"},
+    "374": {"bnss": "415", "title": "Appeals from convictions", "status": "exact"},
+    "378": {"bnss": "419", "title": "Appeal in case of acquittal", "status": "exact"},
+    "482": {"bnss": "528", "title": "Saving of inherent powers of High Court", "status": "exact"},
+    "428": {"bnss": "468", "title": "Period of detention undergone by accused to be set off against sentence", "status": "exact"},
+    "366": {"bnss": "453", "title": "Execution of order of death sentence", "status": "exact"},
+    "356": {"bnss": "356", "title": "Trial in absentia of proclaimed offenders", "status": "exact"},
+    "176(3)": {"bnss": "176(3)", "title": "Mandatory forensic investigation at crime scenes", "status": "exact"},
+    "105": {"bnss": "105", "title": "Mandatory videography and electronic recording of search", "status": "exact"},
+    "472": {"bnss": "472", "title": "Procedure and timelines for mercy petitions in death sentences", "status": "exact"}
+}
+
+BNSS_TO_CRPC_MAP: Dict[str, Dict[str, str]] = {
+    v["bnss"]: {"crpc": k, "title": v["title"], "status": v["status"]}
+    for k, v in CRPC_TO_BNSS_MAP.items()
+}
+
+
+def map_crpc_to_bnss(section: str) -> MappingResult:
+    """Maps CrPC section to corresponding BNSS section."""
+    clean_sec = re.sub(r'[^\w]', '', section.upper()).strip()
+    match = CRPC_TO_BNSS_MAP.get(clean_sec)
+    if match:
+        return MappingResult(
+            query_section=section,
+            target_section=match["bnss"],
+            source_act="CrPC",
+            target_act="BNSS",
+            source_title=match["title"],
+            target_title=match["title"],
+            status=MappingStatus.EXACT if match["status"] == "exact" else MappingStatus.MODIFIED,
+            is_ambiguous=False,
+            verified=True,
+            all_matched_sections=[match["bnss"]]
+        )
+    return MappingResult(query_section=section, target_section=None, source_act="CrPC", target_act="BNSS", status=MappingStatus.NOT_FOUND)
+
+
+def map_bnss_to_crpc(section: str) -> MappingResult:
+    """Maps BNSS section to corresponding CrPC section."""
+    clean_sec = re.sub(r'[^\w]', '', section.upper()).strip()
+    match = BNSS_TO_CRPC_MAP.get(clean_sec)
+    if match:
+        return MappingResult(
+            query_section=section,
+            target_section=match["crpc"],
+            source_act="BNSS",
+            target_act="CrPC",
+            source_title=match["title"],
+            target_title=match["title"],
+            status=MappingStatus.EXACT if match["status"] == "exact" else MappingStatus.MODIFIED,
+            is_ambiguous=False,
+            verified=True,
+            all_matched_sections=[match["crpc"]]
+        )
+    return MappingResult(query_section=section, target_section=None, source_act="BNSS", target_act="CrPC", status=MappingStatus.NOT_FOUND)
+
+
+
 def get_lookup_engine(concordance_path: Optional[str] = None) -> ConcordanceLookup:
     global _GLOBAL_LOOKUP
     if _GLOBAL_LOOKUP is None or (concordance_path and concordance_path != _GLOBAL_LOOKUP.concordance_path):
@@ -350,3 +426,5 @@ def map_ipc_to_bns(section: str, concordance_path: Optional[str] = None) -> Mapp
 
 def map_bns_to_ipc(section: str, concordance_path: Optional[str] = None) -> MappingResult:
     return get_lookup_engine(concordance_path).map_bns_to_ipc(section)
+
+

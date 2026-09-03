@@ -2,7 +2,7 @@
 prompt_template.py — Prompt Construction & Citation Formatting for Statute RAG
 
 Defines structured prompt templates enforcing strict legal citation conventions:
-1. Canonical citation format: [Act §Section], e.g. [BNS §103], [IPC §302], [BNS §106(2)].
+1. Canonical citation format: [Act §Section] or [Act Section N], e.g. [BNS §103], [IPC §302], [BNSS §173].
 2. Grounded answering instructions: rely exclusively on provided retrieved chunks.
 3. Explicit ambiguity / repeal handling instructions.
 """
@@ -10,7 +10,7 @@ Defines structured prompt templates enforcing strict legal citation conventions:
 import re
 from typing import List, Dict, Any, Optional
 
-SYSTEM_PROMPT_STAGE1 = """You are an authoritative Indian legal assistant specializing in the transition from the Indian Penal Code (IPC 1860) to the Bharatiya Nyaya Sanhita (BNS 2023).
+SYSTEM_PROMPT_STAGE1 = """You are an authoritative Indian legal assistant specializing in the transition from the Indian Penal Code (IPC 1860) to the Bharatiya Nyaya Sanhita (BNS 2023) and CrPC (1973) to BNSS (2023).
 
 Instructions:
 1. Answer the question accurately based on your knowledge of Indian statutory criminal law.
@@ -18,7 +18,7 @@ Instructions:
 3. If an IPC offence has been repealed or omitted in BNS without direct equivalent (e.g. sedition, adultery), explicitly state that it has been repealed and explain the change.
 4. Keep answers concise, factual, and legally precise."""
 
-SYSTEM_PROMPT_STAGE2 = """You are an authoritative Indian legal assistant specializing in the transition from the Indian Penal Code (IPC 1860) to the Bharatiya Nyaya Sanhita (BNS 2023).
+SYSTEM_PROMPT_STAGE2 = """You are an authoritative Indian legal assistant specializing in the transition from the Indian Penal Code (IPC 1860) to the Bharatiya Nyaya Sanhita (BNS 2023) and CrPC (1973) to BNSS (2023).
 
 Instructions:
 1. You are provided with AUTHORITATIVE STATUTORY CONTEXT below retrieved from the official bare acts.
@@ -35,7 +35,7 @@ class LegalPromptBuilder:
     """
 
     CITATION_PATTERN = re.compile(
-        r'\[(IPC|BNS|BHARATIYA NYAYA SANHITA|INDIAN PENAL CODE)\s*§?\s*(\d+[A-Z]?(?:\(\d+\))?)\]',
+        r'\[(IPC|BNS|CRPC|BNSS|BHARATIYA NYAYA SANHITA|INDIAN PENAL CODE)\s*(?:§|Section|Sec\.?|S\.)?\s*([0-9]+[A-Z]?(?:\([0-9]+\))?)\]',
         re.IGNORECASE
     )
 
@@ -58,9 +58,10 @@ class LegalPromptBuilder:
             block = (
                 f"--- STATUTORY PROVISION #{i} ---\n"
                 f"Act: {act}\n"
-                f"Section: §{sec} - {title}\n"
+                f"Section: {sec}\n"
+                f"Title: {title}\n"
                 f"Chapter: {chapter}\n"
-                f"Text:\n{text}\n"
+                f"Text: {text}\n"
             )
             context_blocks.append(block)
 
@@ -68,49 +69,45 @@ class LegalPromptBuilder:
 
     @classmethod
     def build_stage1_prompt(cls, query: str) -> Dict[str, str]:
-        """
-        Constructs prompt for Stage 1 (Base LLM, zero retrieval).
-        """
-        user_message = f"Question: {query.strip()}\n\nPlease provide your answer with statutory citations in [Act §Section] format:"
+        """Closed-book baseline prompt (zero context)."""
         return {
             "system_prompt": SYSTEM_PROMPT_STAGE1,
-            "user_prompt": user_message,
-            "full_prompt": f"{SYSTEM_PROMPT_STAGE1}\n\n{user_message}"
+            "user_prompt": f"Question: {query}\n\nProvide the statutory answer with precise section citations in brackets [Act §Section].",
+            "full_prompt": f"{SYSTEM_PROMPT_STAGE1}\n\nQuestion: {query}\n\nAnswer with bracketed citations:"
         }
 
     @classmethod
     def build_stage2_prompt(cls, query: str, retrieved_chunks: List[Dict[str, Any]]) -> Dict[str, str]:
-        """
-        Constructs prompt for Stage 2 (+RAG retrieved context).
-        """
+        """RAG prompt with retrieved statutory context."""
         context_str = cls.format_statutory_context(retrieved_chunks)
-        user_message = (
-            f"=== STATUTORY CONTEXT ===\n"
-            f"{context_str}\n\n"
-            f"=== USER QUESTION ===\n"
-            f"Question: {query.strip()}\n\n"
-            f"Answer based exclusively on the context above with citations in [Act §Section] format:"
+        user_prompt = (
+            f"Question: {query}\n\n"
+            f"Authoritative Statutory Context:\n{context_str}\n\n"
+            f"Provide the statutory answer based STRICTLY on the context above, citing all sections in [Act §Section] format:"
         )
         return {
             "system_prompt": SYSTEM_PROMPT_STAGE2,
+            "user_prompt": user_prompt,
             "context": context_str,
-            "user_prompt": user_message,
-            "full_prompt": f"{SYSTEM_PROMPT_STAGE2}\n\n{user_message}"
+            "full_prompt": f"{SYSTEM_PROMPT_STAGE2}\n\n{user_prompt}"
         }
+
 
     @classmethod
     def extract_citations(cls, text: str) -> List[Dict[str, str]]:
         """
-        Extracts all statutory citations from generated text.
-        Returns: [{"act": "BNS", "section": "103", "raw": "[BNS §103]"}, ...]
+        Extracts all [Act §Section] or [Act Section N] citations from text.
+        Returns list of dicts with normalized act and section keys.
         """
-        matches = cls.CITATION_PATTERN.findall(text)
         citations = []
-        for act, sec in matches:
-            act_norm = "BNS" if "BNS" in act.upper() or "BHARATIYA" in act.upper() else "IPC"
+        matches = cls.CITATION_PATTERN.findall(text)
+        for act_raw, sec_raw in matches:
+            act_norm = "BNS" if "BNS" in act_raw.upper() or "BHARATIYA" in act_raw.upper() else (
+                "BNSS" if "BNSS" in act_raw.upper() else ("CRPC" if "CRPC" in act_raw.upper() else "IPC")
+            )
             citations.append({
                 "act": act_norm,
-                "section": sec.upper().strip(),
-                "raw": f"[{act_norm} §{sec.upper().strip()}]"
+                "section": sec_raw.strip(),
+                "raw": f"[{act_norm} §{sec_raw.strip()}]"
             })
         return citations

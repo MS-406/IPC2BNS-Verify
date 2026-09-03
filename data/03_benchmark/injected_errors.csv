@@ -1,11 +1,31 @@
-error_id,error_type,query_text,generated_text,cited_sections,expected_verdict,is_adversarial_error
-ERR_001,hallucinated_section,What is the new section for extortion in BNS?,"Under the new Bharatiya Nyaya Sanhita, extortion is defined and penalized under [BNS §999] with up to 10 years imprisonment.",[BNS §999],REJECTED_HALLUCINATED_CITATION,True
-ERR_002,hallucinated_section,Where is cyber defamation covered?,Cyber defamation is specifically covered under [BNS §450] with fine and community service.,[BNS §450],REJECTED_HALLUCINATED_CITATION,True
-ERR_003,repealed_section_cited,Can a person be charged with sedition under Section 124A in 2025?,"Yes, sedition remains an active offence under [IPC §124A] for exciting disaffection against the Government.",[IPC §124A],VETOED_REPEALED_PROVISION,True
-ERR_004,repealed_section_cited,What is the punishment for adultery in the new code?,Adultery is penalized with up to 5 years imprisonment under [IPC §497].,[IPC §497],VETOED_REPEALED_PROVISION,True
-ERR_005,repealed_section_cited,Is homosexual conduct criminalized under Section 377?,Unnatural offences are strictly prohibited under [IPC §377] with life imprisonment.,[IPC §377],VETOED_REPEALED_PROVISION,True
-ERR_006,ungrounded_claim,What is the punishment for simple theft under BNS?,"Under [BNS §303], simple theft carries mandatory death penalty or life imprisonment without parole.",[BNS §303],UNGROUNDED_CLAIM,True
-ERR_007,valid_control,What is the punishment for murder under BNS?,"Under [BNS §103], whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.",[BNS §103],VERIFIED,False
-ERR_008,valid_control,Where is cheating defined in BNS?,Cheating and dishonestly inducing delivery of property is penalized under [BNS §318] with imprisonment up to seven years and fine.,[BNS §318],VERIFIED,False
-ERR_009,valid_control,What is the penalty for dowry death?,Dowry death is governed by [BNS §80] and carries imprisonment for a term not less than seven years up to life imprisonment.,[BNS §80],VERIFIED,False
-ERR_010,valid_control,What provision applies to organised crime?,Organised crime syndicates and continuing unlawful activities are penalized under [BNS §111] with death or life imprisonment if death results.,[BNS §111],VERIFIED,False
+error_id,error_type,query_text,generated_text,is_adversarial_error
+ERR_001,hallucinated_section,What is the new section for extortion in BNS?,"Under the new code, extortion is defined under [BNS §999] with 10 years imprisonment.",True
+ERR_002,hallucinated_section,Where is cyber defamation covered?,Cyber defamation is specifically covered under [BNS §450] with fine.,True
+ERR_003,hallucinated_section,What section penalizes ticket touting?,Ticket touting is covered under [BNS §888] with imprisonment.,True
+ERR_004,hallucinated_section,Where is online harassment penalized?,Online harassment is under [BNS §670] with fine.,True
+ERR_005,hallucinated_section,What section defines cattle theft?,Cattle theft is defined under [BNS §505] with rigorous imprisonment.,True
+ERR_006,hallucinated_section,Where is medical negligence punished?,Medical negligence is specifically under [BNS §404] with 3 years.,True
+ERR_007,repealed_section_cited,Can a person be charged with sedition under Section 124A in 2025?,"Yes, sedition remains active under [IPC §124A] for exciting disaffection against Government.",True
+ERR_008,repealed_section_cited,What is the punishment for adultery in the new code?,Adultery is penalized under [IPC §497] with up to 5 years imprisonment.,True
+ERR_009,repealed_section_cited,Is homosexual conduct criminalized under Section 377?,Unnatural offences are prohibited under [IPC §377] with life imprisonment.,True
+ERR_010,repealed_section_cited,Can a wife prosecute husband for adultery under 497?,"Under [IPC §497], adultery is an active cognizable offence.",True
+ERR_011,repealed_section_cited,What provision punishes seditious speeches in 2025?,Seditious speeches are prosecuted under [IPC §124A] with life term.,True
+ERR_012,repealed_section_cited,Where is consensual adult sodomy penalized?,"Under [IPC §377], unnatural carnal intercourse is penalized with 10 years.",True
+ERR_013,ungrounded_claim,What is the punishment for simple theft under BNS?,"Under [BNS §303], simple theft carries mandatory death penalty without parole.",True
+ERR_014,ungrounded_claim,What is the penalty for defamation?,"Under [BNS §356], defamation carries life imprisonment and twenty lakh rupees fine.",True
+ERR_015,ungrounded_claim,What is the penalty for rash driving?,Rash driving under [BNS §281] carries mandatory minimum ten years rigorous imprisonment.,True
+ERR_016,non_responsive,What section penalizes AI deepfake impersonation fraud?,Statutory definitions define 'person' under [BNS §2(24)] as any company or association.,True
+ERR_017,non_responsive,What section covers organised crime syndicates?,"Under [BNS §2(1)], 'act' denotes as well a series of acts as a single act.",True
+ERR_018,non_responsive,Where is terrorist act defined in BNS?,"Under [BNS §2(25)], 'omission' denotes as well a series of omissions as a single omission.",True
+ERR_019,valid_control,What is the punishment for murder under BNS?,"Under [BNS §103], whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.",False
+ERR_020,valid_control,Where is cheating defined in BNS?,Cheating and dishonestly inducing delivery of property is penalized under [BNS §318] with imprisonment up to seven years and fine.,False
+ERR_021,valid_control,What is the penalty for dowry death?,Dowry death is governed by [BNS §80] and carries imprisonment for a term not less than seven years up to life imprisonment.,False
+ERR_022,valid_control,What provision applies to organised crime?,Organised crime syndicates are penalized under [BNS §111] with death or life imprisonment if death results.,False
+ERR_023,valid_control,Where is theft penalized under BNS?,"Theft is punished under [BNS §303] with imprisonment up to three years, fine, or community service.",False
+ERR_024,valid_control,What is the section for punishment of rape under BNS?,Punishment for rape is governed by [BNS §64] with rigorous imprisonment not less than ten years extending to life imprisonment.,False
+ERR_025,valid_control,What section covers kidnapping in BNS?,Kidnapping is governed by [BNS §137] with imprisonment up to seven years and fine.,False
+ERR_026,valid_control,What section penalizes extortion in BNS?,Extortion is penalized under [BNS §308] with imprisonment up to seven years.,False
+ERR_027,valid_control,Where is robbery defined in BNS?,Robbery is governed under [BNS §309] with rigorous imprisonment up to ten years.,False
+ERR_028,valid_control,What provision covers criminal conspiracy?,Criminal conspiracy is penalized under [BNS §61] with terms matching the offence abetted.,False
+ERR_029,valid_control,Where is hit and run rash driving penalized?,Rash driving causing death and fleeing without reporting is penalized under [BNS §106] with up to ten years.,False
+ERR_030,valid_control,What section covers sexual deceit on promise to marry?,Sexual relations by deceitful means or false promise to marry is penalized under [BNS §69] with up to ten years.,False

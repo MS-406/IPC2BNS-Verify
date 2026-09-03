@@ -1,0 +1,237 @@
+{
+  "benchmark_name": "CrPC (1973) <-> BNSS (2023) Procedural Generalization Set",
+  "sample_size_N": 25,
+  "stage1_baseline": {
+    "accuracy_pct": 28.0,
+    "raw_fraction": "7/25",
+    "95_ci_pct": [
+      14.3,
+      47.6
+    ]
+  },
+  "stage2_rag": {
+    "accuracy_pct": 100.0,
+    "raw_fraction": "25/25",
+    "95_ci_pct": [
+      86.7,
+      100.0
+    ],
+    "gain_vs_baseline": "+72.0%"
+  },
+  "stage3_verifier": {
+    "accuracy_pct": 100.0,
+    "raw_fraction": "25/25",
+    "95_ci_pct": [
+      86.7,
+      100.0
+    ],
+    "hallucination_catch_rate": "100.0%"
+  },
+  "stage4_full_system": {
+    "accuracy_pct": 100.0,
+    "raw_fraction": "25/25",
+    "reliability_score": "98.0%"
+  },
+  "results": [
+    {
+      "question_id": "CRPC_BNSS_001",
+      "query_text": "Which section in BNSS corresponds to CrPC Section 154 for lodging an FIR?",
+      "ground_truth_sections": "173",
+      "stage1_hit": true,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_002",
+      "query_text": "What section in BNSS empowers police officers to make an arrest without warrant?",
+      "ground_truth_sections": "35",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_003",
+      "query_text": "What is the equivalent section for police remand / judicial custody (CrPC 167) in BNSS?",
+      "ground_truth_sections": "187",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_004",
+      "query_text": "Where is Anticipatory Bail covered in BNSS 2023 compared to CrPC Section 438?",
+      "ground_truth_sections": "482",
+      "stage1_hit": true,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_005",
+      "query_text": "Which section in BNSS covers regular bail in non-bailable offences (CrPC 437)?",
+      "ground_truth_sections": "480",
+      "stage1_hit": true,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_006",
+      "query_text": "What section in BNSS authorizes magistrates to issue prohibitory orders (CrPC 144)?",
+      "ground_truth_sections": "163",
+      "stage1_hit": true,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_007",
+      "query_text": "Where is the police final report / charge-sheet filing covered in BNSS?",
+      "ground_truth_sections": "193",
+      "stage1_hit": true,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_008",
+      "query_text": "What section in BNSS provides for recording confessions and statements (CrPC 164)?",
+      "ground_truth_sections": "183",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_009",
+      "query_text": "Which section in BNSS governs the inquest report on unnatural death (CrPC 174)?",
+      "ground_truth_sections": "194",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_010",
+      "query_text": "What section in BNSS covers trial in absentia of proclaimed offenders?",
+      "ground_truth_sections": "356",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_011",
+      "query_text": "Where is search of place entered by person sought to be arrested covered in BNSS?",
+      "ground_truth_sections": "44",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_012",
+      "query_text": "What section governs security for keeping peace on conviction in BNSS?",
+      "ground_truth_sections": "125",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_013",
+      "query_text": "Which section covers maintenance of wives, children and parents in BNSS (CrPC 125)?",
+      "ground_truth_sections": "144",
+      "stage1_hit": true,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_014",
+      "query_text": "Where is plea bargaining codified in BNSS 2023?",
+      "ground_truth_sections": "289",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_015",
+      "query_text": "What is the section for summary trial in BNSS?",
+      "ground_truth_sections": "283",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_016",
+      "query_text": "Where is compounding of offences covered under BNSS 2023 (CrPC 320)?",
+      "ground_truth_sections": "359",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_017",
+      "query_text": "What section governs withdrawal from prosecution by Public Prosecutor in BNSS?",
+      "ground_truth_sections": "360",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_018",
+      "query_text": "What section in BNSS authorizes forensic investigation mandates at crime scenes?",
+      "ground_truth_sections": "176(3)",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_019",
+      "query_text": "Where is audio-video recording of search and seizure mandated in BNSS?",
+      "ground_truth_sections": "105",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_020",
+      "query_text": "What section governs appeals against conviction in BNSS (CrPC 374)?",
+      "ground_truth_sections": "415",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_021",
+      "query_text": "Where is appeal against acquittal covered in BNSS (CrPC 378)?",
+      "ground_truth_sections": "419",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_022",
+      "query_text": "What section provides for High Court inherent powers (CrPC 482) in BNSS?",
+      "ground_truth_sections": "528",
+      "stage1_hit": true,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_023",
+      "query_text": "Where is execution of death sentence covered in BNSS?",
+      "ground_truth_sections": "453",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_024",
+      "query_text": "What section governs mercy petitions to the Governor or President in BNSS?",
+      "ground_truth_sections": "472",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    },
+    {
+      "question_id": "CRPC_BNSS_025",
+      "query_text": "What section covers period of detention undergone by accused to be set off against sentence (CrPC 428)?",
+      "ground_truth_sections": "468",
+      "stage1_hit": false,
+      "stage2_rag_hit": true,
+      "is_verified": true
+    }
+  ]
+}

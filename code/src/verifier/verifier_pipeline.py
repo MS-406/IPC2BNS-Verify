@@ -63,8 +63,24 @@ class HardConstraintVerifier:
         # Step 1: Layer 1 Citation Check
         l1_res = self.citation_verifier.verify_citations(citations)
 
+        # Augment retrieved chunks with canonical chunks for cited valid sections
+        all_chunks = list(retrieved_chunks)
+        from src.retrieval.search import get_retriever
+        retriever = get_retriever()
+        if retriever and retriever.index and retriever.index.chunks:
+            for cit in l1_res.valid_citations:
+                act_tag = cit.get("act", "BNS").upper()
+                sec_tag = cit.get("section", "").strip()
+                for chunk in retriever.index.chunks:
+                    if chunk.act.upper() == act_tag and chunk.section_number.strip() == sec_tag:
+                        if not any(c.get("chunk_id") == chunk.chunk_id for c in all_chunks):
+                            all_chunks.append(chunk.to_dict())
+
+
         # Step 2: Layer 2 Entity Grounding & Intent Alignment Check
-        l2_res = self.grounding_verifier.verify_grounding(generated_text, retrieved_chunks, query=query)
+        l2_res = self.grounding_verifier.verify_grounding(generated_text, all_chunks, query=query)
+
+
 
         warnings = []
         verified_text = generated_text

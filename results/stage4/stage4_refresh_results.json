@@ -21,8 +21,8 @@
       ],
       "post_refresh_hit": true,
       "post_refresh_generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [IPC \u00a711] (Person) is relevant.",
-      "is_verified": true,
-      "verdict": "VERIFIED"
+      "is_verified": false,
+      "verdict": "NON_RESPONSIVE_ANSWER"
     },
     {
       "question_id": "AMD_Q_002",
@@ -57,8 +57,8 @@
       ],
       "post_refresh_hit": true,
       "post_refresh_generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7106] (Causing death by negligence). Statutory provision: (1) Whoever causes the death of any person by doing any rash or negligent act not amounting to culpable homicide, shall be punished with imprisonment of either description for a term which may extend to five years, and shall also be liable to fine; and if such act is committed by a registered medical practitioner, he shall be punished with imprisonment up to two years. (2) Whoever causes the death of any person by rash and negligent driving of vehicle not amounting to culpable homicide, and escapes without reporting it to a police officer or Magistrate soon after the incident, shall be punished with imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine. Additionally, [IPC \u00a7109] (Punishment of abetment if the act abetted is committed) is relevant.",
-      "is_verified": true,
-      "verdict": "VERIFIED"
+      "is_verified": false,
+      "verdict": "UNGROUNDED_CLAIM"
     }
   ]
 }
