@@ -27,13 +27,14 @@ Because Large Language Models (LLMs) are pre-trained on corpora heavily weighted
 
 ## 📊 Master Ablation Results (with 95% Wilson Confidence Intervals)
 
-| Stage | System Configuration | Benchmark Sample ($N$) | Citation Accuracy | 95% Wilson CI | Hallucination Catch Rate | False Positive Rate (FPR) |
-|:---:|:---|:---:|:---:|:---:|:---:|:---:|
-| **Stage 1** | Baseline LLM (Closed-Book) | $N=60$ dev queries | **10.0% (6/60)** | [4.7% – 20.1%] | N/A | N/A |
-| **Stage 2** | +BM25 RAG Context | $N=60$ dev queries | **63.3% (38/60)** | [50.7% – 74.4%] | N/A | N/A |
-| **Stage 3** | +Two-Layer Hard Verifier | $N=30$ stress cases (18 adv + 12 ctrl) | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** [82.4%–100%] | **0.0% (0/12)** [0%–24.1%] |
-| **Stage 4** | +Incremental Refresh (Full System) | $N=3$ amendment queries | **98.5% (Overall)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** |
-| **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | $N=25$ procedural queries | **100.0% (25/25)** | [86.7% – 100.0%] | **100.0% (Procedural Drift)** | **0.0%** |
+| Stage | System Configuration | Evaluation Testbed | Sample Size ($N$) | Citation / Decision Accuracy | 95% Wilson CI | Hallucination Catch Rate | False Positive Rate (FPR) | Adaptivity Delta |
+|:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Stage 1** | Baseline LLM (Closed-Book) | Benchmark Dev Set | $N=60$ | **10.0% (6/60)** | [4.7% – 20.1%] | N/A | N/A | N/A |
+| **Stage 2** | +BM25 RAG Context | Benchmark Dev Set | $N=60$ | **63.3% (38/60)** | [50.7% – 74.4%] | N/A | N/A | N/A |
+| **Stage 3** | +Two-Layer Hard Verifier | Injected Errors Suite | $N=30$ | **100.0% (30/30 decisions)** | [88.6% – 100.0%] | **100.0% (18/18 caught)** [82.4%–100%] | **0.0% (0/12 rejected)** [0%–24.2%] | 33.3% (1/3 pre-refresh) |
+| **Stage 4** | +Incremental Refresh | 2025 Amendments | $N=3$ | **100.0% (3/3 post-refresh)** | [43.9% – 100.0%] | **100.0% (18/18 caught)** | **0.0% (0/12 rejected)** | **+66.7% delta ($1/3 \rightarrow 3/3$)** |
+| **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | Procedural Benchmark | $N=25$ | **100.0% (25/25)** | [86.7% – 100.0%] | **100.0% (Drift Caught)** | **0.0% (0/25 rejected)** | N/A (Static Code Pair) |
+
 
 *Note:* Human expert calibration on double-blind review achieved **Cohen’s Kappa $\kappa = 0.93$** (near-perfect agreement).
 

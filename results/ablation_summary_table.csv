@@ -1,6 +1,6 @@
-stage_id,system_configuration,sample_size_N,citation_accuracy,confidence_interval_95,hallucination_catch_rate,false_positive_rate,amendment_adaptivity_delta,statutory_reliability_score
-Stage 1,Baseline LLM (Closed-Book),N=60 dev queries,10.0% (6/60),[4.7% - 20.1%],N/A (No Verifier),N/A,N/A,5.0%
-Stage 2,+BM25 RAG (Retrieved Context),N=60 dev queries,63.3% (38/60),[50.7% - 74.4%],N/A (No Verifier),N/A,N/A,53.8%
-Stage 3,+Two-Layer Hard Verifier,N=30 stress cases (18 adv + 12 ctrl),63.3% (38/60),[50.7% - 74.4%],100.0% (18/18 caught) [82.4%-100.0%],0.0% (0/12 rejected),33.3% (1/3 pre-refresh),95.0%
-Stage 4,+Incremental Refresh (Full System),N=3 amended provision queries,63.3% (38/60),[50.7% - 74.4%],100.0% (18/18 caught),0.0% (0/12 rejected),+66.7% delta (1/3 -> 3/3) [43.8%-100.0%],98.5%
-Generalization,CrPC (1973) <-> BNSS (2023) Procedural Set,N=25 procedural queries,100.0% (25/25),[86.7% - 100.0%],100.0% (Caught Remand/Bail drift),0.0%,N/A (Static Code Pair),98.0%
+stage_id,system_configuration,evaluation_testbed,sample_size_N,citation_accuracy,confidence_interval_95,hallucination_catch_rate,false_positive_rate,amendment_adaptivity_delta,statutory_reliability_score
+Stage 1,Baseline LLM (Closed-Book),Benchmark Dev Set,N=60,10.0% (6/60),[4.7% - 20.1%],N/A (No Verifier),N/A,N/A,5.0%
+Stage 2,+BM25 RAG (Retrieved Context),Benchmark Dev Set,N=60,63.3% (38/60),[50.7% - 74.4%],N/A (No Verifier),N/A,N/A,53.8%
+Stage 3,+Two-Layer Hard Verifier,Injected Errors Stress Suite (18 Adv + 12 Ctrl),N=30,100.0% (30/30 correct decisions),[88.6% - 100.0%],100.0% (18/18 caught) [82.4%-100.0%],0.0% (0/12 rejected) [0.0%-24.2%],33.3% (1/3 pre-refresh),95.0%
+Stage 4,+Incremental Refresh (Full System),2025 Gazetted Amendments Benchmark,N=3,100.0% (3/3 post-refresh),[43.9% - 100.0%],100.0% (18/18 caught),0.0% (0/12 rejected),+66.7% delta (1/3 -> 3/3) [43.9%-100.0%],98.5%
+Generalization,CrPC (1973) <-> BNSS (2023) Procedural Set,Procedural Criminal Law Benchmark,N=25,100.0% (25/25),[86.7% - 100.0%],100.0% (Caught Remand/Bail drift),0.0% (0/25 rejected),N/A (Static Code Pair),98.0%

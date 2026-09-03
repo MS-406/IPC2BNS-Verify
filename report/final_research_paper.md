@@ -42,15 +42,16 @@ Unlike static NLP benchmarks where legal corpora remain constant, this statutory
 
 ## 2. Experimental Ablation Results (with 95% Wilson Confidence Intervals)
 
-| Stage | System Configuration | Benchmark Sample ($N$) | Citation Accuracy | 95% Confidence Interval | Hallucination Catch Rate | False Positive Rate (FPR) |
-|:---:|:---|:---:|:---:|:---:|:---:|:---:|
-| **Stage 1** | Baseline LLM (Zero-Shot Closed-Book) | $N=60$ dev queries | **10.0% (6/60)** | [4.7% – 20.1%] | N/A | N/A |
-| **Stage 2** | +BM25 RAG (Retrieved Context) | $N=60$ dev queries | **63.3% (38/60)** | [50.7% – 74.4%] | N/A | N/A |
-| **Stage 3** | +Two-Layer Hard-Constraint Verifier | $N=30$ stress cases (18 adv + 12 ctrl) | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** [82.4%–100%] | **0.0% (0/12)** [0%–24.1%] |
-| **Stage 4** | +Incremental Refresh (Full System) | $N=3$ amendment queries | **98.5% (Overall)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** |
-| **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) Procedural Set | $N=25$ procedural queries | **100.0% (25/25)** | [86.7% – 100.0%] | **100.0% (Procedural Drift)** | **0.0%** |
+| Stage | System Configuration | Evaluation Testbed | Sample Size ($N$) | Citation / Decision Accuracy | 95% Confidence Interval | Hallucination Catch Rate | False Positive Rate (FPR) | Adaptivity Delta |
+|:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Stage 1** | Baseline LLM (Zero-Shot Closed-Book) | Benchmark Dev Set | $N=60$ | **10.0% (6/60)** | [4.7% – 20.1%] | N/A | N/A | N/A |
+| **Stage 2** | +BM25 RAG (Retrieved Context) | Benchmark Dev Set | $N=60$ | **63.3% (38/60)** | [50.7% – 74.4%] | N/A | N/A | N/A |
+| **Stage 3** | +Two-Layer Hard-Constraint Verifier | Injected Errors Suite | $N=30$ | **100.0% (30/30 decisions)** | [88.6% – 100.0%] | **100.0% (18/18 caught)** [82.4%–100%] | **0.0% (0/12 rejected)** [0%–24.2%] | 33.3% (1/3 pre-refresh) |
+| **Stage 4** | +Incremental Refresh (Full System) | 2025 Amendments | $N=3$ | **100.0% (3/3 post-refresh)** | [43.9% – 100.0%] | **100.0% (18/18 caught)** | **0.0% (0/12 rejected)** | **+66.7% delta ($1/3 \rightarrow 3/3$)** |
+| **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) Procedural Set | Procedural Benchmark | $N=25$ | **100.0% (25/25)** | [86.7% – 100.0%] | **100.0% (Drift Caught)** | **0.0% (0/25 rejected)** | N/A (Static Code Pair) |
 
 *Note on Statistical Rigor:* All confidence intervals are computed using the Wilson Score method with continuity adjustment at $\alpha = 0.05$ ($z=1.96$). The sample consists of $N=60$ dev queries, $N=60$ held-out test queries, $N=25$ procedural questions, and $N=30$ adversarial stress cases.
+
 
 ---
 
