@@ -1,0 +1,64 @@
+{
+  "stage": 4,
+  "stage_name": "Stage 4: +Verifier + Incremental Refresh (Adaptivity)",
+  "total_amendment_queries": 3,
+  "pre_refresh_retrieval_accuracy": 0.3333,
+  "post_refresh_retrieval_accuracy": 1.0,
+  "accuracy_delta": 0.6667,
+  "results": [
+    {
+      "question_id": "AMD_Q_001",
+      "query_text": "What section in the amended BNS penalizes AI deepfake impersonation and voice cloning fraud?",
+      "ground_truth_sections": "318A",
+      "pre_refresh_retrieved_sections": [
+        "2(24)",
+        "11"
+      ],
+      "pre_refresh_hit": false,
+      "post_refresh_retrieved_sections": [
+        "318A",
+        "2(24)"
+      ],
+      "post_refresh_hit": true,
+      "post_refresh_generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [IPC \u00a711] (Person) is relevant.",
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "question_id": "AMD_Q_002",
+      "query_text": "Under what provision is hazardous industrial water pollution penalized in amended BNS?",
+      "ground_truth_sections": "278A",
+      "pre_refresh_retrieved_sections": [
+        "2(24)",
+        "2(28)"
+      ],
+      "pre_refresh_hit": false,
+      "post_refresh_retrieved_sections": [
+        "278A",
+        "106"
+      ],
+      "post_refresh_hit": true,
+      "post_refresh_generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a72(28)] (Public) is relevant.",
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    },
+    {
+      "question_id": "AMD_Q_003",
+      "query_text": "Can a hit-and-run driver receive a sentence reduction under Section 106 if they render immediate medical aid?",
+      "ground_truth_sections": "106(3)",
+      "pre_refresh_retrieved_sections": [
+        "106",
+        "109"
+      ],
+      "pre_refresh_hit": true,
+      "post_refresh_retrieved_sections": [
+        "106",
+        "109"
+      ],
+      "post_refresh_hit": true,
+      "post_refresh_generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7106] (Causing death by negligence). Statutory provision: (1) Whoever causes the death of any person by doing any rash or negligent act not amounting to culpable homicide, shall be punished with imprisonment of either description for a term which may extend to five years, and shall also be liable to fine; and if such act is committed by a registered medical practitioner, he shall be punished with imprisonment up to two years. (2) Whoever causes the death of any person by rash and negligent driving of vehicle not amounting to culpable homicide, and escapes without reporting it to a police officer or Magistrate soon after the incident, shall be punished with imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine. Additionally, [IPC \u00a7109] (Punishment of abetment if the act abetted is committed) is relevant.",
+      "is_verified": true,
+      "verdict": "VERIFIED"
+    }
+  ]
+}

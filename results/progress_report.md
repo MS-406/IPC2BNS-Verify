@@ -1,12 +1,12 @@
 # Project Progress Report
-**Overall: 21/32 tasks complete (66%)**
+**Overall: 29/32 tasks complete (91%)**
 
-_Generated: 2026-09-03T12:52:15_
+_Generated: 2026-09-03T13:04:32_
 
-## 0. Setup — 3/4 (75%)
+## 0. Setup — 4/4 (100%)
 - [x] Repo scaffolding + config system  `(code/src, code/configs)`
 - [x] India Code raw text downloaded  `(data/00_raw/india_code)`
-- [ ] Concordance source PDF(s) collected  `(data/00_raw/concordance_source_pdfs)`
+- [x] Concordance source PDF(s) collected  `(data/00_raw/concordance_source_pdfs)`
 - [x] Data Management Plan written  `(docs/IPC2BNS-Verify_Data_Management_Plan.md)`
 
 ## 1. Mapping Module — 5/5 (100%)
@@ -35,16 +35,16 @@ _Generated: 2026-09-03T12:52:15_
 - [x] Injected-error test set built  `(data/03_benchmark/injected_errors.csv)`
 - [x] Stage 3 (+Verifier) run complete  `(results/stage3/stage3_verifier_results.json)`
 
-## 5. Adaptivity — 0/3 (0%)
-- [ ] Refresh simulation cases selected  `(data/04_refresh_sim/injected_amendment_cases.csv)`
-- [ ] Pre/post-refresh index snapshots built  `(data/05_embeddings_index/stage4_post_refresh_index)`
-- [ ] Stage 4 (+Verifier+Refresh) run complete  `(results/stage4/stage4_refresh_results.json)`
+## 5. Adaptivity — 3/3 (100%)
+- [x] Refresh simulation cases selected  `(data/04_refresh_sim/injected_amendment_cases.csv)`
+- [x] Pre/post-refresh index snapshots built  `(data/05_embeddings_index/stage4_post_refresh_index)`
+- [x] Stage 4 (+Verifier+Refresh) run complete  `(results/stage4/stage4_refresh_results.json)`
 
-## 6. Evaluation & Write-up — 0/7 (0%)
-- [ ] Evaluation harness built  `(code/src/eval/harness.py)`
-- [ ] Human-review calibration done  `(results/human_review_calibration.csv)`
-- [ ] Ablation summary table compiled  `(results/ablation_summary_table.csv)`
-- [ ] Error analysis notes written  `(results/error_analysis_notes.md)`
+## 6. Evaluation & Write-up — 4/7 (57%)
+- [x] Evaluation harness built  `(code/src/eval/harness.py)`
+- [x] Human-review calibration done  `(results/human_review_calibration.csv)`
+- [x] Ablation summary table compiled  `(results/ablation_summary_table.csv)`
+- [x] Error analysis notes written  `(results/error_analysis_notes.md)`
 - [ ] Plagiarism/originality check run  `(report/plagiarism_report.pdf)`
 - [ ] Final report drafted  `(report/final_report.docx)`
 - [ ] Presentation deck built  `(report/presentation_deck.pptx)`

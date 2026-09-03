@@ -1,0 +1,5 @@
+stage_id,system_configuration,citation_accuracy_pct,hallucination_rate_pct,verifier_catch_rate_pct,adaptivity_accuracy_pct,statutory_reliability_score_pct
+Stage 1,Baseline LLM (Closed-Book),35.3,100.0,N/A (No Verifier),N/A,17.6
+Stage 2,+RAG (Retrieved Context),70.6,100.0,N/A (No Verifier),N/A,52.9
+Stage 3,+Hard-Constraint Verifier (Two-Layer),70.6,0.0,100.0%,33.3%,67.1
+Stage 4,+Verifier + Incremental Refresh (Full System),70.6,0.0,100.0%,100.0%,98.5
