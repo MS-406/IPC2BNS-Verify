@@ -37,24 +37,36 @@ md([
     "6. **Full 65-Test Automated Pytest Suite Execution**"
 ])
 
-# CELL 1: Mount Drive
+# CELL 1: Mount Drive & Fast Local Workspace Sync
 md(["---\n", "## 1. Mount Google Drive & Environment Setup"])
 code([
     "from google.colab import drive\n",
-    "drive.mount('/content/drive')\n",
+    "import os, sys, shutil\n",
     "\n",
-    "import os, sys, json, csv\n",
-    "PROJECT_ROOT = '/content/drive/MyDrive/NLP_rspaper'\n",
+    "# Mount Drive cleanly\n",
+    "drive.mount('/content/drive', force_remount=False)\n",
+    "\n",
+    "DRIVE_ROOT = '/content/drive/MyDrive/NLP_rspaper'\n",
+    "LOCAL_ROOT = '/content/IPC2BNS-Verify'\n",
+    "\n",
+    "# Copy to Colab local SSD for lightning-fast disk I/O & zero network timeouts\n",
+    "if os.path.exists(DRIVE_ROOT):\n",
+    "    if os.path.exists(LOCAL_ROOT):\n",
+    "        shutil.rmtree(LOCAL_ROOT)\n",
+    "    shutil.copytree(DRIVE_ROOT, LOCAL_ROOT, ignore=shutil.ignore_patterns('__pycache__', '.pytest_cache', '.git'))\n",
+    "    PROJECT_ROOT = LOCAL_ROOT\n",
+    "    print('✅ Synced project from Drive to Colab local SSD:', PROJECT_ROOT)\n",
+    "else:\n",
+    "    PROJECT_ROOT = DRIVE_ROOT\n",
+    "\n",
     "os.environ['IPC2BNS_PROJECT_ROOT'] = PROJECT_ROOT\n",
-    "\n",
     "if os.path.join(PROJECT_ROOT, 'code') not in sys.path:\n",
     "    sys.path.insert(0, os.path.join(PROJECT_ROOT, 'code'))\n",
     "\n",
-    "print('Project Root:', PROJECT_ROOT)\n",
-    "print('All modules loaded successfully.')"
+    "print('Environment initialized.')"
 ])
 
-# CELL 2: Install Pytest
+# CELL 2: Install Dependencies
 md(["---\n", "## 2. Dependencies"])
 code([
     "!pip install -q pytest pandas tabulate\n",
@@ -110,10 +122,20 @@ code([
     "!python \"{PROJECT_ROOT}/check_progress.py\" --root \"{PROJECT_ROOT}\" --write-report"
 ])
 
+# CELL 8: Sync Any Results Back to Google Drive
+md(["---\n", "## 8. Sync Results Back to Google Drive"])
+code([
+    "if PROJECT_ROOT == LOCAL_ROOT:\n",
+    "    import shutil\n",
+    "    shutil.copy2(os.path.join(PROJECT_ROOT, 'results/ablation_summary_table.csv'), os.path.join(DRIVE_ROOT, 'results/ablation_summary_table.csv'))\n",
+    "    shutil.copy2(os.path.join(PROJECT_ROOT, 'results/progress_report.md'), os.path.join(DRIVE_ROOT, 'results/progress_report.md'))\n",
+    "    print('✅ Saved latest results to Google Drive successfully.')"
+])
+
 # Write out notebook
 out_path = os.path.join(os.path.dirname(__file__), "Phase6_Full_Evaluation_Ablations.ipynb")
 with open(out_path, "w", encoding="utf-8") as f:
     json.dump(nb, f, indent=1)
 
-print(f"[OK] Phase6 notebook generated at: {out_path}")
+print(f"[OK] Updated Phase6 notebook at: {out_path}")
 print(f"     Total cells: {len(nb['cells'])}")
