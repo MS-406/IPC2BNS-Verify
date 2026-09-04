@@ -1,0 +1,11 @@
+category,count,pct
+A_ipc_bns_direct,952,83.5%
+B_crpc_bnss_direct,108,9.5%
+C_natural_scenarios,25,2.2%
+H_adversarial,18,1.6%
+I_temporal_current_law,10,0.9%
+D_repealed_provisions,6,0.5%
+G_changed_meaning_scope,6,0.5%
+E_split_provisions,5,0.4%
+F_merged_provisions,5,0.4%
+J_incremental_refresh,5,0.4%

@@ -1,0 +1,191 @@
+{
+  "overall": {
+    "n": 1140,
+    "recall_at_1": 0.0895,
+    "recall_at_3": 0.2649,
+    "recall_at_5": 0.3035,
+    "recall_at_10": 0.3509,
+    "precision_at_5": 0.1081,
+    "mrr": 0.2672,
+    "hit_rate": 0.6667,
+    "mean_rank": 4.49
+  },
+  "natural": {
+    "n": 1122,
+    "recall_at_1": 0.09,
+    "recall_at_3": 0.2647,
+    "recall_at_5": 0.303,
+    "recall_at_10": 0.3476,
+    "precision_at_5": 0.1082,
+    "mrr": 0.2673,
+    "hit_rate": 0.6649,
+    "mean_rank": 4.49
+  },
+  "adversarial": {
+    "n": 18,
+    "recall_at_1": 0.0556,
+    "recall_at_3": 0.2778,
+    "recall_at_5": 0.3333,
+    "recall_at_10": 0.5556,
+    "precision_at_5": 0.1,
+    "mrr": 0.2562,
+    "hit_rate": 0.7778,
+    "mean_rank": 4.57
+  },
+  "ipc_bns_direct": {
+    "n": 952,
+    "recall_at_1": 0.0893,
+    "recall_at_3": 0.2752,
+    "recall_at_5": 0.3141,
+    "recall_at_10": 0.3634,
+    "precision_at_5": 0.1067,
+    "mrr": 0.2718,
+    "hit_rate": 0.6786,
+    "mean_rank": 4.58
+  },
+  "crpc_bnss_direct": {
+    "n": 108,
+    "recall_at_1": 0.0741,
+    "recall_at_3": 0.0741,
+    "recall_at_5": 0.0741,
+    "recall_at_10": 0.0741,
+    "precision_at_5": 0.0981,
+    "mrr": 0.188,
+    "hit_rate": 0.5093,
+    "mean_rank": 4.44
+  },
+  "repealed": {
+    "n": 6,
+    "recall_at_1": 0.0,
+    "recall_at_3": 0.0,
+    "recall_at_5": 0.0,
+    "recall_at_10": 0.1667,
+    "precision_at_5": 0.0,
+    "mrr": 0.0446,
+    "hit_rate": 0.3333,
+    "mean_rank": 7.5
+  },
+  "split_merged": {
+    "n": 10,
+    "recall_at_1": 0.0,
+    "recall_at_3": 0.7,
+    "recall_at_5": 0.8,
+    "recall_at_10": 0.8,
+    "precision_at_5": 0.18,
+    "mrr": 0.301,
+    "hit_rate": 0.9,
+    "mean_rank": 3.44
+  },
+  "by_category": {
+    "A_ipc_bns_direct": {
+      "n": 952,
+      "recall_at_1": 0.0893,
+      "recall_at_3": 0.2752,
+      "recall_at_5": 0.3141,
+      "recall_at_10": 0.3634,
+      "precision_at_5": 0.1067,
+      "mrr": 0.2718,
+      "hit_rate": 0.6786,
+      "mean_rank": 4.58
+    },
+    "B_crpc_bnss_direct": {
+      "n": 108,
+      "recall_at_1": 0.0741,
+      "recall_at_3": 0.0741,
+      "recall_at_5": 0.0741,
+      "recall_at_10": 0.0741,
+      "precision_at_5": 0.0981,
+      "mrr": 0.188,
+      "hit_rate": 0.5093,
+      "mean_rank": 4.44
+    },
+    "C_natural_scenarios": {
+      "n": 25,
+      "recall_at_1": 0.12,
+      "recall_at_3": 0.36,
+      "recall_at_5": 0.44,
+      "recall_at_10": 0.44,
+      "precision_at_5": 0.12,
+      "mrr": 0.3051,
+      "hit_rate": 0.6,
+      "mean_rank": 3.07
+    },
+    "D_repealed_provisions": {
+      "n": 6,
+      "recall_at_1": 0.0,
+      "recall_at_3": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.1667,
+      "precision_at_5": 0.0,
+      "mrr": 0.0446,
+      "hit_rate": 0.3333,
+      "mean_rank": 7.5
+    },
+    "E_split_provisions": {
+      "n": 5,
+      "recall_at_1": 0.0,
+      "recall_at_3": 0.4,
+      "recall_at_5": 0.6,
+      "recall_at_10": 0.6,
+      "precision_at_5": 0.16,
+      "mrr": 0.2352,
+      "hit_rate": 0.8,
+      "mean_rank": 4.25
+    },
+    "F_merged_provisions": {
+      "n": 5,
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 0.3667,
+      "hit_rate": 1.0,
+      "mean_rank": 2.8
+    },
+    "G_changed_meaning_scope": {
+      "n": 6,
+      "recall_at_1": 0.0,
+      "recall_at_3": 0.5,
+      "recall_at_5": 0.8333,
+      "recall_at_10": 0.8333,
+      "precision_at_5": 0.2,
+      "mrr": 0.3333,
+      "hit_rate": 0.8333,
+      "mean_rank": 2.8
+    },
+    "H_adversarial": {
+      "n": 18,
+      "recall_at_1": 0.0556,
+      "recall_at_3": 0.2778,
+      "recall_at_5": 0.3333,
+      "recall_at_10": 0.5556,
+      "precision_at_5": 0.1,
+      "mrr": 0.2562,
+      "hit_rate": 0.7778,
+      "mean_rank": 4.57
+    },
+    "I_temporal_current_law": {
+      "n": 10,
+      "recall_at_1": 0.0,
+      "recall_at_3": 0.3,
+      "recall_at_5": 0.4,
+      "recall_at_10": 0.6,
+      "precision_at_5": 0.16,
+      "mrr": 0.2968,
+      "hit_rate": 0.9,
+      "mean_rank": 4.11
+    },
+    "J_incremental_refresh": {
+      "n": 5,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "precision_at_5": 0.32,
+      "mrr": 1.0,
+      "hit_rate": 1.0,
+      "mean_rank": 1.0
+    }
+  }
+}

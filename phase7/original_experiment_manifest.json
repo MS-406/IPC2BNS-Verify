@@ -1,0 +1,102 @@
+{
+  "manifest_version": "1.0",
+  "generated_at": "2026-09-04T18:32:00",
+  "git_head": "24d9744876b6e35e457c7eb42cfa0179dae8a5cc",
+  "project": "IPC2BNS-Verify",
+  "description": "Original experiment manifest. Records exact file locations, commands, and metadata for the existing N=60 experiments. These must remain reproducible and unchanged.",
+
+  "original_benchmark": {
+    "path": "data/03_benchmark/benchmark_dev.csv",
+    "size_questions": 60,
+    "format": "CSV",
+    "fields": ["question_id","query_text","query_type","source_act","target_act","ground_truth_sections","ground_truth_answer","is_ambiguous","provenance"],
+    "question_types": ["transition","ingredient_punishment","ambiguous_repeal","new_offence","split_merged","stress","procedural_transition"],
+    "note": "benchmark_test.csv is the held-out test set (also 60 questions per stage1 total_queries=60)"
+  },
+
+  "original_stress_suite": {
+    "path": "data/03_benchmark/injected_errors.csv",
+    "size_questions": 30,
+    "adversarial_n": 18,
+    "control_n": 12
+  },
+
+  "original_crpc_bnss_benchmark": {
+    "path": "data/03_benchmark/benchmark_crpc_bnss.csv",
+    "size_questions": 31,
+    "used_in_results": 25
+  },
+
+  "test_suite": {
+    "command": "python -m pytest code/tests/ -v",
+    "expected_result": "67 passed",
+    "test_files": [
+      "code/tests/test_concordance.py",
+      "code/tests/test_generation.py",
+      "code/tests/test_refresh.py",
+      "code/tests/test_retrieval.py",
+      "code/tests/test_verifier.py"
+    ]
+  },
+
+  "ablation_command": "python code/src/generation/run_ablations.py",
+  "evaluation_command": "python code/src/eval/harness.py",
+  "report_command": "python code/scripts/generate_all_reports.py",
+
+  "generation_model": {
+    "default_model_name": "gemini-2.0-flash",
+    "config_generator_model": "gemini-2.5-flash",
+    "provider": "google",
+    "api_key_env": "GEMINI_API_KEY",
+    "offline_fallback": "gemini-2.0-flash-offline-sim",
+    "offline_mode_confirmed": true,
+    "evidence": "results/stage1/stage1_baseline_results.json model_name field = gemini-2.0-flash-offline-sim",
+    "temperature": 0.1,
+    "max_output_tokens": 1024
+  },
+
+  "retrieval_configuration": {
+    "method": "BM25/TF-IDF cosine with section-ID boost",
+    "implementation": "code/src/retrieval/embedder.py LocalStatutoryVectorIndex",
+    "top_k": 5,
+    "chunk_strategy": "section_level",
+    "index_path": "data/05_embeddings_index/stage2_index",
+    "offline": true,
+    "no_external_dependency": true
+  },
+
+  "verifier_configuration": {
+    "layer1": "citation existence check via set membership (closed statute index)",
+    "layer2": "entity grounding + penal ingredient overlap (min_overlap_score=0.35)",
+    "layer2_5": "query-intent alignment",
+    "implementation": "code/src/verifier/verifier_pipeline.py HardConstraintVerifier"
+  },
+
+  "concordance": {
+    "ipc_bns_path": "data/02_ground_truth/concordance_v1.csv",
+    "ipc_bns_rows": 155,
+    "crpc_bnss": "hard-coded dict in code/src/mapping/lookup.py CRPC_TO_BNSS_MAP",
+    "crpc_bnss_pairs": 26
+  },
+
+  "existing_result_locations": {
+    "stage1": "results/stage1/stage1_baseline_results.json",
+    "stage2": "results/stage2/stage2_rag_results.json",
+    "stage2_retrieval": "results/stage2/retrieval_metrics.json",
+    "stage3": "results/stage3/stage3_verifier_results.json",
+    "stage4": "results/stage4/stage4_refresh_results.json",
+    "ablation_summary": "results/ablation_summary_table.csv",
+    "crpc_generalization": "results/crpc_bnss_generalization_results.json",
+    "human_calibration": "results/human_review_calibration.csv"
+  },
+
+  "published_results": {
+    "stage1_accuracy": "10.0% (6/60)",
+    "stage2_accuracy": "63.3% (38/60)",
+    "stage3_stress_catch_rate": "100.0% (18/18)",
+    "stage3_control_fpr": "0.0% (0/12)",
+    "stage4_adaptivity_delta": "+66.7% (1/3 -> 3/3)",
+    "crpc_bnss_generalization": "100.0% (25/25)",
+    "cohen_kappa": "0.93"
+  }
+}

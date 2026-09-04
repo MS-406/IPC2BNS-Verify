@@ -1,0 +1,3 @@
+stage,n,accuracy,accuracy_ci,stress_catch_rate,control_fpr,procedural,benchmark,note
+Stage 2 (RAG),60,63.3% (38/60),[50.7%–74.4%],100.0% (18/18),0.0% (0/12),100.0% (30/30),Original N=60 development benchmark,Existing published results — UNCHANGED
+Phase 7 (Large-Scale RAG),1140,28.9% (329/1140),[26.3%–31.6%],94.4% (17/18) [74.2%–99.0%],86.0% (965/1122) [83.9%–87.9%],11.1% (12/108) [6.5%–18.4%],Phase 7 large-scale benchmark (N=1140),NEW Phase 7 evaluation — does NOT replace original

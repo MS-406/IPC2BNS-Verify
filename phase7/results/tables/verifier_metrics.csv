@@ -1,0 +1,6 @@
+metric,value,metric2,value2
+TP,17,TN,157
+FP,965,FN,1
+Precision,1.73,Recall,94.44
+F1,3.4,Specificity,13.99
+FPR,86.01,N_with_verifier,1140

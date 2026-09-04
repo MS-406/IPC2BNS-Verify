@@ -1,0 +1,25 @@
+{
+  "built_at": "2026-09-04T18:40:22.263796",
+  "total_questions": 1140,
+  "natural_questions": 1122,
+  "adversarial_questions": 18,
+  "train_questions": 647,
+  "dev_questions": 251,
+  "test_questions": 242,
+  "category_distribution": {
+    "A_ipc_bns_direct": 952,
+    "B_crpc_bnss_direct": 108,
+    "C_natural_scenarios": 25,
+    "D_repealed_provisions": 6,
+    "E_split_provisions": 5,
+    "F_merged_provisions": 5,
+    "G_changed_meaning_scope": 6,
+    "H_adversarial": 18,
+    "I_temporal_current_law": 10,
+    "J_incremental_refresh": 5
+  },
+  "external_datasets_loaded": false,
+  "deduplication_applied": true,
+  "source_concordance_rows": 154,
+  "source_crpc_bnss_pairs": 27
+}

@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-09-04T18:32:34.314964",
+  "purpose": "Pre-Phase-7 integrity manifest. SHA-256 checksums of all critical existing artifacts. These must not change.",
+  "git_head": "24d9744876b6e35e457c7eb42cfa0179dae8a5cc",
+  "git_branch": "main",
+  "note": "Run phase7/scripts/verify_integrity.py at any time to confirm originals are unmodified.",
+  "files": {
+    "benchmark_dev": {
+      "path": "data/03_benchmark/benchmark_dev.csv",
+      "sha256": "003a53b1cfd19097a9511d519648d05e0eef73139b29572c170b5f257c929365",
+      "exists": true,
+      "description": "Original N=60 development benchmark"
+    },
+    "benchmark_test": {
+      "path": "data/03_benchmark/benchmark_test.csv",
+      "sha256": "26b61bbf6dd4d79f911b1d2dee6856de99c7bada710cb6f6bcb915e3153f42f6",
+      "exists": true,
+      "description": "Original held-out test benchmark (N=60)"
+    },
+    "benchmark_crpc_bnss": {
+      "path": "data/03_benchmark/benchmark_crpc_bnss.csv",
+      "sha256": "3b27cf832100e6f4facb55000f024406998e311fe08babc70723bfa31d45ab62",
+      "exists": true,
+      "description": "Original CrPC/BNSS procedural benchmark (N=25 used in results, N=31 total)"
+    },
+    "injected_errors": {
+      "path": "data/03_benchmark/injected_errors.csv",
+      "sha256": "7b195ff4c2816c55c378597f1a70989728559fd194b4a6e171430ca96417b630",
+      "exists": true,
+      "description": "Original injected-error stress suite (N=30)"
+    },
+    "concordance_v1": {
+      "path": "data/02_ground_truth/concordance_v1.csv",
+      "sha256": "017991d77450319d8108d28056bbb7d76a02b4ebf6cd8d4f47f242560ca9d789",
+      "exists": true,
+      "description": "IPC->BNS concordance table (155 rows, authoritative ground truth)"
+    },
+    "stage1_results": {
+      "path": "results/stage1/stage1_baseline_results.json",
+      "sha256": "341fc29c4b6c7cc0838a5920de5f802e2dd9943f7b1c3cbaa6c016dd751b3d84",
+      "exists": true,
+      "description": "Stage 1 baseline LLM results (N=60)"
+    },
+    "stage2_results": {
+      "path": "results/stage2/stage2_rag_results.json",
+      "sha256": "e5d3963789c474b787587af0ce2ce03c7a7071890983f16ed717fe87549e68e7",
+      "exists": true,
+      "description": "Stage 2 RAG results (N=60)"
+    },
+    "stage3_results": {
+      "path": "results/stage3/stage3_verifier_results.json",
+      "sha256": "ab8302625fe2e93ea4d6dc452ab660a25b2850bb40841266051969e083394c91",
+      "exists": true,
+      "description": "Stage 3 verifier results (N=60 dev + N=30 stress)"
+    },
+    "stage4_results": {
+      "path": "results/stage4/stage4_refresh_results.json",
+      "sha256": "1631aeae520de0cfa40be8f1383a854fb548f63279361c6b2aa64bf2d9bb5865",
+      "exists": true,
+      "description": "Stage 4 incremental refresh results (N=3 amendments)"
+    },
+    "ablation_summary": {
+      "path": "results/ablation_summary_table.csv",
+      "sha256": "e03e490d39171a0004a31de559b1f41512d877cd82e6f21a37a5a93070598f71",
+      "exists": true,
+      "description": "Master ablation summary table"
+    },
+    "crpc_generalization": {
+      "path": "results/crpc_bnss_generalization_results.json",
+      "sha256": "ddfb214b62577c5ab48dfae9b26d918be9610cd93f28ee83dade30eff3b48bf8",
+      "exists": true,
+      "description": "CrPC/BNSS generalization experiment results"
+    },
+    "test_concordance": {
+      "path": "code/tests/test_concordance.py",
+      "sha256": "be02141ec969b21d52c92ac0aad724cfa027121484df7c17308444314589d9ff",
+      "exists": true
+    },
+    "test_generation": {
+      "path": "code/tests/test_generation.py",
+      "sha256": "2b401a8734bbc6dd172a71d136df4c3e7d355f9a695bc271b2ba9fe40725e7d8",
+      "exists": true
+    },
+    "test_refresh": {
+      "path": "code/tests/test_refresh.py",
+      "sha256": "e2808035fcd1b97eae665498dfc8f3ccc3f684dd9b56a389257cb6059a556bf0",
+      "exists": true
+    },
+    "test_retrieval": {
+      "path": "code/tests/test_retrieval.py",
+      "sha256": "1803634ac1fa8ff0808b321438fc8229a6ca65bf6f0b0b611159850f11110626",
+      "exists": true
+    },
+    "test_verifier": {
+      "path": "code/tests/test_verifier.py",
+      "sha256": "a6295a28565305a8ec5eb79d9a45d99ca80f16fae2b942ef93827292ee8a7a0c",
+      "exists": true
+    },
+    "pipeline_config": {
+      "path": "code/configs/pipeline_config.yaml",
+      "sha256": "78d3efd93de2412112aa0b032c21f6dc4abe03d1c4eb11366b9c50b3dc1ee59e",
+      "exists": true
+    }
+  }
+}

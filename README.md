@@ -73,6 +73,7 @@ IPC2BNS-Verify/
 ├── Phase4_Verifier_Layer.ipynb           # Phase 4: Two-layer hard verifier & stress testing
 ├── Phase5_Adaptivity_Refresh.ipynb       # Phase 5: Zero-downtime hot-patching & Stage 4 ablation
 ├── Phase6_Full_Evaluation_Ablations.ipynb # Phase 6: Master evaluation harness & summary reports
+├── Phase7_Large_Scale_Evaluation.ipynb   # Phase 7: Large-Scale Benchmark (N=1,140) & Re-Evaluation
 │
 ├── code/
 │   ├── configs/                          # pipeline_config.yaml
@@ -84,7 +85,8 @@ IPC2BNS-Verify/
 │   │   ├── verifier/                     # citation_check.py, entity_grounding.py, verifier_pipeline.py
 │   │   ├── refresh/                      # updater.py
 │   │   └── eval/                         # harness.py, retrieval_eval.py, build_benchmark.py
-│   └── tests/                            # 65 comprehensive unit tests (100% pass)
+│   ├── scripts/                          # generate_all_reports.py, sync_to_drive.bat, sync_to_drive.ps1
+│   └── tests/                            # 67 comprehensive unit tests (100% pass)
 │
 ├── data/
 │   ├── 01_cleaned/                       # ipc_sections.jsonl, bns_sections.jsonl
@@ -93,9 +95,18 @@ IPC2BNS-Verify/
 │   ├── 04_refresh_sim/                   # bns_amendment_2025_sim.jsonl
 │   └── 05_embeddings_index/              # stage2_index, stage4_post_refresh_index
 │
+├── phase7/
+│   ├── benchmark/                        # master_benchmark.csv (1,140 questions), ground_truth_audit.csv
+│   ├── generators/                       # flan_t5_generator.py (Google Flan-T5-base open-source model)
+│   ├── evaluation/                       # run_large_benchmark.py, evaluate_retrieval.py, evaluate_generation.py
+│   └── results/                          # 10 tables, 6 publication figures, full evaluation report
+│
 ├── report/
-│   ├── final_report.docx                 # Academic manuscript (Word)
 │   ├── final_research_paper.md           # Academic manuscript (Markdown)
+│   ├── final_report.docx                 # Academic manuscript (Word)
+│   ├── COMPLETE_RESEARCH_GUIDE_AND_RESULTS.md # Complete research guide and test cases
+│   ├── RESEARCH_PAPER_SIMPLIFIED_GUIDE.md# Plain-English guide to paper contributions
+│   ├── PHASE7_LARGE_SCALE_EVALUATION.md  # 21-section Phase 7 large-scale evaluation report
 │   ├── presentation_deck.pptx            # Conference slide deck (PowerPoint)
 │   ├── presentation_deck.md              # Slide deck notes
 │   └── plagiarism_report.pdf             # Originality diagnostic report
