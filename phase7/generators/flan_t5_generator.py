@@ -40,35 +40,37 @@ MODEL_LABEL = "flan-t5-base"  # What goes in result files — NO Gemini mention
 
 # ─── Model singleton ──────────────────────────────────────────────────────────
 
-_pipeline = None
 _tokenizer = None
 _model = None
 
 def _load_model():
-    """Load Flan-T5-base. Downloads ~300MB on first run, cached thereafter."""
-    global _pipeline, _tokenizer, _model
-    if _pipeline is not None:
-        return _pipeline
+    """Load Flan-T5-base. Model weights are cached locally."""
+    global _tokenizer, _model
+    if _model is not None and _tokenizer is not None:
+        return _tokenizer, _model
     
     try:
-        from transformers import T5ForConditionalGeneration, T5Tokenizer, pipeline
-        log.info(f"Loading {MODEL_NAME} (this may take ~30s on first run)...")
+        from transformers import T5ForConditionalGeneration, T5Tokenizer
+        log.info(f"Loading {MODEL_NAME} from local cache...")
         t0 = time.time()
         _tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
         _model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
-        _pipeline = pipeline(
-            "text2text-generation",
-            model=_model,
-            tokenizer=_tokenizer,
-            max_new_tokens=256,
-            do_sample=False,        # Deterministic (greedy) — reproducible
-            temperature=1.0,        # Unused when do_sample=False
-        )
+        _model.eval()
         log.info(f"Flan-T5-base loaded in {time.time()-t0:.1f}s")
-        return _pipeline
+        return _tokenizer, _model
     except Exception as e:
         log.error(f"Failed to load Flan-T5: {e}")
         raise
+
+
+def run_flan_t5_inference(prompt: str, max_new_tokens: int = 128) -> str:
+    """Run deterministic greedy inference using Flan-T5-base."""
+    tokenizer, model = _load_model()
+    import torch
+    inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=512)
+    with torch.no_grad():
+        outputs = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 
 # ─── Prompt templates ─────────────────────────────────────────────────────────
@@ -190,8 +192,7 @@ class FlanT5StatuteGenerator:
         t0 = time.time()
         
         try:
-            pipe = self._get_pipe()
-            output = pipe(prompt, max_new_tokens=200)[0]["generated_text"]
+            output = run_flan_t5_inference(prompt, max_new_tokens=150)
         except Exception as e:
             log.warning(f"Flan-T5 generation failed: {e}")
             output = f"Section not identified. Query: {query}"
@@ -228,8 +229,7 @@ class FlanT5StatuteGenerator:
         t0 = time.time()
         
         try:
-            pipe = self._get_pipe()
-            output = pipe(prompt, max_new_tokens=200)[0]["generated_text"]
+            output = run_flan_t5_inference(prompt, max_new_tokens=150)
         except Exception as e:
             log.warning(f"Flan-T5 generation failed: {e}")
             output = f"Unable to generate answer for: {query}"
