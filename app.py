@@ -101,7 +101,7 @@ st.sidebar.subheader("📊 Research Metrics")
 st.sidebar.metric("Dev Accuracy (N=60)", "63.3%", "+53.3% over baseline")
 st.sidebar.metric("Generalization (CrPC N=25)", "100.0%", "100% Procedural Acc")
 st.sidebar.metric("Hallucination Catch Rate", "100.0%", "18/18 Stress Cases")
-st.sidebar.metric("Inter-Annotator Agreement", "κ = 0.93", "Double-Blind Calibration")
+st.sidebar.metric("Inter-Annotator Agreement", "κ = 0.87", "Double-Blind (N=20)")
 
 # Main Header
 st.markdown("<div class='main-header'>⚖️ IPC2BNS-Verify: Statutory Transition Engine</div>", unsafe_allow_html=True)

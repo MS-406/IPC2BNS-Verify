@@ -76,8 +76,8 @@ python code/scripts/generate_all_reports.py
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | N/A (Procedural Testbed) | N/A | **100.0% (5/5 drift caught)** [56.6% – 100.0%] | **0.0% (0/25 rejected)** [0.0% – 13.3%] | N/A (Static Code Pair) | **100.0% (30/30)** [88.6% – 100.0%] |
 
 * **McNemar’s Paired Test:** $\chi^2 = 28.26, p = 1.05 \times 10^{-7}$ ($p < 10^{-6}$, discordant pairs: $b=33, c=1$).
-* **Stress Re-evaluation & Refresh Invariance:** Identical performance ($18/18, 0/12$) is expected and confirmed because verification logic is statutory-refresh-invariant.
-* **Double-Blind Calibration:** Cohen’s Kappa $\kappa = 0.93$ across $N=20$ calibrated legal queries.
+* **Double-Blind Calibration:** Cohen’s Kappa $\kappa = 0.87$ across $N=20$ calibrated legal queries (95.0% observed concordance, 19/20 concordant judgments).
+* **Generation Methodology & Large-Scale Evaluation (Phase 7):** Generation operates via a deterministic statutory synthesis baseline and local open-source transformer (`google/flan-t5-base`), ensuring 100% reproducible offline execution. Evaluated on $N=1,140$ source-grounded questions across 10 categories, maintaining a 94.4% adversarial catch rate (overall citation hit rate: 28.9%, Recall@5: 30.4%).
 
 ---
 

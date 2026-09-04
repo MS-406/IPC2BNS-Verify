@@ -40,8 +40,8 @@
   - Control False Positive Rate ($N=12$): **0.0% (0/12)** [95% CI: 0.0%–24.2%]
   - *Refresh Invariance:* Re-evaluated across Stage 3 and 4 with identical results.
 - **Incremental Refresh Adaptivity ($N=3$):** Pre: 33.3% (1/3) $\rightarrow$ Post: 100.0% (3/3) in $<5\text{ ms}$.
-- **Procedural Generalization (CrPC $\leftrightarrow$ BNSS, $N=30$):** 100.0% (30/30) accuracy, 5/5 drift caught, 0/25 control false positives.
-- **Double-Blind Calibration:** Cohen’s Kappa $\kappa = 0.93$ across $N=20$ calibrated legal test queries.
+- **Double-Blind Calibration:** Cohen’s Kappa $\kappa = 0.87$ across $N=20$ calibrated legal test queries (95.0% concordance).
+- **Scale Evaluation (Phase 7, $N=1,140$):** 94.4% adversarial catch rate across 10 categories; revealed BM25 retrieval bottleneck on procedural queries (Recall@5: 30.4%).
 
 ---
 

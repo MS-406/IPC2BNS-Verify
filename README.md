@@ -36,7 +36,8 @@ Because Large Language Models (LLMs) are pre-trained on corpora heavily weighted
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | Procedural Benchmark | $N=25$ | **100.0% (25/25)** | [86.7% – 100.0%] | **100.0% (Drift Caught)** | **0.0% (0/25 rejected)** | N/A (Static Code Pair) |
 
 
-*Note:* Human expert calibration on double-blind review achieved **Cohen’s Kappa $\kappa = 0.93$** (near-perfect agreement).
+*Note:* Human expert calibration on double-blind review achieved **Cohen’s Kappa $\kappa = 0.87$** across $N=20$ calibrated legal queries (95.0% observed concordance, 19/20 concordant judgments).
+*Methodology & Scale:* Generation is evaluated using a deterministic statutory synthesis baseline and open-source local neural seq2seq model (`google/flan-t5-base`), ensuring 100% reproducible offline execution. In Phase 7 production stress testing ($N=1,140$), the verifier maintained a **94.4% (17/18)** adversarial catch rate (overall citation hit rate: 28.9%, Recall@5: 30.4%).
 
 ---
 
@@ -114,7 +115,7 @@ IPC2BNS-Verify/
 └── results/
     ├── ablation_summary_table.csv        # Master 4-stage ablation table with Wilson CIs
     ├── crpc_bnss_generalization_results.json
-    ├── human_review_calibration.csv      # Double-blind review (Cohen's kappa = 0.93)
+    ├── human_review_calibration.csv      # Double-blind review (N=20, Cohen's kappa = 0.87)
     └── progress_report.md                # 100% Milestone completion tracker
 ```
 

@@ -92,7 +92,7 @@ Instead of trusting the AI model blindly, **IPC2BNS-Verify** builds a **Neuro-Sy
 | **Generalization** | CrPC $\leftrightarrow$ BNSS Procedural Law | N/A | **100.0% (5/5 drift)** | **0.0% (0/25)** | N/A | **100.0% (30/30)** |
 
 * **Statistical Proof:** McNemar’s paired test shows the Stage 1 $\rightarrow$ 2 jump is significant ($p = 1.05 \times 10^{-7}$).
-* **Human Expert Agreement:** Double-blind legal review scored **$\kappa = 0.93$**.
+* **Human Expert Agreement:** Double-blind legal review across $N=20$ queries scored **$\kappa = 0.87$** (95.0% agreement).
 
 ---
 

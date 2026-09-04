@@ -71,7 +71,7 @@ def generate_word_documents(rows, out_paths):
             'Injected-Errors Stress Suite (N=30: 18 adversarial failure attacks + 12 valid controls), '
             '2025 Legislative Amendments Adaptivity Set (N=3 case study), and '
             'Procedural Criminal Law Benchmark (N=30 CrPC/BNSS queries, including 5 hard edge cases). '
-            'Double-blind calibration between legal annotators achieved Cohen’s Kappa kappa = 0.93 across N=20 double-blind test queries.'
+            'Double-blind calibration between legal annotators achieved Cohen’s Kappa kappa = 0.87 across N=20 double-blind test queries (95.0% concordance).'
         )
 
         table_headers = ['Stage', 'System Configuration', 'Dev Accuracy (N=60)', 'Dev 95% Wilson CI', 'Stress Catch Rate (N=18)', 'Control FPR (N=12)', 'Adaptivity Delta (N=3)', 'Procedural Gen (N=30)']
