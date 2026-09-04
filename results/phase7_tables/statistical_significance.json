@@ -1,0 +1,14 @@
+{
+  "n": 1140,
+  "p_hat": 28.86,
+  "wilson_ci_95": [
+    26.3,
+    31.6
+  ],
+  "bootstrap_ci_95": [
+    26.32,
+    31.49
+  ],
+  "note_mcnemar": "McNemar's test NOT applicable \u2014 Phase 7 and original N=60 are not paired (different question sets). No valid paired comparison exists.",
+  "note_statistical": "Wilson score interval appropriate for binomial proportions. Bootstrap CI computed with B=1000 resamples, seed=42."
+}

@@ -1,0 +1,192 @@
+{
+  "split_merged_failure": {
+    "count": 30,
+    "examples": [
+      {
+        "qid": "P7_0008",
+        "question": "Which section in BNS 2023 corresponds to IPC Section 2?",
+        "expected": [
+          "1"
+        ],
+        "cited": [
+          "2",
+          "2"
+        ],
+        "category": "A_ipc_bns_direct"
+      },
+      {
+        "qid": "P7_0009",
+        "question": "What is the BNS 2023 equivalent of IPC Section 2?",
+        "expected": [
+          "1"
+        ],
+        "cited": [
+          "2",
+          "2"
+        ],
+        "category": "A_ipc_bns_direct"
+      },
+      {
+        "qid": "P7_0010",
+        "question": "Under the Bharatiya Nyaya Sanhita 2023, which provision replaced IPC Section 2?",
+        "expected": [
+          "1"
+        ],
+        "cited": [
+          "2",
+          "2"
+        ],
+        "category": "A_ipc_bns_direct"
+      }
+    ]
+  },
+  "citation_mismatch": {
+    "count": 756,
+    "examples": [
+      {
+        "qid": "P7_0013",
+        "question": "Which section in BNS 2023 corresponds to IPC Section 3?",
+        "expected": [
+          "2"
+        ],
+        "cited": [
+          "3",
+          "3"
+        ],
+        "category": "A_ipc_bns_direct"
+      },
+      {
+        "qid": "P7_0014",
+        "question": "What is the BNS 2023 equivalent of IPC Section 3?",
+        "expected": [
+          "2"
+        ],
+        "cited": [
+          "3",
+          "3"
+        ],
+        "category": "A_ipc_bns_direct"
+      },
+      {
+        "qid": "P7_0015",
+        "question": "Under the Bharatiya Nyaya Sanhita 2023, which provision replaced IPC Section 3?",
+        "expected": [
+          "2"
+        ],
+        "cited": [
+          "3",
+          "3"
+        ],
+        "category": "A_ipc_bns_direct"
+      }
+    ]
+  },
+  "generation_failure_no_citation": {
+    "count": 6,
+    "examples": [
+      {
+        "qid": "P7_0678",
+        "question": "What is the current BNS provision dealing with punishment for rape on woman unde",
+        "expected": [
+          "65"
+        ],
+        "cited": [],
+        "category": "A_ipc_bns_direct"
+      },
+      {
+        "qid": "P7_0679",
+        "question": "Under current Indian criminal law, which section covers punishment for rape on w",
+        "expected": [
+          "65"
+        ],
+        "cited": [],
+        "category": "A_ipc_bns_direct"
+      },
+      {
+        "qid": "P7_0706",
+        "question": "What is the current BNS provision dealing with gang rape on woman under sixteen ",
+        "expected": [
+          "70"
+        ],
+        "cited": [],
+        "category": "A_ipc_bns_direct"
+      }
+    ]
+  },
+  "repealed_law_failure": {
+    "count": 6,
+    "examples": [
+      {
+        "qid": "P7_1086",
+        "question": "What happened to sedition (IPC Section 124A) under BNS 2023?",
+        "expected": [
+          "152"
+        ],
+        "cited": [
+          "124A",
+          "11"
+        ],
+        "category": "D_repealed_provisions"
+      },
+      {
+        "qid": "P7_1087",
+        "question": "Is the offence under IPC Section 377 (unnatural offences) present in BNS 2023?",
+        "expected": [],
+        "cited": [
+          "377",
+          "114"
+        ],
+        "category": "D_repealed_provisions"
+      },
+      {
+        "qid": "P7_1088",
+        "question": "Is adultery still a criminal offence under BNS 2023 (formerly IPC Section 497)?",
+        "expected": [],
+        "cited": [
+          "497",
+          "40"
+        ],
+        "category": "D_repealed_provisions"
+      }
+    ]
+  },
+  "adversarial_missed": {
+    "count": 13,
+    "examples": [
+      {
+        "qid": "P7_1108",
+        "question": "Which BNS section 425 covers cheating?",
+        "expected": [
+          "318"
+        ],
+        "cited": [
+          "425",
+          "415"
+        ],
+        "category": "H_adversarial"
+      },
+      {
+        "qid": "P7_1110",
+        "question": "What does BNSS Section 999 cover?",
+        "expected": [],
+        "cited": [
+          "292",
+          "294"
+        ],
+        "category": "H_adversarial"
+      },
+      {
+        "qid": "P7_1111",
+        "question": "IPC Section 302 (murder) maps to BNS Section 302, correct?",
+        "expected": [
+          "103"
+        ],
+        "cited": [
+          "302",
+          "101"
+        ],
+        "category": "H_adversarial"
+      }
+    ]
+  }
+}

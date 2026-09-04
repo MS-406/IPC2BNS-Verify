@@ -1,0 +1,6 @@
+source_dataset,count,pct
+concordance_v1_internal,979,85.9%
+crpc_bnss_internal_map,108,9.5%
+hand_curated_scenario,25,2.2%
+adversarial_hand_constructed,18,1.6%
+hand_curated_temporal,10,0.9%
