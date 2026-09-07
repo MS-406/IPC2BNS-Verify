@@ -135,8 +135,41 @@ def generate_word_documents(rows, out_paths):
 
         doc.add_paragraph()
 
+        # 2.2 Systematic Retriever Ablation Comparison Table
+        doc.add_heading('2.2 Systematic Retriever Ablation Comparison (Empirical Metrics)', level=2)
+        doc.add_paragraph(
+            'To resolve the lexical matching bottleneck on open legal questions, five retrieval architectures were systematically evaluated '
+            'across both the IndicLegalQA (N=50) and Dev (N=60) benchmarks.'
+        )
+
+        ret_headers = ['Retrieval Strategy', 'IndicLegalQA R@1', 'IndicLegalQA R@5', 'IndicLegalQA MRR', 'Dev R@1', 'Dev R@5', 'Dev MRR']
+        ret_rows = [
+            ret_headers,
+            ['BM25 (Sparse Baseline)', '10.0% (5/50)', '46.0% (23/50)', '0.248', '28.3% (17/60)', '61.7% (37/60)', '0.422'],
+            ['BM25 + Concordance Expansion', '28.0% (14/50)', '52.0% (26/50)', '0.383', '40.0% (24/60)', '63.3% (38/60)', '0.508'],
+            ['Dense Semantic (Cosine)', '16.0% (8/50)', '50.0% (25/50)', '0.310', '33.3% (20/60)', '63.3% (38/60)', '0.458'],
+            ['Hybrid RRF (BM25 + Dense)', '10.0% (5/50)', '48.0% (24/50)', '0.258', '30.0% (18/60)', '66.7% (40/60)', '0.446'],
+            ['Hybrid RRF + Expansion (Proposed)', '28.0% (14/50)', '56.0% (28/50)', '0.396', '40.0% (24/60)', '68.3% (41/60)', '0.523']
+        ]
+        ret_table = doc.add_table(rows=len(ret_rows), cols=len(ret_headers))
+        ret_table.alignment = WD_TABLE_ALIGNMENT.CENTER
+        for r_idx, row in enumerate(ret_rows):
+            for c_idx, val in enumerate(row):
+                cell = ret_table.cell(r_idx, c_idx)
+                cell.text = val
+                for p in cell.paragraphs:
+                    for r in p.runs:
+                        if r_idx == 0:
+                            r.font.bold = True
+                            r.font.size = Pt(8.0)
+                        else:
+                            r.font.size = Pt(7.5)
+
+        doc.add_paragraph()
+
         # 3. Key Findings & Narrative Results
         doc.add_heading('3. Empirical Findings & Narrative Results', level=1)
+
         doc.add_paragraph(
             '1. Stage 1 -> Stage 2 Jump (10.0% -> 63.3%): Closed-book baseline LLMs fail severely on current Indian law due to historical pre-training bias (90% defaulting to obsolete IPC numbers). Adding BM25 bare-act retrieval produces a massive +53.3% gain. McNemar’s paired test confirms extreme statistical significance: chi2 = 28.26, p = 1.05 x 10^-7 (discordant pairs: b=33, c=1).\n\n'
             '2. Real Legal Generalization (IndicLegalQA N=50): On independently-sourced real legal questions, closed-book models suffer from a 96% error rate (4.0% accuracy), while BM25 RAG achieves a 7x accuracy boost (28.0%) with 100% verifier repeal interception.\n\n'

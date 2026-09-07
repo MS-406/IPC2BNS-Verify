@@ -109,3 +109,44 @@ def test_retrieval_evaluation_run(tmp_path):
     assert metrics["metrics"]["recall_at_5"] > 0.0
     assert metrics["metrics"]["mean_reciprocal_rank"] > 0.0
     assert os.path.exists(out_file)
+
+
+# =========================================================================
+# 5. Query Expander & Hybrid Retriever Tests
+# =========================================================================
+
+def test_concordance_query_expander():
+    from src.retrieval.query_expander import get_query_expander
+    expander = get_query_expander()
+
+    # Test explicit IPC section extraction and expansion
+    exp_ipc = expander.expand_query("What is the punishment under Section 420 IPC?")
+    assert "318" in exp_ipc
+    assert "BNS" in exp_ipc
+
+    # Test domain offence synonym expansion
+    exp_offence = expander.expand_query("Where is cheating defined in criminal law?")
+    assert "318" in exp_offence or "Cheating" in exp_offence
+
+
+def test_hybrid_retriever_multi_mode():
+    from src.retrieval.hybrid_retriever import get_hybrid_retriever
+    retriever = get_hybrid_retriever()
+
+    # Test BM25 mode
+    bm25_hits = retriever.retrieve("punishment for cheating", top_k=3, mode="bm25")
+    assert len(bm25_hits) > 0
+
+    # Test Dense mode
+    dense_hits = retriever.retrieve("punishment for cheating", top_k=3, mode="dense")
+    assert len(dense_hits) > 0
+
+    # Test Hybrid RRF mode
+    hybrid_hits = retriever.retrieve("punishment for cheating", top_k=3, mode="hybrid_rrf")
+    assert len(hybrid_hits) > 0
+
+    # Test Hybrid Expanded mode
+    expanded_hits = retriever.retrieve("What is section 420 IPC now?", top_k=3, mode="hybrid_expanded")
+    assert len(expanded_hits) > 0
+    assert any(h["section_number"] == "318" for h in expanded_hits)
+

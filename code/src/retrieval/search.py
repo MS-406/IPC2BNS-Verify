@@ -92,16 +92,26 @@ class StatutoryRetriever:
         return hits
 
 
-# ── Global singleton accessor ─────────────────────────────────────────────
+# ── Global singleton accessors ─────────────────────────────────────────────
 _GLOBAL_RETRIEVER: Optional[StatutoryRetriever] = None
 
 
-def get_retriever(index_dir: Optional[str] = None) -> StatutoryRetriever:
+def get_retriever(index_dir: Optional[str] = None, mode: str = "bm25"):
+    """
+    Returns retriever instance.
+    If mode == 'bm25', returns baseline StatutoryRetriever.
+    If mode in ('hybrid', 'hybrid_rrf', 'hybrid_expanded', 'dense'), returns HybridStatutoryRetriever.
+    """
     global _GLOBAL_RETRIEVER
-    if _GLOBAL_RETRIEVER is None:
-        _GLOBAL_RETRIEVER = StatutoryRetriever(index_dir)
-    return _GLOBAL_RETRIEVER
+    if mode == "bm25":
+        if _GLOBAL_RETRIEVER is None:
+            _GLOBAL_RETRIEVER = StatutoryRetriever(index_dir)
+        return _GLOBAL_RETRIEVER
+    else:
+        from src.retrieval.hybrid_retriever import get_hybrid_retriever
+        return get_hybrid_retriever(index_dir)
 
 
-def retrieve_statutes(query: str, top_k: int = 5, act_filter: Optional[str] = None) -> List[Dict[str, Any]]:
-    return get_retriever().retrieve(query=query, top_k=top_k, act_filter=act_filter)
+def retrieve_statutes(query: str, top_k: int = 5, act_filter: Optional[str] = None, mode: str = "bm25") -> List[Dict[str, Any]]:
+    return get_retriever(mode=mode).retrieve(query=query, top_k=top_k, act_filter=act_filter)
+

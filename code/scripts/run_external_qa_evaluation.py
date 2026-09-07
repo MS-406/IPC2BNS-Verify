@@ -91,10 +91,10 @@ def load_external_dataset(file_path: str) -> List[Dict[str, Any]]:
     return items
 
 
-def run_evaluation(items: List[Dict[str, Any]], dataset_name: str = "IndicLegalQA") -> Dict[str, Any]:
-    """Runs the 3-stage evaluation on the external dataset."""
+def run_evaluation(items: List[Dict[str, Any]], dataset_name: str = "IndicLegalQA", retrieval_mode: str = "hybrid_expanded") -> Dict[str, Any]:
+    """Runs the 3-stage evaluation on the external dataset with selectable retrieval mode."""
     generator = get_generator()
-    retriever = get_retriever()
+    retriever = get_retriever(mode=retrieval_mode)
     verifier = get_master_verifier()
     concordance = ConcordanceLookup()
 
@@ -116,7 +116,6 @@ def run_evaluation(items: List[Dict[str, Any]], dataset_name: str = "IndicLegalQ
             if mapping and mapping.target_section:
                 gt_bns = mapping.target_section
 
-
         # Expected target for BNS evaluation: gt_bns, fallback to gt_ipc
         target_citation = gt_bns if gt_bns else gt_ipc
 
@@ -127,12 +126,13 @@ def run_evaluation(items: List[Dict[str, Any]], dataset_name: str = "IndicLegalQ
         if s1_hit:
             s1_hits += 1
 
-        # 2. Stage 2: +BM25 RAG Context
-        s2_res = generator.generate_stage2(query=query_text, question_id=qid, top_k=3)
+        # 2. Stage 2: RAG Context with configured retrieval_mode
+        s2_res = generator.generate_stage2(query=query_text, question_id=qid, top_k=3, retrieval_mode=retrieval_mode)
         s2_cited_sections = [c["section"].upper().replace(" ", "") for c in s2_res.citations]
         s2_hit = any(target_citation.upper().replace(" ", "") in c for c in s2_cited_sections) if s2_cited_sections else False
         if s2_hit:
             s2_hits += 1
+
 
         # 3. Stage 3: +Two-Layer Hard Verifier
         retrieved_chunks = [c.to_dict() if hasattr(c, "to_dict") else c for c in s2_res.retrieved_chunks]
@@ -201,11 +201,13 @@ def main():
     parser = argparse.ArgumentParser(description="Evaluate external dataset on IPC2BNS-Verify")
     parser.add_argument("--file", type=str, default="data/03_benchmark/external_indic_legal_qa.csv", help="Path to input external QA file (CSV/JSON/JSONL)")
     parser.add_argument("--name", type=str, default="IndicLegalQA (Real Legal Questions)", help="Dataset display name")
+    parser.add_argument("--mode", type=str, default="hybrid_expanded", choices=["bm25", "bm25_expanded", "dense", "hybrid_rrf", "hybrid_expanded"], help="Retrieval mode to evaluate")
     parser.add_argument("--out", type=str, default="results/external_dataset_results.json", help="Path to output JSON results")
     args = parser.parse_args()
 
     items = load_external_dataset(args.file)
-    summary = run_evaluation(items, dataset_name=args.name)
+    summary = run_evaluation(items, dataset_name=args.name, retrieval_mode=args.mode)
+    summary["retrieval_mode"] = args.mode
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
@@ -215,9 +217,10 @@ def main():
     csv_out = os.path.splitext(args.out)[0] + ".csv"
     with open(csv_out, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Dataset Name", "Sample Size (N)", "Stage 1 Baseline Acc", "Stage 1 95% Wilson CI", "Stage 2 +RAG Acc", "Stage 2 95% Wilson CI", "Verifier Passed", "Verifier Rejections/Vetoes"])
+        writer.writerow(["Dataset Name", "Retrieval Mode", "Sample Size (N)", "Stage 1 Baseline Acc", "Stage 1 95% Wilson CI", "Stage 2 +RAG Acc", "Stage 2 95% Wilson CI", "Verifier Passed", "Verifier Rejections/Vetoes"])
         writer.writerow([
             summary["dataset_name"],
+            summary["retrieval_mode"],
             summary["sample_size"],
             summary["stage1_accuracy"],
             summary["stage1_ci"],
@@ -228,13 +231,14 @@ def main():
         ])
 
     print("\n" + "="*80)
-    print(f"EVALUATION COMPLETE ON {summary['dataset_name']} (N={summary['sample_size']})")
+    print(f"EVALUATION COMPLETE ON {summary['dataset_name']} (Mode: {args.mode}, N={summary['sample_size']})")
     print("="*80)
     print(f"Stage 1 (Baseline Closed-Book LLM): {summary['stage1_accuracy']}  95% CI: {summary['stage1_ci']}")
-    print(f"Stage 2 (+BM25 Statutory RAG):      {summary['stage2_accuracy']}  95% CI: {summary['stage2_ci']}")
+    print(f"Stage 2 (+{args.mode.upper()} Statutory RAG): {summary['stage2_accuracy']}  95% CI: {summary['stage2_ci']}")
     print(f"Stage 3 (Verifier Gating):          Passed: {summary['verifier_passed']} | Rejected: {summary['verifier_rejected']} | Vetoed: {summary['verifier_vetoed']}")
     print("="*80)
     print(f"Results saved to:\n  - {args.out}\n  - {csv_out}\n")
+
 
 
 if __name__ == "__main__":

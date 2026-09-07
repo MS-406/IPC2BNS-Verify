@@ -165,12 +165,15 @@ class StatuteGenerator:
 
     def generate_stage2(self, query: str, question_id: str = "Q_000", top_k: int = 3,
                         act_filter: Optional[str] = None,
-                        retrieved_chunks: Optional[List[Dict[str, Any]]] = None) -> GenerationResult:
+                        retrieved_chunks: Optional[List[Dict[str, Any]]] = None,
+                        retrieval_mode: str = "bm25") -> GenerationResult:
         """
         Stage 2: RAG-augmented generation (retrieval context provided, no verifier).
+        Supports retrieval_mode: "bm25", "hybrid", "hybrid_expanded", "dense", etc.
         """
         # Step 1: Use passed context chunks or retrieve
-        chunks = retrieved_chunks if retrieved_chunks is not None else retrieve_statutes(query=query, top_k=top_k, act_filter=act_filter)
+        chunks = retrieved_chunks if retrieved_chunks is not None else retrieve_statutes(query=query, top_k=top_k, act_filter=act_filter, mode=retrieval_mode)
+
 
         # Step 2: Build prompt with context
         prompt_data = LegalPromptBuilder.build_stage2_prompt(query, chunks)

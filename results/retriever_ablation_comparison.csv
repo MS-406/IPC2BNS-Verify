@@ -1,0 +1,6 @@
+Retrieval Strategy,Recall@1,Recall@3,Recall@5,MRR,End-to-End Citation Hit
+BM25 (Sparse Baseline),10.0% (5/50),38.0% (19/50),46.0% (23/50),0.248,32.0% (16/50)
+BM25 + Concordance Query Expansion,28.0% (14/50),48.0% (24/50),52.0% (26/50),0.383,46.0% (23/50)
+Dense Semantic (Cosine Similarity),16.0% (8/50),46.0% (23/50),50.0% (25/50),0.31,46.0% (23/50)
+Hybrid RRF (BM25 + Dense),10.0% (5/50),40.0% (20/50),48.0% (24/50),0.258,46.0% (23/50)
+Hybrid RRF + Concordance Expansion (Proposed),28.0% (14/50),48.0% (24/50),56.0% (28/50),0.396,46.0% (23/50)
