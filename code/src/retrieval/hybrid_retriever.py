@@ -159,11 +159,11 @@ class HybridStatutoryRetriever:
 
         # 1. Query Expansion if enabled in mode
         active_query = query
-        if "expanded" in mode:
+        if "expanded" in mode or "rerank" in mode:
             active_query = self.expander.expand_query(query)
 
-        # 2. Branch based on retrieval mode
-        candidate_pool = top_k * 4
+        # 2. Candidate pool size (at least 20 when re-ranking)
+        candidate_pool = max(top_k * 4, 20) if "rerank" in mode else top_k * 4
 
         if mode == "bm25" or mode == "bm25_expanded":
             raw_hits = self.bm25_index.search(active_query, top_k=candidate_pool, act_filter=act_filter)
@@ -220,10 +220,16 @@ class HybridStatutoryRetriever:
                 }
             })
 
-            if len(hits) >= top_k:
-                break
+        # 4. Optional Cross-Encoder Re-Ranking over candidate pool
+        if "rerank" in mode:
+            from src.retrieval.reranker import get_reranker
+            reranker = get_reranker()
+            hits = reranker.rerank(query=query, candidate_chunks=hits, top_k=top_k)
+        else:
+            hits = hits[:top_k]
 
         return hits
+
 
     def search(self, query: str, top_k: int = 5, **kwargs) -> List[Dict[str, Any]]:
         """Alias for search method."""

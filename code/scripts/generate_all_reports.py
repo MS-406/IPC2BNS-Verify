@@ -109,15 +109,18 @@ def generate_word_documents(rows, out_paths):
         doc.add_paragraph(
             'To test real-world legal generalization beyond curated templates, IPC2BNS-Verify was evaluated on N=50 independently-sourced '
             'criminal law questions covering major substantive offences (Murder §302, Cheating §420, Rash Driving §279, Dowry Death §304B, '
-            'Rape §375, Defamation §499, Forgery §463, Extortion §386, and Sedition Repeal §124A).'
+            'Rape §375, Defamation §499, Forgery §463, Extortion §386, and Sedition Repeal §124A). '
+            'Evaluations report performance across both full sample (N=50) and active non-repealed statutory provisions (N=48).'
         )
 
-        ext_headers = ['Evaluation Stage', 'System Configuration', 'Accuracy (N=50)', '95% Wilson CI', 'Verifier Status']
+        ext_headers = ['Evaluation Stage', 'System Configuration', 'Accuracy (N=50)', 'Accuracy (N=48 Valid)', '95% Wilson CI', 'Verifier Status']
         ext_rows = [
             ext_headers,
-            ['Stage 1', 'Baseline LLM (Closed-Book)', '4.0% (2/50)', '[1.1% - 13.5%]', 'N/A (No Verifier)'],
-            ['Stage 2', '+BM25 Statutory RAG', '28.0% (14/50)', '[17.5% - 41.7%]', 'N/A (No Verifier)'],
-            ['Stage 3', '+Two-Layer Hard Verifier', '28.0% (14/50)', '[17.5% - 41.7%]', '47/50 Passed, 2 Vetoed, 1 Rejected']
+            ['Stage 1', 'Baseline LLM (Closed-Book)', '4.0% (2/50)', '4.2% (2/48)', '[1.1% - 13.5%]', 'N/A (No Verifier)'],
+            ['Stage 2 (Baseline BM25)', '+BM25 Statutory RAG', '28.0% (14/50)', '29.2% (14/48)', '[17.5% - 41.7%]', 'N/A (No Verifier)'],
+            ['Stage 2 (Hybrid RRF + Expansion)', '+Hybrid RRF & Expansion (Top-3)', '42.0% (21/50)', '43.8% (21/48)', '[29.4% - 55.8%]', 'N/A (No Verifier)'],
+            ['Stage 2 (Top-5 Context)', '+Hybrid RRF & Expansion (Top-5)', '46.0% (23/50)', '47.9% (23/48)', '[33.4% - 60.1%]', 'N/A (No Verifier)'],
+            ['Stage 3', '+Two-Layer Hard Verifier', '42.0% (21/50)', '43.8% (21/48)', '[29.4% - 55.8%]', '44/50 Passed, 2 Vetoed, 4 Rejected']
         ]
         ext_table = doc.add_table(rows=len(ext_rows), cols=len(ext_headers))
         ext_table.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -138,18 +141,19 @@ def generate_word_documents(rows, out_paths):
         # 2.2 Systematic Retriever Ablation Comparison Table
         doc.add_heading('2.2 Systematic Retriever Ablation Comparison (Empirical Metrics)', level=2)
         doc.add_paragraph(
-            'To resolve the lexical matching bottleneck on open legal questions, five retrieval architectures were systematically evaluated '
+            'To resolve the lexical matching bottleneck on open legal questions, six retrieval architectures were systematically evaluated '
             'across both the IndicLegalQA (N=50) and Dev (N=60) benchmarks.'
         )
 
-        ret_headers = ['Retrieval Strategy', 'IndicLegalQA R@1', 'IndicLegalQA R@5', 'IndicLegalQA MRR', 'Dev R@1', 'Dev R@5', 'Dev MRR']
+        ret_headers = ['Retrieval Strategy', 'IndicLegalQA R@1', 'IndicLegalQA R@5', 'IndicLegalQA MRR', 'Hit Top-3', 'Hit Top-5 (Valid)']
         ret_rows = [
             ret_headers,
-            ['BM25 (Sparse Baseline)', '10.0% (5/50)', '46.0% (23/50)', '0.248', '28.3% (17/60)', '61.7% (37/60)', '0.422'],
-            ['BM25 + Concordance Expansion', '28.0% (14/50)', '52.0% (26/50)', '0.383', '40.0% (24/60)', '63.3% (38/60)', '0.508'],
-            ['Dense Semantic (Cosine)', '16.0% (8/50)', '50.0% (25/50)', '0.310', '33.3% (20/60)', '63.3% (38/60)', '0.458'],
-            ['Hybrid RRF (BM25 + Dense)', '10.0% (5/50)', '48.0% (24/50)', '0.258', '30.0% (18/60)', '66.7% (40/60)', '0.446'],
-            ['Hybrid RRF + Expansion (Proposed)', '28.0% (14/50)', '56.0% (28/50)', '0.396', '40.0% (24/60)', '68.3% (41/60)', '0.523']
+            ['BM25 (Sparse Baseline)', '10.0% (5/50)', '46.0% (23/50)', '0.248', '32.0% (16/50)', '33.3% (16/48)'],
+            ['BM25 + Concordance Expansion', '28.0% (14/50)', '52.0% (26/50)', '0.383', '46.0% (23/50)', '47.9% (23/48)'],
+            ['Dense Semantic (Cosine)', '16.0% (8/50)', '50.0% (25/50)', '0.310', '46.0% (23/50)', '47.9% (23/48)'],
+            ['Hybrid RRF (BM25 + Dense)', '10.0% (5/50)', '48.0% (24/50)', '0.258', '46.0% (23/50)', '47.9% (23/48)'],
+            ['Hybrid RRF + Concordance Expansion', '28.0% (14/50)', '56.0% (28/50)', '0.396', '46.0% (23/50)', '47.9% (23/48)'],
+            ['Hybrid RRF + Cross-Encoder Re-Ranking', '18.0% (9/50)', '42.0% (21/50)', '0.280', '46.0% (23/50)', '47.9% (23/48)']
         ]
         ret_table = doc.add_table(rows=len(ret_rows), cols=len(ret_headers))
         ret_table.alignment = WD_TABLE_ALIGNMENT.CENTER

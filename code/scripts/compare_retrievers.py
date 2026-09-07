@@ -45,7 +45,7 @@ def load_dataset(benchmark_path: str) -> List[Dict[str, Any]]:
     return items
 
 
-def evaluate_retrieval_mode(items: List[Dict[str, Any]], mode: str) -> Dict[str, Any]:
+def evaluate_retrieval_mode(items: List[Dict[str, Any]], mode: str, top_k: int = 5) -> Dict[str, Any]:
     retriever = get_hybrid_retriever()
     concordance = ConcordanceLookup()
     generator = get_generator()
@@ -54,8 +54,15 @@ def evaluate_retrieval_mode(items: List[Dict[str, Any]], mode: str) -> Dict[str,
     r3_hits = 0
     r5_hits = 0
     rr_sum = 0.0
-    citation_hits = 0
+    citation_hits_top3 = 0
+    citation_hits_top5 = 0
     total = len(items)
+
+    valid_items = [
+        it for it in items 
+        if str(it.get("ground_truth_bns", it.get("bns_section", ""))).strip() not in ("NaN", "-", "", "None")
+    ]
+    valid_total = len(valid_items)
 
     for idx, item in enumerate(items, 1):
         qid = str(item.get("question_id", item.get("id", f"Q_{idx:03d}")))
@@ -92,20 +99,30 @@ def evaluate_retrieval_mode(items: List[Dict[str, Any]], mode: str) -> Dict[str,
         if rank is not None:
             rr_sum += 1.0 / rank
 
-        # End-to-end generation citation hit
-        gen_res = generator.generate_stage2(query=query, question_id=qid, top_k=3, retrieval_mode=mode)
-        cited = [c["section"].upper().replace(" ", "") for c in gen_res.citations]
-        if target_clean and any(target_clean in c for c in cited):
-            citation_hits += 1
+        # End-to-end generation citation hit with Top-3
+        gen_res_3 = generator.generate_stage2(query=query, question_id=qid, top_k=3, retrieval_mode=mode)
+        cited_3 = [c["section"].upper().replace(" ", "") for c in gen_res_3.citations]
+        if target_clean and any(target_clean in c for c in cited_3):
+            citation_hits_top3 += 1
+
+        # End-to-end generation citation hit with Top-5
+        gen_res_5 = generator.generate_stage2(query=query, question_id=qid, top_k=5, retrieval_mode=mode)
+        cited_5 = [c["section"].upper().replace(" ", "") for c in gen_res_5.citations]
+        if target_clean and any(target_clean in c for c in cited_5):
+            citation_hits_top5 += 1
 
     return {
         "mode": mode,
         "sample_size": total,
+        "valid_size": valid_total,
         "recall_at_1": f"{round(r1_hits / total * 100, 1)}% ({r1_hits}/{total})",
         "recall_at_3": f"{round(r3_hits / total * 100, 1)}% ({r3_hits}/{total})",
         "recall_at_5": f"{round(r5_hits / total * 100, 1)}% ({r5_hits}/{total})",
+        "recall_at_5_valid": f"{round(r5_hits / valid_total * 100, 1)}% ({r5_hits}/{valid_total})" if valid_total > 0 else "0.0%",
         "mrr": round(rr_sum / total, 3),
-        "citation_hit_rate": f"{round(citation_hits / total * 100, 1)}% ({citation_hits}/{total})"
+        "citation_hit_top3": f"{round(citation_hits_top3 / total * 100, 1)}% ({citation_hits_top3}/{total})",
+        "citation_hit_top5": f"{round(citation_hits_top5 / total * 100, 1)}% ({citation_hits_top5}/{total})",
+        "citation_hit_top5_valid": f"{round(citation_hits_top5 / valid_total * 100, 1)}% ({citation_hits_top5}/{valid_total})" if valid_total > 0 else "0.0%"
     }
 
 
@@ -122,7 +139,8 @@ def main():
         ("bm25_expanded", "BM25 + Concordance Query Expansion"),
         ("dense", "Dense Semantic (Cosine Similarity)"),
         ("hybrid_rrf", "Hybrid RRF (BM25 + Dense)"),
-        ("hybrid_expanded", "Hybrid RRF + Concordance Expansion (Proposed)")
+        ("hybrid_expanded", "Hybrid RRF + Concordance Expansion"),
+        ("hybrid_reranked", "Hybrid RRF + Cross-Encoder Re-Ranking")
     ]
 
     print(f"\nEvaluating {len(modes)} retrieval modes on {os.path.basename(args.benchmark)} (N={len(items)})...\n")
@@ -142,18 +160,18 @@ def main():
     csv_out = os.path.splitext(args.out)[0] + ".csv"
     with open(csv_out, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Retrieval Strategy", "Recall@1", "Recall@3", "Recall@5", "MRR", "End-to-End Citation Hit"])
+        writer.writerow(["Retrieval Strategy", "Recall@1", "Recall@3", "Recall@5 (Full)", "Recall@5 (Valid)", "MRR", "Citation Hit Top-3", "Citation Hit Top-5 (Full)", "Citation Hit Top-5 (Valid)"])
         for r in results:
-            writer.writerow([r["display_name"], r["recall_at_1"], r["recall_at_3"], r["recall_at_5"], r["mrr"], r["citation_hit_rate"]])
+            writer.writerow([r["display_name"], r["recall_at_1"], r["recall_at_3"], r["recall_at_5"], r["recall_at_5_valid"], r["mrr"], r["citation_hit_top3"], r["citation_hit_top5"], r["citation_hit_top5_valid"]])
 
-    print("\n" + "="*95)
+    print("\n" + "="*115)
     print(f"SYSTEMATIC RETRIEVER ABLATION RESULTS (Benchmark: {os.path.basename(args.benchmark)}, N={len(items)})")
-    print("="*95)
-    print(f"{'Retrieval Strategy':<45} | {'Recall@1':<10} | {'Recall@5':<10} | {'MRR':<6} | {'Citation Hit':<12}")
-    print("-" * 95)
+    print("="*115)
+    print(f"{'Retrieval Strategy':<42} | {'Recall@1':<9} | {'Recall@5':<9} | {'MRR':<6} | {'Hit Top-3':<11} | {'Hit Top-5 (Valid)':<18}")
+    print("-" * 115)
     for r in results:
-        print(f"{r['display_name']:<45} | {r['recall_at_1']:<10} | {r['recall_at_5']:<10} | {r['mrr']:<6} | {r['citation_hit_rate']:<12}")
-    print("="*95)
+        print(f"{r['display_name']:<42} | {r['recall_at_1']:<9} | {r['recall_at_5']:<9} | {r['mrr']:<6} | {r['citation_hit_top3']:<11} | {r['citation_hit_top5_valid']:<18}")
+    print("="*115)
     print(f"\nSaved results to:\n  - {args.out}\n  - {csv_out}\n")
 
 

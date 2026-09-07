@@ -1,2 +1,2 @@
-Dataset Name,Retrieval Mode,Sample Size (N),Stage 1 Baseline Acc,Stage 1 95% Wilson CI,Stage 2 +RAG Acc,Stage 2 95% Wilson CI,Verifier Passed,Verifier Rejections/Vetoes
-IndicLegalQA Benchmark,hybrid_expanded,50,4.0% (2/50),[1.1% - 13.5%],42.0% (21/50),[29.4% - 55.8%],44/50,6/50
+Dataset Name,Retrieval Mode,Top K,Total (N),Active Valid (N),Stage 1 Acc (Full),Stage 1 95% CI,Stage 2 +RAG Acc (Full),Stage 2 95% CI,Stage 2 Acc (Valid),Stage 2 95% CI (Valid),Verifier Passed,Verifier Rejections/Vetoes
+IndicLegalQA (Real Legal Questions),hybrid_expanded,5,50,48,4.0% (2/50),[1.1% - 13.5%],42.0% (21/50),[29.4% - 55.8%],43.8% (21/48),[30.7% - 57.7%],44/50,6/50

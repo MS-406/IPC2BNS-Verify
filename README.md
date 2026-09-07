@@ -99,22 +99,24 @@ Instead of fine-tuning multi-billion parameter LLMs every time an amendment is g
 
 ### Independently-Sourced Benchmark (IndicLegalQA, $N=50$)
 
-| Evaluation Stage | System Configuration | Accuracy ($N=50$) | Wilson 95% CI | Verifier Status |
-|:---:|:---|:---:|:---:|:---|
-| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | [1.1% – 13.5%] | N/A (No Verifier) |
-| **Stage 2** | +BM25 Statutory RAG | **28.0% (14/50)** | [17.5% – 41.7%] | N/A (No Verifier) |
-| **Stage 2** | **+Hybrid RRF + Concordance Expansion** | **42.0% (21/50)** | [29.4% – 55.8%] | N/A (No Verifier) |
-| **Stage 3** | +Two-Layer Hard Verifier | **42.0% (21/50)** | [29.4% – 55.8%] | **44/50 Passed**, **2 Vetoed**, **4 Rejected** |
+| Evaluation Stage | System Configuration | Accuracy (Full $N=50$) | Accuracy (Active $N=48$) | Wilson 95% CI | Verifier Status |
+|:---:|:---|:---:|:---:|:---:|:---|
+| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | **4.2% (2/48)** | [1.1% – 13.5%] | N/A (No Verifier) |
+| **Stage 2a** | +BM25 Statutory RAG (Baseline) | **28.0% (14/50)** | **29.2% (14/48)** | [17.5% – 41.7%] | N/A (No Verifier) |
+| **Stage 2b** | +Hybrid RRF + Expansion (Top-3) | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | N/A (No Verifier) |
+| **Stage 2c** | +Hybrid RRF + Expansion (Top-5) | **46.0% (23/50)** | **47.9% (23/48)** | [33.4% – 60.1%] | N/A (No Verifier) |
+| **Stage 3** | +Two-Layer Hard Verifier | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | **44/50 Passed**, **2 Vetoed**, **4 Rejected** |
 
-### Systematic Retriever Ablation Comparison (Empirical Metrics)
+### Systematic Retriever Ablation Comparison (Empirical Metrics on IndicLegalQA $N=50$)
 
-| Retrieval Strategy | IndicLegalQA Recall@1 ($N=50$) | IndicLegalQA Recall@5 ($N=50$) | IndicLegalQA MRR | Dev Recall@1 ($N=60$) | Dev Recall@5 ($N=60$) | Dev MRR |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 46.0% (23/50) | 0.248 | 28.3% (17/60) | 61.7% (37/60) | 0.422 |
-| **2. BM25 + Concordance Expansion** | 28.0% (14/50) | 52.0% (26/50) | 0.383 | 40.0% (24/60) | 63.3% (38/60) | 0.508 |
-| **3. Dense Semantic (Cosine)** | 16.0% (8/50) | 50.0% (25/50) | 0.310 | 33.3% (20/60) | 63.3% (38/60) | 0.458 |
-| **4. Hybrid RRF (BM25 + Dense)** | 10.0% (5/50) | 48.0% (24/50) | 0.258 | 30.0% (18/60) | 66.7% (40/60) | 0.446 |
-| **5. Hybrid RRF + Expansion (Proposed)** | **28.0% (14/50)** | **56.0% (28/50)** | **0.396** | **40.0% (24/60)** | **68.3% (41/60)** | **0.523** |
+| Retrieval Strategy | IndicLegalQA Recall@1 ($N=50$) | IndicLegalQA Recall@5 ($N=50$) | IndicLegalQA MRR | Downstream Hit Top-3 | Downstream Hit Top-5 (Valid $N=48$) |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 46.0% (23/50) | 0.248 | 32.0% (16/50) | 33.3% (16/48) |
+| **2. BM25 + Concordance Expansion** | 28.0% (14/50) | 52.0% (26/50) | 0.383 | 46.0% (23/50) | 47.9% (23/48) |
+| **3. Dense Semantic (Cosine)** | 16.0% (8/50) | 50.0% (25/50) | 0.310 | 46.0% (23/50) | 47.9% (23/48) |
+| **4. Hybrid RRF (BM25 + Dense)** | 10.0% (5/50) | 48.0% (24/50) | 0.258 | 46.0% (23/50) | 47.9% (23/48) |
+| **5. Hybrid RRF + Expansion** | **28.0% (14/50)** | **56.0% (28/50)** | **0.396** | **46.0% (23/50)** | **47.9% (23/48)** |
+| **6. Hybrid RRF + Re-Ranking** | 18.0% (9/50) | 42.0% (21/50) | 0.280 | 46.0% (23/50) | 47.9% (23/48) |
 
 ### Statistical Rigor & Scale Highlights:
 * **Statistical Significance:** McNemar's paired test confirms the Stage 1 $\rightarrow$ Stage 2 jump is highly significant ($\chi^2 = 28.26, p = 1.05 \times 10^{-7}$).

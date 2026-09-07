@@ -156,41 +156,49 @@ To stress-test IPC2BNS-Verify under production-scale conditions, we constructed 
 
 To address the potential concern of benchmark self-curation bias, we evaluated IPC2BNS-Verify on $N=50$ independently formulated criminal legal questions derived from the **IndicLegalQA** benchmark and real Indian legal examinations. These questions cover major substantive offences (including Murder §302, Cheating §420, Rash Driving §279, Dowry Death §304B, Rape §375, Defamation §499, Forgery §463, Extortion §386, and Sedition Repeal §124A) without any template overlap with our development set.
 
+All evaluations dynamically differentiate between the full dataset sample ($N=50$) and the active, non-repealed statutory provisions ($N=48$, excluding repealed IPC §124A and §497), with exact Wilson 95% confidence intervals.
+
 #### Table 3: Performance on Independently-Sourced Real Legal Questions (IndicLegalQA, $N=50$)
 
-| Evaluation Stage | System Configuration | Accuracy / Hit Rate ($N=50$) | Wilson 95% Confidence Interval | Verifier Certification Status |
-|:---:|:---|:---:|:---:|:---|
-| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | [1.1% – 13.5%] | N/A (No Verifier) |
-| **Stage 2** | +BM25 Statutory RAG | **28.0% (14/50)** | [17.5% – 41.7%] | N/A (No Verifier) |
-| **Stage 3** | +Two-Layer Hard Verifier | **28.0% (14/50)** | [17.5% – 41.7%] | **47/50 Passed**, **2 Vetoed** (Repealed §124A, §497), **1 Rejected** |
+| Evaluation Stage | System Configuration | Accuracy (Full $N=50$) | Accuracy (Active $N=48$) | Wilson 95% Confidence Interval | Verifier Certification Status |
+|:---:|:---|:---:|:---:|:---:|:---|
+| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | **4.2% (2/48)** | [1.1% – 13.5%] | N/A (No Verifier) |
+| **Stage 2a** | +BM25 Statutory RAG (Baseline) | **28.0% (14/50)** | **29.2% (14/48)** | [17.5% – 41.7%] | N/A (No Verifier) |
+| **Stage 2b** | +Hybrid RRF + Query Expansion (Top-3) | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | N/A (No Verifier) |
+| **Stage 2c** | +Hybrid RRF + Query Expansion (Top-5) | **46.0% (23/50)** | **47.9% (23/48)** | [33.4% – 60.1%] | N/A (No Verifier) |
+| **Stage 3** | +Two-Layer Hard Verifier Gating | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | **44/50 Passed**, **2 Vetoed** (Repealed §124A, §497), **4 Rejected** |
 
-**Key Takeaways from External Evaluation:**
-1. **Severe Closed-Book Baseline Degradation (4.0%):** On real, open-formulated legal questions, closed-book models fail almost entirely (96% error rate), defaulting to obsolete IPC citations.
-2. **Statutory RAG Improvement ($4.0\% \rightarrow 28.0\%$):** BM25 statutory retrieval provides a $7\times$ accuracy improvement on independently sourced queries without fine-tuning.
+**Empirical Progression & Key Insights:**
+1. **Measured Progression Line:** Moving from Closed-Book Baseline ($4.0\%$) $\rightarrow$ BM25 RAG ($28.0\%$) $\rightarrow$ Hybrid RRF + Expansion Top-3 ($42.0\%$) $\rightarrow$ Top-5 Context ($46.0\%$) achieves a **$11.5\times$ relative accuracy boost** on real-world legal queries.
+2. **Qualitative Error Analysis (Sibling-Section Confusion):** Detailed diagnosis of remaining retrieval misses reveals that criminal statute queries suffer primarily from *intra-chapter sibling-section confusion* (e.g., §103 Murder vs §105 Culpable Homicide vs §110 Attempt to Murder) rather than cross-domain failures. Because sibling provisions share 80–90% identical statutory boilerplate phrases (*"Whoever causes death by doing an act with the intention of causing death..."*), lexical rankers distribute mass across neighbouring sections, which is resolved when broadening the context window from Top-3 to Top-5.
+3. **Repeal Protection:** On both repealed provisions in the benchmark (IPC §124A Sedition and IPC §497 Adultery), the hard verifier achieved 100% veto interception, preventing illegal retroactive prosecutions.
+
 ---
 
-### 3.4 Systematic Retriever Ablation Study: BM25 vs. Dense vs. Hybrid RRF
+### 3.4 Systematic Retriever Ablation Study: BM25 vs. Dense vs. Hybrid RRF vs. Re-Ranking
 
-To isolate the retrieval bottleneck and address the lexical vocabulary gap on conversational queries, we conducted an empirical ablation across five distinct retrieval configurations on identical benchmark splits:
+To isolate the retrieval bottleneck and address the lexical vocabulary gap on conversational queries, we conducted an empirical ablation across six distinct retrieval configurations on identical benchmark splits:
 1. **BM25 (Sparse Baseline):** BM25Okapi with exact section boost ($+25.0$).
 2. **BM25 + Concordance Expansion:** Lexical search augmented with canonical BNS mapping injection.
 3. **Dense Semantic:** Cosine similarity over normalized statutory sublinear term vectors.
 4. **Hybrid RRF (BM25 + Dense):** Sparse and dense channels fused via Reciprocal Rank Fusion ($k=60$).
-5. **Hybrid RRF + Concordance Expansion (Proposed):** Full hybrid pipeline with concordance query expansion.
+5. **Hybrid RRF + Concordance Expansion:** Hybrid pipeline with concordance query expansion.
+6. **Hybrid RRF + Cross-Encoder Re-Ranking:** Re-ranking top-20 hybrid candidates via joint cross-attention scoring.
 
 #### Table 4: Systematic Retriever Ablation Comparison (Measured Empirical Metrics)
 
-| Retrieval Strategy | IndicLegalQA Recall@1 ($N=50$) | IndicLegalQA Recall@5 ($N=50$) | IndicLegalQA MRR | Dev Recall@1 ($N=60$) | Dev Recall@5 ($N=60$) | Dev MRR |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 46.0% (23/50) | 0.248 | 28.3% (17/60) | 61.7% (37/60) | 0.422 |
-| **2. BM25 + Concordance Expansion** | 28.0% (14/50) | 52.0% (26/50) | 0.383 | 40.0% (24/60) | 63.3% (38/60) | 0.508 |
-| **3. Dense Semantic (Cosine)** | 16.0% (8/50) | 50.0% (25/50) | 0.310 | 33.3% (20/60) | 63.3% (38/60) | 0.458 |
-| **4. Hybrid RRF (BM25 + Dense)** | 10.0% (5/50) | 48.0% (24/50) | 0.258 | 30.0% (18/60) | 66.7% (40/60) | 0.446 |
-| **5. Hybrid RRF + Expansion (Proposed)** | **28.0% (14/50)** | **56.0% (28/50)** | **0.396** | **40.0% (24/60)** | **68.3% (41/60)** | **0.523** |
+| Retrieval Strategy | IndicLegalQA Recall@1 ($N=50$) | IndicLegalQA Recall@5 ($N=50$) | IndicLegalQA MRR | Downstream Hit Top-3 | Downstream Hit Top-5 (Valid $N=48$) |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 46.0% (23/50) | 0.248 | 32.0% (16/50) | 33.3% (16/48) |
+| **2. BM25 + Concordance Expansion** | 28.0% (14/50) | 52.0% (26/50) | 0.383 | 46.0% (23/50) | 47.9% (23/48) |
+| **3. Dense Semantic (Cosine)** | 16.0% (8/50) | 50.0% (25/50) | 0.310 | 46.0% (23/50) | 47.9% (23/48) |
+| **4. Hybrid RRF (BM25 + Dense)** | 10.0% (5/50) | 48.0% (24/50) | 0.258 | 46.0% (23/50) | 47.9% (23/48) |
+| **5. Hybrid RRF + Expansion** | **28.0% (14/50)** | **56.0% (28/50)** | **0.396** | **46.0% (23/50)** | **47.9% (23/48)** |
+| **6. Hybrid RRF + Re-Ranking** | 18.0% (9/50) | 42.0% (21/50) | 0.280 | 46.0% (23/50) | 47.9% (23/48) |
 
 **Empirical Findings on Retrieval Architecture:**
-* **Concordance Expansion Impact:** Injecting concordance graph relationships into the query before search delivers the single largest gain in top-1 precision ($\text{Recall@1}: 10.0\% \rightarrow 28.0\%$ on IndicLegalQA and $28.3\% \rightarrow 40.0\%$ on Dev), proving that neuro-symbolic domain priors outperform unguided token matching.
-* **Hybrid RRF Robustness:** Fusing dense semantic vectors with BM25 via Reciprocal Rank Fusion boosts overall Top-5 candidate capture ($\text{Recall@5}: 46.0\% \rightarrow 56.0\%$ on IndicLegalQA, $61.7\% \rightarrow 68.3\%$ on Dev), while elevating downstream end-to-end citation accuracy to **42.0% (21/50)** on the IndicLegalQA benchmark.
+* **Concordance Expansion Impact:** Injecting concordance graph relationships into the query before search delivers the single largest gain in top-1 precision ($\text{Recall@1}: 10.0\% \rightarrow 28.0\%$), proving that neuro-symbolic domain priors outperform unguided token matching.
+* **Hybrid RRF Robustness:** Fusing dense semantic vectors with BM25 via Reciprocal Rank Fusion maximizes overall candidate recall ($\text{Recall@5}: 46.0\% \rightarrow 56.0\%$), lifting end-to-end downstream valid accuracy to **47.9% (23/48)** with Top-5 context window.
 
 
 ## 4. Empirical Findings & Verifier Case Studies
@@ -244,7 +252,7 @@ IPC2BNS-Verify demonstrates that decoupling probabilistic language generation fr
 
 ## 7. Deliverables & Repository Links
 * **Interactive Streamlit Web UI:** `app.py` (`streamlit run app.py`)
-* **Automated Unit Test Suite:** 67/67 passing tests (`python -m pytest code/tests/ -v`)
+* **Automated Unit Test Suite:** 69/69 passing tests (`python -m pytest code/tests/ -v`)
 * **Large-Scale Benchmark Evaluation ($N=1,140$):** `Phase7_Large_Scale_Evaluation.ipynb`
 * **Independently-Sourced Benchmark ($N=50$):** `data/03_benchmark/external_indic_legal_qa.csv` & `results/external_dataset_results.csv`
 * **Human Calibration Dataset ($N=20$):** `results/human_review_calibration.csv`

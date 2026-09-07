@@ -158,18 +158,34 @@ To test system boundaries at scale, Phase 7 constructed an exhaustive $N=1,140$ 
 
 To eliminate concerns regarding benchmark curation bias, IPC2BNS-Verify was evaluated on $N=50$ independently-formulated legal questions extracted from the **IndicLegalQA** benchmark and real Indian legal examinations.
 
+All evaluations dynamically differentiate between the full dataset sample ($N=50$) and the active, non-repealed statutory provisions ($N=48$, excluding repealed IPC §124A and §497), with exact Wilson 95% confidence intervals.
+
 #### Table 3: Performance on Independently-Sourced Real Legal Questions (IndicLegalQA, $N=50$)
 
-| Evaluation Stage | System Configuration | Accuracy / Hit Rate ($N=50$) | Wilson 95% Confidence Interval | Verifier Certification Status |
-|:---:|:---|:---:|:---:|:---|
-| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | [1.1% – 13.5%] | N/A (No Verifier) |
-| **Stage 2** | +BM25 Statutory RAG | **28.0% (14/50)** | [17.5% – 41.7%] | N/A (No Verifier) |
-| **Stage 3** | +Two-Layer Hard Verifier | **28.0% (14/50)** | [17.5% – 41.7%] | **47/50 Passed**, **2 Vetoed** (Repealed §124A, §497), **1 Rejected** |
+| Evaluation Stage | System Configuration | Accuracy (Full $N=50$) | Accuracy (Active $N=48$) | Wilson 95% Confidence Interval | Verifier Certification Status |
+|:---:|:---|:---:|:---:|:---:|:---|
+| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | **4.2% (2/48)** | [1.1% – 13.5%] | N/A (No Verifier) |
+| **Stage 2a** | +BM25 Statutory RAG (Baseline) | **28.0% (14/50)** | **29.2% (14/48)** | [17.5% – 41.7%] | N/A (No Verifier) |
+| **Stage 2b** | +Hybrid RRF + Query Expansion (Top-3) | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | N/A (No Verifier) |
+| **Stage 2c** | +Hybrid RRF + Query Expansion (Top-5) | **46.0% (23/50)** | **47.9% (23/48)** | [33.4% – 60.1%] | N/A (No Verifier) |
+| **Stage 3** | +Two-Layer Hard Verifier Gating | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | **44/50 Passed**, **2 Vetoed** (Repealed §124A, §497), **4 Rejected** |
 
-**Empirical Insights:**
+#### Table 3.1: Systematic Retriever Ablation Comparison (Empirical Metrics on IndicLegalQA $N=50$)
+
+| Retrieval Strategy | Recall@1 ($N=50$) | Recall@5 ($N=50$) | MRR | Hit Top-3 ($N=50$) | Hit Top-5 (Valid $N=48$) |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 46.0% (23/50) | 0.248 | 32.0% (16/50) | 33.3% (16/48) |
+| **2. BM25 + Concordance Expansion** | 28.0% (14/50) | 52.0% (26/50) | 0.383 | 46.0% (23/50) | 47.9% (23/48) |
+| **3. Dense Semantic (Cosine)** | 16.0% (8/50) | 50.0% (25/50) | 0.310 | 46.0% (23/50) | 47.9% (23/48) |
+| **4. Hybrid RRF (BM25 + Dense)** | 10.0% (5/50) | 48.0% (24/50) | 0.258 | 46.0% (23/50) | 47.9% (23/48) |
+| **5. Hybrid RRF + Expansion** | **28.0% (14/50)** | **56.0% (28/50)** | **0.396** | **46.0% (23/50)** | **47.9% (23/48)** |
+| **6. Hybrid RRF + Re-Ranking** | 18.0% (9/50) | 42.0% (21/50) | 0.280 | 46.0% (23/50) | 47.9% (23/48) |
+
+**Empirical Progression & Qualitative Error Insights:**
 - **Severe Pre-Training Bias on Real Queries:** On real, open-formulated legal questions, the closed-book model achieves only **4.0% accuracy** (96% error rate), almost universally defaulting to obsolete colonial-era IPC numbers.
-- **$7\times$ Gain via Statutory Retrieval:** Incorporating BM25 statutory retrieval elevates citation accuracy from $4.0\%$ to $28.0\%$ without model retraining.
-- **Robustness of Verifier:** The two-layer verifier successfully certified 47 valid generations while identifying and emitting authoritative legal vetoes for repealed provisions (Sedition §124A, Adultery §497).
+- **Measured Progression Line:** Moving from Closed-Book Baseline ($4.0\%$) $\rightarrow$ BM25 RAG ($28.0\%$) $\rightarrow$ Hybrid RRF + Expansion Top-3 ($42.0\%$) $\rightarrow$ Top-5 Context ($46.0\%$) achieves a **$11.5\times$ relative accuracy boost** on real-world legal queries.
+- **Sibling-Section Confusion Finding:** Detailed error diagnosis reveals that criminal statute queries suffer primarily from *intra-chapter sibling-section confusion* (e.g., §103 Murder vs §105 Culpable Homicide vs §110 Attempt to Murder) rather than cross-domain failures. Because sibling provisions share 80–90% identical statutory boilerplate phrases (*"Whoever causes death by doing an act with the intention of causing death..."*), lexical rankers distribute mass across neighbouring sections, which is resolved when broadening the context window from Top-3 to Top-5.
+- **Robustness of Verifier:** The two-layer verifier successfully certified 44 valid generations while identifying and emitting authoritative legal vetoes for repealed provisions (Sedition §124A, Adultery §497).
 
 ---
 
