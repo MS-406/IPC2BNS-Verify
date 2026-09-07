@@ -15,13 +15,23 @@ import json
 import csv
 import math
 import logging
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List, Tuple, Optional
 
 code_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if code_dir not in sys.path:
     sys.path.insert(0, code_dir)
 
 log = logging.getLogger("eval_harness")
+
+
+def generate_full_ablation_report(results_dir: str = "results", output_csv: Optional[str] = None) -> List[Dict[str, Any]]:
+    """
+    Executes the MasterEvaluationHarness to aggregate cross-stage metrics and
+    exports the summary CSV table.
+    """
+    harness = MasterEvaluationHarness(results_dir=results_dir)
+    out_csv = output_csv or os.path.join(results_dir, "ablation_summary_table.csv")
+    return harness.export_ablation_summary_csv(out_csv)
 
 
 def wilson_score_interval(successes: int, total: int, confidence: float = 0.95) -> Tuple[float, float]:
