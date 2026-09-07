@@ -1,0 +1,51 @@
+question_id,question,ground_truth_ipc,ground_truth_bns,source
+EXT_001,Under what provision of the penal law is a person charged for committing culpable homicide amounting to murder?,302,103,IndicLegalQA_Benchmark
+EXT_002,What is the statutory punishment prescribed for dishonest misappropriation of property?,403,314,IndicLegalQA_Benchmark
+EXT_003,Which section deals with the offence of cheating and dishonestly inducing delivery of property?,420,318,IndicLegalQA_Benchmark
+EXT_004,Under which legal provision is causing death by a rash or negligent act penalized?,304A,106,IndicLegalQA_Benchmark
+EXT_005,What section is applicable when a woman dies under abnormal circumstances within seven years of marriage related to dowry demands?,304B,80,IndicLegalQA_Benchmark
+EXT_006,Which section applies to an attempt to commit murder by poisoning or shooting?,307,109,IndicLegalQA_Benchmark
+EXT_007,What is the legal section for extortion committed by putting a person in fear of death or grievous hurt?,386,308,IndicLegalQA_Benchmark
+EXT_008,Under what section is a person prosecuted for committing theft inside a dwelling house or place of worship?,380,305,IndicLegalQA_Benchmark
+EXT_009,Which section defines robbery when accompanied by an attempt to cause death or grievous hurt?,390,309,IndicLegalQA_Benchmark
+EXT_010,What section covers gang robbery or dacoity committed by five or more persons?,391,310,IndicLegalQA_Benchmark
+EXT_011,Which section penalizes criminal breach of trust by a public servant banker merchant or agent?,409,316,IndicLegalQA_Benchmark
+EXT_012,Under what provision is a person prosecuted for dishonestly receiving stolen property knowing it to be stolen?,411,317,IndicLegalQA_Benchmark
+EXT_013,What is the statutory section for cheating by personation in an examination or government recruitment?,416,319,IndicLegalQA_Benchmark
+EXT_014,Which section covers the offence of making a false document or electronic record (forgery)?,463,335,IndicLegalQA_Benchmark
+EXT_015,Under what section is forgery for the purpose of cheating penalized?,468,336,IndicLegalQA_Benchmark
+EXT_016,Which section penalizes using as genuine a forged document or electronic record?,471,340,IndicLegalQA_Benchmark
+EXT_017,What provision deals with making publishing or circulating statements containing public mischief?,505,197,IndicLegalQA_Benchmark
+EXT_018,Under which section is criminal intimidation by threatening injury to person reputation or property punished?,506,351,IndicLegalQA_Benchmark
+EXT_019,Which section penalizes word gesture or act intended to insult the modesty of a woman?,509,79,IndicLegalQA_Benchmark
+EXT_020,What section governs the offence of attempting to commit offences punishable with imprisonment?,511,62,IndicLegalQA_Benchmark
+EXT_021,Under what section is voluntarily causing hurt by dangerous weapons or means punished?,324,115,IndicLegalQA_Benchmark
+EXT_022,Which section penalizes voluntarily causing grievous hurt by use of acid or corrosive substance?,326A,124,IndicLegalQA_Benchmark
+EXT_023,What provision penalizes wrongful restraint of any person so as to prevent proceeding in any direction?,339,126,IndicLegalQA_Benchmark
+EXT_024,Which section covers wrongful confinement of a person for three or more days in secret?,342,127,IndicLegalQA_Benchmark
+EXT_025,Under what provision is assault or criminal force used against a woman with intent to outrage her modesty punished?,354,74,IndicLegalQA_Benchmark
+EXT_026,Which section penalizes sexual harassment including unwelcome physical contact or demand for sexual favors?,354A,75,IndicLegalQA_Benchmark
+EXT_027,What section deals with voyeurism involving capturing or publishing images of a woman engaging in a private act?,354C,77,IndicLegalQA_Benchmark
+EXT_028,Which section penalizes stalking a woman repeatedly despite a clear indication of disinterest?,354D,78,IndicLegalQA_Benchmark
+EXT_029,Under what section is kidnapping from lawful guardianship without consent of parents punished?,361,137,IndicLegalQA_Benchmark
+EXT_030,Which section penalizes kidnapping or abducting in order to murder or subject to grievous hurt?,364,138,IndicLegalQA_Benchmark
+EXT_031,What provision deals with the offence of human trafficking and exploitation of persons?,370,143,IndicLegalQA_Benchmark
+EXT_032,Under what section is a person prosecuted for committing the offence of rape?,375,63,IndicLegalQA_Benchmark
+EXT_033,Which section governs punishment for gang rape committed by one or more persons in furtherance of common intention?,376D,70,IndicLegalQA_Benchmark
+EXT_034,Can a person be prosecuted under Section 124A for sedition in 2025?,124A,NaN,IndicLegalQA_Benchmark
+EXT_035,What is the status of Section 497 penalizing adultery in the revised penal framework?,497,NaN,IndicLegalQA_Benchmark
+EXT_036,Which section penalizes public nuisance causing common injury danger or annoyance to the public?,268,270,IndicLegalQA_Benchmark
+EXT_037,Under what section is negligent conduct with respect to poisonous substance causing danger to human life punished?,284,286,IndicLegalQA_Benchmark
+EXT_038,Which provision covers rash driving or riding on a public way in a manner so rash as to endanger human life?,279,281,IndicLegalQA_Benchmark
+EXT_039,What section penalizes adulteration of food or drink intended for sale so as to make it noxious?,272,274,IndicLegalQA_Benchmark
+EXT_040,Under which section is causing disappearance of evidence of offence or giving false information to screen offender punished?,201,238,IndicLegalQA_Benchmark
+EXT_041,Which section deals with giving false evidence or fabricating false evidence in a judicial proceeding?,191,227,IndicLegalQA_Benchmark
+EXT_042,What provision covers intentional omission to give information of offence by person legally bound to inform?,202,239,IndicLegalQA_Benchmark
+EXT_043,Under what section is harboring an offender whose arrest has been ordered punished?,212,249,IndicLegalQA_Benchmark
+EXT_044,Which section penalizes threat of injury to a public servant to induce him to perform or forbear an official act?,189,223,IndicLegalQA_Benchmark
+EXT_045,What section covers disobedience to order duly promulgated by a public servant lawfully empowered?,188,223,IndicLegalQA_Benchmark
+EXT_046,Under what section is lurking house trespass or house breaking by night in order to commit offence punished?,456,331,IndicLegalQA_Benchmark
+EXT_047,Which section penalizes mischief by fire or explosive substance with intent to destroy house or property?,436,326,IndicLegalQA_Benchmark
+EXT_048,What provision penalizes criminal trespass with intent to commit an offence or intimidate insult or annoy?,441,329,IndicLegalQA_Benchmark
+EXT_049,Which section deals with defamation of a person by spoken words or visible representations?,499,356,IndicLegalQA_Benchmark
+EXT_050,Under what section is punishment for criminal defamation prescribed?,500,356,IndicLegalQA_Benchmark

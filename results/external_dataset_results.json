@@ -1,0 +1,1226 @@
+{
+  "dataset_name": "IndicLegalQA Benchmark (N=50)",
+  "sample_size": 50,
+  "stage1_accuracy": "4.0% (2/50)",
+  "stage1_ci": "[1.1% - 13.5%]",
+  "stage2_accuracy": "28.0% (14/50)",
+  "stage2_ci": "[17.5% - 41.7%]",
+  "verifier_passed": 47,
+  "verifier_rejected": 1,
+  "verifier_vetoed": 2,
+  "detailed_results": [
+    {
+      "question_id": "EXT_001",
+      "query_text": "Under what provision of the penal law is a person charged for committing culpable homicide amounting to murder?",
+      "ground_truth_ipc": "302",
+      "ground_truth_bns": "103",
+      "s1_cited": [
+        "302",
+        "103"
+      ],
+      "s1_hit": true,
+      "s2_cited": [
+        "304",
+        "105"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 304 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_002",
+      "query_text": "What is the statutory punishment prescribed for dishonest misappropriation of property?",
+      "ground_truth_ipc": "403",
+      "ground_truth_bns": "314",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "97",
+        "318"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "REJECTED_CROSS_STATUTE_INCONSISTENCY",
+      "is_verified": false,
+      "verifier_grade": "LOW_CONFIDENCE_REJECTED",
+      "verifier_confidence": 0.2,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Cross-statute citation mismatch: Cited [IPC \u00a797] maps to BNS \u00a735, which conflicts with cited [BNS \u00a7318]."
+      ]
+    },
+    {
+      "question_id": "EXT_003",
+      "query_text": "Which section deals with the offence of cheating and dishonestly inducing delivery of property?",
+      "ground_truth_ipc": "420",
+      "ground_truth_bns": "318",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": true,
+      "s2_cited": [
+        "318",
+        "420"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 420 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_004",
+      "query_text": "Under which legal provision is causing death by a rash or negligent act penalized?",
+      "ground_truth_ipc": "304A",
+      "ground_truth_bns": "106",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "304A",
+        "269"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 304A cited for current law query.",
+        "Pre-transition Citation: IPC Section 269 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_005",
+      "query_text": "What section is applicable when a woman dies under abnormal circumstances within seven years of marriage related to dowry demands?",
+      "ground_truth_ipc": "304B",
+      "ground_truth_bns": "80",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "82",
+        "20"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 82 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_006",
+      "query_text": "Which section applies to an attempt to commit murder by poisoning or shooting?",
+      "ground_truth_ipc": "307",
+      "ground_truth_bns": "109",
+      "s1_cited": [
+        "302",
+        "103"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "308",
+        "110"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 308 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_007",
+      "query_text": "What is the legal section for extortion committed by putting a person in fear of death or grievous hurt?",
+      "ground_truth_ipc": "386",
+      "ground_truth_bns": "308",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "397",
+        "311"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 397 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_008",
+      "query_text": "Under what section is a person prosecuted for committing theft inside a dwelling house or place of worship?",
+      "ground_truth_ipc": "380",
+      "ground_truth_bns": "305",
+      "s1_cited": [
+        "379",
+        "303"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "380",
+        "305"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 380 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_009",
+      "query_text": "Which section defines robbery when accompanied by an attempt to cause death or grievous hurt?",
+      "ground_truth_ipc": "390",
+      "ground_truth_bns": "309",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "397",
+        "311"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 397 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_010",
+      "query_text": "What section covers gang robbery or dacoity committed by five or more persons?",
+      "ground_truth_ipc": "391",
+      "ground_truth_bns": "310",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "397",
+        "311"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 397 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_011",
+      "query_text": "Which section penalizes criminal breach of trust by a public servant banker merchant or agent?",
+      "ground_truth_ipc": "409",
+      "ground_truth_bns": "316",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "409",
+        "316"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 409 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_012",
+      "query_text": "Under what provision is a person prosecuted for dishonestly receiving stolen property knowing it to be stolen?",
+      "ground_truth_ipc": "411",
+      "ground_truth_bns": "317",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "24",
+        "2(10)"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 24 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_013",
+      "query_text": "What is the statutory section for cheating by personation in an examination or government recruitment?",
+      "ground_truth_ipc": "416",
+      "ground_truth_bns": "319",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "417",
+        "17"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 417 cited for current law query.",
+        "Pre-transition Citation: IPC Section 17 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_014",
+      "query_text": "Which section covers the offence of making a false document or electronic record (forgery)?",
+      "ground_truth_ipc": "463",
+      "ground_truth_bns": "335",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "471",
+        "340"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 471 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_015",
+      "query_text": "Under what section is forgery for the purpose of cheating penalized?",
+      "ground_truth_ipc": "468",
+      "ground_truth_bns": "336",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "468",
+        "338"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 468 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_016",
+      "query_text": "Which section penalizes using as genuine a forged document or electronic record?",
+      "ground_truth_ipc": "471",
+      "ground_truth_bns": "340",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "471",
+        "340"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 471 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_017",
+      "query_text": "What provision deals with making publishing or circulating statements containing public mischief?",
+      "ground_truth_ipc": "505",
+      "ground_truth_bns": "197",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "425",
+        "12"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 425 cited for current law query.",
+        "Pre-transition Citation: IPC Section 12 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_018",
+      "query_text": "Under which section is criminal intimidation by threatening injury to person reputation or property punished?",
+      "ground_truth_ipc": "506",
+      "ground_truth_bns": "351",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "503",
+        "506"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 503 cited for current law query.",
+        "Pre-transition Citation: IPC Section 506 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_019",
+      "query_text": "Which section penalizes word gesture or act intended to insult the modesty of a woman?",
+      "ground_truth_ipc": "509",
+      "ground_truth_bns": "79",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "509",
+        "79"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 509 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_020",
+      "query_text": "What section governs the offence of attempting to commit offences punishable with imprisonment?",
+      "ground_truth_ipc": "511",
+      "ground_truth_bns": "62",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "511",
+        "62"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 511 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_021",
+      "query_text": "Under what section is voluntarily causing hurt by dangerous weapons or means punished?",
+      "ground_truth_ipc": "324",
+      "ground_truth_bns": "115",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "324",
+        "326"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 324 cited for current law query.",
+        "Pre-transition Citation: IPC Section 326 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_022",
+      "query_text": "Which section penalizes voluntarily causing grievous hurt by use of acid or corrosive substance?",
+      "ground_truth_ipc": "326A",
+      "ground_truth_bns": "124",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "322",
+        "117"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 322 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_023",
+      "query_text": "What provision penalizes wrongful restraint of any person so as to prevent proceeding in any direction?",
+      "ground_truth_ipc": "339",
+      "ground_truth_bns": "126",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "81",
+        "11"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 81 cited for current law query.",
+        "Pre-transition Citation: IPC Section 11 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_024",
+      "query_text": "Which section covers wrongful confinement of a person for three or more days in secret?",
+      "ground_truth_ipc": "342",
+      "ground_truth_bns": "127",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "84",
+        "22"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 84 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_025",
+      "query_text": "Under what provision is assault or criminal force used against a woman with intent to outrage her modesty punished?",
+      "ground_truth_ipc": "354",
+      "ground_truth_bns": "74",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "354",
+        "74"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 354 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_026",
+      "query_text": "Which section penalizes sexual harassment including unwelcome physical contact or demand for sexual favors?",
+      "ground_truth_ipc": "354A",
+      "ground_truth_bns": "75",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "75",
+        "354A"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 354A cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_027",
+      "query_text": "What section deals with voyeurism involving capturing or publishing images of a woman engaging in a private act?",
+      "ground_truth_ipc": "354C",
+      "ground_truth_bns": "77",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "354C",
+        "77"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 354C cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_028",
+      "query_text": "Which section penalizes stalking a woman repeatedly despite a clear indication of disinterest?",
+      "ground_truth_ipc": "354D",
+      "ground_truth_bns": "78",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "354D",
+        "78"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 354D cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_029",
+      "query_text": "Under what section is kidnapping from lawful guardianship without consent of parents punished?",
+      "ground_truth_ipc": "361",
+      "ground_truth_bns": "137",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "137",
+        "359"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 359 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_030",
+      "query_text": "Which section penalizes kidnapping or abducting in order to murder or subject to grievous hurt?",
+      "ground_truth_ipc": "364",
+      "ground_truth_bns": "138",
+      "s1_cited": [
+        "302",
+        "103"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "320",
+        "322"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 320 cited for current law query.",
+        "Pre-transition Citation: IPC Section 322 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_031",
+      "query_text": "What provision deals with the offence of human trafficking and exploitation of persons?",
+      "ground_truth_ipc": "370",
+      "ground_truth_bns": "143",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "40",
+        "2(23)"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 40 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_032",
+      "query_text": "Under what section is a person prosecuted for committing the offence of rape?",
+      "ground_truth_ipc": "375",
+      "ground_truth_bns": "63",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "40",
+        "2(23)"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 40 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_033",
+      "query_text": "Which section governs punishment for gang rape committed by one or more persons in furtherance of common intention?",
+      "ground_truth_ipc": "376D",
+      "ground_truth_bns": "70",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "376D",
+        "70"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 376D cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_034",
+      "query_text": "Can a person be prosecuted under Section 124A for sedition in 2025?",
+      "ground_truth_ipc": "124A",
+      "ground_truth_bns": "NaN",
+      "s1_cited": [
+        "124A",
+        "152"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "124A",
+        "84"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VETOED_REPEALED_PROVISION",
+      "is_verified": false,
+      "verifier_grade": "VETOED_REPEALED",
+      "verifier_confidence": 0.0,
+      "verifier_ambiguity": 1.0,
+      "warnings": [
+        "Repealed Provision Cited: IPC Section 124A was repealed/struck down and has no direct BNS equivalent.",
+        "Pre-transition Citation: IPC Section 84 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_035",
+      "query_text": "What is the status of Section 497 penalizing adultery in the revised penal framework?",
+      "ground_truth_ipc": "497",
+      "ground_truth_bns": "NaN",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "497",
+        "8"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VETOED_REPEALED_PROVISION",
+      "is_verified": false,
+      "verifier_grade": "VETOED_REPEALED",
+      "verifier_confidence": 0.0,
+      "verifier_ambiguity": 1.0,
+      "warnings": [
+        "Repealed Provision Cited: IPC Section 497 was repealed/struck down and has no direct BNS equivalent.",
+        "Pre-transition Citation: IPC Section 8 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_036",
+      "query_text": "Which section penalizes public nuisance causing common injury danger or annoyance to the public?",
+      "ground_truth_ipc": "268",
+      "ground_truth_bns": "270",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "268",
+        "271"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 268 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_037",
+      "query_text": "Under what section is negligent conduct with respect to poisonous substance causing danger to human life punished?",
+      "ground_truth_ipc": "284",
+      "ground_truth_bns": "286",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "269",
+        "272"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 269 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_038",
+      "query_text": "Which provision covers rash driving or riding on a public way in a manner so rash as to endanger human life?",
+      "ground_truth_ipc": "279",
+      "ground_truth_bns": "281",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "279",
+        "281"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 279 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_039",
+      "query_text": "What section penalizes adulteration of food or drink intended for sale so as to make it noxious?",
+      "ground_truth_ipc": "272",
+      "ground_truth_bns": "274",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "292",
+        "294"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 292 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_040",
+      "query_text": "Under which section is causing disappearance of evidence of offence or giving false information to screen offender punished?",
+      "ground_truth_ipc": "201",
+      "ground_truth_bns": "238",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "191",
+        "229"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 191 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_041",
+      "query_text": "Which section deals with giving false evidence or fabricating false evidence in a judicial proceeding?",
+      "ground_truth_ipc": "191",
+      "ground_truth_bns": "227",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "191",
+        "229"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 191 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_042",
+      "query_text": "What provision covers intentional omission to give information of offence by person legally bound to inform?",
+      "ground_truth_ipc": "202",
+      "ground_truth_bns": "239",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "211",
+        "248"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 211 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_043",
+      "query_text": "Under what section is harboring an offender whose arrest has been ordered punished?",
+      "ground_truth_ipc": "212",
+      "ground_truth_bns": "249",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "301",
+        "102"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 301 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_044",
+      "query_text": "Which section penalizes threat of injury to a public servant to induce him to perform or forbear an official act?",
+      "ground_truth_ipc": "189",
+      "ground_truth_bns": "223",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "186",
+        "220"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 186 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_045",
+      "query_text": "What section covers disobedience to order duly promulgated by a public servant lawfully empowered?",
+      "ground_truth_ipc": "188",
+      "ground_truth_bns": "223",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "186",
+        "220"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 186 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_046",
+      "query_text": "Under what section is lurking house trespass or house breaking by night in order to commit offence punished?",
+      "ground_truth_ipc": "456",
+      "ground_truth_bns": "331",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "442",
+        "448"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 442 cited for current law query.",
+        "Pre-transition Citation: IPC Section 448 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_047",
+      "query_text": "Which section penalizes mischief by fire or explosive substance with intent to destroy house or property?",
+      "ground_truth_ipc": "436",
+      "ground_truth_bns": "326",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "211",
+        "504"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 211 cited for current law query.",
+        "Pre-transition Citation: IPC Section 504 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_048",
+      "query_text": "What provision penalizes criminal trespass with intent to commit an offence or intimidate insult or annoy?",
+      "ground_truth_ipc": "441",
+      "ground_truth_bns": "329",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "441",
+        "504"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 441 cited for current law query.",
+        "Pre-transition Citation: IPC Section 504 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_049",
+      "query_text": "Which section deals with defamation of a person by spoken words or visible representations?",
+      "ground_truth_ipc": "499",
+      "ground_truth_bns": "356",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "499",
+        "356"
+      ],
+      "s2_hit": true,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 499 cited for current law query."
+      ]
+    },
+    {
+      "question_id": "EXT_050",
+      "query_text": "Under what section is punishment for criminal defamation prescribed?",
+      "ground_truth_ipc": "500",
+      "ground_truth_bns": "356",
+      "s1_cited": [
+        "420",
+        "318"
+      ],
+      "s1_hit": false,
+      "s2_cited": [
+        "447",
+        "506"
+      ],
+      "s2_hit": false,
+      "verifier_verdict": "VERIFIED",
+      "is_verified": true,
+      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
+      "verifier_confidence": 1.0,
+      "verifier_ambiguity": 0.0,
+      "warnings": [
+        "Pre-transition Citation: IPC Section 447 cited for current law query.",
+        "Pre-transition Citation: IPC Section 506 cited for current law query."
+      ]
+    }
+  ]
+}

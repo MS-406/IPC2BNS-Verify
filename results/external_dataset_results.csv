@@ -1,0 +1,2 @@
+Dataset Name,Sample Size (N),Stage 1 Baseline Acc,Stage 1 95% Wilson CI,Stage 2 +RAG Acc,Stage 2 95% Wilson CI,Verifier Passed,Verifier Rejections/Vetoes
+IndicLegalQA Benchmark (N=50),50,4.0% (2/50),[1.1% - 13.5%],28.0% (14/50),[17.5% - 41.7%],47/50,3/50

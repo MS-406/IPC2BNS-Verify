@@ -97,13 +97,23 @@ Instead of fine-tuning multi-billion parameter LLMs every time an amendment is g
 | **Stage 4** | +Incremental Refresh (Full System) | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Post: **100.0% (3/3)** [+66.7%] | **100.0% (30/30)** |
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | N/A (Procedural) | N/A | **100.0% (5/5 drift caught)** | **0.0% (0/25 rejected)** | N/A (Static Code Pair) | **100.0% (30/30)** |
 
+### Independently-Sourced Benchmark (IndicLegalQA, $N=50$)
+
+| Evaluation Stage | System Configuration | Accuracy ($N=50$) | Wilson 95% CI | Verifier Status |
+|:---:|:---|:---:|:---:|:---|
+| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | [1.1% – 13.5%] | N/A (No Verifier) |
+| **Stage 2** | +BM25 Statutory RAG | **28.0% (14/50)** | [17.5% – 41.7%] | N/A (No Verifier) |
+| **Stage 3** | +Two-Layer Hard Verifier | **28.0% (14/50)** | [17.5% – 41.7%] | **47/50 Passed**, **2 Vetoed**, **1 Rejected** |
+
 ### Statistical Rigor & Scale Highlights:
 * **Statistical Significance:** McNemar's paired test confirms the Stage 1 $\rightarrow$ Stage 2 jump is highly significant ($\chi^2 = 28.26, p = 1.05 \times 10^{-7}$).
 * **100% Adversarial Catch Rate:** The verifier caught 18/18 synthetic hallucinations with 0/12 false positives on controls.
 * **Large-Scale Benchmark (Phase 7: $N=1,140$):** Evaluated across 10 statutory categories; the verifier maintained a **94.4% (17/18)** adversarial catch rate at scale.
+* **Real Legal Generalization ($N=50$ IndicLegalQA):** On independently sourced real questions, BM25 RAG achieves a $7\times$ accuracy boost ($4.0\% \rightarrow 28.0\%$) with 100% verifier repeal interception.
 * **Human Expert Calibration:** Double-blind review by legal annotators achieved **Cohen’s Kappa $\kappa = 0.87$** (95.0% concordance, $N=20$).
 
 ---
+
 
 ## 🗂️ 4. Datasets Used
 
@@ -118,6 +128,8 @@ All datasets are curated from official gazetted publications and stored in struc
    - `benchmark_dev_questions.jsonl` ($N=60$ dev testbed)
    - `stress_test_suite.jsonl` ($N=30$: 18 adversarial attacks + 12 valid controls)
    - `crpc_bnss_generalization_results.json` ($N=30$ procedural queries)
+   - `external_indic_legal_qa.csv` ($N=50$ independently sourced IndicLegalQA queries)
+
 4. **Production-Scale Benchmark (`phase7/benchmark/`):**
    - `phase7_master_benchmark_1140.jsonl` ($N=1,140$ queries across 10 categories)
 5. **Human Annotation Calibration (`results/`):**
