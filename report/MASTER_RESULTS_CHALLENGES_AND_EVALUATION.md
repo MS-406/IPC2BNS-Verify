@@ -172,14 +172,15 @@ All evaluations dynamically differentiate between the full dataset sample ($N=50
 
 #### Table 3.1: Systematic Retriever Ablation Comparison (Empirical Metrics on IndicLegalQA $N=50$)
 
-| Retrieval Strategy | Recall@1 ($N=50$) | Recall@5 ($N=50$) | MRR | Hit Top-3 ($N=50$) | Hit Top-5 (Valid $N=48$) |
+| Retrieval Strategy | Recall@1 ($N=50$) | Recall@3 ($N=50$) | Recall@5 ($N=50$) | MRR | Hit Top-5 (Valid $N=48$) |
 |:---|:---:|:---:|:---:|:---:|:---:|
-| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 46.0% (23/50) | 0.248 | 32.0% (16/50) | 33.3% (16/48) |
-| **2. BM25 + Concordance Expansion** | 28.0% (14/50) | 52.0% (26/50) | 0.383 | 46.0% (23/50) | 47.9% (23/48) |
-| **3. Dense Semantic (Cosine)** | 16.0% (8/50) | 50.0% (25/50) | 0.310 | 46.0% (23/50) | 47.9% (23/48) |
-| **4. Hybrid RRF (BM25 + Dense)** | 10.0% (5/50) | 48.0% (24/50) | 0.258 | 46.0% (23/50) | 47.9% (23/48) |
-| **5. Hybrid RRF + Expansion** | **28.0% (14/50)** | **56.0% (28/50)** | **0.396** | **46.0% (23/50)** | **47.9% (23/48)** |
-| **6. Hybrid RRF + Re-Ranking** | 18.0% (9/50) | 42.0% (21/50) | 0.280 | 46.0% (23/50) | 47.9% (23/48) |
+| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 38.0% (19/50) | 46.0% (23/50) | 0.248 | 33.3% (16/48) |
+| **2. BM25 + Concordance Query Expansion** | 28.0% (14/50) | 48.0% (24/50) | 52.0% (26/50) | 0.383 | 50.0% (24/48) |
+| **3. Dense Semantic (Cosine Similarity)** | 16.0% (8/50) | 44.0% (22/50) | 50.0% (25/50) | 0.304 | 50.0% (24/48) |
+| **4. Hybrid RRF (BM25 + Dense)** | 12.0% (6/50) | 42.0% (21/50) | 48.0% (24/50) | 0.274 | 50.0% (24/48) |
+| **5. Hybrid RRF + Concordance Expansion** | 26.0% (13/50) | 50.0% (25/50) | 56.0% (28/50) | 0.391 | 50.0% (24/48) |
+| **6. Hybrid RRF + Re-Ranking (Raw Query Only)** | 14.0% (7/50) | 34.0% (17/50) | 40.0% (20/50) | 0.245 | 50.0% (24/48) |
+| **7. Hybrid RRF + Expansion + Re-Ranking (Proposed Full)** | **34.0% (17/50)** | **50.0% (25/50)** | **56.0% (28/50)** | **0.431** | **50.0% (24/48)** |
 
 **Empirical Progression & Qualitative Error Insights:**
 - **Severe Pre-Training Bias on Real Queries:** On real, open-formulated legal questions, the closed-book model achieves only **4.0% accuracy** (96% error rate), almost universally defaulting to obsolete colonial-era IPC numbers.
