@@ -86,7 +86,7 @@ Instead of trusting the AI model blindly, **IPC2BNS-Verify** builds a **Neuro-Sy
 | Stage | System Configuration | Dev Accuracy ($N=60$) | Stress Catch Rate ($N=18$) | Control FPR ($N=12$) | Adaptivity Delta ($N=3$) | Procedural Gen ($N=30$) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|
 | **Stage 1** | Baseline LLM (Closed-Book) | **10.0% (6/60)** | N/A | N/A | N/A | **23.3% (7/30)** |
-| **Stage 2** | +BM25 RAG (Retrieved Context) | **66.7% (40/60)** | N/A | N/A | N/A | **60.0% (18/30)** |
+| **Stage 2** | +Hybrid Statutory RAG (Top-5 + Reranker) | **66.7% (40/60)** | N/A | N/A | N/A | **60.0% (18/30)** |
 | **Stage 3** | +Two-Layer Hard Verifier | **66.7% (40/60)** | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
 | **Stage 4** | +Incremental Refresh (Full System) | **66.7% (40/60)** | **100.0% (18/18)** | **0.0% (0/12)** | Post: 100.0% (3/3) | **100.0% (30/30)** |
 | **Generalization** | CrPC $\leftrightarrow$ BNSS Procedural Law | N/A | **100.0% (5/5 drift)** | **0.0% (0/25)** | N/A | **100.0% (30/30)** |

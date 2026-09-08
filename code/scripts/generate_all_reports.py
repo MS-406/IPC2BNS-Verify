@@ -398,6 +398,10 @@ def reconcile_markdown_docs():
         content = content.replace("\\chi^2 = 28.26, p = 1.05 \\times 10^{-7}", "\\chi^2 = 30.25, p = 3.80 \\times 10^{-8}")
         content = content.replace("b=33, c=1", "b=35, c=1")
         content = content.replace("b = 33, c = 1", "b = 35, c = 1")
+        content = content.replace("+BM25 RAG (Retrieved Context)", "+Hybrid Statutory RAG (Top-5 + Reranker)")
+        content = content.replace("+BM25 RAG Context", "+Hybrid Statutory RAG (Top-5 + Reranker)")
+        content = content.replace("+BM25 RAG", "+Hybrid Statutory RAG (Top-5 + Reranker)")
+        content = content.replace("under BM25 RAG", "under hybrid statutory RAG")
 
         # Reconcile Cohen's kappa: 0.93 / 0.94 -> 0.87
         content = content.replace("kappa = 0.93", "kappa = 0.87")

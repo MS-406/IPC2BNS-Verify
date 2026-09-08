@@ -33,7 +33,7 @@
 ## Slide 4: Master Experimental Ablation Results (Testbed-Labeled)
 - **Dev Set Accuracy ($N=60$):**
   - Stage 1 (Baseline LLM): 10.0% (6/60) [95% CI: 4.7%–20.1%]
-  - Stage 2 (+BM25 RAG Context): 66.7% (40/60) [95% CI: 50.7%–74.4%] (McNemar’s paired test: $\chi^2 = 30.25, p = 3.80 \times 10^{-8}$)
+  - Stage 2 (+Hybrid Statutory RAG (Top-5 + Reranker)): 66.7% (40/60) [95% CI: 50.7%–74.4%] (McNemar’s paired test: $\chi^2 = 30.25, p = 3.80 \times 10^{-8}$)
   - Stage 3 (+Two-Layer Hard Verifier): 66.7% (40/60) [54/60 passed]
 - **Injected-Errors Stress Suite ($N=30$):**
   - Adversarial Catch Rate ($N=18$): **100.0% (18/18)** [95% CI: 82.4%–100.0%]
