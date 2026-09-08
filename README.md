@@ -92,9 +92,9 @@ Instead of fine-tuning multi-billion parameter LLMs every time an amendment is g
 | Stage | System Configuration | Dev Accuracy ($N=60$) | Dev 95% Wilson CI | Stress Catch Rate ($N=18$) | Control FPR ($N=12$) | Adaptivity Delta ($N=3$) | Procedural Gen ($N=30$) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Stage 1** | Baseline LLM (Closed-Book) | **10.0% (6/60)** | [4.7% – 20.1%] | N/A | N/A | N/A | **23.3% (7/30)** |
-| **Stage 2** | +BM25 RAG Context | **68.3% (41/60)** | [50.7% – 74.4%] | N/A | N/A | N/A | **60.0% (18/30)** |
-| **Stage 3** | +Two-Layer Hard Verifier | **68.3% (41/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
-| **Stage 4** | +Incremental Refresh (Full System) | **68.3% (41/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Post: **100.0% (3/3)** [+66.7%] | **100.0% (30/30)** |
+| **Stage 2** | +BM25 RAG Context | **63.3% (38/60)** | [50.7% – 74.4%] | N/A | N/A | N/A | **60.0% (18/30)** |
+| **Stage 3** | +Two-Layer Hard Verifier | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
+| **Stage 4** | +Incremental Refresh (Full System) | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Post: **100.0% (3/3)** [+66.7%] | **100.0% (30/30)** |
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | N/A (Procedural) | N/A | **100.0% (5/5 drift caught)** | **0.0% (0/25 rejected)** | N/A (Static Code Pair) | **100.0% (30/30)** |
 
 ### Independently-Sourced Benchmark (IndicLegalQA, $N=50$)

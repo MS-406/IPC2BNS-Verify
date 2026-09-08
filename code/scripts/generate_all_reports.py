@@ -178,7 +178,7 @@ def generate_full_report_docx(master_rows, ret_rows, out_path):
     # 3. Key Findings & Narrative Results
     doc.add_heading("3. Empirical Findings & Narrative Results", level=1)
     doc.add_paragraph(
-        "1. Stage 1 -> Stage 2 Jump (10.0% -> 68.3%): Closed-book baseline LLMs fail severely on current Indian law due to historical pre-training bias (90% defaulting to obsolete IPC numbers). Adding proposed hybrid statutory retrieval produces a massive +58.3% gain. McNemar’s paired test confirms extreme statistical significance: chi2 = 28.26, p = 1.05 x 10^-7 (discordant pairs: b=33, c=1).\n\n"
+        "1. Stage 1 -> Stage 2 Jump (10.0% -> 63.3%): Closed-book baseline LLMs fail severely on current Indian law due to historical pre-training bias (90% defaulting to obsolete IPC numbers). Adding statutory retrieval produces a massive +53.3% gain. McNemar’s paired test confirms extreme statistical significance: chi2 = 28.26, p = 1.05 x 10^-7 (discordant pairs: b=33, c=1).\n\n"
         "2. Real Legal Generalization (IndicLegalQA N=50): On independently-sourced real legal questions, closed-book models suffer from a 96% error rate (4.0% accuracy), while proposed Hybrid RAG with Concordance-Aware Joint Re-ranking achieves 50.0% accuracy with 100% verifier repeal interception.\n\n"
         "3. Stage 3 Zero-Tolerance Verifier Gating: On the 30-item stress-test suite (18 adversarial attacks + 12 valid controls), the two-layer verifier achieved a 100.0% (18/18) Hallucination Catch Rate [95% CI: 82.4%-100.0%] and a 0.0% (0/12) False Positive Rate [95% CI: 0.0%-24.2%].\n\n"
         "4. Refresh-Invariance Explanation: The 30-item stress suite was independently re-evaluated in both Stage 3 and Stage 4. Identical performance (18/18 Catch Rate, 0/12 FPR) is theoretically expected and empirically confirmed because the two-layer verification logic (closed-vocabulary statute membership, cross-statute concordance checks, and penal duration grounding) is statutory-refresh-invariant—it executes on the bare-act constraint engine regardless of index updates.\n\n"
@@ -237,7 +237,7 @@ def generate_ieee_docx(master_rows, ret_rows, out_path):
         "which achieve only 10.0% (6/60) [95% CI: 4.7%–20.1%] zero-shot citation accuracy on our curated benchmark dev set and 4.0% (2/50) on real-world legal questions (IndicLegalQA). "
         "We present IPC2BNS-Verify, a neuro-symbolic RAG architecture combining concordance-assisted hybrid retrieval (BM25 + Dense RRF + Concordance Expansion + Cross-Encoder Re-Ranking) "
         "with a two-layer hard-constraint verifier: closed-set statutory section gating, cross-code concordance consistency, and entity grounding. "
-        "On our expert-annotated dev set (N=60), IPC2BNS-Verify elevates citation accuracy from 10.0% to 68.3% (41/60) [95% CI: 55.8%–78.7%], "
+        "On our expert-annotated dev set (N=60), IPC2BNS-Verify elevates citation accuracy from 10.0% to 63.3% (38/60) [95% CI: 50.7%–74.4%] under BM25 RAG (McNemar’s paired test: chi2 = 28.26, p = 1.05 x 10^-7), "
         "while the two-layer verifier achieves a 100.0% (18/18) [82.4%–100.0%] adversarial catch rate and 0.0% (0/12) false positive rate. "
         "On real IndicLegalQA queries (N=50), proposed concordance-aware joint re-ranking boosts Recall@1 from 10.0% to 34.0% and MRR from 0.248 to 0.431. "
         "The architecture generalizes seamlessly to procedural criminal law (CrPC <-> BNSS, N=30) with 100.0% (30/30) accuracy, "
@@ -353,7 +353,7 @@ def generate_ieee_docx(master_rows, ret_rows, out_path):
     doc.add_heading("VI. CONCLUSION", level=1)
     doc.add_paragraph(
         "IPC2BNS-Verify demonstrates that neuro-symbolic verification envelopes eliminate 100% of statutory hallucinations and repeal force-mapping "
-        "while elevating statutory citation accuracy from 10.0% to 68.3% with zero downtime adaptivity."
+        "while elevating statutory citation accuracy from 10.0% to 63.3% with zero downtime adaptivity."
     )
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
@@ -379,20 +379,20 @@ def reconcile_markdown_docs():
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
 
-        # Reconcile dev accuracy: 63.3% (38/60) -> 68.3% (41/60)
-        content = content.replace("63.3% (38/60)", "68.3% (41/60)")
-        content = content.replace("63.3%", "68.3%")
-        content = content.replace("38/60", "41/60")
-        content = content.replace("[50.7%–74.4%]", "[55.8%–78.7%]")
-        content = content.replace("[50.7% - 74.4%]", "[55.8% - 78.7%]")
-        content = content.replace("[50.7%-74.4%]", "[55.8%-78.7%]")
+        # Reconcile dev accuracy: ensure canonical 63.3% (38/60) and [50.7%–74.4%]
+        content = content.replace("68.3% (41/60)", "63.3% (38/60)")
+        content = content.replace("68.3%", "63.3%")
+        content = content.replace("41/60", "38/60")
+        content = content.replace("+58.3%", "+53.3%")
+        content = content.replace("[55.8%–78.7%]", "[50.7%–74.4%]")
+        content = content.replace("[55.8% - 78.7%]", "[50.7% - 74.4%]")
+        content = content.replace("[55.8%-78.7%]", "[50.7%-74.4%]")
 
         # Reconcile Cohen's kappa: 0.93 / 0.94 -> 0.87
         content = content.replace("kappa = 0.93", "kappa = 0.87")
         content = content.replace("kappa = 0.94", "kappa = 0.87")
         content = content.replace("κ = 0.93", "κ = 0.87")
         content = content.replace("κ = 0.94", "κ = 0.87")
-        content = content.replace("0.93", "0.87")
 
         with open(path, "w", encoding="utf-8") as f:
             f.write(content)
