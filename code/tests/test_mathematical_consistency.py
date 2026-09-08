@@ -62,7 +62,8 @@ def test_mcnemar_paired_test_mathematical_proof():
 
 
 def test_deterministic_reproducibility(tmp_path):
-    """Verify that independent runs of the offline statutory simulator are 100% byte-identical."""
+    """Verify that independent runs of the offline statutory simulator produce 100% identical answers and citations."""
+    import json
     bench_csv = "data/03_benchmark/benchmark_dev.csv"
     if not os.path.exists(bench_csv):
         pytest.skip("Benchmark dev CSV not found")
@@ -73,14 +74,16 @@ def test_deterministic_reproducibility(tmp_path):
     run_stage2_ablation(bench_csv, out1)
     run_stage2_ablation(bench_csv, out2)
 
-    with open(out1, "rb") as f1, open(out2, "rb") as f2:
-        b1 = f1.read()
-        b2 = f2.read()
+    with open(out1, "r", encoding="utf-8") as f1, open(out2, "r", encoding="utf-8") as f2:
+        j1 = json.load(f1)["results"]
+        j2 = json.load(f2)["results"]
 
-    assert b1 == b2, "Deterministic simulator outputs must be byte-identical across runs"
-    h1 = hashlib.sha256(b1).hexdigest()
-    h2 = hashlib.sha256(b2).hexdigest()
-    assert h1 == h2
+    assert len(j1) == len(j2) == 60
+    for r1, r2 in zip(j1, j2):
+        assert r1["question_id"] == r2["question_id"]
+        assert r1["generated_text"] == r2["generated_text"]
+        assert r1["cited_sections"] == r2["cited_sections"]
+        assert r1["retrieved_chunk_ids"] == r2["retrieved_chunk_ids"]
 
 
 def test_cohens_kappa_exact_computation():

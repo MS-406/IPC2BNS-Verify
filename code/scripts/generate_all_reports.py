@@ -262,7 +262,8 @@ def generate_ieee_docx(master_rows, ret_rows, out_path):
         "over 99% of Indian legal pre-training tokens reference historical IPC provisions. "
         "When queried on current criminal law, ungrounded models frequently cite obsolete sections (e.g. IPC §302 for murder instead of BNS §103) "
         "or force-map repealed concepts (e.g. Sedition IPC §124A, Adultery IPC §497). "
-        "IPC2BNS-Verify solves this via an LLM-agnostic, deterministic verification boundary."
+        "IPC2BNS-Verify solves this via an LLM-agnostic, deterministic verification boundary that pairs concordance-assisted hybrid statutory retrieval "
+        "(BM25 + Dense RRF + Concordance Expansion + Cross-Encoder Re-Ranking) with multi-layer hard statutory constraints."
     )
 
     # Section II: Architecture
@@ -389,8 +390,9 @@ def reconcile_markdown_docs():
         content = content.replace("+53.3%", "+56.7%")
         content = content.replace("+58.3%", "+56.7%")
         content = content.replace("[50.7%–74.4%]", "[54.1%–77.3%]")
-        content = content.replace("[50.7% - 74.4%]", "[54.1% - 77.3%]")
+        content = content.replace("[50.7% – 74.4%]", "[54.1% – 77.3%]")
         content = content.replace("[50.7%-74.4%]", "[54.1%-77.3%]")
+        content = content.replace("[50.7% - 74.4%]", "[54.1% - 77.3%]")
         content = content.replace("[55.8%–78.7%]", "[54.1%–77.3%]")
         content = content.replace("[55.8% - 78.7%]", "[54.1% - 77.3%]")
         content = content.replace("[55.8%-78.7%]", "[54.1%-77.3%]")
@@ -408,6 +410,12 @@ def reconcile_markdown_docs():
         content = content.replace("kappa = 0.94", "kappa = 0.87")
         content = content.replace("κ = 0.93", "κ = 0.87")
         content = content.replace("κ = 0.94", "κ = 0.87")
+
+        content = content.replace("BM25 statutory retrieval injects", "Concordance-assisted hybrid statutory retrieval injects")
+        content = content.replace("pairs BM25 statutory retrieval", "pairs concordance-assisted hybrid statutory retrieval")
+        content = content.replace("Incorporating BM25 bare-act retrieval", "Incorporating concordance-assisted hybrid statutory retrieval")
+        content = content.replace("boosting accuracy by +53.3%", "boosting accuracy by +56.7%")
+        content = content.replace("boosting accuracy by +58.3%", "boosting accuracy by +56.7%")
 
         with open(path, "w", encoding="utf-8") as f:
             f.write(content)
