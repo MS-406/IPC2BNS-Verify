@@ -159,7 +159,7 @@ class HybridStatutoryRetriever:
 
         # 1. Query Expansion if enabled in mode
         active_query = query
-        if "expanded" in mode or "rerank" in mode:
+        if "expanded" in mode:
             active_query = self.expander.expand_query(query)
 
         # 2. Candidate pool size (at least 20 when re-ranking)
@@ -224,7 +224,8 @@ class HybridStatutoryRetriever:
         if "rerank" in mode:
             from src.retrieval.reranker import get_reranker
             reranker = get_reranker()
-            hits = reranker.rerank(query=query, candidate_chunks=hits, top_k=top_k)
+            exp_q = active_query if "expanded" in mode else None
+            hits = reranker.rerank(query=query, candidate_chunks=hits, top_k=top_k, expanded_query=exp_q)
         else:
             hits = hits[:top_k]
 

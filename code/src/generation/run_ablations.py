@@ -84,7 +84,8 @@ def run_stage2_ablation(benchmark_csv: str, output_path: str):
         res = generator.generate_stage2(
             query=qtext,
             question_id=qid,
-            top_k=3,
+            top_k=5,
+            retrieval_mode="hybrid_expanded_rerank",
             act_filter=target_act if target_act in ("IPC", "BNS") else None
         )
         item = res.to_dict()
@@ -97,7 +98,7 @@ def run_stage2_ablation(benchmark_csv: str, output_path: str):
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump({
             "stage": 2,
-            "stage_name": "Stage 2: +RAG (Retrieval Context, No Verifier)",
+            "stage_name": "Stage 2: +RAG (Hybrid Retrieval + Re-ranking, No Verifier)",
             "benchmark": os.path.basename(benchmark_csv),
             "total_queries": len(results),
             "results": results
@@ -121,7 +122,8 @@ def run_stage3_ablation(benchmark_csv: str, stress_csv: str, output_path: str):
         gen_res = generator.generate_stage2(
             query=qtext,
             question_id=qid,
-            top_k=3,
+            top_k=5,
+            retrieval_mode="hybrid_expanded_rerank",
             act_filter=target_act if target_act in ("IPC", "BNS") else None
         )
         v_res = verifier.verify_generation(

@@ -50,7 +50,8 @@ def run_stage3_benchmark(benchmark_csv: str, output_path: str) -> Dict[str, Any]
         gen_res = generator.generate_stage2(
             query=qtext,
             question_id=qid,
-            top_k=3,
+            top_k=5,
+            retrieval_mode="hybrid_expanded_rerank",
             act_filter=target_act if target_act in ("IPC", "BNS") else None
         )
         v_res = verifier.verify_generation(

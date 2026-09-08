@@ -135,12 +135,13 @@ def main():
 
     items = load_dataset(args.benchmark)
     modes = [
-        ("bm25", "BM25 (Sparse Baseline)"),
-        ("bm25_expanded", "BM25 + Concordance Query Expansion"),
-        ("dense", "Dense Semantic (Cosine Similarity)"),
-        ("hybrid_rrf", "Hybrid RRF (BM25 + Dense)"),
-        ("hybrid_expanded", "Hybrid RRF + Concordance Expansion"),
-        ("hybrid_reranked", "Hybrid RRF + Cross-Encoder Re-Ranking")
+        ("bm25", "1. BM25 (Sparse Baseline)"),
+        ("bm25_expanded", "2. BM25 + Concordance Query Expansion"),
+        ("dense", "3. Dense Semantic (Cosine Similarity)"),
+        ("hybrid_rrf", "4. Hybrid RRF (BM25 + Dense)"),
+        ("hybrid_expanded", "5. Hybrid RRF + Concordance Expansion"),
+        ("hybrid_reranked", "6. Hybrid RRF + Re-Ranking (Raw Query Only)"),
+        ("hybrid_expanded_rerank", "7. Hybrid RRF + Expansion + Re-Ranking (Proposed Full)")
     ]
 
     print(f"\nEvaluating {len(modes)} retrieval modes on {os.path.basename(args.benchmark)} (N={len(items)})...\n")

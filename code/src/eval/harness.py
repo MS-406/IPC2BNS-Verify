@@ -99,7 +99,7 @@ class MasterEvaluationHarness:
 
         table_rows.append({
             "stage_id": "Stage 2",
-            "system_configuration": "+BM25 RAG (Retrieved Context)",
+            "system_configuration": "+Hybrid Statutory RAG (Top-5 + Reranker)",
             "benchmark_dev_accuracy": f"{s2_acc}% ({s2_hits}/{s2_total})",
             "dev_95_wilson_ci": f"[{s2_ci[0]}% - {s2_ci[1]}%]",
             "adversarial_catch_rate": "N/A (No Verifier)",

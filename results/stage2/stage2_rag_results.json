@@ -1,6 +1,6 @@
 {
   "stage": 2,
-  "stage_name": "Stage 2: +RAG (Retrieval Context, No Verifier)",
+  "stage_name": "Stage 2: +RAG (Hybrid Retrieval + Re-ranking, No Verifier)",
   "benchmark": "benchmark_dev.csv",
   "total_queries": 60,
   "results": [
@@ -8,19 +8,21 @@
       "question_id": "DEV_001",
       "query_text": "What is the new section for murder under the Bharatiya Nyaya Sanhita, 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7101] (Murder). Statutory provision: Statutory provision for BNS Section 101: Murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7105] (Punishment for culpable homicide not amounting to murder). Statutory provision: Statutory provision for BNS Section 105: Punishment for culpable homicide not amounting to murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
       "cited_sections": [
-        "101",
+        "105",
         "103"
       ],
       "raw_citations": [
-        "[BNS \u00a7101]",
+        "[BNS \u00a7105]",
         "[BNS \u00a7103]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_101",
+        "BNS_SEC_105",
         "BNS_SEC_103",
-        "BNS_SEC_105"
+        "BNS_SEC_101",
+        "BNS_SEC_110",
+        "BNS_SEC_103(1)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -32,19 +34,21 @@
       "question_id": "DEV_002",
       "query_text": "Which section in BNS corresponds to IPC Section 420 for cheating?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
-        "338",
-        "318"
+        "318",
+        "318(1)"
       ],
       "raw_citations": [
-        "[BNS \u00a7338]",
-        "[BNS \u00a7318]"
+        "[BNS \u00a7318]",
+        "[BNS \u00a7318(1)]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_338",
         "BNS_SEC_318",
-        "BNS_SEC_2(24)"
+        "BNS_SEC_318(1)",
+        "BNS_SEC_338",
+        "BNS_SEC_2(10)",
+        "BNS_SEC_308"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -56,19 +60,21 @@
       "question_id": "DEV_003",
       "query_text": "What is the equivalent section for theft (IPC 378 / 379) in the new criminal law?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7305] (Theft in dwelling house etc) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7303(2)] (Snatching) is relevant.",
       "cited_sections": [
         "303",
-        "305"
+        "303(2)"
       ],
       "raw_citations": [
         "[BNS \u00a7303]",
-        "[BNS \u00a7305]"
+        "[BNS \u00a7303(2)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_303",
+        "BNS_SEC_303(2)",
+        "BNS_SEC_303(1)",
         "BNS_SEC_305",
-        "BNS_SEC_14"
+        "BNS_SEC_318"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -80,19 +86,21 @@
       "question_id": "DEV_004",
       "query_text": "Where is dowry death covered in BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a780(1)] (Dowry death \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "80",
-        "102"
+        "80(1)"
       ],
       "raw_citations": [
         "[BNS \u00a780]",
-        "[BNS \u00a7102]"
+        "[BNS \u00a780(1)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_80",
+        "BNS_SEC_80(1)",
+        "BNS_SEC_85",
         "BNS_SEC_102",
-        "BNS_SEC_38"
+        "BNS_SEC_82"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -104,19 +112,21 @@
       "question_id": "DEV_005",
       "query_text": "Which section in IPC corresponds to Section 100 of BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a711] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a797] (Right of private defence of the body and of property) is relevant.",
       "cited_sections": [
         "100",
-        "11"
+        "97"
       ],
       "raw_citations": [
         "[IPC \u00a7100]",
-        "[IPC \u00a711]"
+        "[IPC \u00a797]"
       ],
       "retrieved_chunk_ids": [
         "IPC_SEC_100",
-        "IPC_SEC_11",
-        "IPC_SEC_12"
+        "IPC_SEC_97",
+        "IPC_SEC_96",
+        "IPC_SEC_301",
+        "IPC_SEC_376A"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -128,19 +138,21 @@
       "question_id": "DEV_006",
       "query_text": "What is the punishment for causing death by rash driving if driver flees under BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state). Statutory provision: Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state. Additionally, [BNS \u00a738] (When right of private defence extends to causing death) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7281] (Rash driving or riding on a public way). Statutory provision: Whoever drives any vehicle, or rides, on any public way in a manner so rash or negligent as to endanger human life, or to be likely to cause hurt or injury to any other person, shall be punished with imprisonment of either description for a term which may extend to six months, or with fine which may extend to one thousand rupees, or with both. Additionally, [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state) is relevant.",
       "cited_sections": [
-        "66",
-        "38"
+        "281",
+        "66"
       ],
       "raw_citations": [
-        "[BNS \u00a766]",
-        "[BNS \u00a738]"
+        "[BNS \u00a7281]",
+        "[BNS \u00a766]"
       ],
       "retrieved_chunk_ids": [
+        "BNS_SEC_281",
         "BNS_SEC_66",
+        "BNS_SEC_106",
         "BNS_SEC_38",
-        "BNS_SEC_102"
+        "BNS_SEC_106(1)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -152,18 +164,20 @@
       "question_id": "DEV_007",
       "query_text": "What are the essential ingredients of rape under Section 63 of BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a770] (Gang rape) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a764] (Punishment for rape) is relevant.",
       "cited_sections": [
         "63",
-        "70"
+        "64"
       ],
       "raw_citations": [
         "[BNS \u00a763]",
-        "[BNS \u00a770]"
+        "[BNS \u00a764]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_63",
+        "BNS_SEC_64",
         "BNS_SEC_70",
+        "BNS_SEC_64(1)",
         "BNS_SEC_65"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -176,19 +190,21 @@
       "question_id": "DEV_008",
       "query_text": "What is the penalty for defamation under Section 356 of BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a7356(1)] (Punishment for defamation \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "356",
-        "2(24)"
+        "356(1)"
       ],
       "raw_citations": [
         "[BNS \u00a7356]",
-        "[BNS \u00a72(24)]"
+        "[BNS \u00a7356(1)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_356",
-        "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_356(1)",
+        "BNS_SEC_9",
+        "BNS_SEC_8",
+        "BNS_SEC_2(24)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -200,19 +216,21 @@
       "question_id": "DEV_009",
       "query_text": "Can community service be awarded for petty theft of stolen property under BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(6)] (Community service). Statutory provision: Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS Additionally, [BNS \u00a7303] (Punishment for theft) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a72(6)] (Community service) is relevant.",
       "cited_sections": [
-        "2(6)",
-        "303"
+        "303",
+        "2(6)"
       ],
       "raw_citations": [
-        "[BNS \u00a72(6)]",
-        "[BNS \u00a7303]"
+        "[BNS \u00a7303]",
+        "[BNS \u00a72(6)]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_2(6)",
         "BNS_SEC_303",
-        "BNS_SEC_305"
+        "BNS_SEC_2(6)",
+        "BNS_SEC_303(1)",
+        "BNS_SEC_318",
+        "BNS_SEC_318(1)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -224,19 +242,21 @@
       "question_id": "DEV_010",
       "query_text": "What is the exact equivalent section of IPC Section 124A (Sedition) in BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7113] (Terrorist act) is relevant.",
       "cited_sections": [
-        "62",
-        "2(24)"
+        "152",
+        "113"
       ],
       "raw_citations": [
-        "[BNS \u00a762]",
-        "[BNS \u00a72(24)]"
+        "[BNS \u00a7152]",
+        "[BNS \u00a7113]"
       ],
       "retrieved_chunk_ids": [
+        "BNS_SEC_152",
+        "BNS_SEC_113",
+        "BNS_SEC_113(1)",
         "BNS_SEC_62",
-        "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_22"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -248,19 +268,21 @@
       "question_id": "DEV_011",
       "query_text": "Is adultery under IPC 497 punishable under the new Bharatiya Nyaya Sanhita?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment) is relevant.",
       "cited_sections": [
-        "62",
-        "232"
+        "152",
+        "62"
       ],
       "raw_citations": [
-        "[BNS \u00a762]",
-        "[BNS \u00a7232]"
+        "[BNS \u00a7152]",
+        "[BNS \u00a762]"
       ],
       "retrieved_chunk_ids": [
+        "BNS_SEC_152",
         "BNS_SEC_62",
         "BNS_SEC_232",
-        "BNS_SEC_2(3)"
+        "BNS_SEC_2(3)",
+        "BNS_SEC_2(6)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -272,19 +294,21 @@
       "question_id": "DEV_012",
       "query_text": "What happened to Section 377 of IPC in BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "cited_sections": [
-        "62",
+        "152",
         "2(24)"
       ],
       "raw_citations": [
-        "[BNS \u00a762]",
+        "[BNS \u00a7152]",
         "[BNS \u00a72(24)]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_62",
+        "BNS_SEC_152",
         "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_62",
+        "BNS_SEC_2(28)",
+        "BNS_SEC_2(6)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -308,7 +332,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_69",
         "BNS_SEC_68",
-        "BNS_SEC_67"
+        "BNS_SEC_67",
+        "BNS_SEC_75",
+        "BNS_SEC_118"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -320,18 +346,20 @@
       "question_id": "DEV_014",
       "query_text": "How does BNS 2023 define and penalize organised crime?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7111(1)] (Organised crime \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "111",
-        "112"
+        "111(1)"
       ],
       "raw_citations": [
         "[BNS \u00a7111]",
-        "[BNS \u00a7112]"
+        "[BNS \u00a7111(1)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_111",
+        "BNS_SEC_111(1)",
         "BNS_SEC_112",
+        "BNS_SEC_112(1)",
         "BNS_SEC_2(24)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -344,18 +372,20 @@
       "question_id": "DEV_015",
       "query_text": "Under what section are terrorist acts defined in BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7113(1)] (Terrorist act \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "113",
-        "299"
+        "113(1)"
       ],
       "raw_citations": [
         "[BNS \u00a7113]",
-        "[BNS \u00a7299]"
+        "[BNS \u00a7113(1)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_113",
+        "BNS_SEC_113(1)",
         "BNS_SEC_299",
+        "BNS_SEC_2(24)",
         "BNS_SEC_152"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -368,17 +398,19 @@
       "question_id": "DEV_016",
       "query_text": "How was IPC Section 33 (Act and Omission) re-organized in BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a725] (Act not intended and not known to be likely to cause death or grievous hurt done by consent) is relevant.",
       "cited_sections": [
-        "102"
+        "25"
       ],
       "raw_citations": [
-        "[BNS \u00a7102]"
+        "[BNS \u00a725]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_2(1)/2(25)",
-        "BNS_SEC_102",
-        "BNS_SEC_18"
+        "BNS_SEC_25",
+        "BNS_SEC_2",
+        "BNS_SEC_2(24)",
+        "BNS_SEC_2(28)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -402,7 +434,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_61",
         "BNS_SEC_329",
-        "BNS_SEC_351"
+        "BNS_SEC_351",
+        "BNS_SEC_316",
+        "BNS_SEC_19"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -414,18 +448,20 @@
       "question_id": "DEV_018",
       "query_text": "What is the BNS section for kidnapping?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7139] (Punishment for kidnapping). Statutory provision: Statutory provision for BNS Section 139: Punishment for kidnapping. Additionally, [BNS \u00a7137] (Kidnapping) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7139] (Punishment for kidnapping) is relevant.",
       "cited_sections": [
-        "139",
-        "137"
+        "137",
+        "139"
       ],
       "raw_citations": [
-        "[BNS \u00a7139]",
-        "[BNS \u00a7137]"
+        "[BNS \u00a7137]",
+        "[BNS \u00a7139]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_139",
         "BNS_SEC_137",
+        "BNS_SEC_139",
+        "BNS_SEC_137(1)",
+        "BNS_SEC_138",
         "BNS_SEC_140"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -438,19 +474,21 @@
       "question_id": "DEV_019",
       "query_text": "Which section in BNS covers abduction?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7138] (Abduction). Statutory provision: Statutory provision for BNS Section 138: Abduction. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7138] (Abduction). Statutory provision: Statutory provision for BNS Section 138: Abduction. Additionally, [BNS \u00a7117] (Voluntarily causing grievous hurt) is relevant.",
       "cited_sections": [
         "138",
-        "2(24)"
+        "117"
       ],
       "raw_citations": [
         "[BNS \u00a7138]",
-        "[BNS \u00a72(24)]"
+        "[BNS \u00a7117]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_138",
-        "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_117",
+        "BNS_SEC_311",
+        "BNS_SEC_118",
+        "BNS_SEC_25"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -462,19 +500,21 @@
       "question_id": "DEV_020",
       "query_text": "Where is trafficking of persons defined in BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7143] (Trafficking of person). Statutory provision: Statutory provision for BNS Section 143: Trafficking of person. BNS broadens definition and increases punishment Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7143] (Trafficking of person). Statutory provision: Statutory provision for BNS Section 143: Trafficking of person. BNS broadens definition and increases punishment Additionally, [BNS \u00a7111] (Organised crime) is relevant.",
       "cited_sections": [
         "143",
-        "2(24)"
+        "111"
       ],
       "raw_citations": [
         "[BNS \u00a7143]",
-        "[BNS \u00a72(24)]"
+        "[BNS \u00a7111]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_143",
+        "BNS_SEC_111",
         "BNS_SEC_2(24)",
-        "BNS_SEC_111"
+        "BNS_SEC_111(1)",
+        "BNS_SEC_2(28)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -498,7 +538,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_114",
         "BNS_SEC_117",
-        "BNS_SEC_115"
+        "BNS_SEC_115",
+        "BNS_SEC_311",
+        "BNS_SEC_118"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -522,7 +564,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_117",
         "BNS_SEC_311",
-        "BNS_SEC_118"
+        "BNS_SEC_118",
+        "BNS_SEC_25",
+        "BNS_SEC_114"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -546,7 +590,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_118",
         "BNS_SEC_117",
-        "BNS_SEC_115"
+        "BNS_SEC_115",
+        "BNS_SEC_311",
+        "BNS_SEC_25"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -558,19 +604,21 @@
       "question_id": "DEV_024",
       "query_text": "Where is extortion covered under BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7308] (Punishment for extortion). Statutory provision: (1) Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security, commits 'extortion'. (2) Whoever commits extortion shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. Additionally, [BNS \u00a7309] (Punishment for robbery) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7308] (Punishment for extortion). Statutory provision: (1) Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security, commits 'extortion'. (2) Whoever commits extortion shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. Additionally, [BNS \u00a7308(1)] (Punishment for extortion \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "308",
-        "309"
+        "308(1)"
       ],
       "raw_citations": [
         "[BNS \u00a7308]",
-        "[BNS \u00a7309]"
+        "[BNS \u00a7308(1)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_308",
-        "BNS_SEC_309",
-        "BNS_SEC_111"
+        "BNS_SEC_308(1)",
+        "BNS_SEC_2(17)",
+        "BNS_SEC_2(24)",
+        "BNS_SEC_143"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -582,19 +630,21 @@
       "question_id": "DEV_025",
       "query_text": "What section penalizes robbery in BNS 2023?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7309] (Punishment for robbery). Statutory provision: In all robbery there is either theft or extortion. (4) Whoever commits robbery shall be punished with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine; and, if the robbery be committed on the highway between sunset and sunrise, the imprisonment may be extended to fourteen years. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt). Statutory provision: Statutory provision for BNS Section 311: Robbery or dacoity with attempt to cause death or grievous hurt. Additionally, [BNS \u00a7309] (Punishment for robbery) is relevant.",
       "cited_sections": [
-        "309",
-        "311"
+        "311",
+        "309"
       ],
       "raw_citations": [
-        "[BNS \u00a7309]",
-        "[BNS \u00a7311]"
+        "[BNS \u00a7311]",
+        "[BNS \u00a7309]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_309",
         "BNS_SEC_311",
-        "BNS_SEC_2(24)"
+        "BNS_SEC_309",
+        "BNS_SEC_117",
+        "BNS_SEC_25",
+        "BNS_SEC_118"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -606,19 +656,21 @@
       "question_id": "DEV_026",
       "query_text": "Where is dacoity penalized in BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7312] (Making preparation to commit dacoity). Statutory provision: Statutory provision for BNS Section 312: Making preparation to commit dacoity. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7310] (Punishment for dacoity). Statutory provision: (1) When five or more persons conjointly commit or attempt to commit a robbery, every person so committing, attempting or aiding, is said to commit 'dacoity'. (2) Whoever commits dacoity shall be punished with imprisonment for life, or with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. Additionally, [BNS \u00a7310(1)] (Punishment for dacoity \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
-        "312",
-        "311"
+        "310",
+        "310(1)"
       ],
       "raw_citations": [
-        "[BNS \u00a7312]",
-        "[BNS \u00a7311]"
+        "[BNS \u00a7310]",
+        "[BNS \u00a7310(1)]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_312",
+        "BNS_SEC_310",
+        "BNS_SEC_310(1)",
         "BNS_SEC_311",
-        "BNS_SEC_310"
+        "BNS_SEC_312",
+        "BNS_SEC_103"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -642,6 +694,8 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_335",
         "BNS_SEC_336",
+        "BNS_SEC_340",
+        "BNS_SEC_2(9)",
         "BNS_SEC_338"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -666,7 +720,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_316",
         "BNS_SEC_352",
-        "BNS_SEC_329"
+        "BNS_SEC_329",
+        "BNS_SEC_351",
+        "BNS_SEC_61"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -678,19 +734,21 @@
       "question_id": "DEV_029",
       "query_text": "What is the new section for dishonest misappropriation of property?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a735] (Right of private defence of body and property) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "318",
-        "35"
+        "318(1)"
       ],
       "raw_citations": [
         "[BNS \u00a7318]",
-        "[BNS \u00a735]"
+        "[BNS \u00a7318(1)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_318",
+        "BNS_SEC_318(1)",
         "BNS_SEC_35",
-        "BNS_SEC_2(3)"
+        "BNS_SEC_2(3)",
+        "BNS_SEC_303"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -714,7 +772,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_351",
         "BNS_SEC_329",
-        "BNS_SEC_61"
+        "BNS_SEC_61",
+        "BNS_SEC_2(17)",
+        "BNS_SEC_316"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -738,7 +798,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_189",
         "BNS_SEC_191",
-        "BNS_SEC_190"
+        "BNS_SEC_190",
+        "BNS_SEC_2(24)",
+        "BNS_SEC_2(28)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -762,7 +824,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_194",
         "BNS_SEC_195",
-        "BNS_SEC_2(24)"
+        "BNS_SEC_2(24)",
+        "BNS_SEC_2(28)",
+        "BNS_SEC_2(6)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -774,19 +838,21 @@
       "question_id": "DEV_033",
       "query_text": "What is the provision for mob lynching on grounds of race or caste under BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
       "cited_sections": [
         "196",
-        "65"
+        "103"
       ],
       "raw_citations": [
         "[BNS \u00a7196]",
-        "[BNS \u00a765]"
+        "[BNS \u00a7103]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_196",
+        "BNS_SEC_103",
         "BNS_SEC_65",
-        "BNS_SEC_103"
+        "BNS_SEC_103(1)",
+        "BNS_SEC_281"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -810,7 +876,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_303(2)",
         "BNS_SEC_2(23)",
-        "BNS_SEC_52"
+        "BNS_SEC_52",
+        "BNS_SEC_2(24)",
+        "BNS_SEC_248"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -822,18 +890,20 @@
       "question_id": "DEV_035",
       "query_text": "What provision penalizes petty organised crime?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7112] (Petty organised crime). Statutory provision: (1) Whoever, being a member of a group or gang, commits theft, snatching, cheating, unauthorized selling of tickets, betting or gambling shall be punished with imprisonment for a term which shall not be less than one year but which may extend to seven years, and with fine. Additionally, [BNS \u00a7111] (Organised crime) is relevant.",
       "cited_sections": [
-        "111",
-        "112"
+        "112",
+        "111"
       ],
       "raw_citations": [
-        "[BNS \u00a7111]",
-        "[BNS \u00a7112]"
+        "[BNS \u00a7112]",
+        "[BNS \u00a7111]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_111",
         "BNS_SEC_112",
+        "BNS_SEC_111",
+        "BNS_SEC_112(1)",
+        "BNS_SEC_111(1)",
         "BNS_SEC_8"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -858,7 +928,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_316",
         "BNS_SEC_110",
-        "BNS_SEC_62"
+        "BNS_SEC_62",
+        "BNS_SEC_220",
+        "BNS_SEC_264"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -882,7 +954,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_281",
         "BNS_SEC_2(28)",
-        "BNS_SEC_220"
+        "BNS_SEC_220",
+        "BNS_SEC_271",
+        "BNS_SEC_106"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -906,7 +980,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_271",
         "BNS_SEC_2(28)",
-        "BNS_SEC_220"
+        "BNS_SEC_220",
+        "BNS_SEC_316",
+        "BNS_SEC_190"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -930,7 +1006,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_2(24)",
         "BNS_SEC_2(28)",
-        "BNS_SEC_2(6)"
+        "BNS_SEC_2(6)",
+        "BNS_SEC_9",
+        "BNS_SEC_8"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -954,7 +1032,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_229",
         "BNS_SEC_232",
-        "BNS_SEC_230"
+        "BNS_SEC_230",
+        "BNS_SEC_264",
+        "BNS_SEC_2(22)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -978,7 +1058,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_232",
         "BNS_SEC_229",
-        "BNS_SEC_230"
+        "BNS_SEC_230",
+        "BNS_SEC_264",
+        "BNS_SEC_248"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1002,7 +1084,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_352",
         "BNS_SEC_264",
-        "BNS_SEC_316"
+        "BNS_SEC_316",
+        "BNS_SEC_139",
+        "BNS_SEC_324"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1026,6 +1110,8 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_85",
         "BNS_SEC_82",
+        "BNS_SEC_80",
+        "BNS_SEC_80(1)",
         "BNS_SEC_79"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -1050,7 +1136,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_88",
         "BNS_SEC_19",
-        "BNS_SEC_25"
+        "BNS_SEC_25",
+        "BNS_SEC_117",
+        "BNS_SEC_115"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1062,19 +1150,21 @@
       "question_id": "DEV_045",
       "query_text": "What is the section for gang rape of a woman under 18 years in BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a770] (Gang rape). Statutory provision: Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a770] (Gang rape). Statutory provision: Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions Additionally, [BNS \u00a764] (Punishment for rape) is relevant.",
       "cited_sections": [
         "70",
-        "65"
+        "64"
       ],
       "raw_citations": [
         "[BNS \u00a770]",
-        "[BNS \u00a765]"
+        "[BNS \u00a764]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_70",
+        "BNS_SEC_64",
+        "BNS_SEC_63",
         "BNS_SEC_65",
-        "BNS_SEC_18"
+        "BNS_SEC_64(1)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1098,7 +1188,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_75",
         "BNS_SEC_68",
-        "BNS_SEC_67"
+        "BNS_SEC_67",
+        "BNS_SEC_69",
+        "BNS_SEC_2(24)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1122,7 +1214,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_76",
         "BNS_SEC_74",
-        "BNS_SEC_248"
+        "BNS_SEC_248",
+        "BNS_SEC_352",
+        "BNS_SEC_232"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1134,19 +1228,21 @@
       "question_id": "DEV_048",
       "query_text": "Where is voyeurism covered in BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a777] (Voyeurism). Statutory provision: Statutory provision for BNS Section 77: Voyeurism. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a777] (Voyeurism). Statutory provision: Statutory provision for BNS Section 77: Voyeurism. Additionally, [BNS \u00a734] (Things done in private defence) is relevant.",
       "cited_sections": [
         "77",
-        "2(24)"
+        "34"
       ],
       "raw_citations": [
         "[BNS \u00a777]",
-        "[BNS \u00a72(24)]"
+        "[BNS \u00a734]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_77",
-        "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_34",
+        "BNS_SEC_35",
+        "BNS_SEC_4",
+        "BNS_SEC_38"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1170,7 +1266,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_78",
         "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_79",
+        "BNS_SEC_85",
+        "BNS_SEC_76"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1194,7 +1292,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_178",
         "BNS_SEC_179",
-        "BNS_SEC_8"
+        "BNS_SEC_8",
+        "BNS_SEC_9",
+        "BNS_SEC_2(24)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1218,7 +1318,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_147",
         "BNS_SEC_2(14)",
-        "BNS_SEC_152"
+        "BNS_SEC_152",
+        "BNS_SEC_2(31)",
+        "BNS_SEC_3"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1242,7 +1344,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_147",
         "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_2(28)",
+        "BNS_SEC_2(6)",
+        "BNS_SEC_9"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1266,7 +1370,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_152",
         "BNS_SEC_299",
-        "BNS_SEC_2(24)"
+        "BNS_SEC_2(24)",
+        "BNS_SEC_2(28)",
+        "BNS_SEC_2(6)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1290,7 +1396,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_2(24)",
         "BNS_SEC_2(28)",
-        "BNS_SEC_2(6)"
+        "BNS_SEC_9",
+        "BNS_SEC_8",
+        "BNS_SEC_114"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1314,7 +1422,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_196",
         "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_2(28)",
+        "BNS_SEC_2(6)",
+        "BNS_SEC_309"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1326,19 +1436,21 @@
       "question_id": "DEV_056",
       "query_text": "What section governs harbouring an offender in BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(16)] (Harbour). Statutory provision: Statutory provision for BNS Section 2(16): Harbour. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a72(28)] (Public) is relevant.",
       "cited_sections": [
-        "2(16)",
-        "2(24)"
+        "2(24)",
+        "2(28)"
       ],
       "raw_citations": [
-        "[BNS \u00a72(16)]",
-        "[BNS \u00a72(24)]"
+        "[BNS \u00a72(24)]",
+        "[BNS \u00a72(28)]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_2(16)",
         "BNS_SEC_2(24)",
-        "BNS_SEC_2(28)"
+        "BNS_SEC_2(28)",
+        "BNS_SEC_2(6)",
+        "BNS_SEC_109",
+        "BNS_SEC_2(16)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1350,18 +1462,20 @@
       "question_id": "DEV_057",
       "query_text": "What section penalizes screening an offender from legal punishment?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7139] (Punishment for kidnapping) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7137(1)] (Kidnapping \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "137",
-        "139"
+        "137(1)"
       ],
       "raw_citations": [
         "[BNS \u00a7137]",
-        "[BNS \u00a7139]"
+        "[BNS \u00a7137(1)]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_137",
+        "BNS_SEC_137(1)",
         "BNS_SEC_139",
+        "BNS_SEC_324",
         "BNS_SEC_194"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
@@ -1374,19 +1488,21 @@
       "question_id": "DEV_058",
       "query_text": "Where is cheating by personation covered in BNS?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a7338] (Forgery for purpose of cheating) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
-        "2(24)",
-        "338"
+        "318",
+        "318(1)"
       ],
       "raw_citations": [
-        "[BNS \u00a72(24)]",
-        "[BNS \u00a7338]"
+        "[BNS \u00a7318]",
+        "[BNS \u00a7318(1)]"
       ],
       "retrieved_chunk_ids": [
-        "BNS_SEC_2(24)",
+        "BNS_SEC_318",
+        "BNS_SEC_318(1)",
         "BNS_SEC_338",
-        "BNS_SEC_318"
+        "BNS_SEC_2(10)",
+        "BNS_SEC_2(24)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1398,19 +1514,21 @@
       "question_id": "DEV_059",
       "query_text": "What section penalizes forgery for purpose of cheating?",
       "stage": 2,
-      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7335] (Forgery) is relevant.",
+      "generated_text": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
       "cited_sections": [
         "338",
-        "335"
+        "318"
       ],
       "raw_citations": [
         "[BNS \u00a7338]",
-        "[BNS \u00a7335]"
+        "[BNS \u00a7318]"
       ],
       "retrieved_chunk_ids": [
         "BNS_SEC_338",
+        "BNS_SEC_318",
         "BNS_SEC_335",
-        "BNS_SEC_336"
+        "BNS_SEC_336",
+        "BNS_SEC_318(1)"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
@@ -1434,7 +1552,9 @@
       "retrieved_chunk_ids": [
         "BNS_SEC_340",
         "BNS_SEC_179",
-        "BNS_SEC_2(9)"
+        "BNS_SEC_2(9)",
+        "BNS_SEC_335",
+        "BNS_SEC_100"
       ],
       "model_name": "gemini-2.0-flash-offline-sim",
       "latency_ms": 0.0,
