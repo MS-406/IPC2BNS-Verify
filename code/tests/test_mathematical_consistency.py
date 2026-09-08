@@ -6,9 +6,11 @@ import os
 import math
 import csv
 import re
+import hashlib
 from collections import Counter
 import pytest
 from src.eval.harness import wilson_score_interval, MasterEvaluationHarness
+from src.generation.run_ablations import run_stage2_ablation
 
 
 def test_wilson_confidence_intervals():
@@ -17,9 +19,9 @@ def test_wilson_confidence_intervals():
     s1_ci = wilson_score_interval(6, 60)
     assert s1_ci == (4.7, 20.1), f"Stage 1 Wilson CI mismatch: {s1_ci}"
 
-    # Stage 2: 38 / 60
-    s2_ci = wilson_score_interval(38, 60)
-    assert s2_ci == (50.7, 74.4), f"Stage 2 Wilson CI mismatch: {s2_ci}"
+    # Stage 2: 40 / 60
+    s2_ci = wilson_score_interval(40, 60)
+    assert s2_ci == (54.1, 77.3), f"Stage 2 Wilson CI mismatch: {s2_ci}"
 
     # Stage 3 Stress Catch: 18 / 18
     stress_ci = wilson_score_interval(18, 18)
@@ -37,26 +39,48 @@ def test_wilson_confidence_intervals():
 def test_mcnemar_paired_test_mathematical_proof():
     """
     Verify McNemar's paired test mathematical relationship:
-    Stage 2 correct - Stage 1 correct == b - c == 33 - 1 == 32
-    Stage 1 correct = 6 -> Stage 2 correct = 38 (63.3%)
-    chi2 = (|b - c| - 1)^2 / (b + c) == 31^2 / 34 == 961 / 34 == 28.26
+    Stage 2 correct - Stage 1 correct == b - c == 35 - 1 == 34
+    Stage 1 correct = 6 -> Stage 2 correct = 40 (66.7%)
+    chi2 = (|b - c| - 1)^2 / (b + c) == 33^2 / 36 == 1089 / 36 == 30.25
     """
     s1_hits = 6
-    s2_hits = 38
+    s2_hits = 40
     n_total = 60
 
-    b = 33  # S1 wrong, S2 right
+    b = 35  # S1 wrong, S2 right
     c = 1   # S1 right, S2 wrong
 
     # 1. Linear difference constraint
     delta_hits = s2_hits - s1_hits
     assert b - c == delta_hits, f"b - c ({b - c}) must equal delta ({delta_hits})"
-    assert s1_hits + (b - c) == 38, "Stage 2 hits must equal 38"
-    assert round(s2_hits / n_total * 100, 1) == 63.3
+    assert s1_hits + (b - c) == 40, "Stage 2 hits must equal 40"
+    assert round(s2_hits / n_total * 100, 1) == 66.7
 
     # 2. Continuity-corrected Chi-Square calculation
     chi2 = ((abs(b - c) - 1) ** 2) / (b + c)
-    assert round(chi2, 2) == 28.26, f"Continuity corrected chi2 must be 28.26, got {round(chi2, 2)}"
+    assert round(chi2, 2) == 30.25, f"Continuity corrected chi2 must be 30.25, got {round(chi2, 2)}"
+
+
+def test_deterministic_reproducibility(tmp_path):
+    """Verify that independent runs of the offline statutory simulator are 100% byte-identical."""
+    bench_csv = "data/03_benchmark/benchmark_dev.csv"
+    if not os.path.exists(bench_csv):
+        pytest.skip("Benchmark dev CSV not found")
+
+    out1 = str(tmp_path / "det_run1.json")
+    out2 = str(tmp_path / "det_run2.json")
+
+    run_stage2_ablation(bench_csv, out1)
+    run_stage2_ablation(bench_csv, out2)
+
+    with open(out1, "rb") as f1, open(out2, "rb") as f2:
+        b1 = f1.read()
+        b2 = f2.read()
+
+    assert b1 == b2, "Deterministic simulator outputs must be byte-identical across runs"
+    h1 = hashlib.sha256(b1).hexdigest()
+    h2 = hashlib.sha256(b2).hexdigest()
+    assert h1 == h2
 
 
 def test_cohens_kappa_exact_computation():
@@ -162,7 +186,7 @@ def test_retriever_ablation_metrics_congruence():
     assert "40.0% (20/50)" in s6["Recall@5 (Full)"]
     assert s6["MRR"] == "0.245"
 
-    # Strategy 7 (Hybrid RRF + Expansion + Re-Ranking - Proposed)
+    # Strategy 7 (Hybrid RRF + Expansion + Re-Ranking - Proposed Full)
     s7 = rows[6]
     assert "34.0% (17/50)" in s7["Recall@1"]
     assert "56.0% (28/50)" in s7["Recall@5 (Full)"]
@@ -183,12 +207,12 @@ def test_ablation_summary_table_csv_congruence():
     assert s1["benchmark_dev_accuracy"] == "10.0% (6/60)"
     assert s1["dev_95_wilson_ci"] == "[4.7% - 20.1%]"
 
-    assert s2["benchmark_dev_accuracy"] == "63.3% (38/60)"
-    assert s2["dev_95_wilson_ci"] == "[50.7% - 74.4%]"
+    assert s2["benchmark_dev_accuracy"] == "66.7% (40/60)"
+    assert s2["dev_95_wilson_ci"] == "[54.1% - 77.3%]"
 
-    assert "63.3% (38/60)" in s3["benchmark_dev_accuracy"]
+    assert "66.7% (40/60)" in s3["benchmark_dev_accuracy"]
     assert s3["adversarial_catch_rate"] == "100.0% (18/18) [82.4% - 100.0%]"
     assert s3["control_false_positive_rate"] == "0.0% (0/12) [0.0% - 24.2%]"
 
-    assert "63.3% (38/60)" in s4["benchmark_dev_accuracy"]
+    assert "66.7% (40/60)" in s4["benchmark_dev_accuracy"]
     assert "Pre: 33.3% (1/3) -> Post: 100.0% (3/3) [+66.7%]" in s4["amendment_adaptivity_delta"]

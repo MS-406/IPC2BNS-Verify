@@ -19,8 +19,8 @@ Phase 7 substantially expands the experimental evaluation of IPC2BNS-Verify beyo
 
 | Metric | Original N=60 | Phase 7 N=1,140 |
 |---|---|---|
-| **Citation Hit Rate** | 63.3% (38/60) | **28.9%** (329/1,140) |
-| **Wilson 95% CI** | [50.7%–74.4%] | [26.3%–31.6%] |
+| **Citation Hit Rate** | 66.7% (40/60) | **28.9%** (329/1,140) |
+| **Wilson 95% CI** | [54.1%–77.3%] | [26.3%–31.6%] |
 | **Retrieval Recall@5** | Not reported | **30.4%** |
 | **Retrieval MRR** | Not reported | **0.267** |
 | **Adversarial Catch Rate** | 100% (18/18) | **94.4%** (17/18) |
@@ -29,7 +29,7 @@ Phase 7 substantially expands the experimental evaluation of IPC2BNS-Verify beyo
 | **Question Categories** | 7 | **10** |
 
 > [!IMPORTANT]
-> The lower citation hit rate on Phase 7 (28.9%) vs. original (63.3%) reflects the **substantially harder and more diverse benchmark** — it includes all 150+ concordance rows with 8 question templates each (many testing reverse lookups, changed scope, and non-obvious mappings), rather than the curated 60 questions in the original benchmark. The offline deterministic simulator was consistent across both evaluations.
+> The lower citation hit rate on Phase 7 (28.9%) vs. original (66.7%) reflects the **substantially harder and more diverse benchmark** — it includes all 150+ concordance rows with 8 question templates each (many testing reverse lookups, changed scope, and non-obvious mappings), rather than the curated 60 questions in the original benchmark. The offline deterministic simulator was consistent across both evaluations.
 
 > [!NOTE]
 > **Control FPR note:** The high control FPR (86.0%) in Phase 7 reflects a well-known limitation of the offline deterministic simulator — it generates generic answers without always producing valid BNS citations for all question types (especially procedural, temporal, and changed-scope questions). The original N=60 evaluation saw 0% FPR because the verifier test set (N=12 control) consisted of specifically chosen clear-cut cases. This finding motivates a recommendation to evaluate with the Gemini API enabled.
@@ -228,7 +228,7 @@ All 6 repealed provision questions (Category D) failed. The offline simulator so
 |---|---|---|---|
 | **Benchmark size** | 60 | 1,140 | 19× larger |
 | **Generation model** | Offline sim | Offline sim | Same mode — consistent comparison |
-| **Citation hit rate** | 63.3% [50.7%–74.4%] | 28.9% [26.3%–31.6%] | Phase 7 is harder and more diverse |
+| **Citation hit rate** | 66.7% [54.1%–77.3%] | 28.9% [26.3%–31.6%] | Phase 7 is harder and more diverse |
 | **Question diversity** | 7 types, curated | 10 categories, systematic | Much broader coverage |
 | **Ground truth authority** | Concordance | Concordance + India Code + SC judgments | Same primary source |
 | **Adversarial questions** | 30 (injected errors) | 18 (hand-constructed) | Different adversarial strategies |

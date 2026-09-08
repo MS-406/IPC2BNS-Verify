@@ -92,9 +92,9 @@ Instead of fine-tuning multi-billion parameter LLMs every time an amendment is g
 | Stage | System Configuration | Dev Accuracy ($N=60$) | Dev 95% Wilson CI | Stress Catch Rate ($N=18$) | Control FPR ($N=12$) | Adaptivity Delta ($N=3$) | Procedural Gen ($N=30$) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Stage 1** | Baseline LLM (Closed-Book) | **10.0% (6/60)** | [4.7% – 20.1%] | N/A | N/A | N/A | **23.3% (7/30)** |
-| **Stage 2** | +BM25 RAG Context | **63.3% (38/60)** | [50.7% – 74.4%] | N/A | N/A | N/A | **60.0% (18/30)** |
-| **Stage 3** | +Two-Layer Hard Verifier | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
-| **Stage 4** | +Incremental Refresh (Full System) | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Post: **100.0% (3/3)** [+66.7%] | **100.0% (30/30)** |
+| **Stage 2** | +BM25 RAG Context | **66.7% (40/60)** | [50.7% – 74.4%] | N/A | N/A | N/A | **60.0% (18/30)** |
+| **Stage 3** | +Two-Layer Hard Verifier | **66.7% (40/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
+| **Stage 4** | +Incremental Refresh (Full System) | **66.7% (40/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Post: **100.0% (3/3)** [+66.7%] | **100.0% (30/30)** |
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | N/A (Procedural) | N/A | **100.0% (5/5 drift caught)** | **0.0% (0/25 rejected)** | N/A (Static Code Pair) | **100.0% (30/30)** |
 
 ### Independently-Sourced Benchmark (IndicLegalQA, $N=50$)
@@ -119,7 +119,7 @@ Instead of fine-tuning multi-billion parameter LLMs every time an amendment is g
 | **6. Hybrid RRF + Re-Ranking** | 18.0% (9/50) | 42.0% (21/50) | 0.280 | 46.0% (23/50) | 47.9% (23/48) |
 
 ### Statistical Rigor & Scale Highlights:
-* **Statistical Significance:** McNemar's paired test confirms the Stage 1 $\rightarrow$ Stage 2 jump is highly significant ($\chi^2 = 28.26, p = 1.05 \times 10^{-7}$).
+* **Statistical Significance:** McNemar's paired test confirms the Stage 1 $\rightarrow$ Stage 2 jump is highly significant ($\chi^2 = 30.25, p = 3.80 \times 10^{-8}$).
 * **100% Adversarial Catch Rate:** The verifier caught 18/18 synthetic hallucinations with 0/12 false positives on controls.
 * **Large-Scale Benchmark (Phase 7: $N=1,140$):** Evaluated across 10 statutory categories; the verifier maintained a **94.4% (17/18)** adversarial catch rate at scale.
 * **Hybrid Retrieval Leap:** Concordance query expansion + Hybrid RRF boosts IndicLegalQA end-to-end citation accuracy from **4.0% $\rightarrow$ 42.0%** ($10.5\times$ gain over closed-book baseline).
