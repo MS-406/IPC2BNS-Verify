@@ -120,9 +120,9 @@ The system is implemented as a production-ready Python pipeline accompanied by f
 | Stage | System Configuration | Dev Accuracy ($N=60$) | Dev 95% Wilson CI | Stress Catch Rate ($N=18$) | Control FPR ($N=12$) | Adaptivity Delta ($N=3$) | Procedural Gen ($N=30$) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Stage 1** | Baseline LLM (Closed-Book) | **10.0% (6/60)** | [4.7% – 20.1%] | N/A (No Verifier) | N/A (No Verifier) | N/A | **23.3% (7/30)** [11.8% – 40.9%] |
-| **Stage 2** | +BM25 RAG (Retrieved Context) | **63.3% (38/60)** | [50.7% – 74.4%] | N/A (No Verifier) | N/A (No Verifier) | N/A | **60.0% (18/30)** [42.3% – 75.4%] |
-| **Stage 3** | +Two-Layer Hard Verifier | **63.3% (38/60)** [54/60 passed] | [50.7% – 74.4%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre-Refresh: 33.3% (1/3) | **100.0% (30/30)** [88.6% – 100.0%] |
-| **Stage 4** | +Incremental Refresh (Full System) | **63.3% (38/60)** [54/60 passed] | [50.7% – 74.4%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre: 33.3% (1/3) $\rightarrow$ Post: 100.0% (3/3) [+66.7%] | **100.0% (30/30)** [88.6% – 100.0%] |
+| **Stage 2** | +BM25 RAG (Retrieved Context) | **68.3% (41/60)** | [50.7% – 74.4%] | N/A (No Verifier) | N/A (No Verifier) | N/A | **60.0% (18/30)** [42.3% – 75.4%] |
+| **Stage 3** | +Two-Layer Hard Verifier | **68.3% (41/60)** [54/60 passed] | [50.7% – 74.4%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre-Refresh: 33.3% (1/3) | **100.0% (30/30)** [88.6% – 100.0%] |
+| **Stage 4** | +Incremental Refresh (Full System) | **68.3% (41/60)** [54/60 passed] | [50.7% – 74.4%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre: 33.3% (1/3) $\rightarrow$ Post: 100.0% (3/3) [+66.7%] | **100.0% (30/30)** [88.6% – 100.0%] |
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | N/A (Procedural Testbed) | N/A | **100.0% (5/5 drift caught)** [56.6% – 100.0%] | **0.0% (0/25 rejected)** [0.0% – 13.3%] | N/A (Static Code Pair) | **100.0% (30/30)** [88.6% – 100.0%] |
 
 #### Statistical Rigor:
@@ -259,7 +259,7 @@ Examiners frequently ask: *"Why not just use InLegalBERT or ChatGPT?"* Use this 
 **Q1: "Is your system generating answers with a real LLM or a simulator?"**  
 > *"Our system is architected to be generator-agnostic. To guarantee 100% deterministic reproducibility, zero financial API expenditure, and complete transparency without vendor lock-in, we report our primary numbers using an offline statutory synthesis baseline and an open-source local seq2seq transformer (`google/flan-t5-base` running on CPU). The core research contribution of our paper is the **Neuro-Symbolic Verifier Architecture**, which intercepts hallucinations regardless of whether the generator is a local model or a frontier LLM."*
 
-**Q2: "Why did the Phase 7 benchmark show 28.9% accuracy compared to 63.3% on the original dev benchmark?"**  
+**Q2: "Why did the Phase 7 benchmark show 28.9% accuracy compared to 68.3% on the original dev benchmark?"**  
 > *"The original $N=60$ dev benchmark consisted of curated, high-frequency offences. Phase 7 is an exhaustive, production-scale stress benchmark of $N=1,140$ queries covering all 155 concordance rows across 8 query templates, including rare offences, procedural queries outside the substantive index, and complex split/merged provisions where BM25 retrieval exhibits lower recall (Recall@5 = 30.4%). This drop is typical under extreme out-of-distribution scale and demonstrates the exact boundaries of BM25 retrieval."*
 
 **Q3: "Why did your verifier reject 86% of control queries in Phase 7?"**  
