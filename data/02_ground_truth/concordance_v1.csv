@@ -20,7 +20,7 @@ ipc_section,ipc_title,bns_section,bns_title,relationship_type,notes,source,verif
 26,Reason to believe,2(29),Reason to believe,renumbered,Moved to definitions chapter,india_code+concordance_table,false,2025-01-01
 29,Document,2(9),Document,renumbered,Definition expanded to include electronic documents,india_code+concordance_table,false,2025-01-01
 33,Act and Omission,2(1)/2(25),Act / Omission,split,IPC combined both terms; BNS defines them separately,india_code+concordance_table,false,2025-01-01
-34,Valuable security,2(36),Valuable security,renumbered,,india_code+concordance_table,false,2025-01-01
+30,Valuable security,2(36),Valuable security,renumbered,,india_code+concordance_table,true,2025-01-01
 40,Offence,2(23),Offence,renumbered,Moved to definitions chapter,india_code+concordance_table,false,2025-01-01
 44,Injury,2(17),Injury,renumbered,Moved to definitions chapter,india_code+concordance_table,false,2025-01-01
 51,Oath,2(22),Oath,renumbered,Moved to definitions chapter,india_code+concordance_table,false,2025-01-01
@@ -52,19 +52,19 @@ ipc_section,ipc_title,bns_section,bns_title,relationship_type,notes,source,verif
 ,,152,Acts endangering sovereignty unity and integrity of India,new_in_bns,Replaces IPC 124A sedition in narrower scope — not a direct 1:1 mapping,india_code+concordance_table,false,2025-01-01
 141,Unlawful assembly,189,Unlawful assembly,renumbered,,india_code+concordance_table,false,2025-01-01
 143,Punishment for being member of an unlawful assembly,191,Punishment for unlawful assembly,renumbered,,india_code+concordance_table,false,2025-01-01
-146,Rioting,190,Every member of unlawful assembly guilty of offence committed in prosecution of common object,renumbered,,india_code+concordance_table,false,2025-01-01
-147,Punishment for rioting,194,Punishment for rioting,renumbered,,india_code+concordance_table,false,2025-01-01
+146,Rioting,191,Rioting,renumbered,,india_code+concordance_table,true,2025-01-01
+147,Punishment for rioting,191,Punishment for rioting,renumbered,,india_code+concordance_table,true,2025-01-01
 148,Rioting armed with deadly weapon,195,Rioting armed with deadly weapon,renumbered,,india_code+concordance_table,false,2025-01-01
 153A,Promoting enmity between different groups and acts prejudicial to maintenance of harmony,196,Promoting enmity between different groups on grounds of religion race place of birth residence language etc,modified,BNS expands scope and increases penalties,india_code+concordance_table,false,2025-01-01
 171B,Bribery,170,Bribery at elections,renumbered,,india_code+concordance_table,false,2025-01-01
 186,Obstructing public servant in discharge of public functions,220,Obstructing public servant in discharge of public functions,renumbered,,india_code+concordance_table,false,2025-01-01
-191,Giving false evidence,229,Giving false evidence,renumbered,,india_code+concordance_table,false,2025-01-01
+191,Giving false evidence,227,Giving false evidence,renumbered,,india_code+concordance_table,true,2025-01-01
 193,Punishment for false evidence,230,Punishment for false evidence,renumbered,,india_code+concordance_table,false,2025-01-01
 195,Giving or fabricating false evidence with intent to procure conviction of capital offence,232,Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment,renumbered,,india_code+concordance_table,false,2025-01-01
 211,False charge of offence made with intent to injure,248,False charge of offence made with intent to injure,renumbered,,india_code+concordance_table,false,2025-01-01
 224,Resistance or obstruction by a person to his lawful apprehension,260,Resistance or obstruction by person to his lawful apprehension,renumbered,,india_code+concordance_table,false,2025-01-01
 228,Intentional insult or interruption to public servant sitting in judicial proceeding,264,Intentional insult or interruption to public servant sitting in judicial proceeding,renumbered,,india_code+concordance_table,false,2025-01-01
-268,Public nuisance,271,Public nuisance,renumbered,,india_code+concordance_table,false,2025-01-01
+268,Public nuisance,270,Public nuisance,renumbered,,india_code+concordance_table,true,2025-01-01
 269,Negligent act likely to spread infection of disease dangerous to life,272,Negligent act likely to spread infection of disease dangerous to life,renumbered,,india_code+concordance_table,false,2025-01-01
 270,Malignant act likely to spread infection of disease dangerous to life,273,Malignant act likely to spread infection of disease dangerous to life,renumbered,,india_code+concordance_table,false,2025-01-01
 279,Rash driving or riding on a public way,281,Rash driving or riding on a public way,renumbered,,india_code+concordance_table,false,2025-01-01
@@ -82,7 +82,7 @@ ipc_section,ipc_title,bns_section,bns_title,relationship_type,notes,source,verif
 308,Attempt to commit culpable homicide,110,Attempt to commit culpable homicide,renumbered,,india_code+concordance_table,false,2025-01-01
 312,Causing miscarriage,88,Causing miscarriage,renumbered,,india_code+concordance_table,false,2025-01-01
 319,Hurt,114,Hurt,renumbered,,india_code+concordance_table,false,2025-01-01
-320,Grievous hurt,115,Grievous hurt,renumbered,,india_code+concordance_table,false,2025-01-01
+320,Grievous hurt,116,Grievous hurt,renumbered,,india_code+concordance_table,true,2025-01-01
 321,Voluntarily causing hurt,115,Voluntarily causing hurt,renumbered,,india_code+concordance_table,false,2025-01-01
 322,Voluntarily causing grievous hurt,117,Voluntarily causing grievous hurt,renumbered,,india_code+concordance_table,false,2025-01-01
 323,Punishment for voluntarily causing hurt,115,Punishment for voluntarily causing hurt,renumbered,,india_code+concordance_table,false,2025-01-01
@@ -153,3 +153,30 @@ ipc_section,ipc_title,bns_section,bns_title,relationship_type,notes,source,verif
 ,,112,Petty organised crime,new_in_bns,New provision — addresses petty/small organised crime,india_code+concordance_table,false,2025-01-01
 ,,113,Terrorist act,new_in_bns,New provision — defines and penalizes terrorist acts,india_code+concordance_table,false,2025-01-01
 ,,303(2),Snatching,new_in_bns,New sub-section specifically criminalizing snatching,india_code+concordance_table,false,2025-01-01
+34,Acts done by several persons in furtherance of common intention,3(5),Joint liability and common intention,renumbered,Joint liability for criminal acts done in furtherance of common intention,india_code+concordance_table,true,2026-09-10
+121A,Conspiracy to commit offences punishable by section 121,148,Conspiracy to commit offences punishable by section 147,renumbered,Conspiracy to wage war,india_code+concordance_table,true,2026-09-10
+122,Collecting arms with intention of waging war against Government of India,149,Collecting arms with intention of waging war,renumbered,,india_code+concordance_table,true,2026-09-10
+123,Concealing with intent to facilitate design to wage war,150,Concealing with intent to facilitate design to wage war,renumbered,,india_code+concordance_table,true,2026-09-10
+149,Every member of unlawful assembly guilty of offence committed in prosecution of common object,190,Every member of unlawful assembly guilty of offence committed in prosecution of common object,renumbered,Unlawful assembly common object joint liability,india_code+concordance_table,true,2026-09-10
+159,Affray,194,Affray,renumbered,Fight in public place disturbing peace,india_code+concordance_table,true,2026-09-10
+160,Punishment for committing affray,194,Punishment for committing affray,merged,Merged into BNS 194,india_code+concordance_table,true,2026-09-10
+201,Causing disappearance of evidence of offence or giving false information to screen offender,238,Causing disappearance of evidence of offence or giving false information to screen offender,renumbered,Screening offender or causing evidence to disappear,india_code+concordance_table,true,2026-09-10
+212,Harbouring offender,249,Harbouring offender,renumbered,,india_code+concordance_table,true,2026-09-10
+272,Adulteration of food or drink intended for sale,274,Adulteration of food or drink intended for sale,renumbered,Food adulteration,india_code+concordance_table,true,2026-09-10
+273,Sale of noxious food or drink,275,Sale of noxious food or drink,renumbered,,india_code+concordance_table,true,2026-09-10
+309,Attempt to commit suicide,226,Attempt to commit suicide to compel or restrain exercise of lawful power,modified,Decriminalized general suicide; BNS 226 penalizes suicide attempts intended to compel public authority,india_code+concordance_table,true,2026-09-10
+314,Death caused by act done with intent to cause miscarriage,89,Death caused by act done with intent to cause miscarriage,renumbered,,india_code+concordance_table,true,2026-09-10
+315,Act done with intent to prevent child being born alive or to cause it to die after birth,90,Act done with intent to prevent child being born alive,renumbered,,india_code+concordance_table,true,2026-09-10
+316,Causing death of quick unborn child by act amounting to culpable homicide,91,Causing death of quick unborn child by act amounting to culpable homicide,renumbered,,india_code+concordance_table,true,2026-09-10
+325,Punishment for voluntarily causing grievous hurt,117,Voluntarily causing grievous hurt,renumbered,,india_code+concordance_table,true,2026-09-10
+403,Dishonest misappropriation of property,314,Dishonest misappropriation of property,renumbered,,india_code+concordance_table,true,2026-09-10
+404,Dishonest misappropriation of property possessed by deceased person at time of death,315,Dishonest misappropriation of property possessed by deceased person,renumbered,,india_code+concordance_table,true,2026-09-10
+411,Dishonestly receiving stolen property,317(2),Stolen property and punishment for receiving stolen property,renumbered,,india_code+concordance_table,true,2026-09-10
+416,Cheating by personation,319,Cheating by personation,renumbered,,india_code+concordance_table,true,2026-09-10
+419,Punishment for cheating by personation,319,Cheating by personation,merged,,india_code+concordance_table,true,2026-09-10
+464,Making a false document,335,Making a false document or false electronic record,renumbered,,india_code+concordance_table,true,2026-09-10
+467,Forgery of valuable security will etc,337,Forgery of valuable security will etc,renumbered,,india_code+concordance_table,true,2026-09-10
+,,103(2),Murder committed by group of five or more persons on grounds of race caste etc (Mob Lynching),new_in_bns,New provision penalizing mob lynching with death or life imprisonment,india_code+concordance_table,true,2026-09-10
+,,106(2),Causing death by rash or negligent driving and escaping without reporting (Hit and Run),new_in_bns,Enhanced 10-year punishment for hit and run,india_code+concordance_table,true,2026-09-10
+,,304,Snatching,new_in_bns,Separate statutory offence for snatching with up to 3 years imprisonment,india_code+concordance_table,true,2026-09-10
+313,Causing miscarriage without woman's consent,88,Causing miscarriage without woman's consent,renumbered,,india_code+concordance_table,true,2026-09-10

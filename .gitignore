@@ -40,4 +40,8 @@ desktop.ini
 report/*.docx
 report/*.pdf
 report/*.pptx
+.agents/
+.claude/
 
+# Checkpoint backup folder
+checkpoint/

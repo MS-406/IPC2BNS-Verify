@@ -25,7 +25,9 @@ from typing import Optional, Dict, Any, Tuple
 log = logging.getLogger("query_normalizer")
 
 # Canonical common Indian criminal law offence keywords -> IPC sections
-COMMON_OFFENCE_MAP: Dict[str, str] = {
+# Canonical common Indian criminal law offence keywords -> (section, act) or section
+COMMON_OFFENCE_MAP: Dict[str, Any] = {
+    # High-frequency IPC offences
     "murder": "302",
     "culpable homicide": "299",
     "death by negligence": "304A",
@@ -33,6 +35,7 @@ COMMON_OFFENCE_MAP: Dict[str, str] = {
     "dowry death": "304B",
     "abetment of suicide": "306",
     "attempt to murder": "307",
+    "attempted murder": "307",
     "rape": "375",
     "gang rape": "376D",
     "sexual harassment": "354A",
@@ -68,6 +71,49 @@ COMMON_OFFENCE_MAP: Dict[str, str] = {
     "public nuisance": "268",
     "giving false evidence": "191",
     "perjury": "191",
+    "affray": "159",
+    "common intention": "34",
+    "joint liability": "34",
+    "waging war": "121",
+    "food adulteration": "272",
+    "adulteration of food": "272",
+    "disappearance of evidence": "201",
+    "screening offender": "201",
+    "screening an offender": "201",
+    "fabricating false evidence": ("228", "BNS"),
+    "intentional insult": "504",
+    "causing miscarriage": "312",
+    "miscarriage without": "313",
+    "concealing design to wage war": "123",
+    "seditious libel": ("152", "BNS"),
+    "promoting enmity": "153A",
+    "forgery for purpose of cheating": "468",
+    "cheating by personation": "416",
+    "using a forged document": "471",
+    "suicide by public servant": ("226", "BNS"),
+
+    # Specific new BNS provisions
+    "snatching": ("304", "BNS"),
+    "organised crime": ("111", "BNS"),
+    "petty organised crime": ("112", "BNS"),
+    "terrorist act": ("113", "BNS"),
+    "terrorist": ("113", "BNS"),
+    "mob lynching": ("103(2)", "BNS"),
+    "hit and run": ("106(2)", "BNS"),
+    "deceitful means": ("69", "BNS"),
+    "promise to marry": ("69", "BNS"),
+
+    # Procedural law (CrPC / BNSS)
+    "anticipatory bail": ("438", "CrPC"),
+    "bail": ("437", "CrPC"),
+    "fir": ("154", "CrPC"),
+    "e-fir": ("154", "CrPC"),
+    "remand": ("167", "CrPC"),
+    "plea bargaining": ("265A", "CrPC"),
+    "inquest": ("174", "CrPC"),
+    "charge sheet": ("173", "CrPC"),
+    "charge-sheet": ("173", "CrPC"),
+    "confession": ("164", "CrPC"),
 }
 
 
@@ -75,7 +121,7 @@ COMMON_OFFENCE_MAP: Dict[str, str] = {
 class NormalizedQuery:
     original_query: str
     extracted_section: Optional[str]
-    detected_act: str                   # "IPC", "BNS", or "UNKNOWN"
+    detected_act: str                   # "IPC", "BNS", "CrPC", "BNSS", or "UNKNOWN"
     method: str                         # "regex", "offence_lexicon", "llm", "raw_fallback"
     confidence: float                   # 0.0 to 1.0
     offence_name: Optional[str] = None
@@ -100,22 +146,32 @@ class QueryNormalizer:
         """
         q = query.strip()
 
-        # Clean act year noise (e.g. "BNS 2023", "IPC 1860", "BNS, 2023")
-        q_cleaned = re.sub(r'\b(BNS|IPC|BNSS|BSA)[,\s]+(1860|2023|2024|1973|1872)\b', r'\1', q, flags=re.IGNORECASE)
+        # Clean act year noise (e.g. "BNS 2023", "IPC 1860", "CrPC 1973", "BNSS 2023")
+        q_cleaned = re.sub(r'\b(BNS|IPC|BNSS|CrPC|CRPC|BSA)[,\s]+(1860|2023|2024|1973|1872)\b', r'\1', q, flags=re.IGNORECASE)
 
         # Patterns for Section X of Act Y
         patterns = [
-            # "IPC 302", "IPC section 302", "IPC §302"
-            (r'\bIPC\s*(?:SECTION|SEC\.?|S\.?|§)?\s*(\d+[A-Z]?(?:\(\d+\))?)\b', "IPC"),
-            # "BNS 103", "BNS section 103", "BNS §103"
-            (r'\bBNS\s*(?:SECTION|SEC\.?|S\.?|§)?\s*(\d+[A-Z]?(?:\(\d+\))?)\b', "BNS"),
-            # "Section 302 of IPC", "section 302 ipc"
-            (r'(?:(?:\b(?:SECTION|SEC\.?|S\.?))|§)\s*(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF\s*)?(?:THE\s*)?IPC\b', "IPC"),
-            # "Section 103 of BNS", "section 103 bns"
-            (r'(?:(?:\b(?:SECTION|SEC\.?|S\.?))|§)\s*(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF\s*)?(?:THE\s*)?BNS\b', "BNS"),
-            # "Section 302", "sec. 302", "§302", "§ 124A"
+            # 1. Section Number directly BEFORE Act: "302 IPC", "420 IPC to BNS", "154 CrPC", "173 BNSS"
+            (r'\b(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF\s*)?(?:THE\s*)?BNSS\b', "BNSS"),
+            (r'\b(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF\s*)?(?:THE\s*)?BNS\b', "BNS"),
+            (r'\b(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF\s*)?(?:THE\s*)?CRPC\b', "CrPC"),
+            (r'\b(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF\s*)?(?:THE\s*)?IPC\b', "IPC"),
+
+            # 2. Act BEFORE Section: "IPC 302", "CrPC 154", "BNSS 173", "BNS 103"
+            (r'\bBNSS\b\s*(?:SECTION|SEC\.?|S\.?|§)?\s*(\d+[A-Z]?(?:\(\d+\))?)\b', "BNSS"),
+            (r'\bBNS\b\s*(?:SECTION|SEC\.?|S\.?|§)?\s*(\d+[A-Z]?(?:\(\d+\))?)\b', "BNS"),
+            (r'\bCRPC\b\s*(?:SECTION|SEC\.?|S\.?|§)?\s*(\d+[A-Z]?(?:\(\d+\))?)\b', "CrPC"),
+            (r'\bIPC\b\s*(?:SECTION|SEC\.?|S\.?|§)?\s*(\d+[A-Z]?(?:\(\d+\))?)\b', "IPC"),
+
+            # 3. Section + of/in + Act: "Section 302 of IPC", "section 154 in CrPC"
+            (r'(?:(?:\b(?:SECTION|SEC\.?|S\.?))|§)\s*(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF|IN)?\s*(?:THE\s*)?BNSS\b', "BNSS"),
+            (r'(?:(?:\b(?:SECTION|SEC\.?|S\.?))|§)\s*(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF|IN)?\s*(?:THE\s*)?BNS\b', "BNS"),
+            (r'(?:(?:\b(?:SECTION|SEC\.?|S\.?))|§)\s*(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF|IN)?\s*(?:THE\s*)?CRPC\b', "CrPC"),
+            (r'(?:(?:\b(?:SECTION|SEC\.?|S\.?))|§)\s*(\d+[A-Z]?(?:\(\d+\))?)\s*(?:OF|IN)?\s*(?:THE\s*)?IPC\b', "IPC"),
+
+            # 4. Standalone Section keyword without act name (defaults to IPC)
             (r'(?:(?:\b(?:SECTION|SEC\.?|S\.?))|§)\s*(\d+[A-Z]?(?:\(\d+\))?)\b', "IPC"),
-            # Just a bare section number in short query like "302" or "420"
+            # 5. Bare number query
             (r'^\s*(\d+[A-Z]?(?:\(\d+\))?)\s*$', "IPC"),
         ]
 
@@ -136,9 +192,13 @@ class QueryNormalizer:
         """
         q_lower = query.lower()
         # Sort by length descending to match multi-word phrases first (e.g. "dowry death" before "death")
-        for offence, sec in sorted(COMMON_OFFENCE_MAP.items(), key=lambda x: len(x[0]), reverse=True):
+        for offence, val in sorted(COMMON_OFFENCE_MAP.items(), key=lambda x: len(x[0]), reverse=True):
             if re.search(r'\b' + re.escape(offence) + r'\b', q_lower):
-                return sec, "IPC", offence
+                if isinstance(val, tuple):
+                    sec, act = val
+                else:
+                    sec, act = str(val), "IPC"
+                return sec, act, offence
         return None
 
     def extract_via_llm(self, query: str) -> Optional[Tuple[str, str]]:

@@ -131,16 +131,16 @@ if st.button("🚀 Run Verification Pipeline", type="primary", use_container_wid
         norm_res = normalizer.normalize(query_input)
 
         # Step 2: Concordance
+        from src.mapping.lookup import ConcordanceLookup
+        sec_clean = ConcordanceLookup.clean_section_key(norm_res.extracted_section or "")
         if norm_res.detected_act == "CrPC":
-            sec_clean = "".join(filter(str.isdigit, norm_res.extracted_section or ""))
             map_res = map_crpc_to_bnss(sec_clean)
         elif norm_res.detected_act == "BNSS":
-            sec_clean = "".join(filter(str.isdigit, norm_res.extracted_section or ""))
             map_res = map_bnss_to_crpc(sec_clean)
         elif norm_res.detected_act == "BNS":
-            map_res = map_bns_to_ipc(norm_res.extracted_section or "")
+            map_res = map_bns_to_ipc(sec_clean)
         else:
-            map_res = map_ipc_to_bns(norm_res.extracted_section or "")
+            map_res = map_ipc_to_bns(sec_clean)
 
         # Step 3: Retrieval
         root = os.getcwd()

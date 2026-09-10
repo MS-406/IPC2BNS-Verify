@@ -53,7 +53,20 @@ class EntityGroundingVerifier:
     STOPWORDS = {
         "what", "which", "where", "under", "section", "in", "the", "new", "bns",
         "ipc", "code", "act", "is", "for", "and", "or", "of", "to", "how", "can",
-        "a", "an", "does", "penalize", "covered", "defined", "amended", "2023", "2025"
+        "a", "an", "does", "penalize", "covered", "defined", "amended", "2023", "2025",
+        "crpc", "bnss", "bsa", "corresponds", "corresponding", "replaces", "replaced",
+        "lodging", "compared", "tell", "provisions", "law", "statute"
+    }
+
+    LEGAL_INTENT_SYNONYMS = {
+        "fir": {"information", "cognizable", "cases", "police"},
+        "e-fir": {"information", "electronic", "police", "cognizable"},
+        "bail": {"bail", "release", "arrest", "apprehending"},
+        "anticipatory": {"bail", "arrest", "apprehending", "direction"},
+        "remand": {"investigation", "custody", "detention", "hours"},
+        "cheating": {"deceiv", "fraud", "dishonest", "delivery"},
+        "theft": {"theft", "stolen", "property"},
+        "murder": {"murder", "death", "kill", "homicide"},
     }
 
     def __init__(self, min_overlap_threshold: float = 0.50):
@@ -82,7 +95,12 @@ class EntityGroundingVerifier:
     def extract_query_intent_keywords(self, query: str) -> Set[str]:
         """Extracts substantive content keywords representing query intent."""
         words = re.findall(r'\b[a-zA-Z]{3,}\b', query.lower())
-        return {w for w in words if w not in self.STOPWORDS}
+        keywords = {w for w in words if w not in self.STOPWORDS}
+        expanded = set(keywords)
+        for k in keywords:
+            if k in self.LEGAL_INTENT_SYNONYMS:
+                expanded.update(self.LEGAL_INTENT_SYNONYMS[k])
+        return expanded
 
     def verify_grounding(self, generated_text: str, retrieved_chunks: List[Dict[str, Any]],
                          query: str = "") -> EntityGroundingResult:

@@ -149,6 +149,34 @@ class ConcordanceLookup:
         """
         clean_key = self.clean_section_key(ipc_section)
         if not clean_key or clean_key not in self.ipc_to_bns_index:
+            # Fallback: Attempt dynamic statutory index resolution if section exists in corpus
+            if clean_key:
+                try:
+                    from src.retrieval.search import get_retriever
+                    retriever = get_retriever()
+                    if retriever and retriever.index:
+                        hits = retriever.retrieve(f"IPC Section {clean_key}", top_k=1, act_filter="BNS")
+                        if hits and hits[0].get("similarity_score", 0) > 0.3:
+                            top_hit = hits[0]
+                            tgt_sec = top_hit.get("section_number")
+                            if tgt_sec:
+                                return MappingResult(
+                                    query_section=clean_key,
+                                    target_section=tgt_sec,
+                                    source_act="IPC",
+                                    target_act="BNS",
+                                    source_title="",
+                                    target_title=top_hit.get("section_title", ""),
+                                    status=MappingStatus.RENUMBERED,
+                                    is_ambiguous=False,
+                                    notes=f"Resolved via statutory BM25 retrieval index: BNS Section {tgt_sec}.",
+                                    source_provenance="statutory_index_fallback",
+                                    verified=False,
+                                    all_matched_sections=[tgt_sec]
+                                )
+                except Exception:
+                    pass
+
             return MappingResult(
                 query_section=ipc_section,
                 target_section=None,
@@ -377,8 +405,10 @@ BNSS_TO_CRPC_MAP: Dict[str, Dict[str, str]] = {
 
 def map_crpc_to_bnss(section: str) -> MappingResult:
     """Maps CrPC section to corresponding BNSS section."""
-    clean_sec = re.sub(r'[^\w]', '', section.upper()).strip()
+    clean_sec = re.sub(r'[^\w()]', '', section.upper()).strip()
     match = CRPC_TO_BNSS_MAP.get(clean_sec)
+    if not match and "(" in clean_sec:
+        match = CRPC_TO_BNSS_MAP.get(re.sub(r'\(.*?\)', '', clean_sec))
     if match:
         return MappingResult(
             query_section=section,
@@ -397,8 +427,10 @@ def map_crpc_to_bnss(section: str) -> MappingResult:
 
 def map_bnss_to_crpc(section: str) -> MappingResult:
     """Maps BNSS section to corresponding CrPC section."""
-    clean_sec = re.sub(r'[^\w]', '', section.upper()).strip()
+    clean_sec = re.sub(r'[^\w()]', '', section.upper()).strip()
     match = BNSS_TO_CRPC_MAP.get(clean_sec)
+    if not match and "(" in clean_sec:
+        match = BNSS_TO_CRPC_MAP.get(re.sub(r'\(.*?\)', '', clean_sec))
     if match:
         return MappingResult(
             query_section=section,

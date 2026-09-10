@@ -120,6 +120,15 @@ class HardConstraintVerifier:
             else:
                 grade = "LOW_CONFIDENCE_REJECTED"
                 raw_conf = min(raw_conf, 0.20)
+        elif not l1_res.is_cross_statute_consistent:
+            grade = "CROSS_STATUTE_CONFLICT_REJECTED"
+            raw_conf = min(raw_conf, 0.25)
+        elif not l2_res.intent_aligned:
+            grade = "NON_RESPONSIVE_REJECTED"
+            raw_conf = min(raw_conf, 0.25)
+        elif not l2_res.is_grounded:
+            grade = "UNGROUNDED_CLAIM_REJECTED"
+            raw_conf = min(raw_conf, 0.30)
         elif ambiguity_score >= 0.70:
             grade = "AMBIGUOUS_SPLIT_FLAGGED"
             raw_conf = min(raw_conf, 0.65)
