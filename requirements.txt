@@ -18,8 +18,4 @@ pytest-asyncio>=0.21.0
 google-generativeai>=0.3.0
 torch>=2.0.0
 transformers>=4.35.0
-<<<<<<< HEAD
 sentencepiece>=0.1.99
-=======
-sentencepiece>=0.1.99
->>>>>>> c3d3d4b676cc55f88fbaf8bef9c390e9bd5d9a97

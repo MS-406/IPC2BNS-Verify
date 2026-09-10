@@ -44,4 +44,4 @@ report/*.pptx
 .claude/
 
 # Checkpoint backup folder
-checkpoint/
+
