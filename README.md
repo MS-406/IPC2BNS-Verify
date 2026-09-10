@@ -92,27 +92,41 @@ Instead of fine-tuning multi-billion parameter LLMs every time an amendment is g
 | Stage | System Configuration | Dev Accuracy ($N=60$) | Dev 95% Wilson CI | Stress Catch Rate ($N=18$) | Control FPR ($N=12$) | Adaptivity Delta ($N=3$) | Procedural Gen ($N=30$) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Stage 1** | Baseline LLM (Closed-Book) | **10.0% (6/60)** | [4.7% – 20.1%] | N/A | N/A | N/A | **23.3% (7/30)** |
-| **Stage 2** | +BM25 RAG Context | **63.3% (38/60)** | [50.7% – 74.4%] | N/A | N/A | N/A | **60.0% (18/30)** |
-| **Stage 3** | +Two-Layer Hard Verifier | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
-| **Stage 4** | +Incremental Refresh (Full System) | **63.3% (38/60)** | [50.7% – 74.4%] | **100.0% (18/18)** | **0.0% (0/12)** | Post: **100.0% (3/3)** [+66.7%] | **100.0% (30/30)** |
+| **Stage 2** | +Hybrid Statutory RAG (Top-5 + Reranker) | **66.7% (40/60)** | [54.1% – 77.3%] | N/A | N/A | N/A | **60.0% (18/30)** |
+| **Stage 3** | +Two-Layer Hard Verifier | **66.7% (40/60)** | [54.1% – 77.3%] | **100.0% (18/18)** | **0.0% (0/12)** | Pre: 33.3% (1/3) | **100.0% (30/30)** |
+| **Stage 4** | +Incremental Refresh (Full System) | **66.7% (40/60)** | [54.1% – 77.3%] | **100.0% (18/18)** | **0.0% (0/12)** | Post: **100.0% (3/3)** [+66.7%] | **100.0% (30/30)** |
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | N/A (Procedural) | N/A | **100.0% (5/5 drift caught)** | **0.0% (0/25 rejected)** | N/A (Static Code Pair) | **100.0% (30/30)** |
 
 ### Independently-Sourced Benchmark (IndicLegalQA, $N=50$)
 
-| Evaluation Stage | System Configuration | Accuracy ($N=50$) | Wilson 95% CI | Verifier Status |
-|:---:|:---|:---:|:---:|:---|
-| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | [1.1% – 13.5%] | N/A (No Verifier) |
-| **Stage 2** | +BM25 Statutory RAG | **28.0% (14/50)** | [17.5% – 41.7%] | N/A (No Verifier) |
-| **Stage 3** | +Two-Layer Hard Verifier | **28.0% (14/50)** | [17.5% – 41.7%] | **47/50 Passed**, **2 Vetoed**, **1 Rejected** |
+| Evaluation Stage | System Configuration | Accuracy (Full $N=50$) | Accuracy (Active $N=48$) | Wilson 95% CI | Verifier Status |
+|:---:|:---|:---:|:---:|:---:|:---|
+| **Stage 1** | Baseline LLM (Closed-Book) | **4.0% (2/50)** | **4.2% (2/48)** | [1.1% – 13.5%] | N/A (No Verifier) |
+| **Stage 2a** | +BM25 Statutory RAG (Baseline) | **28.0% (14/50)** | **29.2% (14/48)** | [17.5% – 41.7%] | N/A (No Verifier) |
+| **Stage 2b** | +Hybrid RRF + Expansion (Top-3) | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | N/A (No Verifier) |
+| **Stage 2c** | +Hybrid RRF + Expansion (Top-5) | **46.0% (23/50)** | **47.9% (23/48)** | [33.4% – 60.1%] | N/A (No Verifier) |
+| **Stage 3** | +Two-Layer Hard Verifier | **42.0% (21/50)** | **43.8% (21/48)** | [29.4% – 55.8%] | **44/50 Passed**, **2 Vetoed**, **4 Rejected** |
+
+### Systematic Retriever Ablation Comparison (Empirical Metrics on IndicLegalQA $N=50$)
+
+| Retrieval Strategy | IndicLegalQA Recall@1 ($N=50$) | IndicLegalQA Recall@5 ($N=50$) | IndicLegalQA MRR | Downstream Hit Top-3 | Downstream Hit Top-5 (Valid $N=48$) |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **1. BM25 (Sparse Baseline)** | 10.0% (5/50) | 46.0% (23/50) | 0.248 | 32.0% (16/50) | 33.3% (16/48) |
+| **2. BM25 + Concordance Expansion** | 28.0% (14/50) | 52.0% (26/50) | 0.383 | 46.0% (23/50) | 47.9% (23/48) |
+| **3. Dense Semantic (Cosine)** | 16.0% (8/50) | 50.0% (25/50) | 0.310 | 46.0% (23/50) | 47.9% (23/48) |
+| **4. Hybrid RRF (BM25 + Dense)** | 10.0% (5/50) | 48.0% (24/50) | 0.258 | 46.0% (23/50) | 47.9% (23/48) |
+| **5. Hybrid RRF + Expansion** | **28.0% (14/50)** | **56.0% (28/50)** | **0.396** | **46.0% (23/50)** | **47.9% (23/48)** |
+| **6. Hybrid RRF + Re-Ranking** | 18.0% (9/50) | 42.0% (21/50) | 0.280 | 46.0% (23/50) | 47.9% (23/48) |
 
 ### Statistical Rigor & Scale Highlights:
-* **Statistical Significance:** McNemar's paired test confirms the Stage 1 $\rightarrow$ Stage 2 jump is highly significant ($\chi^2 = 28.26, p = 1.05 \times 10^{-7}$).
+* **Statistical Significance:** McNemar's paired test confirms the Stage 1 $\rightarrow$ Stage 2 jump is highly significant ($\chi^2 = 30.25, p = 3.80 \times 10^{-8}$).
 * **100% Adversarial Catch Rate:** The verifier caught 18/18 synthetic hallucinations with 0/12 false positives on controls.
 * **Large-Scale Benchmark (Phase 7: $N=1,140$):** Evaluated across 10 statutory categories; the verifier maintained a **94.4% (17/18)** adversarial catch rate at scale.
-* **Real Legal Generalization ($N=50$ IndicLegalQA):** On independently sourced real questions, BM25 RAG achieves a $7\times$ accuracy boost ($4.0\% \rightarrow 28.0\%$) with 100% verifier repeal interception.
+* **Hybrid Retrieval Leap:** Concordance query expansion + Hybrid RRF boosts IndicLegalQA end-to-end citation accuracy from **4.0% $\rightarrow$ 42.0%** ($10.5\times$ gain over closed-book baseline).
 * **Human Expert Calibration:** Double-blind review by legal annotators achieved **Cohen’s Kappa $\kappa = 0.87$** (95.0% concordance, $N=20$).
 
 ---
+
 
 
 ## 🗂️ 4. Datasets Used

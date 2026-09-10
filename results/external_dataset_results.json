@@ -1,12 +1,19 @@
 {
-  "dataset_name": "IndicLegalQA Benchmark (N=50)",
+  "dataset_name": "IndicLegalQA (Real Legal Questions)",
   "sample_size": 50,
-  "stage1_accuracy": "4.0% (2/50)",
-  "stage1_ci": "[1.1% - 13.5%]",
-  "stage2_accuracy": "28.0% (14/50)",
-  "stage2_ci": "[17.5% - 41.7%]",
-  "verifier_passed": 47,
-  "verifier_rejected": 1,
+  "active_valid_size": 48,
+  "repealed_count": 2,
+  "top_k": 5,
+  "stage1_accuracy_full": "4.0% (2/50)",
+  "stage1_ci_full": "[1.1% - 13.5%]",
+  "stage2_accuracy_full": "44.0% (22/50)",
+  "stage2_ci_full": "[31.2% - 57.7%]",
+  "stage1_accuracy_valid": "4.2% (2/48)",
+  "stage1_ci_valid": "[1.2% - 14.0%]",
+  "stage2_accuracy_valid": "45.8% (22/48)",
+  "stage2_ci_valid": "[32.6% - 59.7%]",
+  "verifier_passed": 44,
+  "verifier_rejected": 4,
   "verifier_vetoed": 2,
   "detailed_results": [
     {
@@ -20,8 +27,8 @@
       ],
       "s1_hit": true,
       "s2_cited": [
-        "304",
-        "105"
+        "105",
+        "304"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -69,7 +76,7 @@
       "s1_hit": true,
       "s2_cited": [
         "318",
-        "420"
+        "318(1)"
       ],
       "s2_hit": true,
       "verifier_verdict": "VERIFIED",
@@ -77,9 +84,7 @@
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 420 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_004",
@@ -117,17 +122,17 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "82",
-        "20"
+        "304B",
+        "80"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 82 cited for current law query."
+        "Pre-transition Citation: IPC Section 304B cited for current law query."
       ]
     },
     {
@@ -141,8 +146,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "308",
-        "110"
+        "110",
+        "308"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -165,18 +170,16 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "397",
+        "308",
         "311"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 397 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_008",
@@ -213,8 +216,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "397",
-        "311"
+        "311",
+        "397"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -237,17 +240,17 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "397",
+        "391",
         "311"
       ],
       "s2_hit": false,
-      "verifier_verdict": "VERIFIED",
-      "is_verified": true,
-      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
-      "verifier_confidence": 1.0,
+      "verifier_verdict": "REJECTED_CROSS_STATUTE_INCONSISTENCY",
+      "is_verified": false,
+      "verifier_grade": "LOW_CONFIDENCE_REJECTED",
+      "verifier_confidence": 0.2,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 397 cited for current law query."
+        "Cross-statute citation mismatch: Cited [IPC \u00a7391] maps to BNS \u00a7310, which conflicts with cited [BNS \u00a7311]."
       ]
     },
     {
@@ -285,8 +288,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "24",
-        "2(10)"
+        "318",
+        "318(1)"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -294,9 +297,7 @@
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 24 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_013",
@@ -309,8 +310,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "417",
-        "17"
+        "318",
+        "318(1)"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -318,10 +319,7 @@
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 417 cited for current law query.",
-        "Pre-transition Citation: IPC Section 17 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_014",
@@ -334,18 +332,16 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "471",
-        "340"
+        "340",
+        "335"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 471 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_015",
@@ -358,8 +354,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "468",
-        "338"
+        "338",
+        "468"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -406,8 +402,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "425",
-        "12"
+        "324",
+        "425"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -416,8 +412,7 @@
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 425 cited for current law query.",
-        "Pre-transition Citation: IPC Section 12 cited for current law query."
+        "Pre-transition Citation: IPC Section 425 cited for current law query."
       ]
     },
     {
@@ -431,18 +426,17 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "503",
-        "506"
+        "351",
+        "503"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 503 cited for current law query.",
-        "Pre-transition Citation: IPC Section 506 cited for current law query."
+        "Pre-transition Citation: IPC Section 503 cited for current law query."
       ]
     },
     {
@@ -554,7 +548,7 @@
       "s1_hit": false,
       "s2_cited": [
         "81",
-        "11"
+        "390"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -564,7 +558,7 @@
       "verifier_ambiguity": 0.0,
       "warnings": [
         "Pre-transition Citation: IPC Section 81 cited for current law query.",
-        "Pre-transition Citation: IPC Section 11 cited for current law query."
+        "Pre-transition Citation: IPC Section 390 cited for current law query."
       ]
     },
     {
@@ -650,8 +644,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "354C",
-        "77"
+        "77",
+        "354C"
       ],
       "s2_hit": true,
       "verifier_verdict": "VERIFIED",
@@ -674,8 +668,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "354D",
-        "78"
+        "78",
+        "354D"
       ],
       "s2_hit": true,
       "verifier_verdict": "VERIFIED",
@@ -699,7 +693,7 @@
       "s1_hit": false,
       "s2_cited": [
         "137",
-        "359"
+        "137(1)"
       ],
       "s2_hit": true,
       "verifier_verdict": "VERIFIED",
@@ -707,9 +701,7 @@
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 359 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_030",
@@ -722,8 +714,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "320",
-        "322"
+        "137",
+        "105"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -731,10 +723,7 @@
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 320 cited for current law query.",
-        "Pre-transition Citation: IPC Section 322 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_031",
@@ -747,17 +736,17 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "40",
-        "2(23)"
+        "143",
+        "370"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 40 cited for current law query."
+        "Pre-transition Citation: IPC Section 370 cited for current law query."
       ]
     },
     {
@@ -771,18 +760,16 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "40",
-        "2(23)"
+        "64",
+        "63"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
-      "warnings": [
-        "Pre-transition Citation: IPC Section 40 cited for current law query."
-      ]
+      "warnings": []
     },
     {
       "question_id": "EXT_033",
@@ -795,8 +782,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "376D",
-        "70"
+        "70",
+        "376D"
       ],
       "s2_hit": true,
       "verifier_verdict": "VERIFIED",
@@ -819,8 +806,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "124A",
-        "84"
+        "152",
+        "124A"
       ],
       "s2_hit": false,
       "verifier_verdict": "VETOED_REPEALED_PROVISION",
@@ -829,8 +816,7 @@
       "verifier_confidence": 0.0,
       "verifier_ambiguity": 1.0,
       "warnings": [
-        "Repealed Provision Cited: IPC Section 124A was repealed/struck down and has no direct BNS equivalent.",
-        "Pre-transition Citation: IPC Section 84 cited for current law query."
+        "Repealed Provision Cited: IPC Section 124A was repealed/struck down and has no direct BNS equivalent."
       ]
     },
     {
@@ -845,7 +831,7 @@
       "s1_hit": false,
       "s2_cited": [
         "497",
-        "8"
+        "152"
       ],
       "s2_hit": false,
       "verifier_verdict": "VETOED_REPEALED_PROVISION",
@@ -854,8 +840,7 @@
       "verifier_confidence": 0.0,
       "verifier_ambiguity": 1.0,
       "warnings": [
-        "Repealed Provision Cited: IPC Section 497 was repealed/struck down and has no direct BNS equivalent.",
-        "Pre-transition Citation: IPC Section 8 cited for current law query."
+        "Repealed Provision Cited: IPC Section 497 was repealed/struck down and has no direct BNS equivalent."
       ]
     },
     {
@@ -869,8 +854,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "268",
-        "271"
+        "271",
+        "268"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -965,8 +950,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "191",
-        "229"
+        "229",
+        "191"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -989,8 +974,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "191",
-        "229"
+        "195",
+        "191"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -999,6 +984,7 @@
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
+        "Pre-transition Citation: IPC Section 195 cited for current law query.",
         "Pre-transition Citation: IPC Section 191 cited for current law query."
       ]
     },
@@ -1014,16 +1000,16 @@
       "s1_hit": false,
       "s2_cited": [
         "211",
-        "248"
+        "14"
       ],
       "s2_hit": false,
-      "verifier_verdict": "VERIFIED",
-      "is_verified": true,
-      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
-      "verifier_confidence": 1.0,
+      "verifier_verdict": "REJECTED_CROSS_STATUTE_INCONSISTENCY",
+      "is_verified": false,
+      "verifier_grade": "LOW_CONFIDENCE_REJECTED",
+      "verifier_confidence": 0.2,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 211 cited for current law query."
+        "Cross-statute citation mismatch: Cited [IPC \u00a7211] maps to BNS \u00a7248, which conflicts with cited [BNS \u00a714]."
       ]
     },
     {
@@ -1085,8 +1071,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "186",
-        "220"
+        "220",
+        "186"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -1110,17 +1096,16 @@
       "s1_hit": false,
       "s2_cited": [
         "442",
-        "448"
+        "330"
       ],
       "s2_hit": false,
-      "verifier_verdict": "VERIFIED",
-      "is_verified": true,
-      "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
-      "verifier_confidence": 1.0,
+      "verifier_verdict": "REJECTED_CROSS_STATUTE_INCONSISTENCY",
+      "is_verified": false,
+      "verifier_grade": "LOW_CONFIDENCE_REJECTED",
+      "verifier_confidence": 0.2,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 442 cited for current law query.",
-        "Pre-transition Citation: IPC Section 448 cited for current law query."
+        "Cross-statute citation mismatch: Cited [IPC \u00a7442] maps to BNS \u00a7329, which conflicts with cited [BNS \u00a7330]."
       ]
     },
     {
@@ -1134,8 +1119,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "211",
-        "504"
+        "324",
+        "425"
       ],
       "s2_hit": false,
       "verifier_verdict": "VERIFIED",
@@ -1144,8 +1129,7 @@
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 211 cited for current law query.",
-        "Pre-transition Citation: IPC Section 504 cited for current law query."
+        "Pre-transition Citation: IPC Section 425 cited for current law query."
       ]
     },
     {
@@ -1159,18 +1143,17 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "441",
-        "504"
+        "329",
+        "441"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 441 cited for current law query.",
-        "Pre-transition Citation: IPC Section 504 cited for current law query."
+        "Pre-transition Citation: IPC Section 441 cited for current law query."
       ]
     },
     {
@@ -1184,8 +1167,8 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "499",
-        "356"
+        "356",
+        "499"
       ],
       "s2_hit": true,
       "verifier_verdict": "VERIFIED",
@@ -1208,19 +1191,19 @@
       ],
       "s1_hit": false,
       "s2_cited": [
-        "447",
-        "506"
+        "356",
+        "500"
       ],
-      "s2_hit": false,
+      "s2_hit": true,
       "verifier_verdict": "VERIFIED",
       "is_verified": true,
       "verifier_grade": "HIGH_CONFIDENCE_VERIFIED",
       "verifier_confidence": 1.0,
       "verifier_ambiguity": 0.0,
       "warnings": [
-        "Pre-transition Citation: IPC Section 447 cited for current law query.",
-        "Pre-transition Citation: IPC Section 506 cited for current law query."
+        "Pre-transition Citation: IPC Section 500 cited for current law query."
       ]
     }
-  ]
+  ],
+  "retrieval_mode": "hybrid_expanded"
 }

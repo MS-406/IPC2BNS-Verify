@@ -20,9 +20,9 @@
       "ground_truth_sections": "103",
       "ground_truth_answer": "Under BNS 2023, murder punishment is Section 103 (formerly IPC 302).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7101] (Murder). Statutory provision: Statutory provision for BNS Section 101: Murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7105] (Punishment for culpable homicide not amounting to murder). Statutory provision: Statutory provision for BNS Section 105: Punishment for culpable homicide not amounting to murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
       "cited_sections": [
-        "101",
+        "105",
         "103"
       ],
       "is_verified": true,
@@ -30,7 +30,7 @@
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7101] (Murder). Statutory provision: Statutory provision for BNS Section 101: Murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7105] (Punishment for culpable homicide not amounting to murder). Statutory provision: Statutory provision for BNS Section 105: Punishment for culpable homicide not amounting to murder. Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -40,17 +40,17 @@
       "ground_truth_sections": "318",
       "ground_truth_answer": "IPC Section 420 corresponds to Section 318(4) of BNS 2023.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
-        "338",
-        "318"
+        "318",
+        "318(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -60,17 +60,17 @@
       "ground_truth_sections": "303",
       "ground_truth_answer": "Theft is defined and penalized under Section 303 of BNS 2023.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7305] (Theft in dwelling house etc) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7303(2)] (Snatching) is relevant.",
       "cited_sections": [
         "303",
-        "305"
+        "303(2)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7305] (Theft in dwelling house etc) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a7303(2)] (Snatching) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -80,17 +80,17 @@
       "ground_truth_sections": "80",
       "ground_truth_answer": "Dowry death is governed by Section 80 of BNS 2023 (formerly IPC 304B).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a780(1)] (Dowry death \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "80",
-        "102"
+        "80(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a780] (Dowry death). Statutory provision: (1) Where the death of a woman is caused by any burns or bodily injury or occurs otherwise than under normal circumstances within seven years of her marriage and it is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of her husband for, or in connection with, any demand for dowry, such death shall be called 'dowry death', and such husband or relative shall be deemed to have caused her death. (2) Whoever commits dowry death shall be punished with imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life. Additionally, [BNS \u00a780(1)] (Dowry death \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -100,10 +100,10 @@
       "ground_truth_sections": "299",
       "ground_truth_answer": "BNS Section 100 defines culpable homicide, corresponding to IPC Section 299.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a711] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [IPC \u00a7100] (Right of private defence of the body extends to causing death). Statutory provision: Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death. Additionally, [IPC \u00a797] (Right of private defence of the body and of property) is relevant.",
       "cited_sections": [
         "100",
-        "11"
+        "97"
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
@@ -122,17 +122,17 @@
       "ground_truth_sections": "106(2)",
       "ground_truth_answer": "Under BNS Section 106(2), hit-and-run rash driving causing death carries up to 10 years imprisonment.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state). Statutory provision: Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state. Additionally, [BNS \u00a738] (When right of private defence extends to causing death) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7281] (Rash driving or riding on a public way). Statutory provision: Whoever drives any vehicle, or rides, on any public way in a manner so rash or negligent as to endanger human life, or to be likely to cause hurt or injury to any other person, shall be punished with imprisonment of either description for a term which may extend to six months, or with fine which may extend to one thousand rupees, or with both. Additionally, [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state) is relevant.",
       "cited_sections": [
-        "66",
-        "38"
+        "281",
+        "66"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state). Statutory provision: Statutory provision for BNS Section 66: Punishment for causing death or resulting in persistent vegetative state. Additionally, [BNS \u00a738] (When right of private defence extends to causing death) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7281] (Rash driving or riding on a public way). Statutory provision: Whoever drives any vehicle, or rides, on any public way in a manner so rash or negligent as to endanger human life, or to be likely to cause hurt or injury to any other person, shall be punished with imprisonment of either description for a term which may extend to six months, or with fine which may extend to one thousand rupees, or with both. Additionally, [BNS \u00a766] (Punishment for causing death or resulting in persistent vegetative state) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -142,17 +142,17 @@
       "ground_truth_sections": "63",
       "ground_truth_answer": "Rape is defined under Section 63 of BNS 2023 (formerly Section 375 of IPC).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a770] (Gang rape) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a764] (Punishment for rape) is relevant.",
       "cited_sections": [
         "63",
-        "70"
+        "64"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a770] (Gang rape) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a763] (Rape). Statutory provision: A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman; or inserts any object or part of body to any extent into the vagina, urethra or anus of a woman; or manipulates any part of the body of a woman so as to cause penetration; or applies his mouth to the vagina, anus, urethra of a woman, against her will or without her consent. Additionally, [BNS \u00a764] (Punishment for rape) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -162,17 +162,17 @@
       "ground_truth_sections": "356",
       "ground_truth_answer": "Defamation under BNS Section 356 carries simple imprisonment up to two years, fine, or community service.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a7356(1)] (Punishment for defamation \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "356",
-        "2(24)"
+        "356(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7356] (Punishment for defamation). Statutory provision: (1) Whoever, by words either spoken or intended to be read, or by signs or visible representations, makes or publishes any imputation concerning any person intending to harm the reputation of such person, is said to defame that person. (2) Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both or with community service. Additionally, [BNS \u00a7356(1)] (Punishment for defamation \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -182,17 +182,17 @@
       "ground_truth_sections": "303(2)",
       "ground_truth_answer": "Yes, BNS introduces community service as a penal sanction for petty theft under Section 303(2) where value is under Rs 5,000.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(6)] (Community service). Statutory provision: Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS Additionally, [BNS \u00a7303] (Punishment for theft) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a72(6)] (Community service) is relevant.",
       "cited_sections": [
-        "2(6)",
-        "303"
+        "303",
+        "2(6)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(6)] (Community service). Statutory provision: Statutory provision for BNS Section 2(6): Community service. New form of punishment introduced in BNS Additionally, [BNS \u00a7303] (Punishment for theft) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7303] (Punishment for theft). Statutory provision: (1) Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft. (2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both; and in case of second or subsequent conviction, with rigorous imprisonment for a term which shall not be less than one year but which may extend to five years, and with fine. Provided that where the value of stolen property is less than five thousand rupees, and the person has not been previously convicted, he may be punished with community service. Additionally, [BNS \u00a72(6)] (Community service) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -202,10 +202,10 @@
       "ground_truth_sections": "124A",
       "ground_truth_answer": "IPC Section 124A (Sedition) was repealed without direct equivalent; BNS Section 152 addresses subversive acts.",
       "is_ambiguous": true,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7113] (Terrorist act) is relevant.",
       "cited_sections": [
-        "62",
-        "2(24)"
+        "152",
+        "113"
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
@@ -224,17 +224,17 @@
       "ground_truth_sections": "497",
       "ground_truth_answer": "No, adultery under IPC Section 497 was struck down in Joseph Shine and omitted entirely from BNS 2023.",
       "is_ambiguous": true,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment) is relevant.",
       "cited_sections": [
-        "62",
-        "232"
+        "152",
+        "62"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a7232] (Giving or fabricating false evidence with intent to procure conviction of offence punishable with imprisonment for life or imprisonment) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -244,9 +244,9 @@
       "ground_truth_sections": "377",
       "ground_truth_answer": "IPC Section 377 was omitted from BNS 2023 following the Navtej Johar ruling.",
       "is_ambiguous": true,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a762] (Attempt to commit offences punishable with imprisonment for life or other imprisonment). Statutory provision: Statutory provision for BNS Section 62: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7152] (Acts endangering sovereignty unity and integrity of India). Statutory provision: Whoever, purposely or knowingly, by words, either spoken or written, or by signs, or by visible representation, or by electronic communication or by use of financial mean, or otherwise, excites or attempts to excite, secession or armed rebellion or subversive activities, or encourages feelings of separatist activities or endangers sovereignty or unity and integrity of India; or indulges in or commits any such act shall be punished with imprisonment for life or with imprisonment which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
       "cited_sections": [
-        "62",
+        "152",
         "2(24)"
       ],
       "is_verified": false,
@@ -286,17 +286,17 @@
       "ground_truth_sections": "111",
       "ground_truth_answer": "Organised crime syndicates and continuing unlawful activities are penalized under Section 111 of BNS 2023.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7111(1)] (Organised crime \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "111",
-        "112"
+        "111(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7111(1)] (Organised crime \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -306,17 +306,17 @@
       "ground_truth_sections": "113",
       "ground_truth_answer": "Terrorist acts are defined and penalized under Section 113 of BNS 2023.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7113(1)] (Terrorist act \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "113",
-        "299"
+        "113(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7299] (Deliberate and malicious acts intended to outrage religious feelings) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7113] (Terrorist act). Statutory provision: (1) Whoever does any act with the intent to threaten or likely to threaten the unity, integrity, sovereignty, security, or economic security of India or with the intent to strike terror in the people shall be guilty of committing a terrorist act. (2) Whoever commits a terrorist act resulting in death shall be punished with death or imprisonment for life. Additionally, [BNS \u00a7113(1)] (Terrorist act \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -326,16 +326,16 @@
       "ground_truth_sections": "33, 2(1), 2(25)",
       "ground_truth_answer": "IPC Section 33 was split into BNS Section 2(1) ('act') and Section 2(25) ('omission').",
       "is_ambiguous": true,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a725] (Act not intended and not known to be likely to cause death or grievous hurt done by consent) is relevant.",
       "cited_sections": [
-        "102"
+        "25"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a7102] (Culpable homicide by causing death of person other than person whose death was intended) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(1)/2(25)] (Act / Omission). Statutory provision: Statutory provision for BNS Section 2(1)/2(25): Act / Omission. IPC combined both terms; BNS defines them separately Additionally, [BNS \u00a725] (Act not intended and not known to be likely to cause death or grievous hurt done by consent) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -365,17 +365,17 @@
       "ground_truth_sections": "137",
       "ground_truth_answer": "Kidnapping from India and lawful guardianship is under BNS Section 137 (IPC 359/360/361).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7139] (Punishment for kidnapping). Statutory provision: Statutory provision for BNS Section 139: Punishment for kidnapping. Additionally, [BNS \u00a7137] (Kidnapping) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7139] (Punishment for kidnapping) is relevant.",
       "cited_sections": [
-        "139",
-        "137"
+        "137",
+        "139"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7139] (Punishment for kidnapping). Statutory provision: Statutory provision for BNS Section 139: Punishment for kidnapping. Additionally, [BNS \u00a7137] (Kidnapping) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7139] (Punishment for kidnapping) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -385,17 +385,17 @@
       "ground_truth_sections": "138",
       "ground_truth_answer": "Abduction is covered under BNS Section 138 (formerly IPC Section 362).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7138] (Abduction). Statutory provision: Statutory provision for BNS Section 138: Abduction. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7138] (Abduction). Statutory provision: Statutory provision for BNS Section 138: Abduction. Additionally, [BNS \u00a7117] (Voluntarily causing grievous hurt) is relevant.",
       "cited_sections": [
         "138",
-        "2(24)"
+        "117"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7138] (Abduction). Statutory provision: Statutory provision for BNS Section 138: Abduction. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7138] (Abduction). Statutory provision: Statutory provision for BNS Section 138: Abduction. Additionally, [BNS \u00a7117] (Voluntarily causing grievous hurt) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -405,17 +405,17 @@
       "ground_truth_sections": "143",
       "ground_truth_answer": "Trafficking of persons is under Section 143 of BNS 2023 (formerly IPC Section 370).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7143] (Trafficking of person). Statutory provision: Statutory provision for BNS Section 143: Trafficking of person. BNS broadens definition and increases punishment Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7143] (Trafficking of person). Statutory provision: Statutory provision for BNS Section 143: Trafficking of person. BNS broadens definition and increases punishment Additionally, [BNS \u00a7111] (Organised crime) is relevant.",
       "cited_sections": [
         "143",
-        "2(24)"
+        "111"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7143] (Trafficking of person). Statutory provision: Statutory provision for BNS Section 143: Trafficking of person. BNS broadens definition and increases punishment Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7143] (Trafficking of person). Statutory provision: Statutory provision for BNS Section 143: Trafficking of person. BNS broadens definition and increases punishment Additionally, [BNS \u00a7111] (Organised crime) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -485,17 +485,17 @@
       "ground_truth_sections": "308",
       "ground_truth_answer": "Extortion is covered under Section 308 of BNS 2023 (formerly IPC Section 383/384).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7308] (Punishment for extortion). Statutory provision: (1) Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security, commits 'extortion'. (2) Whoever commits extortion shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. Additionally, [BNS \u00a7309] (Punishment for robbery) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7308] (Punishment for extortion). Statutory provision: (1) Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security, commits 'extortion'. (2) Whoever commits extortion shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. Additionally, [BNS \u00a7308(1)] (Punishment for extortion \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "308",
-        "309"
+        "308(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7308] (Punishment for extortion). Statutory provision: (1) Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security, commits 'extortion'. (2) Whoever commits extortion shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. Additionally, [BNS \u00a7309] (Punishment for robbery) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7308] (Punishment for extortion). Statutory provision: (1) Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security, commits 'extortion'. (2) Whoever commits extortion shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. Additionally, [BNS \u00a7308(1)] (Punishment for extortion \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -505,17 +505,17 @@
       "ground_truth_sections": "309",
       "ground_truth_answer": "Robbery is penalized under Section 309 of BNS 2023 (formerly IPC Section 390/392).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7309] (Punishment for robbery). Statutory provision: In all robbery there is either theft or extortion. (4) Whoever commits robbery shall be punished with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine; and, if the robbery be committed on the highway between sunset and sunrise, the imprisonment may be extended to fourteen years. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt). Statutory provision: Statutory provision for BNS Section 311: Robbery or dacoity with attempt to cause death or grievous hurt. Additionally, [BNS \u00a7309] (Punishment for robbery) is relevant.",
       "cited_sections": [
-        "309",
-        "311"
+        "311",
+        "309"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7309] (Punishment for robbery). Statutory provision: In all robbery there is either theft or extortion. (4) Whoever commits robbery shall be punished with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine; and, if the robbery be committed on the highway between sunset and sunrise, the imprisonment may be extended to fourteen years. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt). Statutory provision: Statutory provision for BNS Section 311: Robbery or dacoity with attempt to cause death or grievous hurt. Additionally, [BNS \u00a7309] (Punishment for robbery) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -525,17 +525,17 @@
       "ground_truth_sections": "310",
       "ground_truth_answer": "Dacoity is penalized under Section 310 of BNS 2023 (formerly IPC Section 391/395).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7312] (Making preparation to commit dacoity). Statutory provision: Statutory provision for BNS Section 312: Making preparation to commit dacoity. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7310] (Punishment for dacoity). Statutory provision: (1) When five or more persons conjointly commit or attempt to commit a robbery, every person so committing, attempting or aiding, is said to commit 'dacoity'. (2) Whoever commits dacoity shall be punished with imprisonment for life, or with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. Additionally, [BNS \u00a7310(1)] (Punishment for dacoity \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
-        "312",
-        "311"
+        "310",
+        "310(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7312] (Making preparation to commit dacoity). Statutory provision: Statutory provision for BNS Section 312: Making preparation to commit dacoity. Additionally, [BNS \u00a7311] (Robbery or dacoity with attempt to cause death or grievous hurt) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7310] (Punishment for dacoity). Statutory provision: (1) When five or more persons conjointly commit or attempt to commit a robbery, every person so committing, attempting or aiding, is said to commit 'dacoity'. (2) Whoever commits dacoity shall be punished with imprisonment for life, or with rigorous imprisonment for a term which may extend to ten years, and shall also be liable to fine. Additionally, [BNS \u00a7310(1)] (Punishment for dacoity \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -585,17 +585,17 @@
       "ground_truth_sections": "314",
       "ground_truth_answer": "Dishonest misappropriation of property is under BNS Section 314 (formerly IPC Section 403).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a735] (Right of private defence of body and property) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "318",
-        "35"
+        "318(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a735] (Right of private defence of body and property) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -665,17 +665,17 @@
       "ground_truth_sections": "103(2)",
       "ground_truth_answer": "Mob lynching by 5 or more persons on grounds of race, caste, or sex is penalized under Section 103(2) with death or life imprisonment.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
       "cited_sections": [
         "196",
-        "65"
+        "103"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7196] (Promoting enmity between different groups on grounds of religion race place of birth residence language etc). Statutory provision: Statutory provision for BNS Section 196: Promoting enmity between different groups on grounds of religion race place of birth residence language etc. BNS expands scope and increases penalties Additionally, [BNS \u00a7103] (Punishment for murder) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -705,17 +705,17 @@
       "ground_truth_sections": "112",
       "ground_truth_answer": "Petty organised crime (theft, snatching, ticket touting by gangs) is penalized under Section 112 of BNS 2023.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7112] (Petty organised crime). Statutory provision: (1) Whoever, being a member of a group or gang, commits theft, snatching, cheating, unauthorized selling of tickets, betting or gambling shall be punished with imprisonment for a term which shall not be less than one year but which may extend to seven years, and with fine. Additionally, [BNS \u00a7111] (Organised crime) is relevant.",
       "cited_sections": [
-        "111",
-        "112"
+        "112",
+        "111"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7111] (Organised crime). Statutory provision: (1) Any continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cybercrimes, trafficking of persons or drugs by a group acting individually or jointly as a member of an organised crime syndicate shall constitute organised crime. (2) Whoever commits organised crime resulting in the death of any person shall be punished with death or imprisonment for life, and fine not less than ten lakh rupees. Additionally, [BNS \u00a7112] (Petty organised crime) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7112] (Petty organised crime). Statutory provision: (1) Whoever, being a member of a group or gang, commits theft, snatching, cheating, unauthorized selling of tickets, betting or gambling shall be punished with imprisonment for a term which shall not be less than one year but which may extend to seven years, and with fine. Additionally, [BNS \u00a7111] (Organised crime) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -907,17 +907,17 @@
       "ground_truth_sections": "70(2)",
       "ground_truth_answer": "Gang rape of a woman under eighteen years is penalized under Section 70(2) of BNS 2023 with life imprisonment or death.",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a770] (Gang rape). Statutory provision: Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a770] (Gang rape). Statutory provision: Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions Additionally, [BNS \u00a764] (Punishment for rape) is relevant.",
       "cited_sections": [
         "70",
-        "65"
+        "64"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a770] (Gang rape). Statutory provision: Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions Additionally, [BNS \u00a765] (Punishment for rape on woman under eighteen years of age) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a770] (Gang rape). Statutory provision: Statutory provision for BNS Section 70: Gang rape. Merged into BNS 70 with age-specific provisions Additionally, [BNS \u00a764] (Punishment for rape) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -967,17 +967,17 @@
       "ground_truth_sections": "77",
       "ground_truth_answer": "Voyeurism is penalized under Section 77 of BNS 2023 (formerly IPC Section 354C).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a777] (Voyeurism). Statutory provision: Statutory provision for BNS Section 77: Voyeurism. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a777] (Voyeurism). Statutory provision: Statutory provision for BNS Section 77: Voyeurism. Additionally, [BNS \u00a734] (Things done in private defence) is relevant.",
       "cited_sections": [
         "77",
-        "2(24)"
+        "34"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a777] (Voyeurism). Statutory provision: Statutory provision for BNS Section 77: Voyeurism. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a777] (Voyeurism). Statutory provision: Statutory provision for BNS Section 77: Voyeurism. Additionally, [BNS \u00a734] (Things done in private defence) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -1129,10 +1129,10 @@
       "ground_truth_sections": "249",
       "ground_truth_answer": "Harbouring an offender is governed by Section 249 of BNS 2023 (formerly IPC Section 212).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(16)] (Harbour). Statutory provision: Statutory provision for BNS Section 2(16): Harbour. Additionally, [BNS \u00a72(24)] (Person) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a72(28)] (Public) is relevant.",
       "cited_sections": [
-        "2(16)",
-        "2(24)"
+        "2(24)",
+        "2(28)"
       ],
       "is_verified": false,
       "verdict": "NON_RESPONSIVE_ANSWER",
@@ -1151,17 +1151,17 @@
       "ground_truth_sections": "238",
       "ground_truth_answer": "Causing disappearance of evidence or giving false screening information is under Section 238 (IPC 201).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7139] (Punishment for kidnapping) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7137(1)] (Kidnapping \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
         "137",
-        "139"
+        "137(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7139] (Punishment for kidnapping) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7137] (Kidnapping). Statutory provision: (1) Kidnapping is of two kinds: kidnapping from India, and kidnapping from lawful guardianship. (2) Whoever kidnaps any person from India or from lawful guardianship shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7137(1)] (Kidnapping \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -1171,17 +1171,17 @@
       "ground_truth_sections": "319",
       "ground_truth_answer": "Cheating by personation is covered under Section 319 of BNS 2023 (formerly IPC Section 416/419).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a7338] (Forgery for purpose of cheating) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "cited_sections": [
-        "2(24)",
-        "338"
+        "318",
+        "318(1)"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a72(24)] (Person). Statutory provision: Statutory provision for BNS Section 2(24): Person. Moved to definitions chapter in BNS Additionally, [BNS \u00a7338] (Forgery for purpose of cheating) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property). Statutory provision: (1) Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property, is said to 'cheat'. (4) Whoever cheats and thereby dishonestly induces the person deceived to deliver any property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine. Additionally, [BNS \u00a7318(1)] (Cheating and dishonestly inducing delivery of property \u2014 Subsection (1)) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },
@@ -1191,17 +1191,17 @@
       "ground_truth_sections": "338",
       "ground_truth_answer": "Forgery for purpose of cheating is under Section 338 of BNS 2023 (formerly IPC Section 468).",
       "is_ambiguous": false,
-      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7335] (Forgery) is relevant.",
+      "stage2_raw_generation": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
       "cited_sections": [
         "338",
-        "335"
+        "318"
       ],
       "is_verified": true,
       "verdict": "VERIFIED",
       "confidence_score": 1.0,
       "confidence_grade": "HIGH_CONFIDENCE_VERIFIED",
       "ambiguity_score": 0.0,
-      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7335] (Forgery) is relevant.",
+      "final_verified_output": "Based on authoritative statutory context, this matter is governed by [BNS \u00a7338] (Forgery for purpose of cheating). Statutory provision: Statutory provision for BNS Section 338: Forgery for purpose of cheating. Additionally, [BNS \u00a7318] (Cheating and dishonestly inducing delivery of property) is relevant.",
       "warnings": [],
       "layer2_grounding_score": 1.0
     },

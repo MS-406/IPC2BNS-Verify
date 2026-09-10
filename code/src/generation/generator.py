@@ -62,7 +62,9 @@ class StatuteGenerator:
     def __init__(self, model_name: str = "gemini-2.0-flash", api_key: Optional[str] = None):
         self.model_name = model_name
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        self.openai_key = os.environ.get("OPENAI_API_KEY")
         self.genai_client = None
+        self.openai_client = None
 
         if self.api_key:
             try:
@@ -71,21 +73,39 @@ class StatuteGenerator:
                 self.genai_client = genai
                 log.info(f"Initialized Gemini API generator with model: {self.model_name}")
             except ImportError:
-                log.warning("google-generativeai package not installed; using local statutory simulator.")
+                log.warning("google-generativeai package not installed; checking other providers.")
+        
+        if not self.genai_client and self.openai_key:
+            try:
+                import openai
+                self.openai_client = openai.OpenAI(api_key=self.openai_key)
+                self.model_name = "gpt-4o-mini"
+                log.info(f"Initialized OpenAI API generator with model: {self.model_name}")
+            except ImportError:
+                log.warning("openai package not installed.")
+
+        if not self.genai_client and not self.openai_client:
+            log.info("No Gemini/OpenAI API key detected. Operating in deterministic statutory simulation mode.")
+
+    def _call_llm(self, prompt: str) -> str:
+        """Call live LLM API (Gemini or OpenAI)."""
+        if self.genai_client:
+            model = self.genai_client.GenerativeModel(
+                model_name=self.model_name,
+                generation_config={"temperature": 0.1, "max_output_tokens": 1024}
+            )
+            response = model.generate_content(prompt)
+            return response.text.strip()
+        elif self.openai_client:
+            resp = self.openai_client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.1,
+                max_tokens=1024
+            )
+            return resp.choices[0].message.content.strip()
         else:
-            log.info("No Gemini API key detected. Operating in deterministic statutory simulation mode.")
-
-    def _call_gemini(self, prompt: str) -> str:
-        """Call Gemini API."""
-        if not self.genai_client:
-            raise RuntimeError("Gemini client not initialized (missing API key).")
-
-        model = self.genai_client.GenerativeModel(
-            model_name=self.model_name,
-            generation_config={"temperature": 0.1, "max_output_tokens": 1024}
-        )
-        response = model.generate_content(prompt)
-        return response.text.strip()
+            raise RuntimeError("No live LLM API client initialized.")
 
     def _offline_fallback_stage1(self, query: str) -> str:
         """
@@ -139,11 +159,11 @@ class StatuteGenerator:
         prompt_data = LegalPromptBuilder.build_stage1_prompt(query)
         start_t = time.time()
 
-        if self.genai_client:
+        if self.genai_client or self.openai_client:
             try:
-                gen_text = self._call_gemini(prompt_data["full_prompt"])
+                gen_text = self._call_llm(prompt_data["full_prompt"])
             except Exception as e:
-                log.warning(f"Gemini API call failed, falling back to local model: {e}")
+                log.warning(f"Live LLM API call failed, falling back to local simulator: {e}")
                 gen_text = self._offline_fallback_stage1(query)
         else:
             gen_text = self._offline_fallback_stage1(query)
@@ -158,29 +178,31 @@ class StatuteGenerator:
             generated_text=gen_text,
             citations=citations,
             retrieved_chunks=[],
-            model_name=self.model_name if self.genai_client else f"{self.model_name}-offline-sim",
+            model_name=self.model_name if (self.genai_client or self.openai_client) else f"{self.model_name}-offline-sim",
             latency_ms=latency,
             prompt_used=prompt_data
         )
 
     def generate_stage2(self, query: str, question_id: str = "Q_000", top_k: int = 3,
                         act_filter: Optional[str] = None,
-                        retrieved_chunks: Optional[List[Dict[str, Any]]] = None) -> GenerationResult:
+                        retrieved_chunks: Optional[List[Dict[str, Any]]] = None,
+                        retrieval_mode: str = "bm25") -> GenerationResult:
         """
         Stage 2: RAG-augmented generation (retrieval context provided, no verifier).
+        Supports retrieval_mode: "bm25", "hybrid", "hybrid_expanded", "dense", etc.
         """
         # Step 1: Use passed context chunks or retrieve
-        chunks = retrieved_chunks if retrieved_chunks is not None else retrieve_statutes(query=query, top_k=top_k, act_filter=act_filter)
+        chunks = retrieved_chunks if retrieved_chunks is not None else retrieve_statutes(query=query, top_k=top_k, act_filter=act_filter, mode=retrieval_mode)
 
         # Step 2: Build prompt with context
         prompt_data = LegalPromptBuilder.build_stage2_prompt(query, chunks)
         start_t = time.time()
 
-        if self.genai_client:
+        if self.genai_client or self.openai_client:
             try:
-                gen_text = self._call_gemini(prompt_data["full_prompt"])
+                gen_text = self._call_llm(prompt_data["full_prompt"])
             except Exception as e:
-                log.warning(f"Gemini API call failed, falling back to local model: {e}")
+                log.warning(f"Live LLM API call failed, falling back to local simulator: {e}")
                 gen_text = self._offline_fallback_stage2(query, chunks)
         else:
             gen_text = self._offline_fallback_stage2(query, chunks)

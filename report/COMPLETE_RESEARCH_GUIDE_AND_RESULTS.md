@@ -70,12 +70,12 @@ python code/scripts/generate_all_reports.py
 | Stage | System Configuration | Dev Accuracy ($N=60$) | Dev 95% Wilson CI | Stress Catch Rate ($N=18$) | Control FPR ($N=12$) | Adaptivity Delta ($N=3$) | Procedural Gen ($N=30$) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Stage 1** | Baseline LLM (Closed-Book) | **10.0% (6/60)** | [4.7% – 20.1%] | N/A (No Verifier) | N/A (No Verifier) | N/A | **23.3% (7/30)** [11.8% – 40.9%] |
-| **Stage 2** | +BM25 RAG (Retrieved Context) | **63.3% (38/60)** | [50.7% – 74.4%] | N/A (No Verifier) | N/A (No Verifier) | N/A | **60.0% (18/30)** [42.3% – 75.4%] |
-| **Stage 3** | +Two-Layer Hard Verifier | **63.3% (38/60)** [54/60 passed] | [50.7% – 74.4%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre-Refresh: 33.3% (1/3) | **100.0% (30/30)** [88.6% – 100.0%] |
-| **Stage 4** | +Incremental Refresh (Full System) | **63.3% (38/60)** [54/60 passed] | [50.7% – 74.4%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre: 33.3% (1/3) $\rightarrow$ Post: 100.0% (3/3) [+66.7%] | **100.0% (30/30)** [88.6% – 100.0%] |
+| **Stage 2** | +Hybrid Statutory RAG (Top-5 + Reranker) | **66.7% (40/60)** | [54.1% – 77.3%] | N/A (No Verifier) | N/A (No Verifier) | N/A | **60.0% (18/30)** [42.3% – 75.4%] |
+| **Stage 3** | +Two-Layer Hard Verifier | **66.7% (40/60)** [54/60 passed] | [54.1% – 77.3%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre-Refresh: 33.3% (1/3) | **100.0% (30/30)** [88.6% – 100.0%] |
+| **Stage 4** | +Incremental Refresh (Full System) | **66.7% (40/60)** [54/60 passed] | [54.1% – 77.3%] | **100.0% (18/18)** [82.4% – 100.0%] | **0.0% (0/12)** [0.0% – 24.2%] | Pre: 33.3% (1/3) $\rightarrow$ Post: 100.0% (3/3) [+66.7%] | **100.0% (30/30)** [88.6% – 100.0%] |
 | **Generalization** | CrPC (1973) $\leftrightarrow$ BNSS (2023) | N/A (Procedural Testbed) | N/A | **100.0% (5/5 drift caught)** [56.6% – 100.0%] | **0.0% (0/25 rejected)** [0.0% – 13.3%] | N/A (Static Code Pair) | **100.0% (30/30)** [88.6% – 100.0%] |
 
-* **McNemar’s Paired Test:** $\chi^2 = 28.26, p = 1.05 \times 10^{-7}$ ($p < 10^{-6}$, discordant pairs: $b=33, c=1$).
+* **McNemar’s Paired Test:** $\chi^2 = 30.25, p = 3.80 \times 10^{-8}$ ($p < 10^{-6}$, discordant pairs: $b=35, c=1$).
 * **Double-Blind Calibration:** Cohen’s Kappa $\kappa = 0.87$ across $N=20$ calibrated legal queries (95.0% observed concordance, 19/20 concordant judgments).
 * **Generation Methodology & Large-Scale Evaluation (Phase 7):** Generation operates via a deterministic statutory synthesis baseline and local open-source transformer (`google/flan-t5-base`), ensuring 100% reproducible offline execution. Evaluated on $N=1,140$ source-grounded questions across 10 categories, maintaining a 94.4% adversarial catch rate (overall citation hit rate: 28.9%, Recall@5: 30.4%).
 

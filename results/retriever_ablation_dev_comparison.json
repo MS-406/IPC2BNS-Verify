@@ -1,0 +1,52 @@
+[
+  {
+    "mode": "bm25",
+    "sample_size": 60,
+    "recall_at_1": "28.3% (17/60)",
+    "recall_at_3": "55.0% (33/60)",
+    "recall_at_5": "61.7% (37/60)",
+    "mrr": 0.422,
+    "citation_hit_rate": "45.0% (27/60)",
+    "display_name": "BM25 (Sparse Baseline)"
+  },
+  {
+    "mode": "bm25_expanded",
+    "sample_size": 60,
+    "recall_at_1": "40.0% (24/60)",
+    "recall_at_3": "63.3% (38/60)",
+    "recall_at_5": "63.3% (38/60)",
+    "mrr": 0.508,
+    "citation_hit_rate": "53.3% (32/60)",
+    "display_name": "BM25 + Concordance Query Expansion"
+  },
+  {
+    "mode": "dense",
+    "sample_size": 60,
+    "recall_at_1": "33.3% (20/60)",
+    "recall_at_3": "56.7% (34/60)",
+    "recall_at_5": "63.3% (38/60)",
+    "mrr": 0.458,
+    "citation_hit_rate": "53.3% (32/60)",
+    "display_name": "Dense Semantic (Cosine Similarity)"
+  },
+  {
+    "mode": "hybrid_rrf",
+    "sample_size": 60,
+    "recall_at_1": "30.0% (18/60)",
+    "recall_at_3": "56.7% (34/60)",
+    "recall_at_5": "66.7% (40/60)",
+    "mrr": 0.446,
+    "citation_hit_rate": "53.3% (32/60)",
+    "display_name": "Hybrid RRF (BM25 + Dense)"
+  },
+  {
+    "mode": "hybrid_expanded",
+    "sample_size": 60,
+    "recall_at_1": "40.0% (24/60)",
+    "recall_at_3": "65.0% (39/60)",
+    "recall_at_5": "68.3% (41/60)",
+    "mrr": 0.523,
+    "citation_hit_rate": "53.3% (32/60)",
+    "display_name": "Hybrid RRF + Concordance Expansion (Proposed)"
+  }
+]

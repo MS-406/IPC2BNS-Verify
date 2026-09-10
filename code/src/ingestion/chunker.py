@@ -102,6 +102,7 @@ class StatutoryChunker:
     def chunk_jsonl_corpus(cls, jsonl_path: str, act: str) -> List[StatutoryChunk]:
         """
         Loads cleaned section JSONL and turns each entry into a StatutoryChunk.
+        Also produces hierarchical sub-clause chunks for composite provisions (e.g. §103(1)/(2), §106(1)/(2)).
         """
         chunks = []
         if not os.path.exists(jsonl_path):
@@ -118,15 +119,49 @@ class StatutoryChunker:
                     if not sec_num or sec_num in ("PLACEHOLDER", "-", ""):
                         continue
 
-                    chunk = cls.create_chunk(
+                    title = data.get("section_title", "")
+                    body = data.get("section_text", "")
+                    chap = data.get("chapter", "")
+                    meta = data.get("metadata", {})
+
+                    # 1. Primary Section-Level Chunk
+                    primary_chunk = cls.create_chunk(
                         act=act,
                         section_number=sec_num,
-                        section_title=data.get("section_title", ""),
-                        section_text=data.get("section_text", ""),
-                        chapter=data.get("chapter", ""),
-                        metadata=data.get("metadata", {})
+                        section_title=title,
+                        section_text=body,
+                        chapter=chap,
+                        metadata=meta
                     )
-                    chunks.append(chunk)
+                    chunks.append(primary_chunk)
+
+                    # 2. Sub-clause Chunking for granular legal disambiguation
+                    if "(" in body and ")" in body:
+                        # Extract subsections like (1), (2), (3)
+                        sub_pattern = re.compile(r'(?:\n|^)\s*\(([0-9]+|[a-z])\)\s+(.*?)(?=(?:\n\s*\([0-9a-z]+\)\s+)|\Z)', re.DOTALL)
+                        matches = sub_pattern.findall(body)
+                        for sub_id, sub_body in matches:
+                            sub_sec_num = f"{sec_num}({sub_id})"
+                            sub_title = f"{title} — Subsection ({sub_id})"
+                            
+                            # Add specific semantic labels for well-known critical subsections
+                            if act.upper() == "BNS" and sec_num == "103" and sub_id == "2":
+                                sub_title = "Murder by Mob / Hate Crime / 5+ persons (Mob Lynching)"
+                            elif act.upper() == "BNS" and sec_num == "106" and sub_id == "2":
+                                sub_title = "Rash and Negligent Driving without Reporting (Hit and Run)"
+                            elif act.upper() == "BNS" and sec_num == "304" and sub_id == "2":
+                                sub_title = "Punishment for Snatching"
+
+                            sub_chunk = cls.create_chunk(
+                                act=act,
+                                section_number=sub_sec_num,
+                                section_title=sub_title,
+                                section_text=sub_body.strip(),
+                                chapter=chap,
+                                metadata={**meta, "is_subclause": True, "parent_section": sec_num}
+                            )
+                            chunks.append(sub_chunk)
+
                 except json.JSONDecodeError:
                     continue
         return chunks
