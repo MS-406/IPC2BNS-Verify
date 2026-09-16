@@ -1,0 +1,26 @@
+id,query,expected_tier,actual_tier,tier_match,complexity_score,consensus_reached,consensus_confidence,single_latency_ms,council_latency_ms
+C01,What is IPC Section 302 in BNS?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.1,6.5
+C02,What is the new section for theft under BNS Section 303?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.1,6.8
+C03,What is the punishment for cheating in Section 420 IPC?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.0,6.3
+C04,What is the section for hurt under Section 319 IPC?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.0,6.2
+C05,Offence of extortion committed on 15 August 2024 under BNS.,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.1,6.3
+C06,What is Section 304A IPC for death by negligence in BNS?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.0,6.1
+C07,What is the section for criminal breach of trust under IPC 405?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.1,7.0
+C08,What is the punishment for forgery under Section 463 IPC?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.1,6.4
+C09,What is Section 354 IPC in Bharatiya Nyaya Sanhita?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.1,6.3
+C10,What is Section 378 IPC under BNS?,TIER_1_DIRECT,TIER_1_DIRECT,True,0.15,True,1.0,120.0,6.2
+C11,What happened to sedition under Section 124A IPC in the new code?,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,46.6
+C12,Is adultery under Section 497 IPC retained or omitted in BNS?,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,46.7
+C13,How is unnatural offences under Section 377 IPC addressed in BNS?,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,46.6
+C14,What are the split branches for IPC Section 304B into BNS?,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,46.7
+C15,Difference between Section 304 IPC culpable homicide and BNS provisions.,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,46.7
+C16,Explain the merged offences of cheating under Section 415 and 420 IPC in BNS 318.,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,47.7
+C17,Which sections replaced the repealed attempted suicide provision?,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,47.2
+C18,Organized crime provisions introduced in BNS without IPC direct counterpart.,TIER_2_SPLIT_MERGE,TIER_2_SPLIT_MERGE,True,0.6,True,0.9775,120.1,46.5
+C19,"The assault happened on 10 June 2024, but FIR was lodged on 15 July 2024. Which criminal codes govern?",TIER_3_CONTESTED_COUNCIL,TIER_3_CONTESTED_COUNCIL,True,0.85,True,1.0,120.2,184.4
+C20,We want to file an appeal in August 2024 against a conviction handed down in April 2024.,TIER_3_CONTESTED_COUNCIL,TIER_3_CONTESTED_COUNCIL,True,0.95,True,1.0,120.2,153.4
+C21,"In Kerala High Court, filing an appeal in September 2024 against a conviction handed down in April 2024.",TIER_3_CONTESTED_COUNCIL,TIER_3_CONTESTED_COUNCIL,True,0.95,True,1.0,120.3,153.4
+C22,Offence committed on 20 May 2024. Anticipatory bail application filed on 10 July 2024.,TIER_3_CONTESTED_COUNCIL,TIER_3_CONTESTED_COUNCIL,True,0.95,True,1.0,120.2,154.6
+C23,"In Bombay High Court, bail filed in August 2024 for an investigation started in March 2024.",TIER_3_CONTESTED_COUNCIL,TIER_3_CONTESTED_COUNCIL,True,0.95,True,1.0,120.2,153.6
+C24,"Cheating committed in February 2024, private complaint filed in October 2024.",TIER_3_CONTESTED_COUNCIL,TIER_3_CONTESTED_COUNCIL,True,0.85,True,1.0,120.2,153.1
+C25,"In Punjab and Haryana High Court, appeal filed in November 2024 against a judgment from May 2024.",TIER_3_CONTESTED_COUNCIL,TIER_3_CONTESTED_COUNCIL,True,0.95,True,1.0,120.2,152.7

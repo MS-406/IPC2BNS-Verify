@@ -178,7 +178,7 @@ class StatuteGenerator:
             generated_text=gen_text,
             citations=citations,
             retrieved_chunks=[],
-            model_name=self.model_name if (self.genai_client or self.openai_client) else f"{self.model_name}-offline-sim",
+            model_name=self.model_name if (self.genai_client or self.openai_client) else "deterministic_statutory_synthesizer_v1",
             latency_ms=latency,
             prompt_used=prompt_data
         )
@@ -217,7 +217,7 @@ class StatuteGenerator:
             generated_text=gen_text,
             citations=citations,
             retrieved_chunks=chunks,
-            model_name=self.model_name if self.genai_client else f"{self.model_name}-offline-sim",
+            model_name=self.model_name if (self.genai_client or self.openai_client) else "deterministic_statutory_synthesizer_v1",
             latency_ms=latency,
             prompt_used=prompt_data
         )

@@ -129,11 +129,16 @@ class EntityGroundingVerifier:
             )
 
         # Aggregate context text
-        raw_context = " ".join([
-            f"{c.get('section_title', '')} {c.get('section_text', '')}"
-            for c in retrieved_chunks
-        ])
+        context_parts = []
+        for c in retrieved_chunks:
+            if isinstance(c, dict):
+                part = f"{c.get('section_title', '')} {c.get('section_text', '')} {c.get('text', '')}"
+                context_parts.append(part)
+            else:
+                context_parts.append(str(c))
+        raw_context = " ".join(context_parts)
         context_text = self.normalize_penal_text(raw_context)
+
 
         gen_entities = self.extract_legal_entities(generated_text)
         grounded = [e for e in gen_entities if e in context_text]

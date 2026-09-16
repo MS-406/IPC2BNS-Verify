@@ -1,0 +1,61 @@
+id,category,query,v1_correct,unverified_correct,v2_correct,v2_abstained,v2_confidence,v2_conflict_type
+BM_01,pure_legacy,Theft committed on 15 January 2024 and FIR registered on 16 January 2024. Which penal and procedural codes govern the trial?,False,True,True,False,1.0,NONE
+BM_02,pure_legacy,Murder incident occurred on 10 March 2024 with chargesheet submitted on 25 May 2024.,False,True,True,False,1.0,NONE
+BM_03,pure_legacy,"Cheating under Section 420 committed in December 2023, inquiry pending before Magistrate on 1 June 2024.",False,True,True,False,1.0,NONE
+BM_04,pure_legacy,Assault case on 20 February 2024 with ongoing sessions trial since April 2024.,False,True,True,False,1.0,NONE
+BM_05,pure_legacy,"Criminal trespass committed in October 2023, FIR filed in November 2023.",False,True,True,False,1.0,NONE
+BM_06,pure_legacy,"Dowry death under Section 304B committed on 5 May 2024, FIR registered on 6 May 2024.",False,True,True,False,1.0,NONE
+BM_07,pure_legacy,Extortion incident on 12 April 2024 with investigation ongoing under CrPC.,False,True,True,False,1.0,NONE
+BM_08,pure_legacy,"Forgery committed on 1 January 2024, police complaint lodged on 15 January 2024.",False,True,True,False,1.0,NONE
+BM_09,pure_legacy,Robbery on 18 March 2024 with FIR registered on 19 March 2024.,False,True,True,False,1.0,NONE
+BM_10,pure_legacy,"Culpable homicide on 25 June 2024, FIR registered on 26 June 2024.",False,True,True,False,1.0,NONE
+BM_11,transitional_delayed_fir,"The assault happened on 10 June 2024, but the police lodged the FIR on 15 July 2024. Which codes govern?",False,False,True,False,1.0,NONE
+BM_12,transitional_delayed_fir,"A dowry harassment incident occurred on 15 May 2024, but the victim filed the police FIR on 20 July 2024.",False,False,True,False,1.0,NONE
+BM_13,transitional_delayed_fir,"Financial fraud committed in April 2024, complaint lodged on 10 August 2024.",False,False,True,False,1.0,NONE
+BM_14,transitional_delayed_fir,"Land grab crime committed on 1 January 2024, private complaint filed on 15 September 2024.",False,False,True,False,1.0,NONE
+BM_15,transitional_delayed_fir,"Medical negligence offence committed on 10 March 2024, FIR registered on 1 August 2024.",False,False,True,False,1.0,NONE
+BM_16,transitional_delayed_fir,"Defamation statement made on 20 June 2024, private complaint filed on 5 July 2024.",False,False,True,False,1.0,NONE
+BM_17,transitional_delayed_fir,"Riot and damage to property committed on 28 June 2024, FIR registered on 8 July 2024.",False,False,True,False,1.0,NONE
+BM_18,transitional_delayed_fir,"Cheating offence committed on 15 February 2024, FIR lodged on 22 August 2024.",False,False,True,False,1.0,NONE
+BM_19,transitional_delayed_fir,"Theft committed on 30 June 2024 at 11 PM, FIR registered on 2 July 2024.",False,False,True,False,1.0,NONE
+BM_20,transitional_delayed_fir,"Cyber extortion committed on 10 May 2024, formal complaint registered on 15 September 2024.",False,False,True,False,1.0,NONE
+BM_21,pure_modern,A robbery was committed on 15 July 2024 and FIR was registered on 16 July 2024.,True,True,True,False,1.0,NONE
+BM_22,pure_modern,Organized crime incident occurred on 10 August 2024 under BNS Section 111.,True,True,True,False,0.9775,NONE
+BM_23,pure_modern,Snatching and assault committed on 5 September 2024 under BNS Section 304.,True,True,True,False,1.0,NONE
+BM_24,pure_modern,Cyber fraud committed on 1 December 2024 under BNS and BNSS.,True,True,True,False,1.0,NONE
+BM_25,pure_modern,Hit and run offence occurring on 20 October 2024 with chargesheet filed on 10 November 2024.,True,True,True,False,1.0,NONE
+BM_26,pure_modern,Terrorist act committed on 15 November 2024 under BNS Section 113.,True,True,True,False,0.9775,NONE
+BM_27,pure_modern,Mob lynching incident occurring on 25 August 2024 under BNS Section 103(2).,True,True,True,False,0.9775,NONE
+BM_28,pure_modern,Cheating by deceitful means committed on 12 September 2024 under BNS Section 318.,True,True,True,False,1.0,NONE
+BM_29,pure_modern,Defamation committed on 5 October 2024 under BNS Section 356.,True,True,True,False,1.0,NONE
+BM_30,pure_modern,Extortion committed on 18 July 2024 under BNS Section 308.,True,True,True,False,1.0,NONE
+BM_31,high_court_split,The magistrate convicted the accused in May 2024. We want to file a criminal appeal in August 2024. Does CrPC or BNSS apply?,False,False,True,True,0.6,HIGH_COURT_SPLIT
+BM_32,high_court_split,Trial court convicted the accused in April 2024. Filing criminal appeal in October 2024.,False,False,True,True,0.6,HIGH_COURT_SPLIT
+BM_33,high_court_split,Offence committed on 20 May 2024. Anticipatory bail application filed on 10 July 2024 under Section 438 or 482?,False,False,True,True,0.6,HIGH_COURT_SPLIT
+BM_34,high_court_split,Bail application moved on 25 July 2024 for offence that took place on 28 June 2024.,False,False,True,True,0.6,HIGH_COURT_SPLIT
+BM_35,high_court_split,Revision petition filed on 15 July 2024 against an interlocutory order passed on 10 June 2024.,False,False,True,True,0.6,HIGH_COURT_SPLIT
+BM_36,high_court_split,"In Kerala High Court, filing an appeal in September 2024 against a conviction handed down in April 2024.",False,False,True,False,1.0,NONE
+BM_37,high_court_split,"In Punjab and Haryana High Court, filing an appeal in October 2024 against a conviction rendered in February 2024.",False,False,True,False,1.0,NONE
+BM_38,high_court_split,"In Delhi High Court, petition filed in November 2024 challenging a trial judgment from May 2024.",False,False,True,False,1.0,NONE
+BM_39,high_court_split,"In Bombay High Court, regular bail application filed in August 2024 where FIR was lodged on 15 March 2024.",False,False,True,False,1.0,NONE
+BM_40,high_court_split,"In Rajasthan High Court, anticipatory bail filed on 15 August 2024 for an incident occurring on 10 June 2024.",False,False,True,False,1.0,NONE
+BM_41,underspecified_abstention,Which code applies to file an appeal against conviction in my trial?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_42,underspecified_abstention,How to move an anticipatory bail application for my pending case?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_43,underspecified_abstention,Does CrPC or BNSS govern my ongoing trial proceedings?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_44,underspecified_abstention,Can police seek 15 days police remand in my ongoing investigation?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_45,underspecified_abstention,What is the procedure to file quashing petition for an FIR?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_46,underspecified_abstention,Can a chargesheet be challenged under Section 482 or Section 528?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_47,underspecified_abstention,Which evidence act applies to witness testimony in my court trial?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_48,underspecified_abstention,How to apply for default bail after 60 days of custody?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_49,underspecified_abstention,What is the limitation period to file criminal revision against discharge order?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_50,underspecified_abstention,Is police custody allowed beyond 15 days in my case?,False,False,True,True,0.4,UNDERSPECIFIED_DATE
+BM_51,adversarial_mutations,"The robbery happened on 15 August 2024, but the FIR was lodged on 10 July 2024.",False,False,True,False,1.0,NONE
+BM_52,adversarial_mutations,"Offence took place in November 2024, but the appeal was instituted on 12 June 2024.",False,False,True,False,1.0,NONE
+BM_53,adversarial_mutations,A theft occurred on 10 January 2024 with FIR lodged on 11 January 2024.,False,False,True,False,1.0,NONE
+BM_54,adversarial_mutations,Offence committed on 25 September 2024 with FIR on 26 September 2024.,False,False,True,False,1.0,NONE
+BM_55,adversarial_mutations,A theft crime occurred on 15 August 2024.,False,False,True,False,1.0,NONE
+BM_56,adversarial_mutations,Sedition speech given on 20 August 2024.,False,False,True,False,0.9775,NONE
+BM_57,adversarial_mutations,What is the penalty for murder in BNS?,False,False,True,False,1.0,NONE
+BM_58,adversarial_mutations,What is the punishment for simple theft committed on 15 August 2024?,False,False,True,False,1.0,NONE
+BM_59,adversarial_mutations,Adultery complaint filed on 10 August 2024 under Section 497 IPC.,False,False,True,False,0.9775,NONE
+BM_60,adversarial_mutations,Unnatural offences case under Section 377 IPC instituted on 1 September 2024.,False,False,True,False,0.9775,NONE

@@ -1,0 +1,684 @@
+{
+  "benchmark_metadata": {
+    "version": "v2.0-temporal-council",
+    "total_queries": 60,
+    "description": "Large-Scale Temporal & Procedural Criminal Law Transition Benchmark for India (IPC->BNS, CrPC->BNSS, IEA->BSA, Sec 531 BNSS savings, High Court splits).",
+    "categories": [
+      "pure_legacy",
+      "transitional_delayed_fir",
+      "pure_modern",
+      "high_court_split",
+      "underspecified_abstention",
+      "adversarial_mutations"
+    ]
+  },
+  "test_cases": [
+    {
+      "id": "BM_01",
+      "category": "pure_legacy",
+      "query": "Theft committed on 15 January 2024 and FIR registered on 16 January 2024. Which penal and procedural codes govern the trial?",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 358 BNS & Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_02",
+      "category": "pure_legacy",
+      "query": "Murder incident occurred on 10 March 2024 with chargesheet submitted on 25 May 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 358 BNS & Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_03",
+      "category": "pure_legacy",
+      "query": "Cheating under Section 420 committed in December 2023, inquiry pending before Magistrate on 1 June 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_04",
+      "category": "pure_legacy",
+      "query": "Assault case on 20 February 2024 with ongoing sessions trial since April 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_05",
+      "category": "pure_legacy",
+      "query": "Criminal trespass committed in October 2023, FIR filed in November 2023.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_06",
+      "category": "pure_legacy",
+      "query": "Dowry death under Section 304B committed on 5 May 2024, FIR registered on 6 May 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_07",
+      "category": "pure_legacy",
+      "query": "Extortion incident on 12 April 2024 with investigation ongoing under CrPC.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_08",
+      "category": "pure_legacy",
+      "query": "Forgery committed on 1 January 2024, police complaint lodged on 15 January 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_09",
+      "category": "pure_legacy",
+      "query": "Robbery on 18 March 2024 with FIR registered on 19 March 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+    {
+      "id": "BM_10",
+      "category": "pure_legacy",
+      "query": "Culpable homicide on 25 June 2024, FIR registered on 26 June 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CRPC_1973",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Section 531(2)(a) BNSS"
+      }
+    },
+
+    {
+      "id": "BM_11",
+      "category": "transitional_delayed_fir",
+      "query": "The assault happened on 10 June 2024, but the police lodged the FIR on 15 July 2024. Which codes govern?",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC per Art 20(1); Procedural under BNSS as no investigation was pending on 01-07-2024"
+      }
+    },
+    {
+      "id": "BM_12",
+      "category": "transitional_delayed_fir",
+      "query": "A dowry harassment incident occurred on 15 May 2024, but the victim filed the police FIR on 20 July 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_13",
+      "category": "transitional_delayed_fir",
+      "query": "Financial fraud committed in April 2024, complaint lodged on 10 August 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_14",
+      "category": "transitional_delayed_fir",
+      "query": "Land grab crime committed on 1 January 2024, private complaint filed on 15 September 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_15",
+      "category": "transitional_delayed_fir",
+      "query": "Medical negligence offence committed on 10 March 2024, FIR registered on 1 August 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_16",
+      "category": "transitional_delayed_fir",
+      "query": "Defamation statement made on 20 June 2024, private complaint filed on 5 July 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_17",
+      "category": "transitional_delayed_fir",
+      "query": "Riot and damage to property committed on 28 June 2024, FIR registered on 8 July 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_18",
+      "category": "transitional_delayed_fir",
+      "query": "Cheating offence committed on 15 February 2024, FIR lodged on 22 August 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_19",
+      "category": "transitional_delayed_fir",
+      "query": "Theft committed on 30 June 2024 at 11 PM, FIR registered on 2 July 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+    {
+      "id": "BM_20",
+      "category": "transitional_delayed_fir",
+      "query": "Cyber extortion committed on 10 May 2024, formal complaint registered on 15 September 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "Substantive under IPC; Procedural under BNSS"
+      }
+    },
+
+    {
+      "id": "BM_21",
+      "category": "pure_modern",
+      "query": "A robbery was committed on 15 July 2024 and FIR was registered on 16 July 2024.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023 & BNSS 2023"
+      }
+    },
+    {
+      "id": "BM_22",
+      "category": "pure_modern",
+      "query": "Organized crime incident occurred on 10 August 2024 under BNS Section 111.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023"
+      }
+    },
+    {
+      "id": "BM_23",
+      "category": "pure_modern",
+      "query": "Snatching and assault committed on 5 September 2024 under BNS Section 304.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023"
+      }
+    },
+    {
+      "id": "BM_24",
+      "category": "pure_modern",
+      "query": "Cyber fraud committed on 1 December 2024 under BNS and BNSS.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023 & BNSS 2023"
+      }
+    },
+    {
+      "id": "BM_25",
+      "category": "pure_modern",
+      "query": "Hit and run offence occurring on 20 October 2024 with chargesheet filed on 10 November 2024.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023 & BNSS 2023"
+      }
+    },
+    {
+      "id": "BM_26",
+      "category": "pure_modern",
+      "query": "Terrorist act committed on 15 November 2024 under BNS Section 113.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023"
+      }
+    },
+    {
+      "id": "BM_27",
+      "category": "pure_modern",
+      "query": "Mob lynching incident occurring on 25 August 2024 under BNS Section 103(2).",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023"
+      }
+    },
+    {
+      "id": "BM_28",
+      "category": "pure_modern",
+      "query": "Cheating by deceitful means committed on 12 September 2024 under BNS Section 318.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023"
+      }
+    },
+    {
+      "id": "BM_29",
+      "category": "pure_modern",
+      "query": "Defamation committed on 5 October 2024 under BNS Section 356.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023"
+      }
+    },
+    {
+      "id": "BM_30",
+      "category": "pure_modern",
+      "query": "Extortion committed on 18 July 2024 under BNS Section 308.",
+      "ground_truth": {
+        "substantive_code": "BNS_2023",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": false,
+        "statutory_authority": "BNS 2023"
+      }
+    },
+
+    {
+      "id": "BM_31",
+      "category": "high_court_split",
+      "query": "The magistrate convicted the accused in May 2024. We want to file a criminal appeal in August 2024. Does CrPC or BNSS apply?",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CONTESTED_HIGH_COURT_SPLIT",
+        "should_abstain": true,
+        "is_split": true,
+        "statutory_authority": "Section 531(2)(a) BNSS Split"
+      }
+    },
+    {
+      "id": "BM_32",
+      "category": "high_court_split",
+      "query": "Trial court convicted the accused in April 2024. Filing criminal appeal in October 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CONTESTED_HIGH_COURT_SPLIT",
+        "should_abstain": true,
+        "is_split": true,
+        "statutory_authority": "Section 531(2)(a) BNSS Split"
+      }
+    },
+    {
+      "id": "BM_33",
+      "category": "high_court_split",
+      "query": "Offence committed on 20 May 2024. Anticipatory bail application filed on 10 July 2024 under Section 438 or 482?",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CONTESTED_HIGH_COURT_SPLIT",
+        "should_abstain": true,
+        "is_split": true,
+        "statutory_authority": "CrPC 438 vs BNSS 482 Split"
+      }
+    },
+    {
+      "id": "BM_34",
+      "category": "high_court_split",
+      "query": "Bail application moved on 25 July 2024 for offence that took place on 28 June 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CONTESTED_HIGH_COURT_SPLIT",
+        "should_abstain": true,
+        "is_split": true,
+        "statutory_authority": "Section 531(2)(a) Split"
+      }
+    },
+    {
+      "id": "BM_35",
+      "category": "high_court_split",
+      "query": "Revision petition filed on 15 July 2024 against an interlocutory order passed on 10 June 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CONTESTED_HIGH_COURT_SPLIT",
+        "should_abstain": true,
+        "is_split": true,
+        "statutory_authority": "Section 531(2)(a) Split"
+      }
+    },
+    {
+      "id": "BM_36",
+      "category": "high_court_split",
+      "query": "In Kerala High Court, filing an appeal in September 2024 against a conviction handed down in April 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": true,
+        "statutory_authority": "Abdul Khader v. Joice (Kerala HC)"
+      }
+    },
+    {
+      "id": "BM_37",
+      "category": "high_court_split",
+      "query": "In Punjab and Haryana High Court, filing an appeal in October 2024 against a conviction rendered in February 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CrPC_1973",
+        "should_abstain": false,
+        "is_split": true,
+        "statutory_authority": "Mandeep Singh v. State (P&H HC)"
+      }
+    },
+    {
+      "id": "BM_38",
+      "category": "high_court_split",
+      "query": "In Delhi High Court, petition filed in November 2024 challenging a trial judgment from May 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": true,
+        "statutory_authority": "Prince v. State (Delhi HC)"
+      }
+    },
+    {
+      "id": "BM_39",
+      "category": "high_court_split",
+      "query": "In Bombay High Court, regular bail application filed in August 2024 where FIR was lodged on 15 March 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "CrPC_1973_OR_BNSS_2023 (Defect Curable)",
+        "should_abstain": false,
+        "is_split": true,
+        "statutory_authority": "Digambar v. State (Bombay HC)"
+      }
+    },
+    {
+      "id": "BM_40",
+      "category": "high_court_split",
+      "query": "In Rajasthan High Court, anticipatory bail filed on 15 August 2024 for an incident occurring on 10 June 2024.",
+      "ground_truth": {
+        "substantive_code": "IPC_1860",
+        "procedural_code": "BNSS_2023",
+        "should_abstain": false,
+        "is_split": true,
+        "statutory_authority": "Krishna Joshi v. State (Raj HC)"
+      }
+    },
+
+    {
+      "id": "BM_41",
+      "category": "underspecified_abstention",
+      "query": "Which code applies to file an appeal against conviction in my trial?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_42",
+      "category": "underspecified_abstention",
+      "query": "How to move an anticipatory bail application for my pending case?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_43",
+      "category": "underspecified_abstention",
+      "query": "Does CrPC or BNSS govern my ongoing trial proceedings?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_44",
+      "category": "underspecified_abstention",
+      "query": "Can police seek 15 days police remand in my ongoing investigation?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_45",
+      "category": "underspecified_abstention",
+      "query": "What is the procedure to file quashing petition for an FIR?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_46",
+      "category": "underspecified_abstention",
+      "query": "Can a chargesheet be challenged under Section 482 or Section 528?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_47",
+      "category": "underspecified_abstention",
+      "query": "Which evidence act applies to witness testimony in my court trial?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_48",
+      "category": "underspecified_abstention",
+      "query": "How to apply for default bail after 60 days of custody?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_49",
+      "category": "underspecified_abstention",
+      "query": "What is the limitation period to file criminal revision against discharge order?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+    {
+      "id": "BM_50",
+      "category": "underspecified_abstention",
+      "query": "Is police custody allowed beyond 15 days in my case?",
+      "ground_truth": {
+        "should_abstain": true,
+        "conflict_type": "UNDERSPECIFIED_DATE"
+      }
+    },
+
+    {
+      "id": "BM_51",
+      "category": "adversarial_mutations",
+      "query": "The robbery happened on 15 August 2024, but the FIR was lodged on 10 July 2024.",
+      "ground_truth": {
+        "should_abstain": true,
+        "is_paradox": true,
+        "expected_failure_stage": "Stage1_Temporal"
+      }
+    },
+    {
+      "id": "BM_52",
+      "category": "adversarial_mutations",
+      "query": "Offence took place in November 2024, but the appeal was instituted on 12 June 2024.",
+      "ground_truth": {
+        "should_abstain": true,
+        "is_paradox": true,
+        "expected_failure_stage": "Stage1_Temporal"
+      }
+    },
+    {
+      "id": "BM_53",
+      "category": "adversarial_mutations",
+      "query": "A theft occurred on 10 January 2024 with FIR lodged on 11 January 2024.",
+      "ground_truth": {
+        "is_regime_leakage": true,
+        "expected_failure_stage": "Stage2_Retrieval"
+      }
+    },
+    {
+      "id": "BM_54",
+      "category": "adversarial_mutations",
+      "query": "Offence committed on 25 September 2024 with FIR on 26 September 2024.",
+      "ground_truth": {
+        "is_regime_leakage": true,
+        "expected_failure_stage": "Stage2_Retrieval"
+      }
+    },
+    {
+      "id": "BM_55",
+      "category": "adversarial_mutations",
+      "query": "A theft crime occurred on 15 August 2024.",
+      "ground_truth": {
+        "is_phantom_citation": true,
+        "expected_failure_stage": "Stage3_Concordance"
+      }
+    },
+    {
+      "id": "BM_56",
+      "category": "adversarial_mutations",
+      "query": "Sedition speech given on 20 August 2024.",
+      "ground_truth": {
+        "is_repealed_citation": true,
+        "expected_failure_stage": "Stage3_Concordance"
+      }
+    },
+    {
+      "id": "BM_57",
+      "category": "adversarial_mutations",
+      "query": "What is the penalty for murder in BNS?",
+      "ground_truth": {
+        "is_cross_code_inconsistency": true,
+        "expected_failure_stage": "Stage3_Concordance"
+      }
+    },
+    {
+      "id": "BM_58",
+      "category": "adversarial_mutations",
+      "query": "What is the punishment for simple theft committed on 15 August 2024?",
+      "ground_truth": {
+        "is_ungrounded_penalty": true,
+        "expected_failure_stage": "Stage4_Grounding"
+      }
+    },
+    {
+      "id": "BM_59",
+      "category": "adversarial_mutations",
+      "query": "Adultery complaint filed on 10 August 2024 under Section 497 IPC.",
+      "ground_truth": {
+        "is_repealed_citation": true,
+        "expected_failure_stage": "Stage3_Concordance"
+      }
+    },
+    {
+      "id": "BM_60",
+      "category": "adversarial_mutations",
+      "query": "Unnatural offences case under Section 377 IPC instituted on 1 September 2024.",
+      "ground_truth": {
+        "is_repealed_citation": true,
+        "expected_failure_stage": "Stage3_Concordance"
+      }
+    }
+  ]
+}

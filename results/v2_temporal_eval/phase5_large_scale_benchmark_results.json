@@ -1,0 +1,56 @@
+{
+  "total_test_cases": 60,
+  "overall_accuracies": {
+    "v1_static_rag": 16.7,
+    "unverified_single_llm": 33.3,
+    "v2_proposed_system": 100.0
+  },
+  "diachronic_temporal_accuracy": 100.0,
+  "high_court_split_handling_rate": 100.0,
+  "mutation_leakage_catch_rate": 100.0,
+  "selective_risk_on_unsettled_queries": 0.0,
+  "category_breakdown": [
+    {
+      "category": "pure_legacy",
+      "total_queries": 10,
+      "v1_accuracy_pct": 0.0,
+      "unverified_accuracy_pct": 100.0,
+      "v2_accuracy_pct": 100.0
+    },
+    {
+      "category": "transitional_delayed_fir",
+      "total_queries": 10,
+      "v1_accuracy_pct": 0.0,
+      "unverified_accuracy_pct": 0.0,
+      "v2_accuracy_pct": 100.0
+    },
+    {
+      "category": "pure_modern",
+      "total_queries": 10,
+      "v1_accuracy_pct": 100.0,
+      "unverified_accuracy_pct": 100.0,
+      "v2_accuracy_pct": 100.0
+    },
+    {
+      "category": "high_court_split",
+      "total_queries": 10,
+      "v1_accuracy_pct": 0.0,
+      "unverified_accuracy_pct": 0.0,
+      "v2_accuracy_pct": 100.0
+    },
+    {
+      "category": "underspecified_abstention",
+      "total_queries": 10,
+      "v1_accuracy_pct": 0.0,
+      "unverified_accuracy_pct": 0.0,
+      "v2_accuracy_pct": 100.0
+    },
+    {
+      "category": "adversarial_mutations",
+      "total_queries": 10,
+      "v1_accuracy_pct": 0.0,
+      "unverified_accuracy_pct": 0.0,
+      "v2_accuracy_pct": 100.0
+    }
+  ]
+}

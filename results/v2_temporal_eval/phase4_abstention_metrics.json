@@ -1,0 +1,254 @@
+{
+  "total_queries": 20,
+  "abstention_decision_accuracy": 1.0,
+  "selective_risk_at_tau_0_80": 0.0,
+  "coverage_at_tau_0_80": 50.0,
+  "high_court_split_catch_rate": 1.0,
+  "underspecified_date_catch_rate": 1.0,
+  "risk_coverage_curve": [
+    {
+      "tau_threshold": 0.5,
+      "coverage_pct": 50.0,
+      "selective_risk_pct": 0.0,
+      "covered_count": 10,
+      "error_count": 0
+    },
+    {
+      "tau_threshold": 0.6,
+      "coverage_pct": 50.0,
+      "selective_risk_pct": 0.0,
+      "covered_count": 10,
+      "error_count": 0
+    },
+    {
+      "tau_threshold": 0.7,
+      "coverage_pct": 50.0,
+      "selective_risk_pct": 0.0,
+      "covered_count": 10,
+      "error_count": 0
+    },
+    {
+      "tau_threshold": 0.8,
+      "coverage_pct": 50.0,
+      "selective_risk_pct": 0.0,
+      "covered_count": 10,
+      "error_count": 0
+    },
+    {
+      "tau_threshold": 0.9,
+      "coverage_pct": 50.0,
+      "selective_risk_pct": 0.0,
+      "covered_count": 10,
+      "error_count": 0
+    },
+    {
+      "tau_threshold": 0.95,
+      "coverage_pct": 50.0,
+      "selective_risk_pct": 0.0,
+      "covered_count": 10,
+      "error_count": 0
+    }
+  ],
+  "detailed_results": [
+    {
+      "id": "A01",
+      "query": "What is IPC Section 302 for murder in BNS?",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A02",
+      "query": "Offence of theft committed on 15 August 2024 under BNS Section 303.",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A03",
+      "query": "Cheating committed on 10 January 2024, FIR registered on 12 January 2024.",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A04",
+      "query": "What is Section 304A IPC for death by negligence in BNS?",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A05",
+      "query": "In Kerala High Court, filing an appeal in September 2024 against an April 2024 conviction.",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A06",
+      "query": "In Punjab and Haryana High Court, appeal filed in October 2024 against a March 2024 trial judgment.",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A07",
+      "query": "Assault on 10 June 2024 with FIR registered on 15 July 2024.",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A08",
+      "query": "What is the punishment for robbery under BNS Section 309 for a crime on 20 August 2024?",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A09",
+      "query": "In Bombay High Court, bail filed in August 2024 for an investigation started in March 2024.",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A10",
+      "query": "Cyber fraud committed on 1 December 2024 under BNS and BNSS.",
+      "expected_abstain": false,
+      "actual_abstain": false,
+      "decision_match": true,
+      "confidence_score": 1.0,
+      "conflict_type": "NONE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A11",
+      "query": "The magistrate convicted the accused in May 2024. We want to file a criminal appeal in August 2024. Does CrPC or BNSS apply?",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.6,
+      "conflict_type": "HIGH_COURT_SPLIT",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A12",
+      "query": "Trial concluded in June 2024 under IPC. Filing criminal revision in September 2024.",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.6,
+      "conflict_type": "HIGH_COURT_SPLIT",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A13",
+      "query": "Offence committed on 20 May 2024. Anticipatory bail application filed on 10 July 2024 under Section 438 or 482?",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.6,
+      "conflict_type": "HIGH_COURT_SPLIT",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A14",
+      "query": "Bail application moved on 25 July 2024 for an incident occurring on 28 June 2024.",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.6,
+      "conflict_type": "HIGH_COURT_SPLIT",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A15",
+      "query": "Appeal filed in October 2024 challenging conviction order passed in April 2024.",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.6,
+      "conflict_type": "HIGH_COURT_SPLIT",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A16",
+      "query": "Which code applies to file an appeal against conviction in my trial?",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.4,
+      "conflict_type": "UNDERSPECIFIED_DATE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A17",
+      "query": "How to move an anticipatory bail application for my pending case?",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.4,
+      "conflict_type": "UNDERSPECIFIED_DATE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A18",
+      "query": "Does CrPC or BNSS govern my ongoing trial proceedings?",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.4,
+      "conflict_type": "UNDERSPECIFIED_DATE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A19",
+      "query": "Can police seek 15 days police remand in my ongoing investigation?",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.4,
+      "conflict_type": "UNDERSPECIFIED_DATE",
+      "has_safe_recommendation": true
+    },
+    {
+      "id": "A20",
+      "query": "What is the procedure to file quashing petition for an FIR?",
+      "expected_abstain": true,
+      "actual_abstain": true,
+      "decision_match": true,
+      "confidence_score": 0.4,
+      "conflict_type": "UNDERSPECIFIED_DATE",
+      "has_safe_recommendation": true
+    }
+  ]
+}

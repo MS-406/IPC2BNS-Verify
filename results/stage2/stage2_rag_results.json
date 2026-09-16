@@ -24,7 +24,7 @@
         "BNS_SEC_110",
         "BNS_SEC_103(1)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "103",
       "ground_truth_answer": "Under BNS 2023, murder punishment is Section 103 (formerly IPC 302).",
@@ -50,7 +50,7 @@
         "BNS_SEC_2(10)",
         "BNS_SEC_308"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "318",
       "ground_truth_answer": "IPC Section 420 corresponds to Section 318(4) of BNS 2023.",
@@ -76,7 +76,7 @@
         "BNS_SEC_305",
         "BNS_SEC_318"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "303",
       "ground_truth_answer": "Theft is defined and penalized under Section 303 of BNS 2023.",
@@ -102,7 +102,7 @@
         "BNS_SEC_102",
         "BNS_SEC_82"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "80",
       "ground_truth_answer": "Dowry death is governed by Section 80 of BNS 2023 (formerly IPC 304B).",
@@ -128,7 +128,7 @@
         "IPC_SEC_301",
         "IPC_SEC_376A"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "299",
       "ground_truth_answer": "BNS Section 100 defines culpable homicide, corresponding to IPC Section 299.",
@@ -154,7 +154,7 @@
         "BNS_SEC_38",
         "BNS_SEC_106(1)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "106(2)",
       "ground_truth_answer": "Under BNS Section 106(2), hit-and-run rash driving causing death carries up to 10 years imprisonment.",
@@ -180,7 +180,7 @@
         "BNS_SEC_64(1)",
         "BNS_SEC_65"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "63",
       "ground_truth_answer": "Rape is defined under Section 63 of BNS 2023 (formerly Section 375 of IPC).",
@@ -206,7 +206,7 @@
         "BNS_SEC_8",
         "BNS_SEC_2(24)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "356",
       "ground_truth_answer": "Defamation under BNS Section 356 carries simple imprisonment up to two years, fine, or community service.",
@@ -232,7 +232,7 @@
         "BNS_SEC_318",
         "BNS_SEC_318(1)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "303(2)",
       "ground_truth_answer": "Yes, BNS introduces community service as a penal sanction for petty theft under Section 303(2) where value is under Rs 5,000.",
@@ -258,7 +258,7 @@
         "BNS_SEC_62",
         "BNS_SEC_22"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "124A",
       "ground_truth_answer": "IPC Section 124A (Sedition) was repealed without direct equivalent; BNS Section 152 addresses subversive acts.",
@@ -284,7 +284,7 @@
         "BNS_SEC_2(3)",
         "BNS_SEC_2(6)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "497",
       "ground_truth_answer": "No, adultery under IPC Section 497 was struck down in Joseph Shine and omitted entirely from BNS 2023.",
@@ -310,7 +310,7 @@
         "BNS_SEC_2(28)",
         "BNS_SEC_2(6)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "377",
       "ground_truth_answer": "IPC Section 377 was omitted from BNS 2023 following the Navtej Johar ruling.",
@@ -336,7 +336,7 @@
         "BNS_SEC_75",
         "BNS_SEC_118"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "69",
       "ground_truth_answer": "Section 69 of BNS 2023 penalizes sexual intercourse by deceitful means or false promise to marry with up to 10 years imprisonment.",
@@ -362,7 +362,7 @@
         "BNS_SEC_112(1)",
         "BNS_SEC_2(24)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "111",
       "ground_truth_answer": "Organised crime syndicates and continuing unlawful activities are penalized under Section 111 of BNS 2023.",
@@ -388,7 +388,7 @@
         "BNS_SEC_2(24)",
         "BNS_SEC_152"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "113",
       "ground_truth_answer": "Terrorist acts are defined and penalized under Section 113 of BNS 2023.",
@@ -412,7 +412,7 @@
         "BNS_SEC_2(24)",
         "BNS_SEC_2(28)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "33, 2(1), 2(25)",
       "ground_truth_answer": "IPC Section 33 was split into BNS Section 2(1) ('act') and Section 2(25) ('omission').",
@@ -438,7 +438,7 @@
         "BNS_SEC_316",
         "BNS_SEC_19"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "61",
       "ground_truth_answer": "Criminal conspiracy defined in IPC 120A/120B is consolidated under Section 61 of BNS 2023.",
@@ -464,7 +464,7 @@
         "BNS_SEC_138",
         "BNS_SEC_140"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "137",
       "ground_truth_answer": "Kidnapping from India and lawful guardianship is under BNS Section 137 (IPC 359/360/361).",
@@ -490,7 +490,7 @@
         "BNS_SEC_118",
         "BNS_SEC_25"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "138",
       "ground_truth_answer": "Abduction is covered under BNS Section 138 (formerly IPC Section 362).",
@@ -516,7 +516,7 @@
         "BNS_SEC_111(1)",
         "BNS_SEC_2(28)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "143",
       "ground_truth_answer": "Trafficking of persons is under Section 143 of BNS 2023 (formerly IPC Section 370).",
@@ -542,7 +542,7 @@
         "BNS_SEC_311",
         "BNS_SEC_118"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "114",
       "ground_truth_answer": "Hurt is defined under Section 114 of BNS 2023 (formerly IPC Section 319).",
@@ -568,7 +568,7 @@
         "BNS_SEC_25",
         "BNS_SEC_114"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "116",
       "ground_truth_answer": "Grievous hurt is defined under Section 116 of BNS 2023 (formerly IPC Section 320).",
@@ -594,7 +594,7 @@
         "BNS_SEC_311",
         "BNS_SEC_25"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "118(2)",
       "ground_truth_answer": "Voluntarily causing grievous hurt with dangerous weapons is covered under BNS Section 118(2) (IPC 326).",
@@ -620,7 +620,7 @@
         "BNS_SEC_2(24)",
         "BNS_SEC_143"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "308",
       "ground_truth_answer": "Extortion is covered under Section 308 of BNS 2023 (formerly IPC Section 383/384).",
@@ -646,7 +646,7 @@
         "BNS_SEC_25",
         "BNS_SEC_118"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "309",
       "ground_truth_answer": "Robbery is penalized under Section 309 of BNS 2023 (formerly IPC Section 390/392).",
@@ -672,7 +672,7 @@
         "BNS_SEC_312",
         "BNS_SEC_103"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "310",
       "ground_truth_answer": "Dacoity is penalized under Section 310 of BNS 2023 (formerly IPC Section 391/395).",
@@ -698,7 +698,7 @@
         "BNS_SEC_2(9)",
         "BNS_SEC_338"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "335",
       "ground_truth_answer": "Forgery is defined under Section 335 of BNS 2023 (formerly IPC Section 463).",
@@ -724,7 +724,7 @@
         "BNS_SEC_351",
         "BNS_SEC_61"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "316",
       "ground_truth_answer": "Criminal breach of trust is penalized under Section 316 of BNS 2023 (formerly IPC 405/406).",
@@ -750,7 +750,7 @@
         "BNS_SEC_2(3)",
         "BNS_SEC_303"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "314",
       "ground_truth_answer": "Dishonest misappropriation of property is under BNS Section 314 (formerly IPC Section 403).",
@@ -776,7 +776,7 @@
         "BNS_SEC_2(17)",
         "BNS_SEC_316"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "351",
       "ground_truth_answer": "Criminal intimidation is covered under Section 351 of BNS 2023 (formerly IPC Section 503/506).",
@@ -802,7 +802,7 @@
         "BNS_SEC_2(24)",
         "BNS_SEC_2(28)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "189",
       "ground_truth_answer": "Unlawful assembly is defined under Section 189 of BNS 2023 (formerly IPC Section 141).",
@@ -828,7 +828,7 @@
         "BNS_SEC_2(28)",
         "BNS_SEC_2(6)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "191",
       "ground_truth_answer": "Rioting is penalized under Section 191 of BNS 2023 (formerly IPC Section 146/147).",
@@ -854,7 +854,7 @@
         "BNS_SEC_103(1)",
         "BNS_SEC_281"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "103(2)",
       "ground_truth_answer": "Mob lynching by 5 or more persons on grounds of race, caste, or sex is penalized under Section 103(2) with death or life imprisonment.",
@@ -880,7 +880,7 @@
         "BNS_SEC_2(24)",
         "BNS_SEC_248"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "304",
       "ground_truth_answer": "Snatching is codified as an independent offence under Section 304 of BNS 2023 with imprisonment up to 3 years.",
@@ -906,7 +906,7 @@
         "BNS_SEC_111(1)",
         "BNS_SEC_8"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "112",
       "ground_truth_answer": "Petty organised crime (theft, snatching, ticket touting by gangs) is penalized under Section 112 of BNS 2023.",
@@ -932,7 +932,7 @@
         "BNS_SEC_220",
         "BNS_SEC_264"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "226",
       "ground_truth_answer": "Attempting suicide to compel or restrain a public servant is under Section 226 of BNS 2023.",
@@ -958,7 +958,7 @@
         "BNS_SEC_271",
         "BNS_SEC_106"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "281",
       "ground_truth_answer": "Rash driving on a public way is penalized under Section 281 of BNS 2023 (formerly IPC Section 279).",
@@ -984,7 +984,7 @@
         "BNS_SEC_316",
         "BNS_SEC_190"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "270",
       "ground_truth_answer": "Public nuisance is covered under Section 270 of BNS 2023 (formerly IPC Section 268).",
@@ -1010,7 +1010,7 @@
         "BNS_SEC_9",
         "BNS_SEC_8"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "274",
       "ground_truth_answer": "Adulteration of food or drink for sale is under Section 274 of BNS 2023 (formerly IPC Section 272).",
@@ -1036,7 +1036,7 @@
         "BNS_SEC_264",
         "BNS_SEC_2(22)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "227",
       "ground_truth_answer": "Giving false evidence is covered under Section 227 of BNS 2023 (formerly IPC Section 191).",
@@ -1062,7 +1062,7 @@
         "BNS_SEC_264",
         "BNS_SEC_248"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "228",
       "ground_truth_answer": "Fabricating false evidence is covered under Section 228 of BNS 2023 (formerly IPC Section 192).",
@@ -1088,7 +1088,7 @@
         "BNS_SEC_139",
         "BNS_SEC_324"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "352",
       "ground_truth_answer": "Intentional insult to provoke breach of peace is under Section 352 of BNS 2023 (formerly IPC 504).",
@@ -1114,7 +1114,7 @@
         "BNS_SEC_80(1)",
         "BNS_SEC_79"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "85",
       "ground_truth_answer": "Cruelty by husband or relatives is covered under Section 85 of BNS 2023 (formerly IPC Section 498A).",
@@ -1140,7 +1140,7 @@
         "BNS_SEC_117",
         "BNS_SEC_115"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "88",
       "ground_truth_answer": "Causing miscarriage without consent is under Section 88 of BNS 2023 (formerly IPC Section 313).",
@@ -1166,7 +1166,7 @@
         "BNS_SEC_65",
         "BNS_SEC_64(1)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "70(2)",
       "ground_truth_answer": "Gang rape of a woman under eighteen years is penalized under Section 70(2) of BNS 2023 with life imprisonment or death.",
@@ -1192,7 +1192,7 @@
         "BNS_SEC_69",
         "BNS_SEC_2(24)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "75",
       "ground_truth_answer": "Sexual harassment is defined under Section 75 of BNS 2023 (formerly IPC Section 354A).",
@@ -1218,7 +1218,7 @@
         "BNS_SEC_352",
         "BNS_SEC_232"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "76",
       "ground_truth_answer": "Assault to disrobe a woman is under Section 76 of BNS 2023 (formerly IPC Section 354B).",
@@ -1244,7 +1244,7 @@
         "BNS_SEC_4",
         "BNS_SEC_38"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "77",
       "ground_truth_answer": "Voyeurism is penalized under Section 77 of BNS 2023 (formerly IPC Section 354C).",
@@ -1270,7 +1270,7 @@
         "BNS_SEC_85",
         "BNS_SEC_76"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "78",
       "ground_truth_answer": "Stalking is penalized under Section 78 of BNS 2023 (formerly IPC Section 354D).",
@@ -1296,7 +1296,7 @@
         "BNS_SEC_9",
         "BNS_SEC_2(24)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "178",
       "ground_truth_answer": "Counterfeiting currency notes or bank notes is covered under Section 178 of BNS 2023 (formerly IPC 489A).",
@@ -1322,7 +1322,7 @@
         "BNS_SEC_2(31)",
         "BNS_SEC_3"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "147",
       "ground_truth_answer": "Waging war against the Government of India is under Section 147 of BNS 2023 (formerly IPC Section 121).",
@@ -1348,7 +1348,7 @@
         "BNS_SEC_2(6)",
         "BNS_SEC_9"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "149",
       "ground_truth_answer": "Concealing design to wage war is under Section 149 of BNS 2023 (formerly IPC Section 123).",
@@ -1374,7 +1374,7 @@
         "BNS_SEC_2(28)",
         "BNS_SEC_2(6)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "152",
       "ground_truth_answer": "Acts endangering sovereignty, unity, and integrity of India are under Section 152 of BNS 2023.",
@@ -1400,7 +1400,7 @@
         "BNS_SEC_8",
         "BNS_SEC_114"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "194",
       "ground_truth_answer": "Affray is defined and penalized under Section 194 of BNS 2023 (formerly IPC Section 159/160).",
@@ -1426,7 +1426,7 @@
         "BNS_SEC_2(6)",
         "BNS_SEC_309"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "196",
       "ground_truth_answer": "Promoting enmity between groups on grounds of religion, race, etc., is under Section 196 (IPC 153A).",
@@ -1452,7 +1452,7 @@
         "BNS_SEC_109",
         "BNS_SEC_2(16)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "249",
       "ground_truth_answer": "Harbouring an offender is governed by Section 249 of BNS 2023 (formerly IPC Section 212).",
@@ -1478,7 +1478,7 @@
         "BNS_SEC_324",
         "BNS_SEC_194"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "238",
       "ground_truth_answer": "Causing disappearance of evidence or giving false screening information is under Section 238 (IPC 201).",
@@ -1504,7 +1504,7 @@
         "BNS_SEC_2(10)",
         "BNS_SEC_2(24)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "319",
       "ground_truth_answer": "Cheating by personation is covered under Section 319 of BNS 2023 (formerly IPC Section 416/419).",
@@ -1530,7 +1530,7 @@
         "BNS_SEC_336",
         "BNS_SEC_318(1)"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "338",
       "ground_truth_answer": "Forgery for purpose of cheating is under Section 338 of BNS 2023 (formerly IPC Section 468).",
@@ -1556,7 +1556,7 @@
         "BNS_SEC_335",
         "BNS_SEC_100"
       ],
-      "model_name": "gemini-2.0-flash-offline-sim",
+      "model_name": "deterministic_statutory_synthesizer_v1",
       "latency_ms": 0.0,
       "ground_truth_sections": "340",
       "ground_truth_answer": "Using as genuine a forged document is under Section 340 of BNS 2023 (formerly IPC Section 471).",

@@ -1,0 +1,141 @@
+{
+  "total_scenarios": 11,
+  "total_mutations_injected": 8,
+  "mutations_caught": 8,
+  "leakage_catch_rate": 1.0,
+  "false_positive_rate": 0.0,
+  "stage_breakdown": {
+    "Stage1_Temporal": {
+      "injected": 2,
+      "caught": 2,
+      "catch_rate": 1.0
+    },
+    "Stage2_Retrieval": {
+      "injected": 2,
+      "caught": 2,
+      "catch_rate": 1.0
+    },
+    "Stage3_Concordance": {
+      "injected": 3,
+      "caught": 3,
+      "catch_rate": 1.0
+    },
+    "Stage4_Grounding": {
+      "injected": 1,
+      "caught": 1,
+      "catch_rate": 1.0
+    }
+  },
+  "detailed_results": [
+    {
+      "id": "MUT_S1_01",
+      "attack_type": "TEMPORAL_PARADOX",
+      "target_stage": "Stage1_Temporal",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage1_Temporal",
+      "overall_confidence": 0.0,
+      "is_correct_detection": true
+    },
+    {
+      "id": "MUT_S1_02",
+      "attack_type": "TEMPORAL_PARADOX",
+      "target_stage": "Stage1_Temporal",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage1_Temporal",
+      "overall_confidence": 0.0,
+      "is_correct_detection": true
+    },
+    {
+      "id": "MUT_S2_01",
+      "attack_type": "REGIME_LEAKAGE_MODERN_INTO_LEGACY",
+      "target_stage": "Stage2_Retrieval",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage2_Retrieval",
+      "overall_confidence": 0.2,
+      "is_correct_detection": true
+    },
+    {
+      "id": "MUT_S2_02",
+      "attack_type": "REGIME_LEAKAGE_LEGACY_INTO_MODERN",
+      "target_stage": "Stage2_Retrieval",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage2_Retrieval",
+      "overall_confidence": 0.2,
+      "is_correct_detection": true
+    },
+    {
+      "id": "MUT_S3_01",
+      "attack_type": "HALLUCINATED_SECTION",
+      "target_stage": "Stage3_Concordance",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage3_Concordance",
+      "overall_confidence": 0.0,
+      "is_correct_detection": true
+    },
+    {
+      "id": "MUT_S3_02",
+      "attack_type": "ILLEGAL_REPEALED_CITATION",
+      "target_stage": "Stage3_Concordance",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage3_Concordance",
+      "overall_confidence": 0.0,
+      "is_correct_detection": true
+    },
+    {
+      "id": "MUT_S3_03",
+      "attack_type": "CROSS_STATUTE_INCONSISTENCY",
+      "target_stage": "Stage3_Concordance",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage3_Concordance",
+      "overall_confidence": 0.0,
+      "is_correct_detection": true
+    },
+    {
+      "id": "MUT_S4_01",
+      "attack_type": "UNGROUNDED_PENAL_PUNISHMENT",
+      "target_stage": "Stage4_Grounding",
+      "expected_pass": false,
+      "actual_verified": false,
+      "failed_stage": "Stage4_Grounding",
+      "overall_confidence": 0.38,
+      "is_correct_detection": true
+    },
+    {
+      "id": "CTRL_01",
+      "attack_type": "LEGITIMATE_MODERN",
+      "target_stage": "ALL_PASS",
+      "expected_pass": true,
+      "actual_verified": true,
+      "failed_stage": null,
+      "overall_confidence": 0.95,
+      "is_correct_detection": true
+    },
+    {
+      "id": "CTRL_02",
+      "attack_type": "LEGITIMATE_LEGACY",
+      "target_stage": "ALL_PASS",
+      "expected_pass": true,
+      "actual_verified": true,
+      "failed_stage": null,
+      "overall_confidence": 0.95,
+      "is_correct_detection": true
+    },
+    {
+      "id": "CTRL_03",
+      "attack_type": "LEGITIMATE_PROCEDURAL_BNSS",
+      "target_stage": "ALL_PASS",
+      "expected_pass": true,
+      "actual_verified": true,
+      "failed_stage": null,
+      "overall_confidence": 0.95,
+      "is_correct_detection": true
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "postures": [
+    {
+      "posture_id": "INCIDENT_ONLY",
+      "name": "Incident/Offence Committed",
+      "description": "The alleged crime took place, but no formal FIR or complaint has been registered yet.",
+      "critical_date_field": "incident_date"
+    },
+    {
+      "posture_id": "FIR_REGISTERED",
+      "name": "FIR Registered",
+      "description": "First Information Report lodged with the Police.",
+      "critical_date_field": "fir_date"
+    },
+    {
+      "posture_id": "INVESTIGATION_PENDING",
+      "name": "Investigation In Progress",
+      "description": "Police investigation is actively pending under Section 156 CrPC / 175 BNSS.",
+      "critical_date_field": "investigation_start_date"
+    },
+    {
+      "posture_id": "CHARGE_SHEET_FILED",
+      "name": "Final Report / Charge Sheet Submitted",
+      "description": "Police report submitted under Section 173 CrPC / 193 BNSS.",
+      "critical_date_field": "chargesheet_date"
+    },
+    {
+      "posture_id": "TRIAL_ONGOING",
+      "name": "Trial in Progress",
+      "description": "Court has taken cognizance, framed charges, and trial proceedings are pending.",
+      "critical_date_field": "trial_start_date"
+    },
+    {
+      "posture_id": "BAIL_APPLICATION",
+      "name": "Bail / Anticipatory Bail Application",
+      "description": "Application filed under Section 437/438/439 CrPC or Section 480/482/483 BNSS.",
+      "critical_date_field": "bail_filing_date"
+    },
+    {
+      "posture_id": "APPEAL_OR_REVISION",
+      "name": "Appeal / Revision / Quashing",
+      "description": "Appeal filed against conviction or revision against interlocutory order or 482 CrPC / 528 BNSS quashing.",
+      "critical_date_field": "appeal_filing_date"
+    }
+  ]
+}

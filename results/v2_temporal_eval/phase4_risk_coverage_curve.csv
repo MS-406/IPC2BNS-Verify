@@ -1,0 +1,7 @@
+tau_threshold,coverage_pct,selective_risk_pct,covered_count,error_count
+0.5,50.0,0.0,10,0
+0.6,50.0,0.0,10,0
+0.7,50.0,0.0,10,0
+0.8,50.0,0.0,10,0
+0.9,50.0,0.0,10,0
+0.95,50.0,0.0,10,0

@@ -1,0 +1,86 @@
+{
+  "statutory_framework": {
+    "transition_cutoff_date": "2024-07-01",
+    "cutoff_description": "New criminal laws (BNS 2023, BNSS 2023, BSA 2023) came into force on July 1, 2024.",
+    "constitutional_foundation": {
+      "article": "Article 20(1), Constitution of India",
+      "doctrine": "Prohibition of Ex-Post Facto Criminal Laws",
+      "rule": "No person shall be convicted of any offence except for violation of a law in force at the time of the commission of the act charged as an offence, nor be subjected to a penalty greater than that which might have been inflicted under the law in force at the time of the commission of the offence.",
+      "implication": "Substantive penal law is strictly determined by the Date of Incident/Offence. If offence occurred on or before 30 June 2024, IPC 1860 governs the substantive offence, even if FIR is registered years later."
+    }
+  },
+  "savings_clauses": {
+    "BNSS_Section_531": {
+      "section": "Section 531, Bharatiya Nagarik Suraksha Sanhita, 2023",
+      "title": "Repeal and Savings",
+      "clause_2_a": {
+        "text": "If, immediately before the date on which this Sanhita comes into force, there is any appeal, application, trial, inquiry or investigation pending, then, such appeal, application, trial, inquiry or investigation shall be disposed of, continued, held or made, as the case may be, in accordance with the provisions of the Code of Criminal Procedure, 1973, as in force immediately before such commencement (hereinafter referred to as the old Code), as if this Sanhita had not come into force.",
+        "key_condition": "Pending immediately before 1st July 2024",
+        "governing_code": "CrPC_1973"
+      },
+      "clause_2_b": {
+        "text": "All notifications published, proclamations issued, powers conferred, forms prescribed, local jurisdictions defined, sentences passed and orders, rules and appointments made under the old Code and which are in force immediately before the commencement of this Sanhita, shall be deemed to have been respectively published, issued, conferred, prescribed, defined, passed and made under the corresponding provisions of this Sanhita.",
+        "governing_code": "BNSS_2023 (Deemed adoption)"
+      }
+    },
+    "BNS_Section_358": {
+      "section": "Section 358, Bharatiya Nyaya Sanhita, 2023",
+      "title": "Repeal and Savings",
+      "text": "The Indian Penal Code is hereby repealed. Notwithstanding the repeal, any act or omission committed prior to 1 July 2024 shall be investigated, inquired into, tried and punished under the repealed Indian Penal Code.",
+      "governing_code": "IPC_1860"
+    },
+    "BSA_Section_170": {
+      "section": "Section 170, Bharatiya Sakshya Adhiniyam, 2023",
+      "title": "Repeal and Savings",
+      "text": "The Indian Evidence Act, 1872 is hereby repealed. Notwithstanding the repeal, any application, trial, inquiry or investigation pending prior to 1 July 2024 shall proceed under the Indian Evidence Act, 1872.",
+      "governing_code": "IEA_1872"
+    }
+  },
+  "core_decision_matrix": [
+    {
+      "scenario_id": "PRE_INCIDENT_PRE_PROCEEDING",
+      "description": "Offence committed before 1 July 2024, FIR/Investigation/Trial pending before 1 July 2024",
+      "substantive_law": "IPC_1860",
+      "procedural_law": "CrPC_1973",
+      "evidence_law": "IEA_1872",
+      "statutory_authority": "Section 358 BNS & Section 531(2)(a) BNSS & Section 170 BSA",
+      "is_split": false
+    },
+    {
+      "scenario_id": "PRE_INCIDENT_POST_FIR",
+      "description": "Offence committed before 1 July 2024, but FIR registered on or after 1 July 2024",
+      "substantive_law": "IPC_1860",
+      "procedural_law": "BNSS_2023",
+      "evidence_law": "BSA_2023",
+      "statutory_authority": "Substantive under IPC per Art 20(1) & Sec 358 BNS; Procedural under BNSS as no investigation was pending on 01-07-2024 under Sec 531(2)(a)",
+      "is_split": false
+    },
+    {
+      "scenario_id": "POST_INCIDENT_POST_PROCEEDING",
+      "description": "Offence committed on or after 1 July 2024",
+      "substantive_law": "BNS_2023",
+      "procedural_law": "BNSS_2023",
+      "evidence_law": "BSA_2023",
+      "statutory_authority": "BNS, BNSS, BSA in full force",
+      "is_split": false
+    },
+    {
+      "scenario_id": "POST_JULY_APPEAL_PRE_JULY_CONVICTION",
+      "description": "Trial concluded or judgment passed before 1 July 2024, but Appeal/Revision filed on or after 1 July 2024",
+      "substantive_law": "IPC_1860",
+      "procedural_law": "CONTESTED_HIGH_COURT_SPLIT",
+      "evidence_law": "BSA_2023_OR_IEA_1872",
+      "statutory_authority": "Contested interpretation of Section 531(2)(a) BNSS word 'pending'",
+      "is_split": true
+    },
+    {
+      "scenario_id": "POST_JULY_BAIL_PRE_JULY_INCIDENT",
+      "description": "Anticipatory/Regular Bail application filed on or after 1 July 2024 for offence occurring before 1 July 2024",
+      "substantive_law": "IPC_1860",
+      "procedural_law": "CONTESTED_HIGH_COURT_SPLIT",
+      "evidence_law": "BSA_2023",
+      "statutory_authority": "CrPC Sec 438/439 vs BNSS Sec 482/483",
+      "is_split": true
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "51c67c36ba8f3a02a9c81d2f2665642ac6924a160240ad304ae1552f584edc22": {
+    "query": "Theft committed on 15 January 2024 and FIR registered on 16 January 2024. Which penal and procedural codes govern the trial?",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "e7903fc15d620e2a40d536c0faf6f0e7c437ce091513cad2e83b8d250615f994": {
+    "query": "Murder incident occurred on 10 March 2024 with chargesheet submitted on 25 May 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "2e2f595e96653c0dc0730cfe5b32ad449ace905f4dd00d5d7a1e00858ca784dc": {
+    "query": "Cheating under Section 420 committed in December 2023, inquiry pending before Magistrate on 1 June 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS \u00a7318"
+    ],
+    "synthesized_answer": "[MODERN CONCORDANCE] IPC \u00a7420 corresponds to BNS \u00a7318. Governed by BNS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "d6d2fd10466166cd558a9280d7ab9348aa90d8d5da7f7690fda78dd90c8b91f5": {
+    "query": "Assault case on 20 February 2024 with ongoing sessions trial since April 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "81f80bbd292a68f0fea6a8de6e39b8c559bac3254c8ef6961b3c11d45f583c64": {
+    "query": "Criminal trespass committed in October 2023, FIR filed in November 2023.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "1f142ec84986d079231b8f7efa544b1cabf6ace5c1e044d2ad800f234426c5e5": {
+    "query": "Dowry death under Section 304B committed on 5 May 2024, FIR registered on 6 May 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS \u00a780"
+    ],
+    "synthesized_answer": "[MODERN CONCORDANCE] IPC \u00a7304b corresponds to BNS \u00a780. Governed by BNS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "ff778859e3edcb6fb03b3c3efe77558c8c0ea5f51ee6130d90c6b06c8d4ace64": {
+    "query": "Extortion incident on 12 April 2024 with investigation ongoing under CrPC.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "c7cc2b3d725c11dfa524b6afb2a45cd5554fbed3b6e1bc861742b0efd15b4ae1": {
+    "query": "Forgery committed on 1 January 2024, police complaint lodged on 15 January 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "4a54f341557239e6563d644e80f3b6f505633246312721d6745cf3438f06026f": {
+    "query": "Robbery on 18 March 2024 with FIR registered on 19 March 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "f748c6a4b34744093ae49230d0cd53d753d47458df71b05528e82645f8c95743": {
+    "query": "Culpable homicide on 25 June 2024, FIR registered on 26 June 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "2aa70032fac5dcd942b3899b8ab07be6497b5c4a915f12e8d1e431a4d1bd3b18": {
+    "query": "The assault happened on 10 June 2024, but the police lodged the FIR on 15 July 2024. Which codes govern?",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "1ea7fce13bb1b3eb5f292d5f36bd48c80e9b131d1d6bd09a01c67c8c5acbb433": {
+    "query": "A dowry harassment incident occurred on 15 May 2024, but the victim filed the police FIR on 20 July 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "74b8fd2c296dc4119c459103abd640d222cb65288bdb48b05a5ba8a3debe0436": {
+    "query": "Financial fraud committed in April 2024, complaint lodged on 10 August 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "8dcec8b70c398b8d04049b816e3b98b4d02dcbd73fdac52374c7354c5cbceb14": {
+    "query": "Land grab crime committed on 1 January 2024, private complaint filed on 15 September 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "475a4aea995223e26be5fca94a0686cb22ca07060ff86c042ccb94395c27fcd8": {
+    "query": "Medical negligence offence committed on 10 March 2024, FIR registered on 1 August 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "8f346e858abe4d584d2ad71ca4439c3c33b6268bda2843f9c5e3c71baa60c96b": {
+    "query": "Defamation statement made on 20 June 2024, private complaint filed on 5 July 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "2779a5126f17a649b3496684ad251aaf5ffb2aedbc0d15cbaab456827b268450": {
+    "query": "Riot and damage to property committed on 28 June 2024, FIR registered on 8 July 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "7be51d2259a9a55ea419d0b08c0df481051f4fb290cced69e47c6c5b1c8b3091": {
+    "query": "Cheating offence committed on 15 February 2024, FIR lodged on 22 August 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "0b2670f96a63f0d64dd100433a3e38b424083fcf4c33c1abac87dfe96a67706a": {
+    "query": "Theft committed on 30 June 2024 at 11 PM, FIR registered on 2 July 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "bb4d416e20380a618418a6c60b03368e30996f3cbf3974e0e517d5417b8de4ef": {
+    "query": "Cyber extortion committed on 10 May 2024, formal complaint registered on 15 September 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC",
+      "IPC_1860"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "1c4c9bf5a66a25204996140f1f1235a4a67a4e18732ac8c67b00185d94a92876": {
+    "query": "A robbery was committed on 15 July 2024 and FIR was registered on 16 July 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "b6d95dfea1f57e8b1cd0d1cfcd22b6dcb1c1b67892132c9faedd0a08a4e389b0": {
+    "query": "Organized crime incident occurred on 10 August 2024 under BNS Section 111.",
+    "routing_tier": "TIER_2_SPLIT_MERGE",
+    "consensus_reached": true,
+    "consensus_confidence": 0.978,
+    "primary_citations": [
+      "BNS",
+      "BNS_2023",
+      "BNSS",
+      "BNSS_2023"
+    ],
+    "synthesized_answer": "Under statutory rules, substantive penal provisions follow BNS_2023, while procedural steps follow BNSS_2023.\n\nGuidance: Apply BNS 2023 for substantive charges and BNSS 2023 for all procedural steps.\n\n[Statutory Reference]: [MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "184aede9cdd5eb01189e7947e074a62f79a79f4f9c6135527812c85b70db6c36": {
+    "query": "Snatching and assault committed on 5 September 2024 under BNS Section 304.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS \u00a7105"
+    ],
+    "synthesized_answer": "[MODERN CONCORDANCE] IPC \u00a7304 corresponds to BNS \u00a7105. Governed by BNS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "ca62a1694aca410c594c13af7c502f0dfde3159b50bb0c22ad8f86088dae7fe9": {
+    "query": "Cyber fraud committed on 1 December 2024 under BNS and BNSS.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "26a972bd5e8576c03ea76ec5160c1a6702b32cd0d68ddd224aa4d9c8bd61f325": {
+    "query": "Hit and run offence occurring on 20 October 2024 with chargesheet filed on 10 November 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "6ec005945350d543b29bbbbf0f2ed44309c513a0bc3bc982361a802a685cf7bb": {
+    "query": "Terrorist act committed on 15 November 2024 under BNS Section 113.",
+    "routing_tier": "TIER_2_SPLIT_MERGE",
+    "consensus_reached": true,
+    "consensus_confidence": 0.978,
+    "primary_citations": [
+      "BNS",
+      "BNS_2023",
+      "BNSS",
+      "BNSS_2023"
+    ],
+    "synthesized_answer": "Under statutory rules, substantive penal provisions follow BNS_2023, while procedural steps follow BNSS_2023.\n\nGuidance: Apply BNS 2023 for substantive charges and BNSS 2023 for all procedural steps.\n\n[Statutory Reference]: [MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "14d6e1922d1aa4daa45a58779c893d684e5200e2fb7d535c73e22df500c85f19": {
+    "query": "Mob lynching incident occurring on 25 August 2024 under BNS Section 103(2).",
+    "routing_tier": "TIER_2_SPLIT_MERGE",
+    "consensus_reached": true,
+    "consensus_confidence": 0.978,
+    "primary_citations": [
+      "BNS",
+      "BNS_2023",
+      "BNSS",
+      "BNSS_2023"
+    ],
+    "synthesized_answer": "Under statutory rules, substantive penal provisions follow BNS_2023, while procedural steps follow BNSS_2023.\n\nGuidance: Apply BNS 2023 for substantive charges and BNSS 2023 for all procedural steps.\n\n[Statutory Reference]: [MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "7bf5666b980096d5d37e7602a9e2880248d8ac65dba3364ebdddc14b005dbc00": {
+    "query": "Cheating by deceitful means committed on 12 September 2024 under BNS Section 318.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "2de5b5879a8913c186acd46866d00ec3c17949080e2ed62e7b031e3f465a27e5": {
+    "query": "Defamation committed on 5 October 2024 under BNS Section 356.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "0b1fedfe8fa82fa706f5fa76f27cd91ca05261090cf785842ab66019842abc0d": {
+    "query": "Extortion committed on 18 July 2024 under BNS Section 308.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS \u00a7110"
+    ],
+    "synthesized_answer": "[MODERN CONCORDANCE] IPC \u00a7308 corresponds to BNS \u00a7110. Governed by BNS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "4ca9a495f05db4af3b059a9e223a99b6a09b7c28b05c3f48e50619e9efdb45ce": {
+    "query": "In Kerala High Court, filing an appeal in September 2024 against a conviction handed down in April 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "Article 20(1)",
+      "Section 531(2)(a) BNSS",
+      "BNS \u00a7358",
+      "BNSS \u00a7531(2)(a)"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 15-04-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an Appeal or Revision filed ON or AFTER 1 July 2024 against a conviction/order passed prior to 1 July 2024 is governed by CrPC 1973 or BNSS 2023 under Section 531(2)(a).\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: High Courts are split on this question. In Kerala and Delhi, invoke BNSS provisions (Section 415/417 BNSS). In Punjab & Haryana and Bombay, invoke CrPC provisions (Section 374/378 CrPC). Always mention both in pleadings with a non-prejudice clause.\n\n[Jurisdiction Note (Kerala High Court)]: 'Appeals filed on or after 01.07.2024 must be instituted under BNSS 2023.' (Abdul Khader v. Joice, 2024 LiveLaw (Ker) 438). Governing standard: BNSS_2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "02b44d31b9db6e8da958b703b2f3bd8b41cf6d3c5c439993bf87f9f35320d433": {
+    "query": "In Punjab and Haryana High Court, filing an appeal in October 2024 against a conviction rendered in February 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "Article 20(1)",
+      "Section 531(2)(a) BNSS",
+      "BNS \u00a7358",
+      "BNSS \u00a7531(2)(a)"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 15-02-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an Appeal or Revision filed ON or AFTER 1 July 2024 against a conviction/order passed prior to 1 July 2024 is governed by CrPC 1973 or BNSS 2023 under Section 531(2)(a).\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: High Courts are split on this question. In Kerala and Delhi, invoke BNSS provisions (Section 415/417 BNSS). In Punjab & Haryana and Bombay, invoke CrPC provisions (Section 374/378 CrPC). Always mention both in pleadings with a non-prejudice clause.\n\n[Jurisdiction Note (Punjab & Haryana High Court)]: 'Appeals arising out of pre-July 2024 judgments continue under CrPC 1973.' (Mandeep Singh v. State of Punjab & Anr., CRM-M-34128-2024). Governing standard: CrPC_1973.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "dad1c65a8b5690b65a1a23a4798b2b44db806e5fcbeb293ed449ba71a65b235b": {
+    "query": "In Delhi High Court, petition filed in November 2024 challenging a trial judgment from May 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "Article 20(1)",
+      "Section 531(2)(a) BNSS",
+      "BNS \u00a7358",
+      "BNSS \u00a7531(2)(a)"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 15-05-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an Appeal or Revision filed ON or AFTER 1 July 2024 against a conviction/order passed prior to 1 July 2024 is governed by CrPC 1973 or BNSS 2023 under Section 531(2)(a).\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: High Courts are split on this question. In Kerala and Delhi, invoke BNSS provisions (Section 415/417 BNSS). In Punjab & Haryana and Bombay, invoke CrPC provisions (Section 374/378 CrPC). Always mention both in pleadings with a non-prejudice clause.\n\n[Jurisdiction Note (Delhi High Court)]: 'Differentiated strictly between pending trials vs new petitions instituted after 01.07.2024; procedural applications filed post 01.07.2024 must cite BNSS provisions.' (Prince v. State (NCT of Delhi), 2024 DHC 5291). Governing standard: BNSS_2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "275de9858b458c1c193f4b3a43039a563b806b824f24b75776a73a09bdf44f20": {
+    "query": "In Bombay High Court, regular bail application filed in August 2024 where FIR was lodged on 15 March 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "Article 20(1)",
+      "Section 531(2)(a) BNSS",
+      "BNS \u00a7358",
+      "BNSS \u00a7531(2)(a)"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 15-03-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an application for Anticipatory Bail or Regular Bail filed on or after 01.07.2024 for an offence/FIR registered before 01.07.2024 should be filed under Section 438/439 CrPC or Section 482/483 BNSS.\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: State High Courts universally treat caption defects as curable, but procedural hearings will adhere to BNSS Section 482/483 if filed after July 1, 2024, while substantive penal evaluation remains strictly under IPC 1860.\n\n[Jurisdiction Note (Bombay High Court)]: 'Applications under CrPC 438 are maintainable if investigation was initiated prior to 01.07.2024, and mere wrong captioning under CrPC/BNSS will not be a ground for rejection.' (Digambar v. State of Maharashtra, 2024 BHC). Governing standard: CrPC_1973_OR_BNSS_2023 (Defect Curable).",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "ab6a691c4db7858b142f530b6d432b1e332c2122568ec2bf9a3f0d27daa4d8e0": {
+    "query": "In Rajasthan High Court, anticipatory bail filed on 15 August 2024 for an incident occurring on 10 June 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "Article 20(1)",
+      "Section 531(2)(a) BNSS",
+      "BNS \u00a7358",
+      "BNSS \u00a7531(2)(a)"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 10-06-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an application for Anticipatory Bail or Regular Bail filed on or after 01.07.2024 for an offence/FIR registered before 01.07.2024 should be filed under Section 438/439 CrPC or Section 482/483 BNSS.\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: State High Courts universally treat caption defects as curable, but procedural hearings will adhere to BNSS Section 482/483 if filed after July 1, 2024, while substantive penal evaluation remains strictly under IPC 1860.\n\n[Jurisdiction Note (Rajasthan High Court)]: 'Applications filed after 01.07.2024 will be governed by BNSS 2023 provisions.' (Krishna Joshi v. State of Rajasthan, 2024 Raj HC). Governing standard: BNSS_2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "4217d1032b476c87d0a0aa79bcb97260d0049a352939472526f42a28dddf2dfa": {
+    "query": "The robbery happened on 15 August 2024, but the FIR was lodged on 10 July 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "1faa8ac6e7e5f4d386722868202f5bdcde7ba9a21aa2bec9c2b6b0632bf87656": {
+    "query": "Offence took place in November 2024, but the appeal was instituted on 12 June 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "02034d83143018126d48b53593e60a1d11473d6b4efd5e87baa2008514c0dbe6": {
+    "query": "A theft occurred on 10 January 2024 with FIR lodged on 11 January 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC",
+      "CrPC"
+    ],
+    "synthesized_answer": "[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "b9ab2c0835e214ffebeb40b52e51a67d73e76f351b839b34f718db4d7878189e": {
+    "query": "Offence committed on 25 September 2024 with FIR on 26 September 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "75ba3eeec9bf5f9b711e2f7be97587da23ed160421e7323a2ab6cdc4c4caddae": {
+    "query": "A theft crime occurred on 15 August 2024.",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "35f4f3ffa51a1cbffd6c686698acc4ffafe19de3767c202ce066c3e2e477405c": {
+    "query": "Sedition speech given on 20 August 2024.",
+    "routing_tier": "TIER_2_SPLIT_MERGE",
+    "consensus_reached": true,
+    "consensus_confidence": 0.978,
+    "primary_citations": [
+      "BNS",
+      "BNS_2023",
+      "BNSS",
+      "BNSS_2023"
+    ],
+    "synthesized_answer": "Under statutory rules, substantive penal provisions follow BNS_2023, while procedural steps follow BNSS_2023.\n\nGuidance: Apply BNS 2023 for substantive charges and BNSS 2023 for all procedural steps.\n\n[Statutory Reference]: [MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "68f5b5653e696c1587792014a73385f8b2cd52abc4771581ed74ac8c6d51ce9c": {
+    "query": "What is the penalty for murder in BNS?",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "dbb9d4b2c795796ec8e79073619bbfb3431461eab5d9c4bbb2529c4a3b6024a7": {
+    "query": "What is the punishment for simple theft committed on 15 August 2024?",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS",
+      "BNSS"
+    ],
+    "synthesized_answer": "[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "ea204aeb5594b5e768ea5471b30818a38ffc53da8ef5c1f73a82115594aeab02": {
+    "query": "Adultery complaint filed on 10 August 2024 under Section 497 IPC.",
+    "routing_tier": "TIER_2_SPLIT_MERGE",
+    "consensus_reached": true,
+    "consensus_confidence": 0.978,
+    "primary_citations": [
+      "BNS",
+      "BNS_2023",
+      "BNSS",
+      "BNSS_2023"
+    ],
+    "synthesized_answer": "Under statutory rules, substantive penal provisions follow BNS_2023, while procedural steps follow BNSS_2023.\n\nGuidance: Apply BNS 2023 for substantive charges and BNSS 2023 for all procedural steps.\n\n[Statutory Reference]: [MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "0355e7bea5be690bdd152ea56c5a1da130d32a86f3b4f360196fb94597d4c0bf": {
+    "query": "Unnatural offences case under Section 377 IPC instituted on 1 September 2024.",
+    "routing_tier": "TIER_2_SPLIT_MERGE",
+    "consensus_reached": true,
+    "consensus_confidence": 0.978,
+    "primary_citations": [
+      "BNS",
+      "BNS_2023",
+      "BNSS",
+      "BNSS_2023"
+    ],
+    "synthesized_answer": "Under statutory rules, substantive penal provisions follow BNS_2023, while procedural steps follow BNSS_2023.\n\nGuidance: Apply BNS 2023 for substantive charges and BNSS 2023 for all procedural steps.\n\n[Statutory Reference]: [MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "32c14a65d0f1303c1dc55e20f032fdfc8dd8a8cf9a2cdfec619e8f68201a1694": {
+    "query": "What is the section for murder under Section 302 IPC in the new BNS code?",
+    "routing_tier": "TIER_1_DIRECT",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS \u00a7103"
+    ],
+    "synthesized_answer": "[MODERN CONCORDANCE] IPC \u00a7302 corresponds to BNS \u00a7103. Governed by BNS 2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "cae26c21d6b5a2d80f3535648fbab7b8e88dd509ca48407fdefb683ee91540ee": {
+    "query": "Offence committed on 20 May 2024. Anticipatory bail filed on 10 July 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS \u00a7531(2)(a)",
+      "Article 20(1)",
+      "BNS \u00a7358",
+      "Section 531(2)(a) BNSS"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 20-05-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an application for Anticipatory Bail or Regular Bail filed on or after 01.07.2024 for an offence/FIR registered before 01.07.2024 should be filed under Section 438/439 CrPC or Section 482/483 BNSS.\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: State High Courts universally treat caption defects as curable, but procedural hearings will adhere to BNSS Section 482/483 if filed after July 1, 2024, while substantive penal evaluation remains strictly under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "f855e8e8d4a540170c40665178963e3067b3b318e200c200c67cdd83ab09d307": {
+    "query": "The alleged theft took place on 10 June 2024. The victim lodged the FIR on 15 July 2024. What penal section and procedure apply?",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNSS_2023",
+      "IPC_1860",
+      "BNSS \u00a7173",
+      "IPC"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "8a702fc3fdc20ac18950d99136317b37dbf94e86f71d54717a801d4974c2c278": {
+    "query": "Trial convicted appellant under IPC in May 2024. Filing criminal appeal in August 2024 in Kerala.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS \u00a7358",
+      "Article 20(1)",
+      "BNSS \u00a7531(2)(a)",
+      "Section 531(2)(a) BNSS"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 15-05-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an Appeal or Revision filed ON or AFTER 1 July 2024 against a conviction/order passed prior to 1 July 2024 is governed by CrPC 1973 or BNSS 2023 under Section 531(2)(a).\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: High Courts are split on this question. In Kerala and Delhi, invoke BNSS provisions (Section 415/417 BNSS). In Punjab & Haryana and Bombay, invoke CrPC provisions (Section 374/378 CrPC). Always mention both in pleadings with a non-prejudice clause.\n\n[Jurisdiction Note (Kerala High Court)]: 'Appeals filed on or after 01.07.2024 must be instituted under BNSS 2023.' (Abdul Khader v. Joice, 2024 LiveLaw (Ker) 438). Governing standard: BNSS_2023.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "e42b265b5900b3576deb75ac49f9cd62676c714ef955da230377c6f480ba96b8": {
+    "query": "Trial convicted appellant under IPC in May 2024. Filing criminal appeal in August 2024.",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "BNS \u00a7358",
+      "Article 20(1)",
+      "BNSS \u00a7531(2)(a)",
+      "Section 531(2)(a) BNSS"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 15-05-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an Appeal or Revision filed ON or AFTER 1 July 2024 against a conviction/order passed prior to 1 July 2024 is governed by CrPC 1973 or BNSS 2023 under Section 531(2)(a).\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: High Courts are split on this question. In Kerala and Delhi, invoke BNSS provisions (Section 415/417 BNSS). In Punjab & Haryana and Bombay, invoke CrPC provisions (Section 374/378 CrPC). Always mention both in pleadings with a non-prejudice clause.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  }
+}

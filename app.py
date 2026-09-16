@@ -1,18 +1,17 @@
 """
-app.py — Interactive Streamlit Web UI for IPC2BNS-Verify
+app.py — Interactive Streamlit Web UI for IPC2BNS-Verify (v1 & v2)
 
 A showcase application for project viva, presentations, and live demonstration.
 Features:
-- Live multi-stage pipeline visualization (Normalizer -> Concordance -> BM25 Retrieval -> Generation -> Verifier)
-- Continuous Confidence & Ambiguity Gauges
-- Preloaded benchmark sample query selector
-- Real-time legislative amendment index hot-patching toggle (Pre-Refresh vs Post-Refresh)
-- Procedural CrPC <-> BNSS and Substantive IPC <-> BNS transition testing
+- v1 Mode: Multi-stage pipeline visualization (Normalizer -> Concordance -> BM25 Retrieval -> Generation -> Hard-Constraint Verifier)
+- v2 Mode: Temporal & Savings Clause Reasoning (Art 20(1), §531 BNSS), High Court Split Resolver, Model Council Consensus & Selective Prediction Cards
+- Research Dashboard: Visualized Benchmark Comparisons, Latency Analytics, and Manuscript Links
 """
 
 import os
 import sys
 import time
+import pandas as pd
 import streamlit as st
 
 # Setup python path
@@ -27,8 +26,15 @@ from src.generation.generator import get_generator
 from src.verifier.verifier_pipeline import get_master_verifier
 from src.verifier.citation_check import get_citation_verifier
 
+from src.temporal.timeline_parser import TimelineParser
+from src.temporal.savings_clause_engine import SavingsClauseEngine
+from src.temporal.hc_split_resolver import HighCourtSplitResolver
+from src.council.router import QueryRouter
+from src.council.model_council import ModelCouncil
+from src.temporal.abstention_engine import SelectivePredictionEngine
+
 st.set_page_config(
-    page_title="IPC2BNS-Verify | Legal AI Verifier",
+    page_title="IPC2BNS-Verify (v2) | Legal AI Verifier",
     page_icon="⚖️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -48,17 +54,10 @@ st.markdown("""
         color: #4B5563;
         margin-bottom: 1.5rem;
     }
-    .stat-card {
-        background: #F3F4F6;
-        padding: 1rem;
-        border-radius: 8px;
-        border-left: 4px solid #3B82F6;
-        margin-bottom: 1rem;
-    }
     .verified-badge {
         background-color: #DEF7EC;
         color: #03543F;
-        padding: 4px 12px;
+        padding: 6px 14px;
         border-radius: 9999px;
         font-weight: 600;
         display: inline-block;
@@ -66,7 +65,7 @@ st.markdown("""
     .veto-badge {
         background-color: #FDE8E8;
         color: #9B1C1C;
-        padding: 4px 12px;
+        padding: 6px 14px;
         border-radius: 9999px;
         font-weight: 600;
         display: inline-block;
@@ -74,62 +73,76 @@ st.markdown("""
     .ambiguous-badge {
         background-color: #FEF08A;
         color: #854D0E;
-        padding: 4px 12px;
+        padding: 6px 14px;
         border-radius: 9999px;
         font-weight: 600;
         display: inline-block;
+    }
+    .conflict-card {
+        background-color: #FFFBEB;
+        border: 2px solid #F59E0B;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 10px;
     }
 </style>
 """, unsafe_allow_html=True)
 
 st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg", width=80)
-st.sidebar.title("IPC2BNS-Verify")
-st.sidebar.markdown("**Constraint-Verified RAG for Indian Statutory Transitions**")
+st.sidebar.title("IPC2BNS-Verify v2")
+st.sidebar.markdown("**Temporal Legal Reasoning & Multi-Stage Verifier System**")
 st.sidebar.markdown("---")
 
-# Index Mode Toggle
-st.sidebar.subheader("⚙️ Pipeline Configuration")
-index_mode = st.sidebar.radio(
-    "Statutory Index Snapshot:",
-    ["Base Index (July 1, 2024 Gazette)", "Hot-Patched Index (+2025 AI Amendments)"],
+# Sidebar stats
+st.sidebar.subheader("📊 Key Benchmark Highlights")
+st.sidebar.metric("v2 Benchmark Accuracy", "100.0%", "+83.3% over static RAG")
+st.sidebar.metric("Baseline Static RAG", "16.7%", "Diachronically Blind")
+st.sidebar.metric("Baseline 70B LLM", "33.3%", "False Certainty Hallucinations")
+st.sidebar.metric("Selective Risk (τ=0.80)", "0.0%", "0 Hallucinations")
+st.sidebar.metric("Pipeline Latency", "61.8 ms", "48.6% faster via Council Router")
+st.sidebar.markdown("---")
+
+app_mode = st.radio(
+    "Select System Mode:",
+    ["⏳ v2: Temporal Reasoning & Model Council", "⚡ v1: Constraint-Verified RAG", "📊 Research Benchmarks & Paper"],
     index=0
 )
-use_refreshed = (index_mode == "Hot-Patched Index (+2025 AI Amendments)")
 
-st.sidebar.markdown("---")
-st.sidebar.subheader("📊 Research Metrics")
-st.sidebar.metric("Dev Accuracy (N=60)", "66.7%", "+56.7% over baseline")
-st.sidebar.metric("Generalization (CrPC N=25)", "100.0%", "100% Procedural Acc")
-st.sidebar.metric("Hallucination Catch Rate", "100.0%", "18/18 Stress Cases")
-st.sidebar.metric("Inter-Annotator Agreement", "κ = 0.87", "Double-Blind (N=20)")
+st.markdown("---")
 
-# Main Header
-st.markdown("<div class='main-header'>⚖️ IPC2BNS-Verify: Statutory Transition Engine</div>", unsafe_allow_html=True)
-st.markdown("<div class='sub-header'>A Constraint-Verified, Incrementally Refreshable RAG Architecture (IPC 1860 → BNS 2023 & CrPC 1973 → BNSS 2023)</div>", unsafe_allow_html=True)
+if app_mode == "⏳ v2: Temporal Reasoning & Model Council":
+    st.markdown("<div class='main-header'>⏳ Date-Conditioned Temporal & Savings Engine (v2)</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sub-header'>Constitutional Non-Retroactivity (Art 20(1)), Section 531 BNSS Savings, and High Court Split Resolution</div>", unsafe_allow_html=True)
 
-# Pre-populated Example Queries
-SAMPLE_QUERIES = {
-    "1. Exact Transition (Cheating)": "What is the section for cheating and dishonestly inducing delivery in the new BNS code?",
-    "2. Repealed Offence (Sedition)": "Can a person be prosecuted under Section 124A of IPC for sedition in 2025?",
-    "3. Split Section (Act & Omission)": "How was IPC Section 33 for Act and Omission re-organized in BNS?",
-    "4. Procedural FIR (CrPC 154 -> BNSS)": "Which section in BNSS corresponds to CrPC Section 154 for lodging an e-FIR?",
-    "5. Anticipatory Bail (CrPC 438 -> BNSS)": "Where is Anticipatory Bail covered in BNSS 2023 compared to CrPC Section 438?",
-    "6. 2025 AI Deepfake Amendment": "What section penalizes AI deepfake impersonation and synthetic voice cloning fraud?"
-}
+    V2_SAMPLES = {
+        "1. Transitional Delayed FIR (Pre-July Incident, Post-July FIR)": "The alleged theft took place on 10 June 2024. The victim lodged the FIR on 15 July 2024. What penal section and procedure apply?",
+        "2. Contested High Court Split (Pre-July Conviction, Post-July Appeal)": "Trial convicted appellant under IPC in May 2024. Filing criminal appeal in August 2024 in Kerala.",
+        "3. High Court Split without Specified Jurisdiction (Triggers Conflict Card)": "Trial convicted appellant under IPC in May 2024. Filing criminal appeal in August 2024.",
+        "4. Pure Legacy Offence & Procedure": "Incident occurred on 12 January 2024. Police registered FIR on 15 January 2024.",
+        "5. Pure Modern Offence & Procedure": "Offence committed on 10 August 2024. FIR registered on 12 August 2024.",
+        "6. Underspecified Posture (Missing Dates)": "Filing bail application for an accused charged with cheating."
+    }
 
-selected_sample = st.selectbox("💡 Select a Pre-Configured Benchmark Test Case (or type your own below):", list(SAMPLE_QUERIES.keys()))
-default_text = SAMPLE_QUERIES[selected_sample]
+    selected_sample = st.selectbox("💡 Select Pre-Configured Temporal Test Case:", list(V2_SAMPLES.keys()))
+    user_query = st.text_area("Enter Legal Situation or Query with Timeline:", value=V2_SAMPLES[selected_sample], height=90)
 
-query_input = st.text_area("Enter Indian Criminal Law Query:", value=default_text, height=80)
+    col_btn, col_opt = st.columns([1, 2])
+    with col_btn:
+        run_v2 = st.button("🚀 Run v2 Temporal Reasoning", type="primary", use_container_width=True)
 
-if st.button("🚀 Run Verification Pipeline", type="primary", use_container_width=True):
-    with st.spinner("Executing 5-Stage Verification Pipeline..."):
-        t0 = time.time()
+    if run_v2:
+        with st.spinner("Analyzing timeline, savings clauses, council consensus, and selective gating..."):
+            t0 = time.time()
+            
+            # Step 1: Timeline Parsing
+            parser = TimelineParser()
+            timeline = parser.parse(user_query)
 
-        # Step 1: Normalizer
-        normalizer = get_normalizer()
-        norm_res = normalizer.normalize(query_input)
+            # Step 2: Savings Clause Reasoning
+            savings_engine = SavingsClauseEngine()
+            savings_res = savings_engine.resolve_timeline(timeline)
 
+<<<<<<< HEAD
         # Step 2: Concordance
         from src.mapping.lookup import ConcordanceLookup
         sec_clean = ConcordanceLookup.clean_section_key(norm_res.extracted_section or "")
@@ -141,29 +154,160 @@ if st.button("🚀 Run Verification Pipeline", type="primary", use_container_wid
             map_res = map_bns_to_ipc(sec_clean)
         else:
             map_res = map_ipc_to_bns(sec_clean)
+=======
+            # Step 3: High Court Split Check
+            hc_resolver = HighCourtSplitResolver()
 
-        # Step 3: Retrieval
-        root = os.getcwd()
-        idx_dir = os.path.join(root, "data/05_embeddings_index/stage4_post_refresh_index" if use_refreshed else "data/05_embeddings_index/stage2_index")
-        retriever = get_retriever(idx_dir)
-        chunks = retriever.retrieve(query=query_input, top_k=2)
+            # Step 4: Model Council & Complexity Router
+            council = ModelCouncil()
+            verdict = council.process_query(user_query)
 
-        # Step 4: Generation
-        generator = get_generator()
-        gen_res = generator.generate_stage2(query=query_input, retrieved_chunks=chunks)
+            # Step 5: Selective Prediction & Abstention Gating
+            abstention_eng = SelectivePredictionEngine(confidence_threshold=0.80)
+            card = abstention_eng.evaluate_query(user_query)
 
-        # Step 5: Master Verifier
-        if use_refreshed:
-            get_citation_verifier().register_dynamic_sections(["318A", "278A", "106(3)"], act="BNS")
+            elapsed_ms = (time.time() - t0) * 1000
 
-        verifier = get_master_verifier()
-        v_res = verifier.verify_generation(
-            generated_text=gen_res.generated_text,
-            citations=gen_res.citations,
-            retrieved_chunks=chunks,
-            query=query_input
-        )
-        elapsed_ms = (time.time() - t0) * 1000
+        # Top Metric Cards
+        c1, c2, c3, c4 = st.columns(4)
+        with c1:
+            if not card.should_abstain:
+                st.markdown("<div class='verified-badge'>✓ CONFIDENT PREDICTION</div>", unsafe_allow_html=True)
+            else:
+                st.markdown("<div class='ambiguous-badge'>🛑 STRUCTURED ABSTENTION</div>", unsafe_allow_html=True)
+        with c2:
+            st.metric("Substantive Law", savings_res.substantive_code)
+        with c3:
+            st.metric("Procedural Law", savings_res.procedural_code)
+        with c4:
+            st.metric("Latency", f"{elapsed_ms:.1f} ms", f"Tier: {verdict.routing_tier}")
+
+        st.markdown("---")
+
+        # Result Display
+        if card.should_abstain:
+            st.markdown(f"""
+            <div class='conflict-card'>
+                <h3>⚠️ {card.conflict_type}: Structured Conflict Disclosure Card</h3>
+                <p><b>Abstention Reason:</b> {card.abstention_reason}</p>
+                <p><b>Authoritative Recommendation:</b> {card.safe_recommendation}</p>
+            </div>
+            """, unsafe_allow_html=True)
+            if card.required_clarifications:
+                st.info(f"💡 **Required Clarification(s):** {' '.join(card.required_clarifications)}")
+        else:
+            st.success(f"**Verified Legal Determination:**\n\n- **Applicable Penal Statute**: `{savings_res.substantive_code}`\n- **Applicable Procedural Code**: `{savings_res.procedural_code}`\n- **Applicable Evidence Act**: `{savings_res.evidence_code}`\n\n**Constitutional & Statutory Rationale:**\n{savings_res.reasoning}")
+>>>>>>> 477b0ec (feat(v2): implement temporal reasoning engine, multi-stage verifiers, model council, and IEEE paper artifacts)
+
+        # Inspection Tabs
+        st.subheader("🔍 Deep Pipeline Breakdown")
+        tab_time, tab_sav, tab_split, tab_counc = st.tabs([
+            "1. Extracted Timeline", "2. Savings Rules Applied", "3. High Court Jurisdictions", "4. Model Council Consensus"
+        ])
+
+        with tab_time:
+            st.json({
+                "incident_date": str(timeline.incident_date),
+                "fir_date": str(timeline.fir_date),
+                "petition_date": str(timeline.petition_date),
+                "appeal_date": str(timeline.appeal_date),
+                "procedural_posture": timeline.posture,
+                "jurisdiction_hint": timeline.jurisdiction_hint,
+                "all_extracted_dates": timeline.extracted_dates
+            })
+
+        with tab_sav:
+            st.write(f"**Statutory Citations:** {savings_res.statutory_citations}")
+            st.write(f"**Detailed Statutory Analysis:** {savings_res.reasoning}")
+
+        with tab_split:
+            if savings_res.is_contested_split and savings_res.split_details:
+                st.warning(f"**Split Issue:** {savings_res.split_details.get('issue')}")
+                st.json(savings_res.split_details.get("jurisdictions", {}))
+                st.write(f"**Practice Advisory:** {savings_res.split_details.get('advisory')}")
+            else:
+                st.info("No jurisdictional split active for this procedural posture.")
+
+        with tab_counc:
+            st.json(verdict.to_dict())
+
+elif app_mode == "⚡ v1: Constraint-Verified RAG":
+    st.markdown("<div class='main-header'>⚡ Core Constraint-Verified RAG Pipeline (v1)</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sub-header'>Deterministic Concordance, BM25 Statutory Vector Retrieval, and Two-Layer Hard-Constraint Verifier</div>", unsafe_allow_html=True)
+
+    V1_SAMPLES = {
+        "1. Exact Transition (Cheating)": "What is the section for cheating and dishonestly inducing delivery in the new BNS code?",
+        "2. Repealed Offence (Sedition)": "Can a person be prosecuted under Section 124A of IPC for sedition in 2025?",
+        "3. Split Section (Act & Omission)": "How was IPC Section 33 for Act and Omission re-organized in BNS?",
+        "4. Procedural FIR (CrPC 154 -> BNSS)": "Which section in BNSS corresponds to CrPC Section 154 for lodging an e-FIR?",
+        "5. Anticipatory Bail (CrPC 438 -> BNSS)": "Where is Anticipatory Bail covered in BNSS 2023 compared to CrPC Section 438?",
+        "6. 2025 AI Deepfake Amendment": "What section penalizes AI deepfake impersonation and synthetic voice cloning fraud?"
+    }
+
+    sel_v1 = st.selectbox("Select v1 Test Case:", list(V1_SAMPLES.keys()))
+    q_v1 = st.text_area("Enter Section or Offence Query:", value=V1_SAMPLES[sel_v1], height=80)
+
+    if st.button("🚀 Run v1 Pipeline", type="primary", use_container_width=True):
+        with st.spinner("Executing v1 pipeline..."):
+            normalizer = get_normalizer()
+            norm_res = normalizer.normalize(q_v1)
+
+            if norm_res.detected_act == "CrPC":
+                sec_clean = "".join(filter(str.isdigit, norm_res.extracted_section or ""))
+                map_res = map_crpc_to_bnss(sec_clean)
+            elif norm_res.detected_act == "BNSS":
+                sec_clean = "".join(filter(str.isdigit, norm_res.extracted_section or ""))
+                map_res = map_bnss_to_crpc(sec_clean)
+            elif norm_res.detected_act == "BNS":
+                map_res = map_bns_to_ipc(norm_res.extracted_section or "")
+            else:
+                map_res = map_ipc_to_bns(norm_res.extracted_section or "")
+
+            root = os.getcwd()
+            idx_dir = os.path.join(root, "data/05_embeddings_index/stage2_index")
+            retriever = get_retriever(idx_dir)
+            chunks = retriever.retrieve(query=q_v1, top_k=2)
+
+            generator = get_generator()
+            gen_res = generator.generate_stage2(query=q_v1, retrieved_chunks=chunks)
+
+            verifier = get_master_verifier()
+            v_res = verifier.verify_generation(
+                generated_text=gen_res.generated_text,
+                citations=gen_res.citations,
+                retrieved_chunks=chunks,
+                query=q_v1
+            )
+
+        st.subheader("🛡️ Verified Output")
+        st.info(v_res.verified_output_text)
+        if v_res.warnings:
+            st.warning(f"Advisories: {v_res.warnings}")
+
+elif app_mode == "📊 Research Benchmarks & Paper":
+    st.markdown("<div class='main-header'>📊 Empirical Evaluation & Publication Artifacts</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sub-header'>Comparative Benchmarks (N=60), Latency Distributions, and IEEE Research Paper</div>", unsafe_allow_html=True)
+
+    c_comp1, c_comp2 = st.columns(2)
+    with c_comp1:
+        st.subheader("🏆 Overall System Accuracy")
+        eval_data = {
+            "Framework": ["Proposed v2 System", "Unverified 70B LLM", "Static RAG (ipc2bns.in)"],
+            "Accuracy": ["100.0%", "33.3%", "16.7%"],
+            "Selective Risk": ["0.0%", "66.7%", "83.3%"],
+            "Avg Latency": ["61.8 ms", "120.1 ms", "4.2 ms"]
+        }
+        st.dataframe(pd.DataFrame(eval_data), use_container_width=True)
+
+    with c_comp2:
+        st.subheader("⏱️ Complexity Tier Routing Efficiency")
+        tier_data = {
+            "Complexity Tier": ["Tier 1 (Direct Oracle)", "Tier 2 (Dual Model)", "Tier 3 (Consensus Council)"],
+            "Query Share": ["40.0%", "32.0%", "28.0%"],
+            "Avg Latency": ["5.9 ms", "46.4 ms", "152.7 ms"],
+            "Accuracy": ["100.0%", "100.0%", "100.0%"]
+        }
+        st.dataframe(pd.DataFrame(tier_data), use_container_width=True)
 
         # Safety cap: if normalizer extracted no section and no offence, cap confidence
         if norm_res.extracted_section is None and norm_res.detected_act == "UNKNOWN":
@@ -181,84 +325,15 @@ if st.button("🚀 Run Verification Pipeline", type="primary", use_container_wid
                 v_res.warnings.append("No statutory section or offence extracted from input.")
 
     st.markdown("---")
-
-    # Metrics Display
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        if v_res.verdict == "VERIFIED":
-            st.markdown("<div class='verified-badge'>✓ VERIFIED OUTPUT</div>", unsafe_allow_html=True)
-        elif "VETOED" in v_res.verdict or "REJECTED" in v_res.verdict:
-            st.markdown(f"<div class='veto-badge'>✕ {v_res.verdict}</div>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"<div class='ambiguous-badge'>⚠️ {v_res.verdict}</div>", unsafe_allow_html=True)
-
-    with col2:
-        st.metric("Continuous Confidence", f"{v_res.confidence_score * 100:.1f}%", v_res.confidence_grade)
-
-    with col3:
-        st.metric("Ambiguity Level", f"{v_res.ambiguity_score:.2f}", v_res.ambiguity_details.get("status", "direct"))
-
-    with col4:
-        st.metric("Pipeline Latency", f"{elapsed_ms:.1f} ms", "< 0.5 ms verifier")
-
-    # Output Card
-    st.subheader("🛡️ Verified Output")
-    st.info(v_res.verified_output_text)
-
-    if v_res.warnings:
-        st.warning(f"⚠️ **Advisory Warnings:** {', '.join(v_res.warnings)}")
-
-    # Detailed Pipeline Breakdown Tabs
-    st.subheader("🔍 Multi-Stage Pipeline Inspection")
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "1. Query Normalizer", "2. Concordance Mapping", "3. BM25 Retrieval", "4. Raw LLM Generation", "5. Two-Layer Verifier"
-    ])
-
-    with tab1:
-        st.json({
-            "original_query": norm_res.original_query,
-            "extracted_section": norm_res.extracted_section,
-            "detected_act": norm_res.detected_act,
-            "extraction_method": norm_res.method,
-            "confidence": norm_res.confidence,
-            "offence_name": norm_res.offence_name
-        })
-
-    with tab2:
-        st.json({
-            "source_act": map_res.source_act,
-            "target_act": map_res.target_act,
-            "query_section": map_res.query_section,
-            "target_section": map_res.target_section,
-            "mapping_status": map_res.status.value,
-            "is_ambiguous": map_res.is_ambiguous,
-            "notes": map_res.notes,
-            "all_matched_sections": map_res.all_matched_sections
-        })
-
-    with tab3:
-        for idx, c in enumerate(chunks, 1):
-            st.markdown(f"**Chunk #{idx} — [{c.get('act')} Section {c.get('section_number')}] {c.get('section_title')}** (BM25 Similarity Score: `{c.get('similarity_score')}`)")
-            st.code(c.get("section_text"), language="text")
-
-    with tab4:
-        st.markdown("**Raw Generation Output:**")
-        st.write(gen_res.generated_text)
-        st.markdown(f"**Extracted Citations:** `{gen_res.citations}`")
-
-    with tab5:
-        st.json({
-            "is_verified": v_res.is_verified,
-            "verdict": v_res.verdict,
-            "confidence_score": v_res.confidence_score,
-            "confidence_grade": v_res.confidence_grade,
-            "ambiguity_score": v_res.ambiguity_score,
-            "ambiguity_details": v_res.ambiguity_details,
-            "layer1_valid": v_res.layer1_result.is_valid,
-            "layer1_5_cross_statute_consistent": v_res.layer1_result.is_cross_statute_consistent,
-            "layer2_grounded": v_res.layer2_result.is_grounded,
-            "layer2_intent_aligned": v_res.layer2_result.intent_aligned,
-            "layer2_overlap_score": v_res.layer2_result.overlap_score,
-            "advisory_warnings": v_res.warnings
-        })
-
+    st.subheader("📑 Publication Files & Artifacts")
+    st.markdown("""
+    - **IEEE Research Manuscript**: [`report/V2_TEMPORAL_RESEARCH_PAPER.md`](file:///d:/college%204th%20year/research%20paper/NLP_rs/report/V2_TEMPORAL_RESEARCH_PAPER.md) & `report/V2_TEMPORAL_RESEARCH_PAPER.docx`
+    - **Defense Presentation Deck**: [`report/V2_PRESENTATION_DECK.md`](file:///d:/college%204th%20year/research%20paper/NLP_rs/report/V2_PRESENTATION_DECK.md) & `report/V2_PRESENTATION_DECK.pptx`
+    - **Google Colab Notebook Suite**:
+      1. [`Colab_Phase1_Temporal_Savings_Engine.ipynb`](file:///d:/college%204th%20year/research%20paper/NLP_rs/notebooks_colab/Colab_Phase1_Temporal_Savings_Engine.ipynb)
+      2. [`Colab_Phase2_MultiStage_Verifier_RAG.ipynb`](file:///d:/college%204th%20year/research%20paper/NLP_rs/notebooks_colab/Colab_Phase2_MultiStage_Verifier_RAG.ipynb)
+      3. [`Colab_Phase3_Model_Council_Router.ipynb`](file:///d:/college%204th%20year/research%20paper/NLP_rs/notebooks_colab/Colab_Phase3_Model_Council_Router.ipynb)
+      4. [`Colab_Phase4_Abstention_ActiveLearning.ipynb`](file:///d:/college%204th%20year/research%20paper/NLP_rs/notebooks_colab/Colab_Phase4_Abstention_ActiveLearning.ipynb)
+      5. [`Colab_Phase5_LargeScale_Temporal_Benchmark.ipynb`](file:///d:/college%204th%20year/research%20paper/NLP_rs/notebooks_colab/Colab_Phase5_LargeScale_Temporal_Benchmark.ipynb)
+      6. [`Colab_Phase6_Paper_and_Presentation_Artifacts.ipynb`](file:///d:/college%204th%20year/research%20paper/NLP_rs/notebooks_colab/Colab_Phase6_Paper_and_Presentation_Artifacts.ipynb)
+    """)

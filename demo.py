@@ -1,12 +1,9 @@
 """
-demo.py — Interactive Live Showcase of IPC2BNS-Verify
+demo.py — Interactive Live Showcase of IPC2BNS-Verify (v1 & v2)
 
-Demonstrates end-to-end execution of the full pipeline:
-1. Query Normalization & Deterministic Concordance Mapping
-2. Bare-Act Vector Retrieval (with live BM25 similarity scoring)
-3. Generative Statutory Answering
-4. Two-Layer Hard-Constraint Verifier (with Intent Alignment & Repeal Vetoes)
-5. Incremental Refresh Adaptivity for New Amendments
+Demonstrates end-to-end execution of:
+1. Core V1 Pipeline: Query Normalization, Deterministic Concordance, BM25 Retrieval, LLM Generation, Two-Layer Hard-Constraint Verifier.
+2. Advanced V2 Pipeline: Natural Language Timeline Extraction, Savings Clause Engine (Art 20(1) & Sec 531 BNSS), High Court Split Resolver, Discrete Multi-Stage Gated Verifiers, and Confidence-Calibrated Selective Prediction.
 """
 
 import os
@@ -24,10 +21,18 @@ from src.generation.prompt_template import LegalPromptBuilder
 from src.verifier.verifier_pipeline import get_master_verifier
 from src.verifier.citation_check import get_citation_verifier
 
+from src.temporal.timeline_parser import TimelineParser
+from src.temporal.savings_clause_engine import SavingsClauseEngine
+from src.temporal.hc_split_resolver import HighCourtSplitResolver
+from src.verifier.stage_leakage_verifier import StageLeakageVerifier
+from src.council.router import QueryRouter
+from src.council.model_council import ModelCouncil
+from src.temporal.abstention_engine import SelectivePredictionEngine
 
-def run_pipeline_demo(query: str, target_act: str = "BNS", use_refreshed_index: bool = False):
+
+def run_v1_pipeline_demo(query: str, target_act: str = "BNS", use_refreshed_index: bool = False):
     print("=" * 80)
-    print(f"[>] USER QUERY: \"{query}\"")
+    print(f"[v1] USER QUERY: \"{query}\"")
     print("=" * 80)
 
     # 1. Query Normalization
@@ -80,28 +85,91 @@ def run_pipeline_demo(query: str, target_act: str = "BNS", use_refreshed_index: 
     print("\n")
 
 
+def run_v2_temporal_demo(query: str, jurisdiction: str = None):
+    print("=" * 80)
+    print(f"[v2 TEMPORAL & COUNCIL] USER QUERY: \"{query}\"")
+    print("=" * 80)
+
+    # 1. Timeline Parsing
+    parser = TimelineParser()
+    temporal_ctx = parser.parse(query)
+    print(f"1. [Timeline Parser]:")
+    print(f"   Incident Date     : {temporal_ctx.incident_date}")
+    print(f"   FIR Date          : {temporal_ctx.fir_date}")
+    print(f"   Procedural Posture: {temporal_ctx.posture}")
+
+    # 2. Savings Clause Reasoning
+    savings_engine = SavingsClauseEngine()
+    savings_res = savings_engine.resolve_timeline(temporal_ctx)
+    print(f"\n2. [Savings Clause & Non-Retroactivity Engine]:")
+    print(f"   Substantive Law   : {savings_res.substantive_code}")
+    print(f"   Procedural Law    : {savings_res.procedural_code}")
+    print(f"   Evidence Law      : {savings_res.evidence_code}")
+    print(f"   Statutory Citations: {savings_res.statutory_citations}")
+    print(f"   Rationale         : {savings_res.reasoning}")
+
+    # 3. High Court Split Resolution (if applicable)
+    if savings_res.is_contested_split and savings_res.split_details:
+        print(f"\n3. [High Court Split Detected]: {savings_res.split_details.get('issue', '')}")
+        jur_breakdown = savings_res.split_details.get("jurisdictions", {})
+        if jurisdiction and jurisdiction in jur_breakdown:
+            match = jur_breakdown[jurisdiction]
+            print(f"   Jurisdiction Rule ({jurisdiction}): {match.get('position')} (Precedent: {match.get('case')})")
+        else:
+            print(f"   Multi-Jurisdiction Divergence:")
+            for jur_name, jur_info in jur_breakdown.items():
+                print(f"     - {jur_name}: {jur_info.get('position')} ({jur_info.get('case')})")
+            print(f"   Advisory: {savings_res.split_details.get('advisory', '')}")
+
+    # 4. Complexity Router & Multi-Model Council
+    council = ModelCouncil()
+    council_res = council.process_query(query)
+    print(f"\n4. [Learned Query Router & Multi-Model Council]:")
+    print(f"   Complexity Tier   : {council_res.routing_tier}")
+    print(f"   Consensus Reached : {council_res.consensus_reached} (Confidence: {council_res.consensus_confidence * 100:.1f}%)")
+    print(f"   From Disk Cache   : {council_res.from_cache}")
+    print(f"   Primary Citations : {council_res.primary_citations}")
+    if council_res.dissenting_opinions:
+        print(f"   Dissenting Opinions: {len(council_res.dissenting_opinions)} dissent(s) logged.")
+
+    # 5. Selective Prediction & Abstention Gating
+    abstention_eng = SelectivePredictionEngine(confidence_threshold=0.80)
+    card = abstention_eng.evaluate_query(query)
+    print(f"\n5. [Selective Prediction & Output Gating]:")
+    print(f"   Should Abstain    : {card.should_abstain}")
+    print(f"   Confidence Score  : {card.confidence_score * 100:.1f}% (Tau Threshold: {abstention_eng.tau * 100:.0f}%)")
+    if card.should_abstain:
+        print(f"   Abstention Reason : {card.abstention_reason}")
+        print(f"   Conflict Type     : {card.conflict_type}")
+        print(f"   Safe Recommendation: {card.safe_recommendation}")
+        if card.required_clarifications:
+            print(f"   Clarifications Needed: {card.required_clarifications}")
+    else:
+        print(f"   Delivered Output  : Query confidently resolved under {savings_res.substantive_code} & {savings_res.procedural_code}.")
+    print("\n")
+
+
 def main():
     print("\n" + "#" * 80)
-    print("      IPC2BNS-VERIFY: END-TO-END PIPELINE LIVE DEMONSTRATION")
+    print("      IPC2BNS-VERIFY (v1 & v2): LIVE CAPABILITY DEMONSTRATION")
     print("#" * 80 + "\n")
 
-    test_queries = [
-        # Example 1: Standard Renumbered Section (Cheating IPC 420 -> BNS 318)
-        ("What is the section for cheating and dishonestly inducing delivery in the new BNS code?", "BNS", False),
+    print(">>> PART 1: CORE STATUTORY TRANSITIONS (v1 Baseline & Verifier)")
+    run_v1_pipeline_demo("What is the section for cheating and dishonestly inducing delivery in the new BNS code?")
+    run_v1_pipeline_demo("Can a person be prosecuted under Section 124A of IPC for sedition in 2025?")
 
-        # Example 2: Repealed Sedition Section (IPC 124A) -> Triggers Verifier Veto
-        ("Can a person be prosecuted under Section 124A of IPC for sedition in 2025?", "BNS", False),
+    print("\n" + "=" * 80)
+    print(">>> PART 2: TEMPORAL LEGAL REASONING & HIGH COURT SPLITS (v2 Breakthrough)")
+    print("=" * 80)
 
-        # Example 3: Split Section (IPC 33 -> BNS 2(1) & 2(25)) -> Triggers Ambiguity Grading
-        ("How was IPC Section 33 for Act and Omission re-organized in BNS?", "BNS", False),
+    # Example A: Transitional Delayed FIR (Pre-July incident, Post-July FIR)
+    run_v2_temporal_demo("The alleged theft took place on 10 June 2024. The victim lodged the FIR on 15 July 2024. What penal section and procedure apply?")
 
-        # Example 4: Novel 2025 Amendment -> Tested with Incremental Refresh Index
-        ("What section penalizes AI deepfake impersonation and synthetic voice cloning fraud?", "BNS", True),
-    ]
+    # Example B: Contested High Court Split on Pending Appeal
+    run_v2_temporal_demo("Trial convicted appellant under IPC in May 2024. Filing criminal appeal in August 2024 in Kerala.")
 
-    for q, act, refresh in test_queries:
-        run_pipeline_demo(q, target_act=act, use_refreshed_index=refresh)
-
+    # Example C: Unresolved High Court Split without jurisdiction (Triggers Conflict Card Abstention)
+    run_v2_temporal_demo("Trial convicted appellant under IPC in May 2024. Filing criminal appeal in August 2024.")
 
 
 if __name__ == "__main__":

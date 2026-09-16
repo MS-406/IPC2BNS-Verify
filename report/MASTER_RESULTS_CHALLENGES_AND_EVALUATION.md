@@ -195,7 +195,7 @@ All evaluations dynamically differentiate between the full dataset sample ($N=50
 
 ### Challenge 1: Historical Pre-Training Inertia
 - **The Problem:** Because foundation LLMs are trained on historical legal text, prompting them with *"What is the punishment for murder in India?"* reliably produces `IPC Section 302`. Closed-book models scored **10.0% accuracy**.
-- **The Solution:** Concordance-assisted hybrid statutory retrieval injects the authoritative bare-act chunk of `BNS Section 103` into the prompt context, boosting accuracy by $+53.3\%$ ($10.0\% \rightarrow 63.3\%$).
+- **The Solution:** Concordance-assisted hybrid statutory retrieval injects the authoritative bare-act chunk of `BNS Section 103` into the prompt context, boosting accuracy by $+56.7\%$ ($10.0\% \rightarrow 66.7\%$).
 
 ### Challenge 2: Dense Embedding Semantic Collisions
 - **The Problem:** General dense vector embedders (e.g. Ada-002, BERT) map semantically identical offences (e.g., IPC §302 Murder vs BNS §103 Murder, or IPC §302 Murder vs IPC §304 Culpable Homicide) to virtually identical dense vector coordinates ($>0.92$ cosine similarity). A dense retriever cannot reliably distinguish section numbers.
