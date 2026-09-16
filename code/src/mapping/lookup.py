@@ -149,6 +149,24 @@ class ConcordanceLookup:
         """
         clean_key = self.clean_section_key(ipc_section)
         if not clean_key or clean_key not in self.ipc_to_bns_index:
+            # If section number exceeds valid IPC boundary (1-511), immediately return NOT_FOUND
+            num_part = "".join(filter(str.isdigit, clean_key))
+            if num_part and int(num_part) > 511:
+                return MappingResult(
+                    query_section=clean_key,
+                    target_section=None,
+                    source_act="IPC",
+                    target_act="BNS",
+                    source_title="",
+                    target_title="",
+                    status=MappingStatus.NOT_FOUND,
+                    is_ambiguous=False,
+                    notes=f"IPC Section {clean_key} does not exist in the Indian Penal Code (IPC has sections 1-511).",
+                    source_provenance="not_found",
+                    verified=True,
+                    all_matched_sections=[]
+                )
+
             # Fallback: Attempt dynamic statutory index resolution if section exists in corpus
             if clean_key:
                 try:

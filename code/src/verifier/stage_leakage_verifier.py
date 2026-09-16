@@ -389,3 +389,98 @@ class StageLeakageVerifier:
             remediation_suggestion=None if is_all_passed else "Ungrounded penal ingredient or low factual overlap with statute text.",
             sanitized_output=candidate_response if is_all_passed else "[VERIFICATION CAUTION: Output partially ungrounded.]"
         )
+
+    # -------------------------------------------------------------------------
+    # CONVENIENCE HELPERS FOR CELL-BY-CELL TESTING
+    # -------------------------------------------------------------------------
+    def verify_stage1_timeline(self, timeline_input: Any) -> Dict[str, Any]:
+        """Convenience method for Stage 1 testing accepting dict or ExtractedTimeline."""
+        if isinstance(timeline_input, ExtractedTimeline):
+            rep = self.verify_stage1_temporal(timeline_input)
+        elif isinstance(timeline_input, dict):
+            # Parse dates if string
+            inc = timeline_input.get("incident_date")
+            fir = timeline_input.get("fir_date")
+            if isinstance(inc, str):
+                parts = [int(p) for p in inc.split("-")]
+                inc = date(parts[0], parts[1], parts[2])
+            if isinstance(fir, str):
+                parts = [int(p) for p in fir.split("-")]
+                fir = date(parts[0], parts[1], parts[2])
+            tl = ExtractedTimeline(raw_query="", incident_date=inc, fir_date=fir)
+            rep = self.verify_stage1_temporal(tl)
+        else:
+            rep = StageVerificationReport(stage_name="Stage1", is_passed=False, confidence=0.0)
+
+        return {
+            "passed": rep.is_passed,
+            "confidence": rep.confidence,
+            "error_type": rep.error_type,
+            "reason": rep.warnings[0] if rep.warnings else None,
+            "report": rep
+        }
+
+    def verify_stage2_retrieval_scope(self, target_regime: str, retrieved_chunks: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Convenience method for Stage 2 testing."""
+        is_legacy = "legacy" in target_regime.lower() or "ipc" in target_regime.lower()
+        sub_code = "IPC_1860" if is_legacy else "BNS_2023"
+        proc_code = "CRPC_1973" if is_legacy else "BNSS_2023"
+        
+        dummy_tl = ExtractedTimeline(raw_query="")
+        dummy_res = TemporalResolution(
+            raw_query="",
+            timeline=dummy_tl,
+            substantive_code=sub_code,
+            procedural_code=proc_code,
+            evidence_code="IEA_1872" if is_legacy else "BSA_2023",
+            is_contested_split=False
+        )
+        rep = self.verify_stage2_retrieval(dummy_res, retrieved_chunks)
+        return {
+            "passed": rep.is_passed,
+            "confidence": rep.confidence,
+            "error_type": rep.error_type,
+            "reason": rep.warnings[0] if rep.warnings else None,
+            "report": rep
+        }
+
+    def verify_stage3_citations(self, citations: Any, is_post_july_offence: bool = True) -> Dict[str, Any]:
+        """Convenience method for Stage 3 testing."""
+        dummy_tl = ExtractedTimeline(raw_query="")
+        sub_code = "BNS_2023" if is_post_july_offence else "IPC_1860"
+        dummy_res = TemporalResolution(
+            raw_query="",
+            timeline=dummy_tl,
+            substantive_code=sub_code,
+            procedural_code="BNSS_2023" if is_post_july_offence else "CRPC_1973",
+            evidence_code="BSA_2023" if is_post_july_offence else "IEA_1872",
+            is_contested_split=False
+        )
+        if isinstance(citations, list):
+            text_rep = " ".join(str(c) for c in citations)
+        else:
+            text_rep = str(citations)
+
+        rep = self.verify_stage3_concordance(text_rep, dummy_res)
+        return {
+            "passed": rep.is_passed,
+            "confidence": rep.confidence,
+            "error_type": rep.error_type,
+            "reason": rep.warnings[0] if rep.warnings else None,
+            "report": rep
+        }
+
+    def verify_stage4_grounding_claim(self, generated_claim: str, statutory_text: str) -> Dict[str, Any]:
+        """Convenience method for Stage 4 testing with direct text."""
+        chunks = [{"section_title": "Statute", "section_text": statutory_text}]
+        res = self.grounding_verifier.verify_grounding(
+            generated_text=generated_claim,
+            retrieved_chunks=chunks,
+            query=""
+        )
+        return {
+            "passed": res.is_grounded,
+            "overlap_score": res.overlap_score,
+            "intent_aligned": res.intent_aligned,
+            "reason": res.intent_mismatches[0] if res.intent_mismatches else ("Low overlap" if not res.is_grounded else None)
+        }
