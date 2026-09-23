@@ -1,0 +1,46 @@
+# Phase 10: Experiment Matrix
+# Defines all configurations to run in the benchmarking framework.
+
+experiments:
+  - experiment_id: "baseline_exact"
+    retriever: "none"
+    encoder: "none"
+    sequence_model: "none"
+    rag_enabled: false
+    # baselines are handled separately in the runner script
+    
+  - experiment_id: "retrieval_bm25"
+    retriever: "bm25"
+    encoder: "none"
+    sequence_model: "none"
+    rag_enabled: false
+
+  - experiment_id: "retrieval_tfidf"
+    retriever: "tfidf"
+    encoder: "none"
+    sequence_model: "none"
+    rag_enabled: false
+    
+  - experiment_id: "retrieval_dense_sbert"
+    retriever: "dense"
+    encoder: "sentence_transformer"
+    sequence_model: "none"
+    rag_enabled: false
+    
+  - experiment_id: "retrieval_hybrid_sbert"
+    retriever: "hybrid"
+    encoder: "sentence_transformer"
+    sequence_model: "none"
+    rag_enabled: false
+
+  - experiment_id: "lstm_sbert"
+    retriever: "none"
+    encoder: "sentence_transformer"
+    sequence_model: "lstm"
+    rag_enabled: false
+    
+  - experiment_id: "rag_bm25"
+    retriever: "bm25"
+    encoder: "none"
+    sequence_model: "none"
+    rag_enabled: true
