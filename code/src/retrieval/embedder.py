@@ -19,6 +19,15 @@ from typing import List, Dict, Any, Optional, Tuple
 from collections import Counter
 import re
 
+try:
+    from sentence_transformers import SentenceTransformer
+    from sklearn.metrics.pairwise import cosine_similarity
+    import numpy as np
+except ImportError:
+    SentenceTransformer = None
+    cosine_similarity = None
+    np = None
+
 # Ensure code directory is on sys.path
 code_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if code_dir not in sys.path:
@@ -221,6 +230,94 @@ class LocalStatutoryVectorIndex:
         ]
         return instance
 
+class DenseStatutoryVectorIndex:
+    """
+    Dense semantic vector index using sentence-transformers.
+    """
+    def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
+        self.model_name = model_name
+        self.chunks: List[StatutoryChunk] = []
+        self.chunk_ids: List[str] = []
+        self.embeddings = None
+        self.model = None
+
+    def _load_model(self):
+        if self.model is None:
+            if SentenceTransformer is None:
+                raise ImportError("sentence-transformers is required for DenseStatutoryVectorIndex")
+            log.info(f"Loading SentenceTransformer model: {self.model_name}")
+            self.model = SentenceTransformer(self.model_name)
+
+    def build_index(self, chunks: List[StatutoryChunk]):
+        self._load_model()
+        self.chunks = chunks
+        self.chunk_ids = [c.chunk_id for c in chunks]
+        
+        texts_to_embed = []
+        for chunk in chunks:
+            text = f"{chunk.act} Section {chunk.section_number}: {chunk.section_title}. {chunk.section_text}"
+            texts_to_embed.append(text)
+            
+        log.info(f"Computing dense embeddings for {len(texts_to_embed)} chunks...")
+        self.embeddings = self.model.encode(texts_to_embed, show_progress_bar=True, convert_to_numpy=True)
+        log.info(f"Built dense vector index of shape {self.embeddings.shape}")
+
+    def search(self, query: str, top_k: int = 5, act_filter: Optional[str] = None) -> List[Tuple[StatutoryChunk, float]]:
+        self._load_model()
+        query_embedding = self.model.encode([query], convert_to_numpy=True)
+        similarities = cosine_similarity(query_embedding, self.embeddings)[0]
+        
+        results = []
+        for idx in range(len(self.chunks)):
+            chunk = self.chunks[idx]
+            if act_filter and chunk.act != act_filter.upper():
+                continue
+            score = float(similarities[idx])
+            results.append((chunk, score))
+            
+        results.sort(key=lambda x: x[1], reverse=True)
+        return results[:top_k]
+
+    def save(self, index_dir: str):
+        os.makedirs(index_dir, exist_ok=True)
+        index_data = {
+            "chunks": [c.to_dict() for c in self.chunks],
+            "chunk_ids": self.chunk_ids,
+            "embeddings": self.embeddings,
+            "model_name": self.model_name
+        }
+        with open(os.path.join(index_dir, "dense_index.pkl"), "wb") as f:
+            pickle.dump(index_data, f)
+        log.info(f"Saved dense vector index to {index_dir}")
+
+    @classmethod
+    def load(cls, index_dir: str) -> "DenseStatutoryVectorIndex":
+        index_file = os.path.join(index_dir, "dense_index.pkl")
+        if not os.path.exists(index_file):
+            raise FileNotFoundError(f"Dense index file not found at: {index_file}")
+
+        with open(index_file, "rb") as f:
+            data = pickle.load(f)
+
+        instance = cls(model_name=data.get("model_name", "all-MiniLM-L6-v2"))
+        instance.chunk_ids = data["chunk_ids"]
+        instance.embeddings = data["embeddings"]
+        instance.chunks = [
+            StatutoryChunk(
+                chunk_id=c["chunk_id"],
+                act=c["act"],
+                act_full_name=c["act_full_name"],
+                section_number=c["section_number"],
+                section_title=c["section_title"],
+                section_text=c["section_text"],
+                chapter=c.get("chapter", ""),
+                effective_start=c.get("effective_date_range", {}).get("start", ""),
+                effective_end=c.get("effective_date_range", {}).get("end", ""),
+                metadata=c.get("metadata", {})
+            )
+            for c in data["chunks"]
+        ]
+        return instance
 
 def build_and_save_index(cleaned_dir: str, output_index_dir: str) -> LocalStatutoryVectorIndex:
     all_chunks_dict = load_all_chunks(cleaned_dir)
@@ -230,6 +327,16 @@ def build_and_save_index(cleaned_dir: str, output_index_dir: str) -> LocalStatut
     index = LocalStatutoryVectorIndex()
     index.build_index(all_chunks)
     index.save(output_index_dir)
+    
+    # Try to build dense index if available
+    try:
+        if SentenceTransformer is not None:
+            dense_index = DenseStatutoryVectorIndex()
+            dense_index.build_index(all_chunks)
+            dense_index.save(output_index_dir)
+    except Exception as e:
+        log.warning(f"Could not build dense index: {e}")
+        
     return index
 
 

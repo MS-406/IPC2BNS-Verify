@@ -21,7 +21,7 @@ if CODE_DIR not in sys.path:
     sys.path.insert(0, CODE_DIR)
 
 from src.ingestion.chunker import StatutoryChunk
-from src.retrieval.embedder import LocalStatutoryVectorIndex
+from src.retrieval.embedder import LocalStatutoryVectorIndex, DenseStatutoryVectorIndex
 from src.retrieval.query_expander import get_query_expander, ConcordanceQueryExpander
 
 
@@ -135,7 +135,12 @@ class HybridStatutoryRetriever:
             self.bm25_index = build_and_save_index(cleaned, self.index_dir)
 
         if self.bm25_index:
-            self.dense_retriever = DenseSemanticRetriever(self.bm25_index)
+            try:
+                self.dense_retriever = DenseStatutoryVectorIndex.load(self.index_dir)
+            except (FileNotFoundError, ImportError) as e:
+                import logging
+                logging.getLogger("hybrid_retriever").warning(f"Could not load real Dense vector index ({e}), falling back to simulated.")
+                self.dense_retriever = DenseSemanticRetriever(self.bm25_index)
 
     @property
     def index(self):

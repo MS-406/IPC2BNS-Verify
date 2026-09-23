@@ -142,19 +142,21 @@ if app_mode == "⏳ v2: Temporal Reasoning & Model Council":
             savings_engine = SavingsClauseEngine()
             savings_res = savings_engine.resolve_timeline(timeline)
 
-<<<<<<< HEAD
-        # Step 2: Concordance
-        from src.mapping.lookup import ConcordanceLookup
-        sec_clean = ConcordanceLookup.clean_section_key(norm_res.extracted_section or "")
-        if norm_res.detected_act == "CrPC":
-            map_res = map_crpc_to_bnss(sec_clean)
-        elif norm_res.detected_act == "BNSS":
-            map_res = map_bnss_to_crpc(sec_clean)
-        elif norm_res.detected_act == "BNS":
-            map_res = map_bns_to_ipc(sec_clean)
-        else:
-            map_res = map_ipc_to_bns(sec_clean)
-=======
+            # Normalizer for Concordance Extraction
+            normalizer = get_normalizer()
+            norm_res = normalizer.normalize(user_query)
+
+            # Step 3: Concordance
+            from src.mapping.lookup import ConcordanceLookup
+            sec_clean = ConcordanceLookup.clean_section_key(norm_res.extracted_section or "")
+            if norm_res.detected_act == "CrPC":
+                map_res = map_crpc_to_bnss(sec_clean)
+            elif norm_res.detected_act == "BNSS":
+                map_res = map_bnss_to_crpc(sec_clean)
+            elif norm_res.detected_act == "BNS":
+                map_res = map_bns_to_ipc(sec_clean)
+            else:
+                map_res = map_ipc_to_bns(sec_clean)
             # Step 3: High Court Split Check
             hc_resolver = HighCourtSplitResolver()
 
@@ -197,8 +199,6 @@ if app_mode == "⏳ v2: Temporal Reasoning & Model Council":
                 st.info(f"💡 **Required Clarification(s):** {' '.join(card.required_clarifications)}")
         else:
             st.success(f"**Verified Legal Determination:**\n\n- **Applicable Penal Statute**: `{savings_res.substantive_code}`\n- **Applicable Procedural Code**: `{savings_res.procedural_code}`\n- **Applicable Evidence Act**: `{savings_res.evidence_code}`\n\n**Constitutional & Statutory Rationale:**\n{savings_res.reasoning}")
->>>>>>> 477b0ec (feat(v2): implement temporal reasoning engine, multi-stage verifiers, model council, and IEEE paper artifacts)
-
         # Inspection Tabs
         st.subheader("🔍 Deep Pipeline Breakdown")
         tab_time, tab_sav, tab_split, tab_counc = st.tabs([

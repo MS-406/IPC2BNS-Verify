@@ -732,10 +732,10 @@
     "consensus_reached": true,
     "consensus_confidence": 1.0,
     "primary_citations": [
-      "Article 20(1)",
-      "BNS \u00a7358",
       "BNSS \u00a7531(2)(a)",
-      "Section 531(2)(a) BNSS"
+      "Article 20(1)",
+      "Section 531(2)(a) BNSS",
+      "BNS \u00a7358"
     ],
     "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 20-05-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an application for Anticipatory Bail or Regular Bail filed on or after 01.07.2024 for an offence/FIR registered before 01.07.2024 should be filed under Section 438/439 CrPC or Section 482/483 BNSS.\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: State High Courts universally treat caption defects as curable, but procedural hearings will adhere to BNSS Section 482/483 if filed after July 1, 2024, while substantive penal evaluation remains strictly under IPC 1860.",
     "dissent_count": 0,
@@ -789,6 +789,23 @@
       "Section 531(2)(a) BNSS"
     ],
     "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nLegal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. Substantive charges strictly under IPC_1860. Procedural application is contested: Incident occurred on 15-05-2024 (prior to 1 July 2024). Governed by Indian Penal Code, 1860 pursuant to Article 20(1) of the Constitution (prohibition of ex-post facto laws) and Section 358(1) of BNS 2023.\n\nPROCEDURAL LAW CONTESTED: Whether an Appeal or Revision filed ON or AFTER 1 July 2024 against a conviction/order passed prior to 1 July 2024 is governed by CrPC 1973 or BNSS 2023 under Section 531(2)(a).\nDifferent High Courts have reached divergent conclusions regarding the interpretation of 'pending' under Section 531(2)(a) BNSS.\n\nBinding Guidance: High Courts are split on this question. In Kerala and Delhi, invoke BNSS provisions (Section 415/417 BNSS). In Punjab & Haryana and Bombay, invoke CrPC provisions (Section 374/378 CrPC). Always mention both in pleadings with a non-prejudice clause.",
+    "dissent_count": 0,
+    "dissenting_opinions": [],
+    "from_cache": false,
+    "verification_passed": true
+  },
+  "e45730330a45d1e67a583a1e2d1bedc82a7e7e0ae2c7c7d2b14d9c4aa87454a6": {
+    "query": "IPC Section 376 \u2014 Punishment for rape\n\nScenario to feed it: \"Incident occurred June 15, 2024 (pre-July). FIR filed August 2024 (post-July). Which section applies?\"",
+    "routing_tier": "TIER_3_CONTESTED_COUNCIL",
+    "consensus_reached": true,
+    "consensus_confidence": 1.0,
+    "primary_citations": [
+      "IPC_1860",
+      "BNSS_2023",
+      "BNSS \u00a7173",
+      "IPC"
+    ],
+    "synthesized_answer": "[COUNCIL CONSENSUS (100% Agreement)]\nUnder statutory rules, substantive penal provisions follow IPC_1860, while procedural steps follow BNSS_2023.\n\nGuidance: Register complaint and conduct investigation/inquiry under BNSS 2023 provisions; charge substantive offences under IPC 1860.",
     "dissent_count": 0,
     "dissenting_opinions": [],
     "from_cache": false,

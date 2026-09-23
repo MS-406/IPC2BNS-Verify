@@ -22,6 +22,11 @@ from src.verifier.citation_check import get_citation_verifier, CitationCheckResu
 from src.verifier.entity_grounding import get_grounding_verifier, EntityGroundingResult
 from src.mapping.lookup import map_ipc_to_bns, MappingStatus
 
+try:
+    from transformers import pipeline
+except ImportError:
+    pipeline = None
+
 
 @dataclass
 class MasterVerificationResult:
@@ -63,6 +68,19 @@ class HardConstraintVerifier:
     def __init__(self, min_grounding_threshold: float = 0.35):
         self.citation_verifier = get_citation_verifier()
         self.grounding_verifier = get_grounding_verifier(min_overlap_threshold=min_grounding_threshold)
+        self.nli_model = None
+        self._nli_loaded = False
+
+    def _load_nli(self):
+        if not self._nli_loaded:
+            self._nli_loaded = True
+            if pipeline is not None:
+                import logging
+                logging.getLogger("verifier").info("Loading NLI model...")
+                try:
+                    self.nli_model = pipeline("text-classification", model="cross-encoder/nli-deberta-v3-base", device=-1)
+                except Exception as e:
+                    logging.getLogger("verifier").warning(f"Failed to load NLI model: {e}")
 
     def compute_confidence_and_ambiguity(
         self,
@@ -165,6 +183,26 @@ class HardConstraintVerifier:
         # Step 2: Layer 2 Entity Grounding & Intent Alignment Check
         l2_res = self.grounding_verifier.verify_grounding(generated_text, all_chunks, query=query)
 
+        # Step 2.5: NLI Semantic Contradiction Check
+        nli_contradiction = False
+        nli_label = ""
+        self._load_nli()
+        if self.nli_model is not None and all_chunks:
+            context_text = " ".join([c.get("section_text", "") for c in all_chunks[:2]])
+            try:
+                # Format required by some text-classification pipelines for pair inputs
+                res = self.nli_model({"text": context_text, "text_pair": generated_text})
+                if isinstance(res, dict):
+                    nli_label = res.get("label", "").lower()
+                elif isinstance(res, list) and len(res) > 0:
+                    nli_label = res[0].get("label", "").lower()
+                
+                if "contradict" in nli_label or nli_label == "label_0":
+                    nli_contradiction = True
+            except Exception as e:
+                import logging
+                logging.getLogger("verifier").warning(f"NLI inference failed: {e}")
+
         # Step 3: Compute continuous confidence and ambiguity
         conf_score, conf_grade, amb_score, amb_details = self.compute_confidence_and_ambiguity(
             l1_res=l1_res,
@@ -248,6 +286,15 @@ class HardConstraintVerifier:
             warnings.append(
                 f"Low statutory grounding overlap score: {l2_res.overlap_score}. Ungrounded terms: {l2_res.ungrounded_entities}"
             )
+
+        # Case F.5: NLI Contradiction
+        elif nli_contradiction:
+            verdict = "NLI_CONTRADICTION"
+            is_verified = False
+            verified_text = (
+                f"[VERIFIER REJECTION - NLI CONTRADICTION]: Generation semantically contradicts the authoritative statutory text."
+            )
+            warnings.append(f"NLI model detected a contradiction with the source statute. Label: {nli_label}")
 
         # Case G: Passed all verification layers
         else:
