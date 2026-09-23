@@ -1,0 +1,14 @@
+{
+  "total": 166,
+  "correct": 165,
+  "accuracy": 0.994,
+  "errors": [
+    {
+      "query": "What is the BNS equivalent of IPC Section 376AB (Punishment for rape on woman under twelve years of age)?",
+      "true_bns": "65",
+      "predicted_bns": "66",
+      "confidence": "HIGH",
+      "source": "concordance_lookup"
+    }
+  ]
+}
