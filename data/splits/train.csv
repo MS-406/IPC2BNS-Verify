@@ -1,0 +1,49 @@
+sample_id,input_text,ipc_section,bns_section,relationship_type,source,split
+CONC_0052,IPC Section 146: Rioting. Statutory provision for IPC Section 146: Rioting.,146,191,renumbered,concordance,train
+CONC_0120,IPC Section 406: Punishment for criminal breach of trust. Statutory provision for IPC Section 406: Punishment for criminal breach of trust.,406,316,renumbered,concordance,train
+CONC_0123,IPC Section 417: Punishment for cheating. Statutory provision for IPC Section 417: Punishment for cheating.,417,318,renumbered,concordance,train
+CONC_0129,IPC Section 447: Punishment for criminal trespass. Statutory provision for IPC Section 447: Punishment for criminal trespass.,447,329,renumbered,concordance,train
+CONC_0105,IPC Section 376D: Gang rape. Statutory provision for IPC Section 376D: Gang rape. Harsher punishment in BNS,376D,70,renumbered,concordance,train
+CONC_0091,IPC Section 354C: Voyeurism. Statutory provision for IPC Section 354C: Voyeurism.,354C,77,renumbered,concordance,train
+CONC_0095,IPC Section 363: Punishment for kidnapping. Statutory provision for IPC Section 363: Punishment for kidnapping.,363,139,renumbered,concordance,train
+CONC_0167,IPC Section 403: Dishonest misappropriation of property,403,314,renumbered,concordance,train
+CONC_0099,"IPC Section 375: Rape. A man is said to commit 'rape' if he penetrates his penis into the vagina, mouth, urethra or anus of a woman, or inserts any object or part of the body to any extent into the vagina, urethra or anus of a woman, or manipulates any part of the body of a woman so as to cause penetration into the vagina, urethra, anus or any part of body of such woman, or applies his mouth to the vagina, anus, urethra of a woman, against her will, without her consent, or with her consent when her consent has been obtained by putting her or any person in whom she is interested, in fear of death or of hurt.",375,63,renumbered,concordance,train
+CONC_0168,IPC Section 404: Dishonest misappropriation of property possessed by deceased person at time of death,404,315,renumbered,concordance,train
+CONC_0035,IPC Section 83: Act of a child above seven and under twelve of immature understanding. Statutory provision for IPC Section 83: Act of a child above seven and under twelve of immature understanding.,83,21,renumbered,concordance,train
+CONC_0163,IPC Section 314: Death caused by act done with intent to cause miscarriage,314,89,renumbered,concordance,train
+CONC_0152,IPC Section 121A: Conspiracy to commit offences punishable by section 121,121A,148,renumbered,concordance,train
+CONC_0030,IPC Section 76: Act done by a person bound or by mistake of fact believing himself bound by law. Statutory provision for IPC Section 76: Act done by a person bound or by mistake of fact believing himself bound by law.,76,14,renumbered,concordance,train
+CONC_0017,IPC Section 25: Fraudulently. Statutory provision for IPC Section 25: Fraudulently. Moved to definitions chapter,25,2(13),renumbered,concordance,train
+CONC_0059,IPC Section 193: Punishment for false evidence. Statutory provision for IPC Section 193: Punishment for false evidence.,193,230,renumbered,concordance,train
+CONC_0040,IPC Section 100: Right of private defence of the body extends to causing death. Statutory provision for IPC Section 100: Right of private defence of the body extends to causing death.,100,38,renumbered,concordance,train
+CONC_0117,IPC Section 397: Robbery or dacoity with attempt to cause death or grievous hurt. Statutory provision for IPC Section 397: Robbery or dacoity with attempt to cause death or grievous hurt.,397,311,renumbered,concordance,train
+CONC_0021,IPC Section 30: Valuable security,30,2(36),renumbered,concordance,train
+CONC_0146,IPC Section : ,,69,new_in_bns,concordance,train
+CONC_0130,IPC Section 448: Punishment for house-trespass. Statutory provision for IPC Section 448: Punishment for house-trespass.,448,330,renumbered,concordance,train
+CONC_0093,IPC Section 359: Kidnapping. Statutory provision for IPC Section 359: Kidnapping.,359,137,renumbered,concordance,train
+CONC_0015,IPC Section 21: Court of Justice. Statutory provision for IPC Section 21: Court of Justice. Simplified terminology,21,2(7),renumbered,concordance,train
+CONC_0063,IPC Section 228: Intentional insult or interruption to public servant sitting in judicial proceeding. Statutory provision for IPC Section 228: Intentional insult or interruption to public servant sitting in judicial proceeding.,228,264,renumbered,concordance,train
+CONC_0110,IPC Section 380: Theft in dwelling house. Statutory provision for IPC Section 380: Theft in dwelling house.,380,305,renumbered,concordance,train
+CONC_0169,IPC Section 411: Dishonestly receiving stolen property,411,317(2),renumbered,concordance,train
+CONC_0065,IPC Section 269: Negligent act likely to spread infection of disease dangerous to life. Statutory provision for IPC Section 269: Negligent act likely to spread infection of disease dangerous to life.,269,272,renumbered,concordance,train
+CONC_0174,IPC Section : ,,103(2),new_in_bns,concordance,train
+CONC_0025,IPC Section 52: Good faith. Statutory provision for IPC Section 52: Good faith.,52,2(15),renumbered,concordance,train
+CONC_0132,IPC Section 465: Punishment for forgery. Statutory provision for IPC Section 465: Punishment for forgery.,465,336,renumbered,concordance,train
+CONC_0033,IPC Section 81: Act likely to cause harm but done without criminal intent and to prevent other harm. Statutory provision for IPC Section 81: Act likely to cause harm but done without criminal intent and to prevent other harm.,81,19,renumbered,concordance,train
+CONC_0090,IPC Section 354B: Assault or use of criminal force to woman with intent to disrobe. Statutory provision for IPC Section 354B: Assault or use of criminal force to woman with intent to disrobe.,354B,76,renumbered,concordance,train
+CONC_0056,IPC Section 171B: Bribery. Statutory provision for IPC Section 171B: Bribery.,171B,170,renumbered,concordance,train
+CONC_0098,IPC Section 370: Trafficking of person. Statutory provision for IPC Section 370: Trafficking of person. BNS broadens definition and increases punishment,370,143,modified,concordance,train
+CONC_0104,IPC Section 376C: Sexual intercourse by person in authority. Statutory provision for IPC Section 376C: Sexual intercourse by person in authority.,376C,68,renumbered,concordance,train
+CONC_0008,IPC Section 9: Number. Statutory provision for IPC Section 9: Number.,9,8,renumbered,concordance,train
+CONC_0145,IPC Section 511: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Statutory provision for IPC Section 511: Attempt to commit offences punishable with imprisonment for life or other imprisonment. Last section of IPC,511,62,renumbered,concordance,train
+CONC_0007,IPC Section 8: Gender. Statutory provision for IPC Section 8: Gender.,8,7,renumbered,concordance,train
+CONC_0049,IPC Section : ,,152,new_in_bns,concordance,train
+CONC_0151,IPC Section 34: Acts done by several persons in furtherance of common intention. Statutory provision for IPC Section 34: Valuable security.,34,3(5),renumbered,concordance,train
+CONC_0064,IPC Section 268: Public nuisance. Statutory provision for IPC Section 268: Public nuisance.,268,270,renumbered,concordance,train
+CONC_0082,IPC Section 320: Grievous hurt. Statutory provision for IPC Section 320: Grievous hurt.,320,116,renumbered,concordance,train
+CONC_0134,IPC Section 471: Using as genuine a forged document or electronic record. Statutory provision for IPC Section 471: Using as genuine a forged document or electronic record.,471,340,renumbered,concordance,train
+CONC_0054,IPC Section 148: Rioting armed with deadly weapon. Statutory provision for IPC Section 148: Rioting armed with deadly weapon.,148,195,renumbered,concordance,train
+CONC_0101,IPC Section 376A: Punishment for causing death or resulting in persistent vegetative state of victim. Statutory provision for IPC Section 376A: Punishment for causing death or resulting in persistent vegetative state of victim.,376A,66,renumbered,concordance,train
+CONC_0011,IPC Section 12: Public. Statutory provision for IPC Section 12: Public. Moved to definitions chapter in BNS,12,2(28),renumbered,concordance,train
+CONC_0023,IPC Section 44: Injury. Statutory provision for IPC Section 44: Injury. Moved to definitions chapter,44,2(17),renumbered,concordance,train
+CONC_0135,IPC Section 489A: Counterfeiting currency-notes or bank-notes. Statutory provision for IPC Section 489A: Counterfeiting currency-notes or bank-notes.,489A,178,renumbered,concordance,train
