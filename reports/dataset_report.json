@@ -1,0 +1,113 @@
+{
+  "status": "success",
+  "errors": [],
+  "warnings": [
+    "Data leakage risk: 60 ground-truth sections appear in both dev and test sets."
+  ],
+  "files": {
+    "concordance": {
+      "path": "D:\\IPC2BNS-Verify\\data\\02_ground_truth\\concordance_v1.csv",
+      "rows": 181
+    },
+    "ipc_sections": {
+      "path": "D:\\IPC2BNS-Verify\\data\\01_cleaned\\ipc_sections.jsonl",
+      "rows": 145
+    },
+    "bns_sections": {
+      "path": "D:\\IPC2BNS-Verify\\data\\01_cleaned\\bns_sections.jsonl",
+      "rows": 130
+    },
+    "benchmark_dev": {
+      "path": "D:\\IPC2BNS-Verify\\data\\03_benchmark\\benchmark_dev.csv",
+      "rows": 60
+    },
+    "benchmark_test": {
+      "path": "D:\\IPC2BNS-Verify\\data\\03_benchmark\\benchmark_test.csv",
+      "rows": 60
+    }
+  },
+  "concordance": {
+    "total_rows": 181,
+    "unique_ipc_sections": 169,
+    "unique_bns_sections": 150,
+    "relationship_type_distribution": {
+      "renumbered": 150,
+      "merged": 6,
+      "split": 1,
+      "new_in_bns": 12,
+      "repealed": 3,
+      "modified": 9
+    },
+    "verified_count": 33,
+    "unverified_count": 148,
+    "missing_values": {
+      "ipc_missing": 12,
+      "bns_missing": 3,
+      "both_missing": 0
+    },
+    "split_mappings": 0,
+    "conflicting_mappings": 0,
+    "conflicting_details": []
+  },
+  "class_distribution": {
+    "num_classes": 150,
+    "single_sample_classes": 127,
+    "multi_sample_classes": 23,
+    "min_samples_per_class": 1,
+    "max_samples_per_class": 3,
+    "mean_samples_per_class": 1.19,
+    "class_imbalance_ratio": 3.0
+  },
+  "corpus": {
+    "ipc_sections_count": 145,
+    "bns_sections_count": 130
+  },
+  "benchmark": {
+    "dev_samples": 60,
+    "test_samples": 60,
+    "total_samples": 120,
+    "dev_query_types": {
+      "transition": 42,
+      "ingredient_punishment": 6,
+      "ambiguous_repeal": 3,
+      "new_offence": 7,
+      "split_merged": 2
+    },
+    "test_query_types": {
+      "transition": 42,
+      "ingredient_punishment": 6,
+      "new_offence": 7,
+      "split_merged": 2,
+      "ambiguous_repeal": 3
+    },
+    "dev_ambiguous": 4,
+    "test_ambiguous": 4
+  },
+  "leakage": {
+    "overlapping_ground_truth_sections": 60,
+    "overlapping_sections_list": [
+      "103",
+      "103(2)",
+      "106(2)",
+      "111",
+      "112",
+      "113",
+      "114",
+      "116",
+      "118(2)",
+      "124A",
+      "137",
+      "138",
+      "143",
+      "147",
+      "149",
+      "152",
+      "178",
+      "189",
+      "191",
+      "194"
+    ],
+    "overlapping_query_texts": 60,
+    "warning": "Section overlap between dev/test may inflate metrics"
+  }
+}
