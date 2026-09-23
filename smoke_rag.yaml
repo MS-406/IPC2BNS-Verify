@@ -1,0 +1,7 @@
+# Smoke test config for RAG
+experiment_id: "smoke_test_rag"
+retriever: "bm25"
+encoder: "none"
+sequence_model: "none"
+rag_enabled: true
+top_k: 2
