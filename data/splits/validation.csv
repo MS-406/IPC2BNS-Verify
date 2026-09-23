@@ -1,0 +1,126 @@
+sample_id,input_text,ipc_section,bns_section,relationship_type,source,split
+CONC_0001,IPC Section 2: Punishment of offences committed within India. Statutory provision for IPC Section 2: Punishment of offences committed within India. Merged into BNS Section 1,2,1,merged,concordance,validation
+CONC_0085,IPC Section 323: Punishment for voluntarily causing hurt. Statutory provision for IPC Section 323: Punishment for voluntarily causing hurt.,323,115,renumbered,concordance,validation
+CONC_0084,IPC Section 322: Voluntarily causing grievous hurt. Statutory provision for IPC Section 322: Voluntarily causing grievous hurt.,322,117,renumbered,concordance,validation
+CONC_0087,IPC Section 326: Voluntarily causing grievous hurt by dangerous weapons or means. Statutory provision for IPC Section 326: Voluntarily causing grievous hurt by dangerous weapons or means. Needs verification — possible merge with 324 mapping,326,118,renumbered,concordance,validation
+CONC_0097,IPC Section 364A: Kidnapping for ransom. Statutory provision for IPC Section 364A: Kidnapping for ransom. BNS increases minimum punishment,364A,140,modified,concordance,validation
+CONC_0153,IPC Section 122: Collecting arms with intention of waging war against Government of India,122,149,renumbered,concordance,validation
+CONC_0051,IPC Section 143: Punishment for being member of an unlawful assembly. Statutory provision for IPC Section 143: Punishment for being member of an unlawful assembly.,143,191,renumbered,concordance,validation
+CONC_0157,IPC Section 160: Punishment for committing affray,160,194,merged,concordance,validation
+CONC_0108,"IPC Section 378: Theft. Whoever, intending to take dishonestly any moveable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft.",378,303,renumbered,concordance,validation
+CONC_0112,IPC Section 384: Punishment for extortion. Statutory provision for IPC Section 384: Punishment for extortion.,384,308,renumbered,concordance,validation
+CONC_0115,IPC Section 392: Punishment for robbery. Statutory provision for IPC Section 392: Punishment for robbery.,392,309,renumbered,concordance,validation
+CONC_0116,IPC Section 395: Punishment for dacoity. Statutory provision for IPC Section 395: Punishment for dacoity.,395,310,renumbered,concordance,validation
+CONC_0121,IPC Section 409: Criminal breach of trust by public servant or banker merchant or agent. Statutory provision for IPC Section 409: Criminal breach of trust by public servant or banker merchant or agent.,409,316,renumbered,concordance,validation
+CONC_0122,"IPC Section 415: Cheating. Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property to any person, or to consent that any person shall retain any property, or intentionally induces the person so deceived to do or omit to do anything which he would not do or omit if he were not so deceived, and which act or omission causes or is likely to cause damage or harm to that person in body, mind, reputation or property, is said to 'cheat'.",415,318,renumbered,concordance,validation
+CONC_0171,IPC Section 419: Punishment for cheating by personation,419,319,merged,concordance,validation
+CONC_0125,IPC Section 425: Mischief. Statutory provision for IPC Section 425: Mischief.,425,324,renumbered,concordance,validation
+CONC_0128,IPC Section 442: House-trespass. Statutory provision for IPC Section 442: House-trespass.,442,329,renumbered,concordance,validation
+CONC_0131,"IPC Section 463: Forgery. Whoever makes any false documents or false electronic record or part of a document or electronic record, with intent to cause damage or injury, to the public or to any person, or to support any claim or title, or to cause any person to part with property, or to enter into any express or implied contract, or with intent to commit fraud or that fraud may be committed, commits forgery.",463,335,renumbered,concordance,validation
+CONC_0143,IPC Section 506: Punishment for criminal intimidation. Statutory provision for IPC Section 506: Punishment for criminal intimidation.,506,351,renumbered,concordance,validation
+CONC_0140,IPC Section 500: Punishment for defamation. Statutory provision for IPC Section 500: Punishment for defamation.,500,356,renumbered,concordance,validation
+CONC_0045,IPC Section 120A: Definition of criminal conspiracy. Statutory provision for IPC Section 120A: Definition of criminal conspiracy.,120A,61,renumbered,concordance,validation
+CONC_0107,IPC Section 376DB: Gang rape on woman under twelve years of age. Statutory provision for IPC Section 376DB: Gang rape on woman under twelve years of age. Merged into BNS 70 with age-specific provisions,376DB,70,merged,concordance,validation
+CONC_0177,IPC Section 313: Causing miscarriage without woman's consent,313,88,renumbered,concordance,validation
+CONC_0018,IPC Section 26: Reason to believe. Statutory provision for IPC Section 26: Reason to believe. Moved to definitions chapter,26,2(29),renumbered,concordance,validation
+CONC_0075,"IPC Section 304A: Causing death by negligence. Whoever causes the death of any person by doing any rash or negligent act not amounting to culpable homicide, shall be punished with imprisonment of either description for a term which may extend to two years, or with fine, or with both.",304A,106,modified,concordance,validation
+CONC_0137,IPC Section 494: Marrying again during lifetime of husband or wife. Statutory provision for IPC Section 494: Marrying again during lifetime of husband or wife.,494,82,renumbered,concordance,validation
+CONC_0027,IPC Section : ,,2(3),new_in_bns,concordance,validation
+CONC_0094,IPC Section 362: Abduction. Statutory provision for IPC Section 362: Abduction.,362,138,renumbered,concordance,validation
+CONC_0070,"IPC Section 299: Culpable homicide. Whoever causes death by doing an act with the intention of causing death, or with the intention of causing such bodily injury as is likely to cause death, or with the knowledge that he is likely by such act to cause death, commits the offence of culpable homicide.",299,100,renumbered,concordance,validation
+CONC_0061,IPC Section 211: False charge of offence made with intent to injure. Statutory provision for IPC Section 211: False charge of offence made with intent to injure.,211,248,renumbered,concordance,validation
+CONC_0041,IPC Section 107: Abetment of a thing. Statutory provision for IPC Section 107: Abetment of a thing.,107,45,renumbered,concordance,validation
+CONC_0019,IPC Section 29: Document. Statutory provision for IPC Section 29: Document. Definition expanded to include electronic documents,29,2(9),renumbered,concordance,validation
+CONC_0089,IPC Section 354A: Sexual harassment. Statutory provision for IPC Section 354A: Sexual harassment.,354A,75,renumbered,concordance,validation
+CONC_0068,IPC Section 292: Sale etc of obscene books. Statutory provision for IPC Section 292: Sale etc of obscene books. Expanded to cover digital/electronic obscene material,292,294,modified,concordance,validation
+CONC_0028,IPC Section : ,,2(6),new_in_bns,concordance,validation
+CONC_0081,IPC Section 319: Hurt. Statutory provision for IPC Section 319: Hurt.,319,114,renumbered,concordance,validation
+CONC_0026,IPC Section 52A: Harbour. Statutory provision for IPC Section 52A: Harbour.,52A,2(16),renumbered,concordance,validation
+CONC_0066,IPC Section 270: Malignant act likely to spread infection of disease dangerous to life. Statutory provision for IPC Section 270: Malignant act likely to spread infection of disease dangerous to life.,270,273,renumbered,concordance,validation
+CONC_0092,IPC Section 354D: Stalking. Statutory provision for IPC Section 354D: Stalking.,354D,78,renumbered,concordance,validation
+CONC_0044,IPC Section 114: Abettor present when offence is committed. Statutory provision for IPC Section 114: Abettor present when offence is committed.,114,52,renumbered,concordance,validation
+CONC_0031,IPC Section 79: Act done by a person justified or by mistake of fact believing himself justified by law. Statutory provision for IPC Section 79: Act done by a person justified or by mistake of fact believing himself justified by law.,79,17,renumbered,concordance,validation
+CONC_0058,IPC Section 191: Giving false evidence. Statutory provision for IPC Section 191: Giving false evidence.,191,227,renumbered,concordance,validation
+CONC_0034,IPC Section 82: Act of a child under seven years of age. Statutory provision for IPC Section 82: Act of a child under seven years of age.,82,20,renumbered,concordance,validation
+CONC_0164,IPC Section 315: Act done with intent to prevent child being born alive or to cause it to die after birth,315,90,renumbered,concordance,validation
+CONC_0012,IPC Section 14: Servant of Government. Statutory provision for IPC Section 14: Servant of Government. Terminology updated,14,2(31),renumbered,concordance,validation
+CONC_0133,IPC Section 468: Forgery for purpose of cheating. Statutory provision for IPC Section 468: Forgery for purpose of cheating.,468,338,renumbered,concordance,validation
+CONC_0136,IPC Section 489B: Using as genuine forged or counterfeit currency-notes or bank-notes. Statutory provision for IPC Section 489B: Using as genuine forged or counterfeit currency-notes or bank-notes.,489B,179,renumbered,concordance,validation
+CONC_0057,IPC Section 186: Obstructing public servant in discharge of public functions. Statutory provision for IPC Section 186: Obstructing public servant in discharge of public functions.,186,220,renumbered,concordance,validation
+CONC_0103,IPC Section 376B: Sexual intercourse by husband upon his wife during separation. Statutory provision for IPC Section 376B: Sexual intercourse by husband upon his wife during separation. Scope significantly changed,376B,67,modified,concordance,validation
+CONC_0078,"IPC Section 307: Attempt to murder. Whoever does any act with such intention or knowledge, and under such circumstances that, if he by that act caused death, he would be guilty of murder, shall be punished with imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine; and if hurt is caused to any person by such act, the offender shall be liable either to imprisonment for life, or to such punishment as is hereinbefore mentioned.",307,109,renumbered,concordance,validation
+CONC_0144,IPC Section 509: Word gesture or act intended to insult the modesty of a woman. Statutory provision for IPC Section 509: Word gesture or act intended to insult the modesty of a woman.,509,79,renumbered,concordance,validation
+CONC_0005,IPC Section 6: Definitions in the Code to be understood subject to exceptions. Statutory provision for IPC Section 6: Definitions in the Code to be understood subject to exceptions.,6,5,renumbered,concordance,validation
+CONC_0002,IPC Section 3: Punishment of offences committed beyond but which by law may be tried within India. Statutory provision for IPC Section 3: Punishment of offences committed beyond but which by law may be tried within India.,3,2,renumbered,concordance,validation
+CONC_0039,IPC Section 97: Right of private defence of the body and of property. Statutory provision for IPC Section 97: Right of private defence of the body and of property.,97,35,renumbered,concordance,validation
+CONC_0032,IPC Section 80: Accident in doing a lawful act. Statutory provision for IPC Section 80: Accident in doing a lawful act.,80,18,renumbered,concordance,validation
+CONC_0077,IPC Section 306: Abetment of suicide. Statutory provision for IPC Section 306: Abetment of suicide.,306,108,renumbered,concordance,validation
+CONC_0160,IPC Section 272: Adulteration of food or drink intended for sale,272,274,renumbered,concordance,validation
+CONC_0150,IPC Section : ,,303(2),new_in_bns,concordance,validation
+CONC_0079,IPC Section 308: Attempt to commit culpable homicide. Statutory provision for IPC Section 308: Attempt to commit culpable homicide.,308,110,renumbered,concordance,validation
+CONC_0062,IPC Section 224: Resistance or obstruction by a person to his lawful apprehension. Statutory provision for IPC Section 224: Resistance or obstruction by a person to his lawful apprehension.,224,260,renumbered,concordance,validation
+CONC_0074,IPC Section 304: Punishment for culpable homicide not amounting to murder. Statutory provision for IPC Section 304: Punishment for culpable homicide not amounting to murder.,304,105,renumbered,concordance,validation
+CONC_0069,IPC Section 295A: Deliberate and malicious acts intended to outrage religious feelings. Statutory provision for IPC Section 295A: Deliberate and malicious acts intended to outrage religious feelings.,295A,299,renumbered,concordance,validation
+CONC_0024,IPC Section 51: Oath. Statutory provision for IPC Section 51: Oath. Moved to definitions chapter,51,2(22),renumbered,concordance,validation
+CONC_0147,IPC Section : ,,111,new_in_bns,concordance,validation
+CONC_0004,IPC Section 5: Certain laws not to be affected by this Act. Statutory provision for IPC Section 5: Certain laws not to be affected by this Act.,5,4,renumbered,concordance,validation
+DEV_001,"What is the new section for murder under the Bharatiya Nyaya Sanhita, 2023?",,103,transition,benchmark_dev,validation
+DEV_002,Which section in BNS corresponds to IPC Section 420 for cheating?,,318,transition,benchmark_dev,validation
+DEV_003,What is the equivalent section for theft (IPC 378 / 379) in the new criminal law?,,303,transition,benchmark_dev,validation
+DEV_004,Where is dowry death covered in BNS 2023?,,80,transition,benchmark_dev,validation
+DEV_005,Which section in IPC corresponds to Section 100 of BNS?,,299,transition,benchmark_dev,validation
+DEV_006,What is the punishment for causing death by rash driving if driver flees under BNS?,,106(2),ingredient_punishment,benchmark_dev,validation
+DEV_007,What are the essential ingredients of rape under Section 63 of BNS 2023?,,63,ingredient_punishment,benchmark_dev,validation
+DEV_008,What is the penalty for defamation under Section 356 of BNS?,,356,ingredient_punishment,benchmark_dev,validation
+DEV_009,Can community service be awarded for petty theft of stolen property under BNS?,,303(2),ingredient_punishment,benchmark_dev,validation
+DEV_010,What is the exact equivalent section of IPC Section 124A (Sedition) in BNS 2023?,,124A,ambiguous_repeal,benchmark_dev,validation
+DEV_011,Is adultery under IPC 497 punishable under the new Bharatiya Nyaya Sanhita?,,497,ambiguous_repeal,benchmark_dev,validation
+DEV_012,What happened to Section 377 of IPC in BNS 2023?,,377,ambiguous_repeal,benchmark_dev,validation
+DEV_013,Which section in BNS penalizes sexual intercourse by deceitful means or false promise of marriage?,,69,new_offence,benchmark_dev,validation
+DEV_014,How does BNS 2023 define and penalize organised crime?,,111,new_offence,benchmark_dev,validation
+DEV_015,Under what section are terrorist acts defined in BNS 2023?,,113,new_offence,benchmark_dev,validation
+DEV_016,How was IPC Section 33 (Act and Omission) re-organized in BNS 2023?,,33,split_merged,benchmark_dev,validation
+DEV_017,What sections govern criminal conspiracy in BNS 2023 compared to IPC 120A and 120B?,,61,split_merged,benchmark_dev,validation
+DEV_018,What is the BNS section for kidnapping?,,137,transition,benchmark_dev,validation
+DEV_019,Which section in BNS covers abduction?,,138,transition,benchmark_dev,validation
+DEV_020,Where is trafficking of persons defined in BNS 2023?,,143,transition,benchmark_dev,validation
+DEV_021,What is the section for hurt under BNS 2023?,,114,transition,benchmark_dev,validation
+DEV_022,What section defines grievous hurt in BNS?,,116,transition,benchmark_dev,validation
+DEV_023,What is the punishment for voluntarily causing grievous hurt with dangerous weapons?,,118(2),ingredient_punishment,benchmark_dev,validation
+DEV_024,Where is extortion covered under BNS?,,308,transition,benchmark_dev,validation
+DEV_025,What section penalizes robbery in BNS 2023?,,309,transition,benchmark_dev,validation
+DEV_026,Where is dacoity penalized in BNS?,,310,transition,benchmark_dev,validation
+DEV_027,What section defines forgery in BNS 2023?,,335,transition,benchmark_dev,validation
+DEV_028,Where is criminal breach of trust in BNS?,,316,transition,benchmark_dev,validation
+DEV_029,What is the new section for dishonest misappropriation of property?,,314,transition,benchmark_dev,validation
+DEV_030,Which section covers criminal intimidation in BNS?,,351,transition,benchmark_dev,validation
+DEV_031,Where is unlawful assembly defined in BNS?,,189,transition,benchmark_dev,validation
+DEV_032,What section penalizes rioting in BNS?,,191,transition,benchmark_dev,validation
+DEV_033,What is the provision for mob lynching on grounds of race or caste under BNS?,,103(2),new_offence,benchmark_dev,validation
+DEV_034,Where is snatching defined as an independent offence in BNS?,,304,new_offence,benchmark_dev,validation
+DEV_035,What provision penalizes petty organised crime?,,112,new_offence,benchmark_dev,validation
+DEV_036,Where is attempt to commit suicide by public servant to compel action covered?,,226,new_offence,benchmark_dev,validation
+DEV_037,What section governs rash driving on a public way?,,281,transition,benchmark_dev,validation
+DEV_038,Which section in BNS covers public nuisance?,,270,transition,benchmark_dev,validation
+DEV_039,Where is adulteration of food or drink covered in BNS?,,274,transition,benchmark_dev,validation
+DEV_040,What section covers giving false evidence (perjury) in BNS?,,227,transition,benchmark_dev,validation
+DEV_041,Where is fabricating false evidence covered in BNS?,,228,transition,benchmark_dev,validation
+DEV_042,What is the punishment for intentional insult to provoke breach of peace?,,352,transition,benchmark_dev,validation
+DEV_043,Which section covers cruelty by husband or relatives against a woman?,,85,transition,benchmark_dev,validation
+DEV_044,Where is causing miscarriage without woman's consent covered?,,88,transition,benchmark_dev,validation
+DEV_045,What is the section for gang rape of a woman under 18 years in BNS?,,70(2),ingredient_punishment,benchmark_dev,validation
+DEV_046,Where is sexual harassment defined in BNS?,,75,transition,benchmark_dev,validation
+DEV_047,What is the provision for assault with intent to disrobe a woman?,,76,transition,benchmark_dev,validation
+DEV_048,Where is voyeurism covered in BNS?,,77,transition,benchmark_dev,validation
+DEV_049,Where is stalking penalized in BNS?,,78,transition,benchmark_dev,validation
+DEV_050,What is the BNS provision for counterfeiting currency notes?,,178,transition,benchmark_dev,validation
+DEV_051,What section penalizes waging war against the Government of India?,,147,transition,benchmark_dev,validation
+DEV_052,Where is concealing design to wage war covered in BNS?,,149,transition,benchmark_dev,validation
+DEV_053,What section covers seditious libel / acts endangering sovereignty in BNS?,,152,transition,benchmark_dev,validation
+DEV_054,What is the section for affray under BNS 2023?,,194,transition,benchmark_dev,validation
+DEV_055,Where is promoting enmity between classes covered in BNS?,,196,transition,benchmark_dev,validation
+DEV_056,What section governs harbouring an offender in BNS?,,249,transition,benchmark_dev,validation
+DEV_057,What section penalizes screening an offender from legal punishment?,,238,transition,benchmark_dev,validation
+DEV_058,Where is cheating by personation covered in BNS?,,319,transition,benchmark_dev,validation
+DEV_059,What section penalizes forgery for purpose of cheating?,,338,transition,benchmark_dev,validation
+DEV_060,What section covers using a forged document as genuine?,,340,transition,benchmark_dev,validation
