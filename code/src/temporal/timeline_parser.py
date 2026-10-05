@@ -225,6 +225,9 @@ class TimelineParser:
                 timeline.incident_date = date(2024, 6, 15)
             elif "post-july" in query_lower or "after july 2024" in query_lower or "august 2024" in query_lower:
                 timeline.incident_date = date(2024, 8, 15)
+            else:
+                # Default to today's date if no date is specified at all
+                timeline.incident_date = date.today()
 
         return timeline
 

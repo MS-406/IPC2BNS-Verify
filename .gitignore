@@ -8,6 +8,8 @@ __pycache__/
 .coverage
 htmlcov/
 scratch/
+debugging/
+test-reports/
 *.tmp
 *.log
 
@@ -35,6 +37,14 @@ Thumbs.db
 desktop.ini
 *.bak
 
+# Generated Datasets, Synthetic Runs & Raw Dumps
+data/07_complete_dataset/
+data/06_synthetic/
+*.generated.*
+
+# Runtime Caches & Local Checkpoint State
+checkpoints/v2_council_cache.json
+
 # Confidential Academic Thesis Documents & Submission Deliverables
 # (Preserved locally & in private Google Drive, hidden from public Git repo to protect IP)
 report/*.docx
@@ -42,6 +52,4 @@ report/*.pdf
 report/*.pptx
 .agents/
 .claude/
-
-# Checkpoint backup folder
 

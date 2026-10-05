@@ -72,9 +72,18 @@ class EntityGroundingVerifier:
         "bail": {"bail", "release", "arrest", "apprehending"},
         "anticipatory": {"bail", "arrest", "apprehending", "direction"},
         "remand": {"investigation", "custody", "detention", "hours"},
-        "cheating": {"deceiv", "fraud", "dishonest", "delivery"},
-        "theft": {"theft", "stolen", "property"},
-        "murder": {"murder", "death", "kill", "homicide"},
+        "cheating": {"deceiv", "fraud", "dishonest", "delivery", "induce", "cheating"},
+        "theft": {"theft", "stolen", "property", "movable"},
+        "murder": {"murder", "death", "kill", "homicide", "injur", "knife"},
+        "knife": {"knife", "weapon", "hurt", "death", "murder", "stab", "injur"},
+        "stab": {"knife", "weapon", "hurt", "death", "murder", "stab", "injur"},
+        "killing": {"death", "murder", "kill", "homicide"},
+        "death": {"death", "murder", "kill", "homicide"},
+        "omission": {"act", "omission", "clause", "definition"},
+        "sedition": {"sedition", "sovereignty", "repeal", "omitted", "124a", "152"},
+        "lynching": {"lynching", "mob", "caste", "race", "murder"},
+        "snatching": {"snatch", "theft", "force", "property"},
+        "appeal": {"appeal", "conviction", "appellate", "high court"},
     }
 
     def __init__(self, min_overlap_threshold: float = 0.50):

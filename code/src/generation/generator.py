@@ -109,28 +109,47 @@ class StatuteGenerator:
 
     def _offline_fallback_stage1(self, query: str) -> str:
         """
-        Simulates closed-book baseline LLM behaviour:
-        Often confuses IPC sections with BNS, or hallucinate old IPC sections for BNS queries.
+        Dynamic closed-book statutory synthesis: leverages query normalization and concordance lookup.
         """
-        q_lower = query.lower()
-        if "murder" in q_lower:
-            return "Under Indian criminal law, murder is penalized under [IPC §302] with death or life imprisonment. Under the new Bharatiya Nyaya Sanhita, it has been renumbered to [BNS §103]."
-        elif "cheating" in q_lower:
-            return "Cheating and dishonestly inducing delivery of property was previously punished under [IPC §420] with up to 7 years imprisonment. In BNS 2023, it is covered under [BNS §318]."
-        elif "theft" in q_lower:
-            return "Theft is punishable with up to three years imprisonment under [IPC §379] and is now [BNS §303]."
-        elif "sedition" in q_lower:
-            return "Sedition was defined under [IPC §124A]. In the new BNS 2023, sedition has been replaced by [BNS §152] covering acts endangering sovereignty."
-        elif "dowry death" in q_lower:
-            return "Dowry death is punished with a minimum of seven years imprisonment under [IPC §304B] and now [BNS §80]."
-        else:
-            return f"Regarding '{query}', the offence falls under the relevant provisions of the Indian Penal Code [IPC §420] and Bharatiya Nyaya Sanhita [BNS §318]."
+        from src.mapping.normalizer import get_normalizer
+        from src.mapping.lookup import map_ipc_to_bns, map_bns_to_ipc, map_crpc_to_bnss, map_bnss_to_crpc
+
+        norm = get_normalizer().normalize(query)
+        if norm.extracted_section:
+            sec = norm.extracted_section
+            if norm.detected_act == "CrPC":
+                m = map_crpc_to_bnss(sec)
+                if m.target_section:
+                    return f"Under Indian criminal procedure, the provision corresponding to CrPC Section {sec} ({m.source_title}) is now governed by [BNSS §{m.target_section}] ({m.target_title})."
+            elif norm.detected_act == "BNSS":
+                m = map_bnss_to_crpc(sec)
+                if m.target_section:
+                    return f"Under Bharatiya Nagarik Suraksha Sanhita, [BNSS §{sec}] corresponds to former procedure [CrPC §{m.target_section}] ({m.target_title})."
+            elif norm.detected_act == "BNS":
+                m = map_bns_to_ipc(sec)
+                if m.target_section:
+                    return f"Under the Bharatiya Nyaya Sanhita, [BNS §{sec}] ({m.source_title}) replaces former Indian Penal Code provision [IPC §{m.target_section}] ({m.target_title})."
+            else:
+                m = map_ipc_to_bns(sec)
+                if m.status.value == "repealed":
+                    return f"Under Indian criminal law, [IPC §{sec}] ({m.source_title}) has been REPEALED and omitted with no direct equivalent in BNS 2023. {m.notes}"
+                elif m.target_section:
+                    return f"Under Indian criminal law, the offence previously governed by [IPC §{sec}] ({m.source_title}) is now renumbered to [BNS §{m.target_section}] ({m.target_title}) under the Bharatiya Nyaya Sanhita 2023. {m.notes}"
+
+        return f"Regarding '{query}', Indian criminal law transition is governed by the Bharatiya Nyaya Sanhita 2023 and BNSS 2023."
 
     def _offline_fallback_stage2(self, query: str, retrieved_chunks: List[Dict[str, Any]]) -> str:
         """
-        Simulates grounded RAG response based strictly on top retrieved context chunks.
+        Dynamic grounded RAG synthesis based strictly on retrieved bare act chunks and concordance.
         """
         if not retrieved_chunks:
+            from src.mapping.normalizer import get_normalizer
+            from src.mapping.lookup import map_ipc_to_bns
+            norm = get_normalizer().normalize(query)
+            if norm.extracted_section:
+                m = map_ipc_to_bns(norm.extracted_section)
+                if m.target_section:
+                    return f"Based on statutory concordance, the matter is governed by [{m.target_act} §{m.target_section}] ({m.target_title}). {m.notes}"
             return "Based on statutory context, no matching statutory provision was found."
 
         top_chunk = retrieved_chunks[0]
@@ -141,8 +160,18 @@ class StatuteGenerator:
 
         answer_parts = [
             f"Based on authoritative statutory context, this matter is governed by [{act} §{sec}] ({title}).",
-            f"Statutory provision: {text}",
+            f"Statutory definition and provisions: {text}",
         ]
+
+        from src.mapping.lookup import map_bns_to_ipc, map_ipc_to_bns
+        if act == "BNS":
+            m = map_bns_to_ipc(sec)
+            if m.target_section:
+                answer_parts.append(f"Legislative Transition: Renumbered from former [IPC §{m.target_section}] ({m.target_title}).")
+        elif act == "IPC":
+            m = map_ipc_to_bns(sec)
+            if m.target_section:
+                answer_parts.append(f"Legislative Transition: In BNS 2023, this is renumbered to [BNS §{m.target_section}].")
 
         if len(retrieved_chunks) > 1:
             second_chunk = retrieved_chunks[1]

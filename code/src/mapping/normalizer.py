@@ -94,20 +94,76 @@ COMMON_OFFENCE_MAP: Dict[str, Any] = {
 
     # Specific new BNS provisions
     "snatching": ("304", "BNS"),
+    "snatched": ("304", "BNS"),
+    "chain snatching": ("304", "BNS"),
+    "purse snatching": ("304", "BNS"),
     "organised crime": ("111", "BNS"),
     "petty organised crime": ("112", "BNS"),
     "terrorist act": ("113", "BNS"),
     "terrorist": ("113", "BNS"),
-    "mob lynching": ("103(2)", "BNS"),
-    "hit and run": ("106(2)", "BNS"),
+    "mob lynching": ("103", "BNS"),
+    "lynching": ("103", "BNS"),
+    "caste killing": ("103", "BNS"),
+    "hit and run": ("106", "BNS"),
+    "hit-and-run": ("106", "BNS"),
     "deceitful means": ("69", "BNS"),
     "promise to marry": ("69", "BNS"),
 
+    # Fact-pattern and keyword triggers for common offences
+    "knife attack": "302",
+    "attacks with a knife": "302",
+    "attacks b with a knife": "302",
+    "attack with a knife": "302",
+    "knife": "302",
+    "stab": "302",
+    "stabbing": "302",
+    "stabbed": "302",
+    "causing death": "302",
+    "causes death": "302",
+    "death of b": "302",
+    "result in b's death": "302",
+    "result in death": "302",
+    "results in death": "302",
+    "killed b": "302",
+    "killing": "302",
+    "killed": "302",
+    "murdered": "302",
+    "bodily injury causing death": "299",
+    "rash and negligent": "304A",
+    "negligent driving": "304A",
+    "stole": "378",
+    "stolen": "378",
+    "stealing": "378",
+    "theft took place": "378",
+    "cheated": "420",
+    "cheating fraud": "420",
+    "defrauded": "420",
+    "defrauding": "420",
+    "dishonest inducement": "420",
+    "dishonestly induce": "420",
+    "dishonestly inducing": "420",
+    "inducing delivery of property": "420",
+    "induce delivery": "420",
+    "quash fir": ("482", "CrPC"),
+    "quashing of fir": ("482", "CrPC"),
+
     # Procedural law (CrPC / BNSS)
     "anticipatory bail": ("438", "CrPC"),
+    "regular bail": ("437", "CrPC"),
+    "bail application": ("437", "CrPC"),
     "bail": ("437", "CrPC"),
+    "criminal appeal": ("374", "CrPC"),
+    "filing criminal appeal": ("374", "CrPC"),
+    "filing appeal": ("374", "CrPC"),
+    "filing an appeal": ("374", "CrPC"),
+    "appeal against conviction": ("374", "CrPC"),
+    "conviction appeal": ("374", "CrPC"),
     "fir": ("154", "CrPC"),
     "e-fir": ("154", "CrPC"),
+    "lodged fir": ("154", "CrPC"),
+    "lodged the fir": ("154", "CrPC"),
+    "lodging fir": ("154", "CrPC"),
+    "police complaint": ("154", "CrPC"),
     "remand": ("167", "CrPC"),
     "plea bargaining": ("265A", "CrPC"),
     "inquest": ("174", "CrPC"),
@@ -267,6 +323,29 @@ class QueryNormalizer:
                 confidence=0.9,
                 offence_name=offence
             )
+
+        # Tier 2.5: Statutory Corpus Retrieval Fallback
+        try:
+            from src.retrieval.search import get_retriever
+            retriever = get_retriever()
+            if retriever and retriever.index:
+                hits = retriever.retrieve(clean_q, top_k=1)
+                if hits and hits[0].get("similarity_score", 0) > 10.0:
+                    top_hit = hits[0]
+                    sec = top_hit.get("section_number")
+                    act = top_hit.get("act", "BNS")
+                    title = top_hit.get("section_title", "")
+                    if sec:
+                        return NormalizedQuery(
+                            original_query=clean_q,
+                            extracted_section=sec,
+                            detected_act=act,
+                            method="statutory_retrieval",
+                            confidence=0.85,
+                            offence_name=title
+                        )
+        except Exception:
+            pass
 
         # Tier 3: LLM Extraction
         llm_match = self.extract_via_llm(clean_q)

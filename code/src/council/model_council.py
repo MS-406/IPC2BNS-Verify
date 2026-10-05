@@ -81,58 +81,81 @@ class ModelMember:
         proc_code = temporal_res.procedural_code
 
         # Deterministic / Specialized legal generation logic per model role
-        if "Deterministic" in self.name or "Oracle" in self.name:
-            ipc_secs = re.findall(r'(?:ipc|section|sec\.?|§)\s*([0-9]+[a-z]?)', query.lower())
-            mapped_bns_info = []
-            for s in ipc_secs:
-                m = self.lookup.map_ipc_to_bns(s)
-                if m.target_section:
-                    mapped_bns_info.append(f"IPC §{s} corresponds to BNS §{m.target_section}")
+        # Resolve specific penal section from query via normalizer & concordance
+        from src.mapping.normalizer import get_normalizer
+        from src.mapping.lookup import map_crpc_to_bnss, map_bnss_to_crpc
+        norm = get_normalizer().normalize(query)
+        target_sec = None
+        sec_title = ""
+        sec_note = ""
 
+        if norm.extracted_section:
+            if norm.detected_act == "IPC":
+                m = self.lookup.map_ipc_to_bns(norm.extracted_section)
+                sec_note = m.notes
+                if sub_code == "BNS_2023":
+                    target_sec = f"BNS §{m.target_section}" if m.target_section else f"BNS §{norm.extracted_section}"
+                    sec_title = m.target_title or m.source_title
+                else:
+                    target_sec = f"IPC §{norm.extracted_section}"
+                    sec_title = m.source_title
+            elif norm.detected_act == "BNS":
+                m = self.lookup.map_bns_to_ipc(norm.extracted_section)
+                sec_note = m.notes
+                if sub_code == "IPC_1860":
+                    target_sec = f"IPC §{m.target_section}" if m.target_section else f"IPC §{norm.extracted_section}"
+                    sec_title = m.target_title or m.source_title
+                else:
+                    target_sec = f"BNS §{norm.extracted_section}"
+                    sec_title = m.source_title
+            elif norm.detected_act in ("CrPC", "BNSS"):
+                m = map_crpc_to_bnss(norm.extracted_section) if norm.detected_act == "CrPC" else map_bnss_to_crpc(norm.extracted_section)
+                target_sec = f"BNSS §{m.target_section}" if m.target_section else f"{norm.detected_act} §{norm.extracted_section}"
+                sec_title = m.target_title
+
+        sec_summary = f" Applicable Provision: {target_sec} ({sec_title})." if target_sec else ""
+
+        # Deterministic / Specialized legal generation logic per model role
+        if "Deterministic" in self.name or "Oracle" in self.name:
             if temporal_res.is_contested_split:
-                text = f"[CONTESTED SPLIT] Substantive: {sub_code}. Procedural: {proc_code}. {temporal_res.actionable_guidance}"
-                citations = ["BNSS §531(2)(a)", "BNS §358"]
+                text = f"[CONTESTED SPLIT] Substantive: {sub_code}. Procedural: {proc_code}.{sec_summary} {temporal_res.actionable_guidance}"
+                citations = ["BNSS §531(2)(a)"] + ([target_sec] if target_sec else [])
             elif sub_code == "IPC_1860" and proc_code == "BNSS_2023":
-                text = f"[TRANSITIONAL] Substantive offence governed by IPC (Art 20(1) bar). Procedural investigation under BNSS 2023."
-                citations = ["IPC", "BNSS §173"]
-            elif mapped_bns_info:
-                text = f"[MODERN CONCORDANCE] {'; '.join(mapped_bns_info)}. Governed by BNS 2023."
-                citations = [f"BNS §{m.target_section}" for s in ipc_secs if self.lookup.map_ipc_to_bns(s).target_section]
+                text = f"[TRANSITIONAL] Substantive offence governed by IPC under Art 20(1) bar.{sec_summary} Procedural investigation and bail governed by BNSS 2023."
+                citations = ["Article 20(1)", "BNSS §173"] + ([target_sec] if target_sec else ["IPC"])
             elif sub_code == "IPC_1860":
-                text = f"[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS."
-                citations = ["IPC", "CrPC"]
+                text = f"[LEGACY] Governed by Indian Penal Code 1860 and CrPC 1973 under Section 531(2)(a) BNSS.{sec_summary}"
+                citations = ["IPC", "CrPC"] + ([target_sec] if target_sec else [])
             else:
-                text = f"[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023."
-                citations = ["BNS", "BNSS"]
-            
+                text = f"[MODERN] Fully governed by Bharatiya Nyaya Sanhita 2023 and BNSS 2023.{sec_summary}"
+                citations = ["BNS", "BNSS"] + ([target_sec] if target_sec else [])
+
             return ModelMemberResponse(
                 model_name=self.name,
                 response_text=text,
-                cited_sections=citations,
+                cited_sections=[c for c in citations if c],
                 confidence=1.0,
                 substantive_code=sub_code,
                 procedural_code=proc_code
             )
 
-
         elif "LLaMA" in self.name:
-            # High-depth reasoning member
             if temporal_res.is_contested_split:
                 text = (
-                    f"Legal analysis indicates a jurisdictional split regarding Section 531(2)(a) BNSS. "
-                    f"Substantive charges strictly under {sub_code}. "
-                    f"Procedural application is contested: {temporal_res.reasoning}\n\n"
+                    f"Legal analysis indicates an active High Court jurisdictional split regarding Section 531(2)(a) BNSS. "
+                    f"Substantive charges strictly follow {sub_code}.{sec_summary} "
+                    f"Procedural application: {temporal_res.reasoning}\n\n"
                     f"Binding Guidance: {temporal_res.actionable_guidance}"
                 )
-                citations = ["Section 531(2)(a) BNSS", "Article 20(1)"]
+                citations = ["Section 531(2)(a) BNSS", "Article 20(1)"] + ([target_sec] if target_sec else [])
             else:
-                text = f"Under statutory rules, substantive penal provisions follow {sub_code}, while procedural steps follow {proc_code}.\n\nGuidance: {temporal_res.actionable_guidance}"
-                citations = [sub_code, proc_code]
+                text = f"Under constitutional non-retroactivity and statutory savings rules, substantive penal charges follow {sub_code}, while procedural steps follow {proc_code}.{sec_summary}\n\nGuidance: {temporal_res.actionable_guidance}"
+                citations = [sub_code, proc_code] + ([target_sec] if target_sec else [])
 
             return ModelMemberResponse(
                 model_name=self.name,
                 response_text=text,
-                cited_sections=citations,
+                cited_sections=[c for c in citations if c],
                 confidence=0.95,
                 substantive_code=sub_code,
                 procedural_code=proc_code
@@ -140,17 +163,16 @@ class ModelMember:
 
         else: # Mistral / Secondary model
             if temporal_res.is_contested_split:
-                text = f"High Court jurisprudence is divided under Section 531 BNSS. Recommended action: {temporal_res.actionable_guidance}"
-                citations = ["Section 531(2)(a) BNSS"]
+                text = f"High Court jurisprudence is divided under Section 531 BNSS.{sec_summary} Recommended action: {temporal_res.actionable_guidance}"
+                citations = ["Section 531(2)(a) BNSS"] + ([target_sec] if target_sec else [])
             else:
-                text = f"Applicable substantive code: {sub_code}. Applicable procedure: {proc_code}."
-                citations = [sub_code, proc_code]
-
+                text = f"Applicable substantive code: {sub_code}. Applicable procedure: {proc_code}.{sec_summary}"
+                citations = [sub_code, proc_code] + ([target_sec] if target_sec else [])
 
             return ModelMemberResponse(
                 model_name=self.name,
                 response_text=text,
-                cited_sections=citations,
+                cited_sections=[c for c in citations if c],
                 confidence=0.90,
                 substantive_code=sub_code,
                 procedural_code=proc_code

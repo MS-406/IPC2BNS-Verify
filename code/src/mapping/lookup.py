@@ -148,6 +148,11 @@ class ConcordanceLookup:
         Returns a structured MappingResult.
         """
         clean_key = self.clean_section_key(ipc_section)
+        if clean_key and clean_key not in self.ipc_to_bns_index:
+            base_k = re.sub(r'\([^)]*\)', '', clean_key).strip()
+            if base_k in self.ipc_to_bns_index:
+                clean_key = base_k
+
         if not clean_key or clean_key not in self.ipc_to_bns_index:
             # If section number exceeds valid IPC boundary (1-511), immediately return NOT_FOUND
             num_part = "".join(filter(str.isdigit, clean_key))
@@ -277,6 +282,11 @@ class ConcordanceLookup:
         Maps a BNS section number back to its IPC counterpart (reverse lookup).
         """
         clean_key = self.clean_section_key(bns_section)
+        if clean_key and clean_key not in self.bns_to_ipc_index:
+            base_k = re.sub(r'\([^)]*\)', '', clean_key).strip()
+            if base_k in self.bns_to_ipc_index:
+                clean_key = base_k
+
         if not clean_key or clean_key not in self.bns_to_ipc_index:
             return MappingResult(
                 query_section=bns_section,

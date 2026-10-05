@@ -22,10 +22,7 @@ from src.verifier.citation_check import get_citation_verifier, CitationCheckResu
 from src.verifier.entity_grounding import get_grounding_verifier, EntityGroundingResult
 from src.mapping.lookup import map_ipc_to_bns, MappingStatus
 
-try:
-    from transformers import pipeline
-except ImportError:
-    pipeline = None
+pipeline = None
 
 
 @dataclass
@@ -74,13 +71,14 @@ class HardConstraintVerifier:
     def _load_nli(self):
         if not self._nli_loaded:
             self._nli_loaded = True
-            if pipeline is not None:
+            try:
+                from transformers import pipeline
                 import logging
                 logging.getLogger("verifier").info("Loading NLI model...")
-                try:
-                    self.nli_model = pipeline("text-classification", model="cross-encoder/nli-deberta-v3-base", device=-1)
-                except Exception as e:
-                    logging.getLogger("verifier").warning(f"Failed to load NLI model: {e}")
+                self.nli_model = pipeline("text-classification", model="cross-encoder/nli-deberta-v3-base", device=-1)
+            except Exception as e:
+                import logging
+                logging.getLogger("verifier").warning(f"Failed to load NLI model: {e}")
 
     def compute_confidence_and_ambiguity(
         self,

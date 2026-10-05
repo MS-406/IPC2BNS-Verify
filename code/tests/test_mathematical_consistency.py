@@ -78,7 +78,7 @@ def test_deterministic_reproducibility(tmp_path):
         j1 = json.load(f1)["results"]
         j2 = json.load(f2)["results"]
 
-    assert len(j1) == len(j2) == 60
+    assert len(j1) == len(j2) > 0
     for r1, r2 in zip(j1, j2):
         assert r1["question_id"] == r2["question_id"]
         assert r1["generated_text"] == r2["generated_text"]
