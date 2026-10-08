@@ -3,7 +3,7 @@ lookup.py — Deterministic IPC↔BNS Concordance Lookup Module
 
 Provides fast, 100% deterministic section mapping between the Indian Penal Code
 (IPC 1860) and Bharatiya Nyaya Sanhita (BNS 2023), backed by the versioned
-ground-truth concordance table (data/02_ground_truth/concordance_v1.csv).
+ground-truth concordance table (data/eval_ground_truth/concordance_v1.csv).
 
 Design Principles:
 1. Pure deterministic table lookup — zero LLM hallucination risk.
@@ -87,15 +87,15 @@ class ConcordanceLookup:
     def _default_concordance_path() -> str:
         root = os.environ.get("IPC2BNS_PROJECT_ROOT", "")
         if root and os.path.exists(root):
-            return os.path.join(root, "data/02_ground_truth/concordance_v1.csv")
+            return os.path.join(root, "data/eval_ground_truth/concordance_v1.csv")
         # Fallback relative search
         curr = os.path.dirname(os.path.abspath(__file__))
         for _ in range(5):
-            candidate = os.path.join(curr, "data/02_ground_truth/concordance_v1.csv")
+            candidate = os.path.join(curr, "data/eval_ground_truth/concordance_v1.csv")
             if os.path.exists(candidate):
                 return candidate
             curr = os.path.dirname(curr)
-        return "data/02_ground_truth/concordance_v1.csv"
+        return "data/eval_ground_truth/concordance_v1.csv"
 
     @staticmethod
     def clean_section_key(sec: str) -> str:
@@ -112,7 +112,7 @@ class ConcordanceLookup:
         if not os.path.exists(self.concordance_path):
             raise FileNotFoundError(
                 f"Concordance table not found at: {self.concordance_path}. "
-                "Ensure Phase 0 has generated data/02_ground_truth/concordance_v1.csv"
+                "Ensure Phase 0 has generated data/eval_ground_truth/concordance_v1.csv"
             )
 
         self.ipc_to_bns_index.clear()
